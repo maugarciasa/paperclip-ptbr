@@ -4,6 +4,1794 @@
       "title": "Tạo công ty đầu tiên của bạn",
       "description": "Bắt đầu bằng cách tạo một công ty.",
       "newCompany": "Công ty mới"
+    },
+    "cloudCreateUnavailable": "Organizations are created in Paperclip Cloud. This instance can't reach it right now — try again from your Cloud portfolio."
+  },
+  "common": {
+    "save": "Save",
+    "saving": "Saving...",
+    "cancel": "Cancel",
+    "delete": "Delete",
+    "deleting": "Deleting...",
+    "edit": "Edit",
+    "close": "Close",
+    "confirm": "Confirm",
+    "back": "Back",
+    "next": "Next",
+    "previous": "Previous",
+    "search": "Search",
+    "loading": "Loading...",
+    "retry": "Retry",
+    "copy": "Copy",
+    "copied": "Copied",
+    "refresh": "Refresh",
+    "remove": "Remove",
+    "add": "Add",
+    "create": "Create",
+    "creating": "Creating...",
+    "update": "Update",
+    "updating": "Updating...",
+    "apply": "Apply",
+    "reset": "Reset",
+    "submit": "Submit",
+    "done": "Done",
+    "yes": "Yes",
+    "no": "No",
+    "none": "None",
+    "optional": "Optional",
+    "required": "Required",
+    "error": "Error",
+    "unknown": "Unknown",
+    "or": "or",
+    "and": "and",
+    "all": "All",
+    "active": "Active",
+    "inactive": "Inactive",
+    "enabled": "Enabled",
+    "disabled": "Disabled",
+    "more": "More",
+    "showMore": "Show more",
+    "showLess": "Show less",
+    "learnMore": "Learn more",
+    "open": "Open",
+    "download": "Download",
+    "upload": "Upload",
+    "select": "Select",
+    "clear": "Clear",
+    "filter": "Filter",
+    "sort": "Sort",
+    "view": "View",
+    "name": "Name",
+    "description": "Description",
+    "status": "Status",
+    "type": "Type",
+    "date": "Date",
+    "notes": "Notes"
+  },
+  "onboarding": {
+    "connectModelPreview": {
+      "title": "Connect a model",
+      "lede": "Paperclip works with your existing subscription or API keys.",
+      "modelSource": "Model source",
+      "useApiKeys": "Use API keys instead",
+      "connect": "Connect"
+    },
+    "credentialModeLink": {
+      "subscription": "Use subscription instead",
+      "api": "Use API key instead"
+    },
+    "modelSourceTiles": {
+      "subscription": "Subscription",
+      "api": "API key",
+      "advanced": "Custom Gateway"
+    },
+    "gatewaySetup": {
+      "trigger": "Use a custom gateway",
+      "title": "Custom gateway connection",
+      "description": "Save the connection, then choose a model and test it with your agent.",
+      "submitLabel": "Save connection"
+    },
+    "savedProviderKeySelect": {
+      "apiKeyLabel": "API key",
+      "subscriptionLabel": "Subscription",
+      "savedApiKey": "Saved API key",
+      "savedSubscription": "Saved subscription",
+      "enterNewApiKey": "Enter a new API key",
+      "signInAnotherAccount": "Sign in to another account",
+      "checking": "Checking saved API keys…",
+      "loadError": "Some saved keys could not be loaded. You can still enter a new key.",
+      "reuseKey": "Reuse this saved key for this agent.",
+      "reuseSubscription": "Reuse this saved subscription for this agent."
+    },
+    "stepper": {
+      "nameOrganization": "Name your organization",
+      "createFirstAgent": "Create your first agent",
+      "connectModel": "Connect a model",
+      "review": "Review",
+      "stepFallback": "Step {{step}}",
+      "progress": "Step {{step}} of {{total}}"
+    }
+  },
+  "search": {
+    "matchSourceChip": {
+      "title": "Title",
+      "identifier": "Identifier",
+      "comment": "Comment",
+      "document": "Doc"
+    },
+    "filterBar": {
+      "assigneeLabel": "Assignee",
+      "projectLabel": "Project",
+      "labelLabel": "Label",
+      "priorityLabel": "Priority",
+      "updatedLabel": "Updated",
+      "openItems": "Open items",
+      "me": "Me",
+      "meSearch": "me mine",
+      "unassigned": "Unassigned",
+      "unassignedSearch": "unassigned none nobody",
+      "searchAssignees": "Search assignees…",
+      "noAssignees": "No assignees",
+      "searchProjects": "Search projects…",
+      "noProjects": "No projects",
+      "searchLabels": "Search labels…",
+      "noLabels": "No labels",
+      "statusValues": {
+        "backlog": "Backlog",
+        "todo": "Todo",
+        "in_progress": "In Progress",
+        "monitoring": "Monitoring",
+        "in_review": "In Review",
+        "blocked": "Blocked",
+        "cancelled": "Cancelled"
+      },
+      "priorityValues": {
+        "critical": "Critical",
+        "high": "High",
+        "medium": "Medium",
+        "low": "Low"
+      }
+    },
+    "searchFilterChips": {
+      "removeFilter": "Remove filter {{label}}",
+      "clearAll": "Clear all"
+    },
+    "searchFilterMenu": {
+      "filterBy": "Filter by {{label}}",
+      "searchPlaceholder": "Search…",
+      "emptyMessage": "No options"
+    },
+    "searchFilterSheet": {
+      "title": "Filters",
+      "clearAll": "Clear all",
+      "priority": "Priority",
+      "assignee": "Assignee",
+      "project": "Project",
+      "label": "Label",
+      "updated": "Updated",
+      "sortBy": "Sort by",
+      "showResults": "Show results",
+      "showOne": "Show 1 result",
+      "showMany": "Show {{total}} results"
+    },
+    "searchFilterSheetTrigger": {
+      "label": "Filters"
+    },
+    "searchSortMenu": {
+      "sortResults": "Sort results",
+      "sortLabel": "Sort:",
+      "sortBy": "Sort by"
+    },
+    "zeroResultsRecovery": {
+      "title": "No results with these filters",
+      "matchesOne": "1 result matches",
+      "matchesOther": "{{total}} results match",
+      "but": "but your",
+      "activeOne": "active filter hides",
+      "activeOther": "{{activeCount}} active filters hide",
+      "allOfThem": "all of them.",
+      "loosenHeading": "Loosen a filter",
+      "remove": "Remove",
+      "resultOne": "result",
+      "resultOther": "results",
+      "clearAll": "Clear all filters"
+    },
+    "searchResultRow": {
+      "snippetComment": "Comment",
+      "snippetDocument": "Doc",
+      "snippetArtifact": "Artifact",
+      "agentFallback": "Agent",
+      "projectFallback": "Project",
+      "artifactFallback": "Artifact",
+      "justNow": "just now",
+      "relMinutes": "{{n}}m",
+      "relHours": "{{n}}h",
+      "relDays": "{{n}}d",
+      "relWeeks": "{{n}}w",
+      "relMonths": "{{n}}mo",
+      "relYears": "{{n}}y"
+    }
+  },
+  "sidePanel": {
+    "frame": {
+      "label": "Side panel"
+    },
+    "toggleButton": {
+      "label": "Toggle side panel"
+    },
+    "windowControls": {
+      "restore": "Restore side panel",
+      "maximize": "Maximize side panel",
+      "close": "Close side panel"
+    },
+    "launcher": {
+      "loading": "Loading…",
+      "alreadyOpen": "Already open",
+      "title": "Open a side panel tab",
+      "description": "Choose a view or resource to open.",
+      "placeholder": "Search tabs and resources…",
+      "emptyMessage": "No matching tabs or resources."
+    },
+    "mobileTabs": {
+      "switchTabs": "Switch tabs, {{total}} open",
+      "chooseTab": "Choose a tab",
+      "openTabs": "Open tabs",
+      "close": "Close {{label}}"
+    },
+    "tab": {
+      "close": "Close {{label}}"
+    },
+    "tabs": {
+      "addLabel": "Open a new tab",
+      "tabClosed": "Tab closed.",
+      "lastTabClosed": "Last tab closed. Choose something to open.",
+      "moved": "Moved {{label}} to position {{position}} of {{total}}.",
+      "tabFallback": "tab"
+    }
+  },
+  "agents": {
+    "list": {
+      "breadcrumb": "Agents",
+      "selectCompany": "Select an organization to view agents.",
+      "setUp": "Set up",
+      "invalidChain": "Invalid reporting chain",
+      "lastHeartbeat": "Last heartbeat",
+      "chat": "Chat",
+      "createFirst": "Create your first agent to get started.",
+      "newAgent": "New Agent",
+      "noMatches": "No agents match your search and selected status.",
+      "noHierarchy": "No organizational hierarchy defined.",
+      "live": "Live",
+      "viewMode": "View mode",
+      "listView": "List view",
+      "orgChartView": "Org chart view",
+      "agentNoun": "agent",
+      "agentsNoun": "agents",
+      "noMatchesStatus": "No agents match the selected status.",
+      "selectCompanyToView": "Select a company to view agents."
+    },
+    "environment": {
+      "local": "Local",
+      "paperclipHost": "Paperclip host",
+      "localTitle": "Local - Paperclip host",
+      "loading": "Loading environment",
+      "sandbox": "Sandbox",
+      "managed": "Managed by Paperclip",
+      "sandboxProvider": "{{provider}} sandbox provider",
+      "unknown": "Unknown environment",
+      "unknownTitle": "Unknown environment - {{environmentId}}"
+    },
+    "detail": {
+      "fallbackAgentName": "Agent",
+      "discardChanges": "Discard unsaved agent configuration changes?",
+      "breadcrumbs": {
+        "run": "Run {{id}}"
+      },
+      "tabs": {
+        "dashboard": "Dashboard",
+        "instructions": "Instructions",
+        "skills": "Skills",
+        "configuration": "Configuration",
+        "secrets": "Secrets",
+        "tools": "Tools",
+        "channels": "Channels",
+        "runs": "Runs",
+        "audit": "Audit",
+        "budget": "Budget"
+      },
+      "sources": {
+        "timer": "Timer",
+        "assignment": "Assignment",
+        "onDemand": "On-demand",
+        "automation": "Automation"
+      },
+      "actionErrors": {
+        "action": "Action failed",
+        "noAgentReference": "No agent reference",
+        "permissions": "Failed to update permissions",
+        "bundleResource": "Failed to update bundle resource",
+        "runRoutine": "Failed to run built-in routine",
+        "enableSchedule": "Failed to enable routine schedule",
+        "disableSchedule": "Failed to disable routine schedule",
+        "uploadCompany": "Select a company to upload images",
+        "saveChange": "Could not save that change",
+        "saveBeforeTitle": "Save or discard your unsaved changes before you change the title.",
+        "saveBeforeName": "Save or discard your unsaved changes before you change the name.",
+        "uploadOrganization": "Select an organization to upload images"
+      },
+      "banner": {
+        "leftNotice": "You left this agent. It no longer appears in your sidebar.",
+        "dismissNotice": "Dismiss agent membership notice",
+        "escalationPaused": "Escalation path is paused",
+        "chainRepairNeeded": "{{name}} cannot accept tasks or start runs until its reporting chain is repaired.",
+        "chainRepairDefault": "Assign this agent to an active manager/root, or explicitly pause or terminate the affected agent/subtree.",
+        "invalidChain": "Invalid reporting chain"
+      },
+      "header": {
+        "assignTask": "Assign task",
+        "runHeartbeat": "Run Heartbeat",
+        "workDisabledReason": "Repair this agent's reporting chain before assigning tasks or starting runs",
+        "pauseTitle": "Pause the {{name}}?",
+        "pauseDescription": "{{feature}} depends on this agent. While paused, {{featureLower}} generation is skipped and the {{feature}} page shows a warning.",
+        "avatarLabel": "{{name}} avatar",
+        "namePlaceholder": "Agent name",
+        "reportsTo": "Reports to",
+        "board": "Board",
+        "agentHistory": "Agent history"
+      },
+      "builtIn": {
+        "title": "Built-in agent",
+        "shipsWith": "Ships with Paperclip and powers",
+        "description": "Configure it like any agent — model, instructions, budget. It can be paused but not deleted; pausing it pauses {{feature}}.",
+        "resetDefaults": "Reset to defaults",
+        "resetting": "Resetting…"
+      },
+      "approval": {
+        "pending": "This agent is pending board approval and cannot be invoked yet.",
+        "approve": "Approve agent"
+      },
+      "latestRun": {
+        "live": "Live Run",
+        "latest": "Latest Run"
+      },
+      "overview": {
+        "runActivity": "Run Activity",
+        "tasksByPriority": "Tasks by Priority",
+        "tasksByStatus": "Tasks by Status",
+        "successRate": "Success Rate",
+        "last14Days": "Last 14 days",
+        "recentTasks": "Recent Tasks",
+        "seeAll": "See All",
+        "noRecentTasks": "No recent tasks.",
+        "moreTasks": "+{{count}} more tasks",
+        "costs": "Costs",
+        "activity": "Activity",
+        "eventsThisWeek": "Events this week",
+        "failedLastTwoDays": "{{count}} failed in the last 2 days",
+        "monthToDate": "Month to date",
+        "budgetUsed": "Budget used",
+        "noMonthlyBudget": "No monthly budget set",
+        "ofThisMonth": "of {{amount}} this month",
+        "profile": "Profile",
+        "createdBy": "Created by",
+        "created": "Created",
+        "creatorLoadFailed": "Could not load creator",
+        "directReports": "Direct reports",
+        "skillsEnabled": "{{count}} enabled",
+        "noSkills": "No skills enabled.",
+        "recentTasksSection": "Recent tasks",
+        "seeAllTasks": "See all tasks"
+      },
+      "costs": {
+        "inputTokens": "Input tokens",
+        "outputTokens": "Output tokens",
+        "cachedTokens": "Cached tokens",
+        "totalCost": "Total cost",
+        "run": "Run",
+        "input": "Input",
+        "output": "Output",
+        "cached": "Cached",
+        "cost": "Cost",
+        "unavailable": "Unavailable"
+      },
+      "config": {
+        "revisions": "Configuration Revisions",
+        "apiKeys": "API Keys",
+        "restore": "Restore",
+        "changed": "Changed:",
+        "noTrackedChanges": "no tracked changes",
+        "noRevisions": "No configuration revisions yet.",
+        "adapterNote": "Saved adapter config affects the next run. Active runs keep the config they started with, and config changes may start a fresh adapter session.",
+        "saved": "Agent saved",
+        "saveFailed": "Save failed",
+        "saveFailedFallback": "Could not save agent",
+        "total": "{{count}} total"
+      },
+      "permissions": {
+        "heading": "Permissions",
+        "canCreateAgents": "Can create new agents",
+        "canCreateAgentsHint": "Lets this agent create or hire agents. This also grants task assignment authority.",
+        "canCreateSkills": "Can create/import skills",
+        "canCreateSkillsHint": "Lets this agent install, import, create, and scan company skills without creating agents.",
+        "canAssignTasks": "Can assign tasks",
+        "hintCeo": "Enabled automatically for CEO agents.",
+        "hintCreator": "Enabled automatically while this agent can create new agents.",
+        "hintExplicit": "Enabled via explicit company permission grant.",
+        "hintSimple": "Enabled by simple company-wide task assignment defaults.",
+        "hintDisabled": "Disabled unless explicitly granted.",
+        "hintExplicitOrg": "Enabled via explicit organization permission grant.",
+        "hintSimpleOrg": "Enabled by simple organization-wide task assignment defaults.",
+        "canCreateSkillsHintOrg": "Lets this agent install, import, create, and scan organization skills without creating agents.",
+        "capabilities": "Capabilities"
+      },
+      "instructions": {
+        "unavailable": "Instructions bundles are only available for local adapters.",
+        "saveNote": "Saved instructions affect the next run. Active runs keep the instructions they started with, and instruction changes may start a fresh adapter session.",
+        "advanced": "Advanced",
+        "mode": "Mode",
+        "modeTip": "Managed: Paperclip stores and serves the instructions bundle. External: you provide a path on disk where the instructions live.",
+        "rootPath": "Root path",
+        "rootPathTip": "The absolute directory on disk where the instructions bundle lives. In managed mode this is set by Paperclip automatically.",
+        "entryFile": "Entry file",
+        "entryFileTip": "The main file the agent reads first when loading instructions. Defaults to AGENTS.md.",
+        "managed": "Managed",
+        "external": "External",
+        "managedPath": "(managed)",
+        "files": "Files",
+        "virtualFile": "virtual file",
+        "virtualFileTip": "Legacy inline prompt — this deprecated virtual file preserves the old promptTemplate content",
+        "entry": "entry",
+        "deprecatedFile": "Deprecated virtual file",
+        "newFileInBundle": "New file in this bundle",
+        "languageFile": "{{language}} file",
+        "textLanguage": "text",
+        "copyFileAria": "Copy instructions file as markdown",
+        "copyFileTitle": "Copy as markdown",
+        "deleteFileConfirm": "Delete {{file}}?",
+        "markdownPlaceholder": "# Agent instructions",
+        "contentPlaceholder": "File contents",
+        "candidateNotRetrieved": "These instruction edits have not been retrieved yet.",
+        "addFile": "Add agent file",
+        "managedExternally": "Managed externally",
+        "managedByYou": "Managed by you",
+        "stopEditingFile": "Stop editing {{file}}",
+        "editFile": "Edit {{file}}",
+        "stopEditing": "Stop editing",
+        "deleteFile": "Delete file",
+        "deleteFileAria": "Delete {{file}}",
+        "preservedEdits": "Preserved instruction edits",
+        "preservedEditsHint": "Older instruction-only sessions have edits to review.",
+        "reviewPreserved": "Review preserved edits",
+        "preservedEditsFor": "Preserved edits for {{file}}",
+        "readOnlyNotice": "Read only: {{file}}. To keep any of these edits in {{currentFile}}, copy them and edit the current entry explicitly.",
+        "copyPreservedAria": "Copy preserved edits for {{file}}",
+        "copyPreserved": "Copy preserved edits",
+        "reviewingPreserved": "Reviewing preserved edits. Save to apply your resolved draft and close this preserved edit.",
+        "compareCurrent": "Compare current instructions",
+        "draftStale": "The current instructions changed after this draft was loaded. Refresh the current revision, compare the instructions, and save your resolved draft again.",
+        "refreshRevision": "Refresh current revision",
+        "preservedRemain": "Your preserved edits remain available.",
+        "unsavedRetained": "Your unsaved edits are retained.",
+        "revisionSavedPending": "Revision saved. The instruction file still needs to be rebuilt from the saved revision.",
+        "binaryPreserved": "This file is preserved with the agent directory. Download it to view its contents.",
+        "download": "Download {{file}}",
+        "editorAria": "Instruction file editor",
+        "emptyFile": "This instruction file is empty.",
+        "entryChanged": "The instruction entry changed. These edits remain preserved for the original file."
+      },
+      "runs": {
+        "loading": "Loading run…",
+        "unavailable": "This run is unavailable for this agent.",
+        "empty": "No runs yet.",
+        "back": "Back to runs",
+        "tokensAbbr": "tok",
+        "tryAgain": "Try again",
+        "usageUnavailable": "Usage and cost unavailable"
+      },
+      "runDetail": {
+        "resuming": "Resuming…",
+        "resume": "Resume",
+        "retrying": "Retrying…",
+        "stopFailed": "Failed to stop run",
+        "resumeFailed": "Failed to resume run",
+        "retryFailed": "Failed to retry run",
+        "onBehalfOf": "On behalf of",
+        "duration": "Duration",
+        "exitCode": "Exit code",
+        "signal": "signal",
+        "claudeLoginRunning": "Running claude login...",
+        "claudeLogin": "Login to Claude Code",
+        "claudeLoginFailed": "Failed to run Claude login",
+        "loginUrl": "Login URL:",
+        "session": "Session",
+        "sessionChanged": "(changed)",
+        "sessionId": "ID",
+        "sessionBefore": "Before",
+        "sessionAfter": "After",
+        "clearSessionConfirmOne": "Clear session for {{count}} issue touched by this run?",
+        "clearSessionConfirmMany": "Clear session for {{count}} issues touched by this run?",
+        "clearingSession": "clearing session...",
+        "clearSessionTasks": "clear session for these tasks",
+        "clearSessionFailed": "Failed to clear sessions",
+        "tasksTouched": "Tasks Touched",
+        "resumeSkipped": "Resume request was skipped.",
+        "grokNotice": "Runs in Grok Bot. Usage not reported. Stopping this session revokes Paperclip authority; remote execution may continue. Open the Grok Bot desktop app to inspect it. This view contains Paperclip-reported activity.",
+        "inspectRun": "Inspect run",
+        "startingTrace": "Starting…",
+        "rerunWithTrace": "Re-run with provider trace",
+        "githubIdentityHistory": "GitHub identity history",
+        "noResponsiblePerson": "No responsible person",
+        "noGithubOperation": "No GitHub operation recorded",
+        "traceRerunSkipped": "Trace re-run was skipped."
+      },
+      "keys": {
+        "tokenCreated": "API key created — copy it now, it will not be shown again.",
+        "hide": "Hide",
+        "show": "Show",
+        "copied": "Copied!",
+        "dismiss": "Dismiss",
+        "createHeading": "Create API Key",
+        "createHint": "API keys allow this agent to authenticate calls to the Paperclip server.",
+        "namePlaceholder": "Key name (e.g. production)",
+        "loading": "Loading keys...",
+        "empty": "No active API keys.",
+        "activeKeys": "Active Keys",
+        "createdOn": "Created",
+        "revoke": "Revoke",
+        "revokedKeys": "Revoked Keys",
+        "revokedOn": "Revoked",
+        "copyFailed": "Copy failed",
+        "clipboardUnavailable": "Clipboard access is unavailable."
+      },
+      "page": {
+        "loadingConfiguration": "Loading configuration…",
+        "saving": "Saving…",
+        "saveChanges": "Save changes",
+        "savingChanges": "Saving changes…",
+        "unsavedChanges": "Unsaved changes",
+        "changesSaved": "Changes saved",
+        "noUnsavedChanges": "No unsaved changes",
+        "discard": "Discard",
+        "leaveTitle": "Discard unsaved changes?",
+        "leaveDescription": "You have unsaved changes to {{name}}’s {{section}}. If you continue, they’ll be lost.",
+        "sectionHarness": "harness settings",
+        "sectionSecrets": "secrets and variables",
+        "sectionConfiguration": "configuration",
+        "sectionInstructions": "instructions",
+        "keepEditing": "Keep editing",
+        "discardChanges": "Discard changes"
+      },
+      "viewDescription": {
+        "runtime": "How {{name}} runs: harness, model and environment.",
+        "secrets": "Secrets this agent can reach. Values are never shown here.",
+        "permissions": "What {{name}} may do without asking, and where.",
+        "activity": "Everything {{name}} did and everything done to {{name}}.",
+        "runs": "Every execution of {{name}}, newest first.",
+        "costs": "What {{name}} spent, by model."
+      },
+      "fileNotice": {
+        "storageWarningTitle": "Agent storage warning",
+        "syncFailedTitle": "Agent file sync failed for this run"
+      }
+    },
+    "pluginDetail": {
+      "pluginView": "Plugin view",
+      "agentUnavailable": "Agent unavailable",
+      "loadingView": "Loading agent view…",
+      "viewUnavailable": "Agent view unavailable",
+      "pluginViewUnavailable": "This plugin view is unavailable"
+    },
+    "newAgent": {
+      "breadcrumb": "New agent"
+    }
+  },
+  "approvals": {
+    "breadcrumb": "Approvals",
+    "selectCompany": "Select an organization first.",
+    "tabs": {
+      "pending": "Pending",
+      "all": "All"
+    },
+    "emptyPending": "No pending approvals.",
+    "emptyAll": "No approvals yet.",
+    "detail": {
+      "breadcrumbFallback": "Approval",
+      "notFound": "Approval not found.",
+      "commentFailed": "Comment failed",
+      "deleteFailed": "Delete failed",
+      "reviewLinkedTasks": "Review linked tasks",
+      "reviewLinkedTask": "Review linked task",
+      "openHiredAgent": "Open hired agent",
+      "backToApprovals": "Back to approvals",
+      "confirmedTitle": "Approval confirmed",
+      "confirmedBody": "Requesting agent was notified to review this approval and linked tasks.",
+      "requestedBy": "Requested by",
+      "agentFallback": "Agent",
+      "seeFullRequest": "See full request",
+      "decisionNote": "Decision note: {{note}}",
+      "linkedTasks": "Linked Tasks",
+      "linkedTasksHint": "Linked tasks remain open until the requesting agent follows up and closes them.",
+      "approve": "Approve",
+      "reject": "Reject",
+      "budgetStopBefore": "Resolve this budget stop from the budget controls on",
+      "budgetStopAfter": ".",
+      "requestRevision": "Request revision",
+      "markResubmitted": "Mark resubmitted",
+      "deleteDisapprovedConfirm": "Delete this disapproved agent? This cannot be undone.",
+      "deleteDisapproved": "Delete disapproved agent",
+      "comments": "Comments ({{n}})",
+      "boardName": "Board",
+      "commentPlaceholder": "Add a comment...",
+      "posting": "Posting…",
+      "postComment": "Post comment"
+    }
+  },
+  "auth": {
+    "signIn": {
+      "title": "Sign in to Paperclip",
+      "description": "Use your email and password to access this instance."
+    },
+    "signUp": {
+      "title": "Create your Paperclip account",
+      "description": "Create an account for this instance. Email confirmation is not required in v1."
+    },
+    "fields": {
+      "email": "Email",
+      "password": "Password"
+    },
+    "errors": {
+      "requiredFields": "Please fill in all required fields."
+    },
+    "submit": {
+      "working": "Working…",
+      "signIn": "Sign In",
+      "signUp": "Create Account"
+    },
+    "switch": {
+      "needAccount": "Need an account?",
+      "haveAccount": "Already have an account?",
+      "createOne": "Create one",
+      "signIn": "Sign in"
+    }
+  },
+  "companies": {
+    "breadcrumb": "Organizations",
+    "newCompany": "New Organization",
+    "loading": "Loading organizations...",
+    "rename": "Rename",
+    "unarchive": "Unarchive",
+    "deleteCompany": "Delete Organization",
+    "deleteConfirm": "Delete this organization and all its data? This cannot be undone.",
+    "deleting": "Deleting…",
+    "status": {
+      "active": "active",
+      "paused": "paused",
+      "archived": "archived"
+    },
+    "stats": {
+      "agentSingular": "{{n}} agent",
+      "agentPlural": "{{n}} agents",
+      "taskSingular": "{{n}} task",
+      "taskPlural": "{{n}} tasks",
+      "unlimitedBudget": "Unlimited budget",
+      "created": "Created {{time}}"
+    }
+  },
+  "costs": {
+    "breadcrumb": "Costs",
+    "title": "Costs",
+    "selectCompany": "Select an organization to view costs.",
+    "allProviders": "All providers",
+    "allBillers": "All billers",
+    "agentDetailsError": "Could not load agent details. Totals below show recorded organization costs.",
+    "museUnavailable": "{{name}}'s Muse activity has no reported usage or cost. Totals below show recorded organization charges only. Paperclip cannot enforce a Muse spend ceiling.",
+    "currencyNotice": "Finance headline totals are USD only. Other currencies are listed separately; no exchange-rate conversion is applied.",
+    "selectDateRange": "Select a start and end date to load data.",
+    "dateRangeTo": "to",
+    "loadError": "Cost data could not be loaded. Please try again shortly.",
+    "budgetLoadError": "Budget data could not be loaded. Please try again shortly.",
+    "staleData": "Showing the last loaded data. Updates will resume automatically.",
+    "staleApiSubscription": "Showing the last loaded API and subscription usage. Updates will resume automatically.",
+    "incidentError": "Could not update the budget. Check any pending runs or unpriced usage shown on this page, then try again.",
+    "connectedAccountsError": "Connected accounts could not be checked. Existing subscription estimates are still shown.",
+    "retryAccountCheck": "Retry account check",
+    "subscriptionUsage": "Subscription accounts also have {{amount}} in recorded usage charges for this period, separate from monthly fees.",
+    "otherBilling": "Other billing usage: {{tokens}} tokens, included in the inference ledger.",
+    "otherBillingWithCharges": "Other billing usage: {{tokens}} tokens · {{amount}} in recorded charges, included in the inference ledger.",
+    "tabs": {
+      "overview": "Overview",
+      "budgets": "Budgets",
+      "providers": "Providers",
+      "billers": "Billers",
+      "finance": "Finance",
+      "decisions": "Decisions",
+      "fastResponses": "Fast responses"
+    },
+    "metrics": {
+      "apiSpend": "API spend",
+      "apiUnavailable": "API usage is unavailable",
+      "apiLoading": "API usage is loading",
+      "budget": "Budget",
+      "open": "Open",
+      "budgetPausedDetail": "{{agents}} agents paused · {{projects}} projects paused",
+      "spendOfBudget": "{{spent}} of {{budget}} this month",
+      "monthlyLimit": "Monthly limit",
+      "noCap": "No monthly cap configured",
+      "recordedCharges": "Recorded charges",
+      "financialUnavailable": "Financial data unavailable",
+      "debitsAmount": "{{amount}} debits",
+      "creditsAmount": "{{amount}} credits",
+      "financeEvents": "Finance events",
+      "estimatedInRange": "{{amount}} estimated in range"
+    },
+    "byAgent": "By agent",
+    "noCostEvents": "No cost events yet.",
+    "noCostEventsPeriod": "No cost events in this period.",
+    "noBillableEvents": "No billable events in this period.",
+    "agentGroupLabel": "{{name}} costs",
+    "paperclipServices": "Paperclip services",
+    "agentTokens": "in {{input}} ({{cached}} cached) · out {{output}}",
+    "runsLabel": "runs: ",
+    "runsApi": "{{n}} api",
+    "runsSub": "{{n}} sub",
+    "tokensShort": "{{tokens}} tok",
+    "userCostsRefreshError": "User costs could not be refreshed. Showing the last loaded data.",
+    "userCostsLoadError": "User costs could not be loaded. Please try again shortly.",
+    "byProject": "By project",
+    "noProjectCosts": "No project-attributed run costs yet.",
+    "unattributed": "Unattributed",
+    "loadingFinance": "Loading financial events…",
+    "financeLoadError": "Financial events could not be loaded. Please try again shortly.",
+    "budgetPolicyError": "Could not update the budget policy. Review your settings and try again.",
+    "budget": {
+      "controlPlaneTitle": "Budget control plane",
+      "controlPlaneDescription": "Hard-stop spend limits for agents and projects. Provider subscription quota stays separate and appears under Providers.",
+      "activeIncidents": "Active incidents",
+      "activeIncidentsSubtitle": "Open soft or hard threshold crossings",
+      "pendingApprovals": "Pending approvals",
+      "pendingApprovalsSubtitle": "Budget override approvals awaiting board action",
+      "pausedAgents": "Paused agents",
+      "pausedAgentsSubtitle": "Agent heartbeats blocked by budget",
+      "pausedProjects": "Paused projects",
+      "pausedProjectsSubtitle": "Project execution blocked by budget",
+      "incidentsHint": "Raise the budget or keep a hard stop paused. Dismiss a warning when no action is needed.",
+      "companyScopeTitle": "organization budgets",
+      "agentScopeTitle": "agent budgets",
+      "projectScopeTitle": "project budgets",
+      "companyScopeDescription": "Organization-wide monthly policy.",
+      "agentScopeDescription": "Recurring monthly spend policies for individual agents.",
+      "projectScopeDescription": "Lifetime spend policies for execution-bound projects.",
+      "noPolicies": "No budget policies yet. Set agent and project budgets from their detail pages, or use the existing organization monthly budget control."
+    },
+    "finance": {
+      "ledgerTitle": "Finance ledger",
+      "ledgerDescription": "Account-level charges that do not map to a single inference request.",
+      "debits": "Debits",
+      "credits": "Credits",
+      "net": "Net",
+      "estimated": "Estimated",
+      "eventsInRangeSingular": "{{n}} total event in range",
+      "eventsInRangePlural": "{{n}} total events in range",
+      "creditsSubtitle": "Refunds, offsets, and credit returns",
+      "netSubtitle": "Debit minus credit for the selected period",
+      "estimatedSubtitle": "Estimated debits that are not yet invoice-authoritative",
+      "providerReports": "Provider API cost reports: {{amount}}. Report totals overlap invoices and run estimates and are shown separately from recorded charges.",
+      "byBiller": "By biller",
+      "byBillerDescription": "Account-level financial events grouped by who charged or credited them.",
+      "noEvents": "No finance events yet."
+    }
+  },
+  "dashboard": {
+    "breadcrumb": "Dashboard",
+    "selectCompany": "Create or select an organization to view the dashboard.",
+    "emptyCompanies": {
+      "message": "Welcome to Paperclip. Set up your first organization and agent to get started.",
+      "action": "Get Started"
+    },
+    "banner": {
+      "importedPausedSingular": "{{n}} imported agent is paused and will not run.",
+      "importedPausedPlural": "{{n}} imported agents are paused and will not run.",
+      "resuming": "Resuming…",
+      "resumeAll": "Resume all",
+      "importedBody": "Agents from an organization import arrive paused as a safety default. Resume them so assigned tasks can start.",
+      "allPausedTitle": "All agents in this organization are paused — nothing will run.",
+      "allPausedReview": "Review agents",
+      "allPausedBody": "Resume at least one agent to let assigned tasks start."
+    },
+    "noAgents": {
+      "message": "You have no agents.",
+      "action": "Create one here"
+    },
+    "budgetIncidentSingular": "{{n}} active budget incident",
+    "budgetIncidentPlural": "{{n}} active budget incidents",
+    "budgetIncidentDetails": "{{agents}} agents paused · {{projects}} projects paused · {{approvals}} pending budget approvals",
+    "openBudgets": "Open budgets",
+    "metrics": {
+      "agentsEnabled": "Agents Enabled",
+      "agentsRunning": "{{n}} running",
+      "agentsPaused": "{{n}} paused",
+      "agentsErrors": "{{n}} errors",
+      "tasksInProgress": "Tasks In Progress",
+      "tasksOpen": "{{n}} open",
+      "tasksBlocked": "{{n}} blocked",
+      "monthSpend": "Month Spend",
+      "unlimitedBudget": "Unlimited budget",
+      "monthBudgetUtilization": "{{percent}}% of {{budget}} budget",
+      "pendingApprovals": "Pending Approvals",
+      "overridesAwaiting": "{{n}} budget overrides awaiting board review",
+      "awaitingReview": "Awaiting board review"
+    },
+    "charts": {
+      "runActivity": "Run Activity",
+      "priority": "Tasks by Priority",
+      "status": "Tasks by Status",
+      "successRate": "Success Rate",
+      "last14Days": "Last 14 days"
+    },
+    "recentActivity": "Recent Activity",
+    "recentTasks": "Recent Tasks",
+    "noTasks": "No tasks yet.",
+    "live": {
+      "liveRuns": "Live runs",
+      "createCompany": "Create an organization to view live runs.",
+      "selectCompany": "Select an organization to view live runs.",
+      "title": "Live agent runs",
+      "description": "Active runs first, followed by the most recent completed runs.",
+      "showingUpTo": "Showing up to {{n}}",
+      "panelTitle": "Active / recent",
+      "empty": "No active or recent agent runs."
+    }
+  },
+  "inbox": {
+    "inbox": {
+      "failedRun": {
+        "exitedWithError": "Run exited with an error.",
+        "thinking": "Thinking",
+        "retryIn": "Trying again in {{seconds}}s…",
+        "attemptFailed": "Couldn’t finish this attempt. Your message is saved.",
+        "waiting": {
+          "approval": "Approval required",
+          "reconnect": "Reconnect account",
+          "assignAgent": "Assign an agent",
+          "chooseModel": "Choose a supported model",
+          "resume": "Work is paused",
+          "budget": "Budget limit reached",
+          "projectAccess": "Agent needs project access"
+        },
+        "title": "Failed run",
+        "titleWithAgent": "Failed run — {{agent}}"
+      },
+      "approvalStatus": {
+        "pending": "pending",
+        "revisionRequested": "revision requested",
+        "approved": "approved",
+        "rejected": "rejected",
+        "cancelled": "cancelled"
+      },
+      "joinRequest": {
+        "agentRequest": "Agent join request",
+        "agentRequestNamed": "Agent join request: {{name}}",
+        "human": "Human join request",
+        "requestedFromIp": "requested {{time}} from IP {{ip}}",
+        "adapter": "adapter: {{adapter}}"
+      },
+      "approval": {
+        "requestedBy": "requested by {{name}}",
+        "updated": "updated {{time}}"
+      },
+      "actions": {
+        "approve": "Approve",
+        "reject": "Reject",
+        "markAsRead": "Mark as read",
+        "dismiss": "Dismiss"
+      },
+      "actionErrors": {
+        "approveRequest": "approve this request",
+        "rejectRequest": "reject this request"
+      },
+      "toast": {
+        "runRetryFailed": "Run retry failed",
+        "unableToRetry": "Unable to retry run"
+      },
+      "error": {
+        "accountChanged": "Your account changed. Refresh the inbox."
+      },
+      "creator": {
+        "board": "Board",
+        "me": "Me"
+      },
+      "surface": {
+        "inbox": "Inbox"
+      },
+      "empty": {
+        "selectOrganization": "Select an organization to view {{surface}}.",
+        "searchNoMatch": "No inbox items match your search.",
+        "zeroMine": "Inbox zero.",
+        "noNew": "No new inbox items.",
+        "noRecent": "No recent inbox items.",
+        "noMatchFilters": "No inbox items match these filters."
+      },
+      "feedback": {
+        "liveOnly": "Live runs only — tasks currently connected to an agent run.",
+        "activeStatuses": "Active statuses — open tasks, whether or not an agent is running."
+      },
+      "notice": {
+        "someItemsFailed": "Some inbox items couldn’t load. Showing available items.",
+        "retryMissing": "Retry missing items"
+      },
+      "tabs": {
+        "mine": "Mine",
+        "recent": "Recent",
+        "unread": "Unread",
+        "blocked": "Blocked"
+      },
+      "search": {
+        "placeholder": "Search {{surface}}…"
+      },
+      "controls": {
+        "group": "Group",
+        "columns": "Choose which columns stay visible",
+        "nestingDisable": "Disable parent-child nesting",
+        "nestingEnable": "Enable parent-child nesting"
+      },
+      "groupBy": {
+        "assignee": "Responsible",
+        "project": "Project"
+      },
+      "markAll": {
+        "progress": "Marking…",
+        "button": "Mark all as read",
+        "title": "Mark all as read?",
+        "description": "This will mark {{count}} unread item(s) as read."
+      },
+      "listError": {
+        "unableToLoad": "Unable to load the inbox: {{error}}"
+      },
+      "rows": {
+        "collapseSubtasks": "Collapse sub-tasks",
+        "expandSubtasks": "Expand sub-tasks",
+        "subtaskCount": "{{count}} sub-task(s)",
+        "earlier": "Earlier"
+      },
+      "section": {
+        "archived": "Archived",
+        "otherResults": "Other results"
+      },
+      "group": {
+        "newTask": "New task in {{label}}"
+      },
+      "alerts": {
+        "title": "Alerts",
+        "agentErrors": "agent(s) with errors",
+        "budgetAt": "Budget at",
+        "budgetUtilization": "utilization this month"
+      }
+    },
+    "whatNeedsMe": {
+      "title": "Decisions",
+      "emptyCompany": "Select an organization first.",
+      "loadErrorAction": "load your decisions",
+      "curtains": {
+        "snoozed": "Snoozed",
+        "dismissed": "Dismissed",
+        "aging": "Aging",
+        "agingHint": "Idle past {{days}} days — kept off the desk. Keep any you still want surfaced.",
+        "decided": "Decided",
+        "expired": "Expired"
+      },
+      "history": {
+        "loadingDecided": "Loading decided decisions…",
+        "noDecided": "No decided decisions.",
+        "loadingExpired": "Loading expired decisions…",
+        "noExpired": "No expired decisions."
+      },
+      "toast": {
+        "dismissed": "Dismissed",
+        "undo": "Undo"
+      },
+      "bundle": {
+        "proposed": "{{agent}} proposed {{count}} decisions",
+        "anAgent": "An agent",
+        "from": "· from ",
+        "pending": "{{count}} pending"
+      },
+      "caughtUp": {
+        "filtered": "No decisions match your search or filters.",
+        "allCaughtUp": "You're all caught up.",
+        "adjust": "Adjust or clear your search and filters to see the rest."
+      },
+      "zero": {
+        "title": "You're all caught up",
+        "body": "Nothing needs a decision from you right now."
+      }
+    }
+  },
+  "issues": {
+    "issueDetail": {
+      "errors": {
+        "runStoppedStatusUpdateFailed": "Run was stopped, but updating the task failed: {{detail}}",
+        "runStoppedRetryStatus": "Run was stopped, but updating the task failed. Retry the task status update.",
+        "treePreviewBoardOnly": "Only board users can preview subtree controls.",
+        "treePreviewStale": "Preview is stale because subtree hold state changed. Retry to refresh.",
+        "treeActionInvalid": "This subtree action is currently invalid for the selected tasks.",
+        "treePreviewLoadFailed": "Unable to load preview.",
+        "failedRunUnavailable": "Failed run is no longer available.",
+        "queuedAwaitingAck": "The queued message is awaiting server acknowledgement.",
+        "queuedMessagesAwaitingAck": "The queued messages are awaiting server acknowledgement.",
+        "queuedNoActiveTarget": "The queued message no longer has an active run target.",
+        "unableRestoreInbox": "Unable to restore this task to the inbox",
+        "unableResolveRecovery": "Unable to resolve recovery action",
+        "taskStateChanged": "The task’s state has changed. Refresh to see its current state.",
+        "noSubtreePauseHold": "No active subtree pause hold is available to resume.",
+        "stopRunUpdateFailed": "Unable to stop the run and update the task",
+        "subtaskSaveFailed": "Unable to save sub-task changes",
+        "monitorTriggerFailed": "Unable to trigger the monitor right now",
+        "approvalUpdateFailed": "Unable to update approval",
+        "unableCancelQueuedComment": "Unable to cancel the queued comment",
+        "unableApplyVerdicts": "Unable to apply the verdicts",
+        "unableCancelQuestion": "Unable to cancel the question",
+        "unableSkipRequest": "Unable to skip this request",
+        "unableDeleteComment": "Unable to delete the comment",
+        "taskDetailsLoading": "Task details are still loading. Please try again.",
+        "documentImportFailed": "Document import failed",
+        "unableArchiveFromInbox": "Unable to archive this task from the inbox",
+        "unableCopyMarkdown": "Unable to copy task markdown",
+        "noAssigneeAgent": "No assignee agent",
+        "taskNotLoaded": "Task is not loaded yet.",
+        "unableIsolatedReissue": "Unable to create an isolated re-issue.",
+        "unableReconcileBranch": "Unable to reconcile the workspace branch.",
+        "someDetailsNotLoaded": "Some task details could not be loaded.",
+        "createdTasksLoadFailed": "Could not load created tasks."
+      },
+      "actor": {
+        "system": "System"
+      },
+      "attribution": {
+        "accessibleLabelVia": "{{label}}: {{name}} · via {{via}}",
+        "accessibleLabel": "{{label}}: {{name}}",
+        "userFallback": "User",
+        "taskPeople": "Task people",
+        "assignee": "Assignee",
+        "originating": "Originating"
+      },
+      "loading": {
+        "conversation": "Loading conversation"
+      },
+      "labels": {
+        "routineExecutionTitle": "Routine execution from routine {{originId}}",
+        "routine": "Routine",
+        "noProject": "No project"
+      },
+      "inbox": {
+        "backToInbox": "Back to inbox",
+        "archiveFromInbox": "Archive from inbox",
+        "moreActions": "More actions"
+      },
+      "menu": {
+        "copyAsMarkdown": "Copy as markdown",
+        "properties": "Properties",
+        "hideTask": "Hide this task"
+      },
+      "toasts": {
+        "retryQueuedTitle": "Retry queued",
+        "retryQueuedBody": "The exact request will retry when this task is ready.",
+        "runRetryFailedTitle": "Run retry failed",
+        "runRetryFailedBody": "Unable to retry run",
+        "messageAlreadySending": "Message is already being sent",
+        "continuationBody": "The continuation started before the discard was confirmed, so Paperclip could not unsend it.",
+        "taskRestoredToInbox": "Task restored to inbox",
+        "undoFailed": "Undo failed",
+        "recoveryResolutionFailed": "Recovery resolution failed",
+        "pauseReleasedPartial": "Pause released, but tasks could not start ({{count}}). {{message}} Check the affected agents and try starting them again.",
+        "runStoppedTaskDone": "Run stopped and task done",
+        "runStoppedTaskCancelled": "Run stopped and task cancelled",
+        "runStoppedUpdateFailed": "Run stopped; task update failed",
+        "stopAndDoneFailed": "Stop and done failed",
+        "stopAndCancelFailed": "Stop and cancel failed",
+        "taskUpdateFailed": "Task update failed",
+        "monitorCheckQueued": "Monitor check queued",
+        "monitorCheckFailed": "Monitor check failed",
+        "approvalApproved": "Approval approved",
+        "approvalRejected": "Approval rejected",
+        "approvalFailed": "Approval failed",
+        "rejectionFailed": "Rejection failed",
+        "cancelFailed": "Cancel failed",
+        "requestConfirmed": "Request confirmed",
+        "selectionConfirmed": "Selection confirmed",
+        "draftsAccepted": "Accepted drafts: {{created}}, skipped: {{skipped}}",
+        "suggestedTasksAccepted": "Suggested tasks accepted",
+        "acceptFailed": "Accept failed",
+        "suggestionRejected": "Suggestion rejected",
+        "rejectFailed": "Reject failed",
+        "answersSubmitted": "Answers submitted",
+        "submitFailed": "Submit failed",
+        "allVerdictsApplied": "All verdicts applied",
+        "decisionsApplied": "Applied decisions: {{count}}",
+        "applyFailed": "Apply failed",
+        "questionCancelled": "Question cancelled",
+        "skipFailed": "Skip failed",
+        "queuedCommentCanceled": "Queued comment canceled",
+        "queuedMessageRestored": "The queued message was restored to the composer.",
+        "commentDeleted": "Comment deleted",
+        "deletedCommentMarker": "The thread now shows a deleted-comment marker.",
+        "deleteFailed": "Delete failed",
+        "taskArchivedFromInbox": "Task archived from inbox",
+        "undo": "Undo",
+        "archiveFailed": "Archive failed",
+        "copiedToClipboard": "Copied to clipboard",
+        "copyFailed": "Copy failed",
+        "isolatedReissueCreated": "Isolated re-issue created",
+        "isolatedReissueInfo": "{{identifier}} will run on a fresh isolated workspace.",
+        "isolatedReissueCreatedBody": "A fresh isolated re-issue was created.",
+        "reissueFailed": "Re-issue failed",
+        "workspaceRepaired": "Workspace repaired",
+        "workspaceRepairedBody": "Dirty changes were quarantined onto a rescue branch and the recorded branch restored; the task will resume.",
+        "branchReconciled": "Workspace branch reconciled",
+        "branchReconciledBody": "The recorded branch now matches the live branch; the task will resume.",
+        "reconcileFailed": "Reconcile failed",
+        "noWorkspaceToReconcile": "This task has no execution workspace to reconcile.",
+        "repairFailed": "Repair failed",
+        "noWorkspaceToRepair": "This task has no execution workspace to repair."
+      },
+      "chat": {
+        "messagesStillQueued": "Messages are still queued.",
+        "couldntInterrupt": "Couldn’t interrupt. Message is still queued.",
+        "loadingEarlierComments": "Loading earlier comments...",
+        "loadEarlierComments": "Load earlier comments",
+        "moreMessages": "More messages",
+        "stopPaperclipWork": "Stop Paperclip work",
+        "pauseWork": "Pause work",
+        "stoppingPaperclipWork": "Stopping Paperclip work…",
+        "pausing": "Pausing...",
+        "grokBotFooter": "Runs in Grok Bot · Usage not reported. Stop Paperclip work revokes this session’s authority; remote execution may continue. Open the Grok Bot desktop app to inspect it.",
+        "previewAgent": "Preview agent",
+        "replySent": "Reply sent. Send a message to continue.",
+        "agentChatDisabled": "Agent Chat is disabled in Experimental settings."
+      },
+      "cost": {
+        "summary": "Cost Summary",
+        "noData": "No cost data yet.",
+        "thisTask": "This task",
+        "tokens": "Tokens",
+        "tokensDetailCached": " (in {{input}}, out {{output}}, cached {{cached}})",
+        "tokensDetail": " (in {{input}}, out {{output}})",
+        "runtime": "Runtime",
+        "runsCount": " (runs: {{count}})",
+        "noDirectData": "No direct cost data.",
+        "includingSubtasks": "Including sub-tasks",
+        "tasksCount": "Tasks: {{count}}"
+      },
+      "breadcrumb": {
+        "tasks": "Tasks"
+      },
+      "people": {
+        "owner": "Owner",
+        "me": "Me",
+        "agent": "Agent"
+      },
+      "attachments": {
+        "fallbackName": "Attachment",
+        "uploadFailed": "Upload failed",
+        "uploading": "Uploading...",
+        "uploadAttachment": "Upload attachment",
+        "upload": "Upload"
+      },
+      "subtasks": {
+        "createLabel": "Sub-task",
+        "sectionTitle": "Sub-tasks",
+        "newSubtask": "New Sub-task"
+      },
+      "feedback": {
+        "savedSharedFuture": "Feedback saved. Future votes will share",
+        "savedLocalFuture": "Feedback saved. Future votes will stay local",
+        "savedSharingEnabled": "Feedback saved and sharing enabled",
+        "saved": "Feedback saved",
+        "saveFailed": "Failed to save feedback",
+        "unknownError": "Unknown error"
+      },
+      "agent": {
+        "configure": "Configure {{name}}"
+      },
+      "actions": {
+        "stopAndCancel": "Stop and cancel",
+        "stoppingAndCancelling": "Stopping and cancelling...",
+        "stopAndDone": "Stop and done",
+        "stoppingAndMarkingDone": "Stopping and marking done...",
+        "copyTaskAsMarkdown": "Copy task as markdown",
+        "openFile": "Open file... (g f)",
+        "openFileInIssue": "Open file in this issue",
+        "moreTaskActions": "More task actions",
+        "showTaskActivity": "Show task activity",
+        "addSubtask": "Add subtask"
+      },
+      "badges": {
+        "paused": "Paused",
+        "live": "Live",
+        "watchdogTitle": "This task is a generated watchdog task. It verifies whether stopped work in the watched task tree is legitimate.",
+        "workModeTitle": "This task is in {{mode}}.",
+        "parkedBlockerTitle": "Blocked by parked work — at least one assigned blocker is in backlog and will not wake its assignee.",
+        "parkedBlocker": "Blocked by parked work",
+        "taskHidden": "This task is hidden"
+      },
+      "workspace": {
+        "archivedNotice": "This issue's isolated workspace was archived. Your next comment or resume reopens it and rebuilds the worktree."
+      },
+      "description": {
+        "placeholder": "Add a description..."
+      },
+      "sections": {
+        "artifacts": "Artifacts",
+        "plan": "Plan"
+      },
+      "tabs": {
+        "chat": "Chat",
+        "activity": "Activity",
+        "relatedWork": "Related work"
+      },
+      "recovery": {
+        "noPermissionRepairWorkspace": "You don’t have permission to repair this task’s workspace.",
+        "noPermissionRetryTask": "You don’t have permission to retry this task.",
+        "pauseCheckFailed": "Couldn’t check whether this task is paused. Refresh to try again.",
+        "resumeTaskFirst": "Resume the task before retrying.",
+        "resumeProjectFirst": "Resume the project before retrying.",
+        "respondPendingFirst": "Respond to the pending question or confirmation before retrying.",
+        "noPermissionRetryAction": "You don’t have permission to retry this recovery action.",
+        "taskPausedResume": "The task is paused. Resume it before retrying.",
+        "projectPausedResume": "The project is paused. Resume it before retrying."
+      },
+      "sheet": {
+        "taskSidePanel": "Task side panel"
+      }
+    },
+    "issuesList": {
+      "ageSeparator": {
+        "olderThanDay": "Older than a day",
+        "olderThanWeek": "Older than a week"
+      },
+      "search": {
+        "placeholder": "Search tasks...",
+        "ariaLabel": "Search tasks",
+        "limitReached": "Showing up to {{limit}} matches. Refine the search to narrow further."
+      },
+      "subIssues": {
+        "doneCount": "{{done}}/{{total}} done",
+        "inProgressCount": "{{n}} in progress",
+        "blockedCount": "{{n}} blocked",
+        "costTooltip": "{{runs}} run(s) across {{subTasks}} sub-task(s)",
+        "tokens": "{{value}} tokens",
+        "runtime": "{{value}} runtime",
+        "progressAriaLabel": "Sub-tasks completion progress",
+        "nextUp": "Next up",
+        "waitingOnBlockers": "Waiting on blockers",
+        "noActiveSubTasks": "No active sub-tasks",
+        "allSubTasksDone": "All sub-tasks done",
+        "noActionableSubTasks": "No actionable sub-tasks",
+        "subTasksLabel": "(sub-tasks)",
+        "descendantsCount": "({{n}} sub-task(s))",
+        "collapse": "Collapse sub-tasks",
+        "expand": "Expand sub-tasks"
+      },
+      "status": {
+        "backlog": "Backlog",
+        "todo": "Todo",
+        "inProgress": "In progress",
+        "monitoring": "Monitoring",
+        "inReview": "In review",
+        "blocked": "Blocked",
+        "cancelled": "Cancelled"
+      },
+      "creatorOptions": {
+        "me": "Me"
+      },
+      "group": {
+        "noWorkspace": "No Workspace",
+        "noProject": "No Project",
+        "noParent": "No Parent",
+        "unassigned": "Unassigned",
+        "user": "User",
+        "newTaskIn": "New task in {{label}}"
+      },
+      "toolbar": {
+        "taskControls": "Task controls",
+        "group": "Group",
+        "createWithLabel": "Create {{label}}",
+        "newWithLabel": "New {{label}}",
+        "createTask": "Create Task",
+        "newTask": "New Task"
+      },
+      "viewMode": {
+        "group": "View mode",
+        "list": "List view",
+        "board": "Board view"
+      },
+      "nesting": {
+        "disable": "Disable parent-child nesting",
+        "enable": "Enable parent-child nesting"
+      },
+      "board": {
+        "useComfortableCards": "Use comfortable cards",
+        "expandColdLanes": "Expand cold lanes",
+        "cardsPerColumn": "Cards per column",
+        "perColumn": "{{n}} per column",
+        "resetDensity": "Reset board density",
+        "limitReached": "Some board columns are showing up to {{limit}} tasks. Refine filters or search to reveal the rest.",
+        "collapseColdLanes": "Collapse cold lanes",
+        "useCompactCards": "Use compact cards"
+      },
+      "columns": {
+        "chooseVisible": "Choose which task columns stay visible"
+      },
+      "sortOptions": {
+        "workflow": "Workflow",
+        "priority": "Priority",
+        "title": "Title",
+        "created": "Created",
+        "updated": "Updated"
+      },
+      "errors": {
+        "externalFilter": "Unable to filter tasks by external status: {{error}}",
+        "retryExternalStatuses": "Retry external statuses",
+        "retryHierarchy": "Retry hierarchy"
+      },
+      "empty": {
+        "noMatches": "No tasks match the current filters or search."
+      },
+      "checklist": {
+        "stepSuffix": " · step {{step}}",
+        "blockedBy": "blocked by {{label}}",
+        "andMore": " ... and {{n}} more"
+      },
+      "badges": {
+        "paused": "Paused",
+        "needsNextStep": "Needs next step",
+        "needsNextStepTitle": "This task needs a next step"
+      },
+      "assignee": {
+        "searchPlaceholder": "Search responsible...",
+        "none": "No responsible",
+        "me": "Me",
+        "label": "Assignee"
+      },
+      "loader": {
+        "loadingMore": "Loading more tasks...",
+        "rendering": "Rendering {{shown}} of {{total}} tasks",
+        "scrollToLoad": "Scroll to load more tasks"
+      },
+      "groupOptions": {
+        "priority": "Priority",
+        "assignee": "Responsible",
+        "project": "Project",
+        "workspace": "Workspace",
+        "parent": "Parent Task"
+      }
+    },
+    "issueRow": {
+      "archive": "Archive",
+      "markAsRead": "Mark as read",
+      "parkedBlocker": {
+        "title": "Blocked by parked work — at least one assigned blocker is in backlog and will not wake its assignee.",
+        "label": "Blocked by parked work"
+      },
+      "openTaskAria": "Open task {{identifier}} ({{status}})",
+      "openIssueSrOnly": "Open {{identifier}}: {{title}}",
+      "recoveryStatusAria": "Task recovery status",
+      "recovery": {
+        "titleWithDetail": "{{label}} — {{detail}}. Open the source task to act.",
+        "title": "{{label}} — open the source task to act."
+      }
+    },
+    "issueRowDetailsNotice": {
+      "message": "Some task details couldn’t load.",
+      "retryLabel": "Retry details"
+    },
+    "newIssueDialog": {
+      "stagedFilesMissing": {
+        "single": "This page no longer has the file staged for this task ({{names}}). Attach it again, then create the task.",
+        "multiple": "This page no longer has the {{count}} files staged for this task ({{names}}). Attach them again, then create the task."
+      },
+      "actions": {
+        "createTask": "create the task"
+      },
+      "toasts": {
+        "createdWithUploadWarnings": "Created {{ref}} with upload warnings",
+        "stagedFilesNotAdded": "Could not add {{total}} of the staged files.",
+        "openIssue": "Open {{ref}}",
+        "created": "Created {{ref}}"
+      },
+      "savedRequest": {
+        "needsAttention": "Saved request needs attention",
+        "unavailable": "The saved request is unavailable. Cancel it before creating another task.",
+        "attachAgain": "Attach the original files again: {{names}}.",
+        "restoreFields": "Restore the saved task's original fields before retrying, or cancel the saved request to start another task.",
+        "cancel": "Cancel saved request"
+      },
+      "privacy": {
+        "subtaskOfPrivateTask": "Subtask of private task {{title}}",
+        "inPrivateProject": "In private project {{name}}"
+      },
+      "placeholders": {
+        "describeTask": "Describe a task…"
+      },
+      "dialogTitle": {
+        "subTask": "New sub-task",
+        "task": "New task"
+      },
+      "submitLabel": {
+        "subTask": "Create sub-task",
+        "task": "Create task"
+      },
+      "pendingSendNoun": "task",
+      "taskTitle": "Task title",
+      "subtaskOf": "Sub-task of",
+      "parentAccess": {
+        "couldNotCheck": "Couldn't check parent access.",
+        "checking": "Checking parent access…"
+      },
+      "worktree": {
+        "couldNotCheck": "Couldn't check the selected worktree. Retry in Worktrees or choose New worktree.",
+        "noLongerAvailable": "The selected worktree is no longer available. Choose another worktree or start a new one."
+      },
+      "staged": {
+        "documents": "Documents",
+        "removeDocument": "Remove document",
+        "attachments": "Attachments",
+        "removeAttachment": "Remove attachment"
+      },
+      "statusLabels": {
+        "backlog": "Backlog",
+        "todo": "Todo",
+        "inProgress": "In Progress"
+      },
+      "backlogNote": {
+        "leaveStatus": "Assigning implies executable intent - leave status as",
+        "onlyToPark": "only to deliberately park this. The assignee will not be woken until status moves to"
+      },
+      "pausedAssignee": {
+        "isPaused": "is paused and will not start work on this task until it is resumed",
+        "importSuffix": " — it arrived paused from an organization import",
+        "resumeHint": ". You can resume it from the task page after creating the task."
+      },
+      "lowTrustNote": "Low-trust review agent. It can only act inside its assigned review boundary; task, project, or run policy defines the concrete scope.",
+      "subtaskWorkspaceWarning": "This sub-task will no longer use the parent task workspace",
+      "workspaceLabelSuffix": " ({{label}})",
+      "contextBar": {
+        "project": "Project",
+        "selectProject": "Select project",
+        "noProject": "No project",
+        "searchProjects": "Search projects...",
+        "noProjectsFound": "No projects found.",
+        "privateProject": "Private project"
+      }
+    },
+    "issues": {
+      "surfaceLabel": "Tasks",
+      "newTask": "New Task",
+      "tasks": "Tasks",
+      "empty": {
+        "selectOrganization": "Select an organization to view tasks.",
+        "selectCompany": "Select a company to view tasks."
+      },
+      "errors": {
+        "loadTasks": "load tasks"
+      }
+    },
+    "myIssues": {
+      "breadcrumb": "My Tasks",
+      "empty": {
+        "selectOrganization": "Select an organization to view your tasks.",
+        "selectCompany": "Select a company to view your tasks.",
+        "noTasksAssigned": "No tasks assigned to you."
+      },
+      "errors": {
+        "loadYourTasks": "load your tasks"
+      }
+    }
+  },
+  "nav": {
+    "sidebar": {
+      "newTask": "New Task",
+      "dashboard": "Dashboard",
+      "inbox": "Inbox",
+      "unread": "unread",
+      "unreadChats": "unread chats",
+      "chat": "Chat",
+      "decisions": "Decisions",
+      "decisionsCount": "decisions",
+      "conferenceRoom": "Conference Room",
+      "work": "Work",
+      "tasks": "Tasks",
+      "projects": "Projects",
+      "routines": "Routines",
+      "artifacts": "Artifacts",
+      "cases": "Cases",
+      "goals": "Goals",
+      "workspaces": "Workspaces",
+      "orgSection": "Org",
+      "organization": "Organization",
+      "company": "Company",
+      "agents": "Agents",
+      "skills": "Skills",
+      "connectors": "Connectors",
+      "audit": "Audit",
+      "org": "Org",
+      "timeline": "Timeline",
+      "costs": "Costs",
+      "activity": "Activity",
+      "commentary": "Commentary",
+      "settings": "Settings"
+    },
+    "sidebarNavItem": {
+      "liveCount": "{{liveCount}} live",
+      "attentionNeeded": "attention needed"
+    },
+    "sidebarShell": {
+      "resize": "Resize sidebar"
+    },
+    "sidebarSection": {
+      "actions": "{{label}} actions",
+      "collapse": "Collapse {{label}}",
+      "expand": "Expand {{label}}"
+    },
+    "sidebarCompanyMenu": {
+      "reorder": "Reorder {{name}}",
+      "openSwitcherNamed": "Open {{name}} organization switcher",
+      "openSwitcher": "Open organization switcher",
+      "select": "Select organization",
+      "organizations": "Organizations",
+      "loadFailed": "Couldn't load organizations",
+      "tryAgain": "Try again",
+      "noOrganizations": "No organizations",
+      "createOrganization": "Create organization",
+      "invitePeopleTo": "Invite people to {{name}}",
+      "invitePeople": "Invite people",
+      "signingOut": "Signing out...",
+      "signOut": "Sign out",
+      "openSwitcherNamedCompany": "Open {{name}} company switcher",
+      "openSwitcherCompany": "Open company switcher",
+      "selectCompany": "Select company",
+      "loadFailedCompany": "Couldn't load companies",
+      "noCompanies": "No companies"
+    },
+    "sidebarAccountMenu": {
+      "board": "Board",
+      "signedIn": "Signed in",
+      "localBoard": "Local workspace board",
+      "openMenu": "Open account menu",
+      "account": "Account",
+      "viewProfile": "View profile",
+      "viewCommit": "View commit {{sha}} on GitHub",
+      "sha": "SHA {{sha}}",
+      "settings": "Settings",
+      "invite": "Invite",
+      "documentation": "Documentation",
+      "signOut": "Sign out",
+      "signingOut": "Signing out...",
+      "shareFeedback": "Share feedback",
+      "inviteDescription": "Invite people to your organization.",
+      "docsDescription": "Open Paperclip docs in a new tab.",
+      "endSession": "End this browser session."
+    },
+    "sidebarAgents": {
+      "resumeAgent": "Resume agent",
+      "pauseAgent": "Pause agent",
+      "budgetPaused": "Budget paused",
+      "invalidOrgChain": "Invalid org chain",
+      "builtInAgent": "Built-in agent {{status}}",
+      "invalidReportingChain": "Invalid reporting chain",
+      "agentPausedByBudget": "Agent paused by budget",
+      "openActions": "Open actions for {{name}}",
+      "removeFromStarred": "Remove from starred",
+      "starAgent": "Star agent",
+      "editAgent": "Edit agent",
+      "budgetLimits": "Agent was paused by budget limits",
+      "leaving": "Leaving...",
+      "leaveAgent": "Leave agent",
+      "paused": "Agent paused",
+      "resumed": "Agent resumed",
+      "couldNotPause": "Could not pause agent",
+      "couldNotResume": "Could not resume agent",
+      "agents": "Agents",
+      "newAgent": "New agent",
+      "sectionActions": "Agents section actions",
+      "browse": "Browse agents",
+      "sortLabel": "Agent sort",
+      "sortTop": "Top",
+      "sortAlphabetical": "Alphabetical",
+      "sortRecent": "Recent",
+      "seeAll": "See all agents"
+    },
+    "sidebarProjects": {
+      "projects": "Projects",
+      "newProject": "New project",
+      "sectionActions": "Projects section actions",
+      "browse": "Browse projects",
+      "sortLabel": "Project sort",
+      "sortTop": "Top",
+      "sortAlphabetical": "Alphabetical",
+      "sortRecent": "Recent",
+      "privateProject": "Private project",
+      "pausedByBudget": "Project paused by budget",
+      "openActions": "Open actions for {{name}}",
+      "leaving": "Leaving...",
+      "leaveProject": "Leave project"
+    },
+    "sidebarStarredProjects": {
+      "starred": "Starred projects",
+      "privateProject": "Private project",
+      "pausedByBudget": "Project paused by budget",
+      "openActions": "Open actions for {{name}}",
+      "removeFromStarred": "Remove from starred",
+      "leaveProject": "Leave project"
+    },
+    "sidebarRecentTasks": {
+      "renamed": "Task renamed",
+      "renameFailed": "Task rename failed",
+      "unableRename": "Unable to rename this task.",
+      "archived": "Task archived from inbox",
+      "archiveFailed": "Task archive failed",
+      "unableArchive": "Unable to archive this task from the inbox.",
+      "wakeSkipped": "The assignee wake was skipped.",
+      "restarted": "Task restarted",
+      "pausedByParent": "This task is paused by a parent task. Restart it from the pause root.",
+      "paused": "Task paused",
+      "pauseFailed": "Task pause update failed",
+      "unablePause": "Unable to pause or restart this task.",
+      "recentTasks": "Recent Tasks",
+      "idle": "Idle",
+      "moreActions": "More actions for {{title}}",
+      "rename": "Rename",
+      "archive": "Archive",
+      "pauseRestart": "Pause/Restart",
+      "renameTitle": "Rename task",
+      "renameDescription": "Choose a short, clear name for this task.",
+      "taskName": "Task name"
+    },
+    "sidebarServerInfo": {
+      "unavailable": "Unavailable",
+      "commitUnavailable": "Commit unavailable",
+      "changeStatusUnavailable": "Change status unavailable",
+      "cleanCheckout": "Clean checkout",
+      "staged": "staged",
+      "unstaged": "unstaged",
+      "untracked": "untracked",
+      "localChangesWithParts": "Local changes present ({{parts}})",
+      "localChanges": "Local changes present",
+      "healthUnavailable": "Health unavailable",
+      "server": "Server",
+      "lastRestarted": "Last restarted",
+      "runningCommit": "Running commit",
+      "checkoutState": "Checkout state"
+    },
+    "breadcrumbBar": {
+      "openSidebar": "Open sidebar",
+      "hideProperties": "Hide properties",
+      "showProperties": "Show properties"
+    },
+    "layout": {
+      "skipToMain": "Skip to Main Content",
+      "closeSidebar": "Close sidebar",
+      "companyArchived": "{{name}} is archived",
+      "switchedTo": "Switched to {{name}}."
+    },
+    "mobileBottomNav": {
+      "chat": "Chat",
+      "tasks": "Tasks",
+      "needsYou": "Needs you",
+      "newTaskLower": "New task",
+      "newTask": "New Task",
+      "home": "Home",
+      "agents": "Agents",
+      "inbox": "Inbox",
+      "navLabel": "Mobile navigation"
+    }
+  },
+  "notFound": {
+    "breadcrumb": "Not Found",
+    "companyTitle": "Organization not found",
+    "pageTitle": "Page not found",
+    "prefixDescription": "No organization matches prefix \"{{prefix}}\".",
+    "routeDescription": "This route does not exist.",
+    "requestedPath": "Requested path:",
+    "openDashboard": "Open dashboard",
+    "goHome": "Go home"
+  },
+  "projects": {
+    "list": {
+      "breadcrumb": "Projects",
+      "selectCompany": "Select an organization to view projects.",
+      "noProjects": "No projects yet.",
+      "addProject": "Add Project",
+      "noMatches": "No projects match your search.",
+      "mine": "My Projects",
+      "other": "Other Projects",
+      "projectNoun": "project",
+      "projectsNoun": "projects",
+      "taskNoun": "task",
+      "tasksNoun": "tasks",
+      "privateProject": "Private project"
+    },
+    "tilePicker": {
+      "changeIconColor": "Change project icon and color",
+      "icon": "Icon",
+      "searchIcons": "Search icons...",
+      "noIcons": "No icons match",
+      "color": "Color",
+      "resetNeutral": "Reset to neutral gray",
+      "neutral": "Neutral (default)",
+      "selectColor": "Select color {{color}}"
+    },
+    "detail": {
+      "projectFallback": "Project",
+      "archivedToast": "\"{{name}}\" has been archived",
+      "unarchivedToast": "\"{{name}}\" has been unarchived",
+      "archiveFailed": "Failed to archive project",
+      "unarchiveFailed": "Failed to unarchive project",
+      "pausedByBudget": "Paused by budget hard stop",
+      "managedBy": "Managed by {{plugin}}",
+      "leftNotice": "You left this project. It no longer appears in your sidebar.",
+      "dismissMembership": "Dismiss project membership notice",
+      "summaryTitle": "Project summary",
+      "summaryDescription": "Summarizer keeps the latest project status, next step, and operator-needed items here.",
+      "tabs": {
+        "tasks": "Tasks",
+        "pluginOperations": "Plugin operations",
+        "workspaces": "Workspaces",
+        "configuration": "Configuration",
+        "budget": "Budget"
+      },
+      "loadingWorkspaces": "Loading workspaces..."
+    }
+  },
+  "settings": {
+    "breadcrumb": "Settings",
+    "company": {
+      "companyFallback": "Company",
+      "organizationFallback": "Organization",
+      "archivedTitle": "{{name}} is archived",
+      "switchedTo": "Switched to {{name}}.",
+      "unarchiveHint": "You can unarchive it from this list.",
+      "noCompany": "No organization selected. Select an organization from the switcher above.",
+      "general": "General",
+      "nameLabel": "Organization name",
+      "nameHint": "The display name for your organization.",
+      "renameWarning": "Renaming can change this company's task ID prefix. Existing task IDs are renumbered and old task links stop resolving.",
+      "descriptionHint": "Optional description shown in the organization profile.",
+      "descriptionPlaceholder": "Optional organization description",
+      "appearance": "Appearance",
+      "logoLabel": "Logo",
+      "logoHint": "Upload a PNG, JPEG, WEBP, GIF, or SVG logo image.",
+      "removingLogo": "Removing...",
+      "removeLogo": "Remove logo",
+      "uploadingLogo": "Uploading logo...",
+      "saveChanges": "Save changes",
+      "saved": "Saved",
+      "hiring": "Hiring",
+      "requireApproval": "Require board approval for new hires",
+      "requireApprovalHint": "New agent hires stay pending until approved by board.",
+      "dangerZone": "Danger Zone",
+      "archiveHint": "Archive this organization to hide it from the sidebar. This persists in the database.",
+      "archiveConfirm": "Archive organization \"{{name}}\"? It will be hidden from the sidebar.",
+      "archiving": "Archiving...",
+      "alreadyArchived": "Already archived",
+      "archiveButton": "Archive organization"
+    },
+    "profile": {
+      "title": "Profile",
+      "description": "Control how your account appears in the sidebar and other board surfaces.",
+      "loading": "Loading profile...",
+      "loadFailed": "Failed to load profile.",
+      "selectCompanyForAvatar": "Select an organization before uploading a profile avatar.",
+      "uploadHintCompany": "Stored in Paperclip file storage for {{name}}.",
+      "uploadHintNoCompany": "Select an organization to upload an avatar into Paperclip storage.",
+      "changePhoto": "Change photo",
+      "uploadPhoto": "Upload photo",
+      "noEmail": "No email",
+      "avatarHint": "Click the avatar to upload a new image. {{hint}}",
+      "displayName": "Display name",
+      "displayNameHint": "Shown in the sidebar account footer and comment author surfaces.",
+      "email": "Email",
+      "emailHint": "Email is managed by your auth session and is read-only here.",
+      "saveProfile": "Save profile"
     }
   }
 }

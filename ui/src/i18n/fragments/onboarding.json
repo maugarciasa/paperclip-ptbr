@@ -1,0 +1,94 @@
+{
+  "en": {
+    "onboarding": {
+      "connectModelPreview": {
+        "title": "Connect a model",
+        "lede": "Paperclip works with your existing subscription or API keys.",
+        "modelSource": "Model source",
+        "useApiKeys": "Use API keys instead",
+        "connect": "Connect"
+      },
+      "credentialModeLink": {
+        "subscription": "Use subscription instead",
+        "api": "Use API key instead"
+      },
+      "modelSourceTiles": {
+        "subscription": "Subscription",
+        "api": "API key",
+        "advanced": "Custom Gateway"
+      },
+      "gatewaySetup": {
+        "trigger": "Use a custom gateway",
+        "title": "Custom gateway connection",
+        "description": "Save the connection, then choose a model and test it with your agent.",
+        "submitLabel": "Save connection"
+      },
+      "savedProviderKeySelect": {
+        "apiKeyLabel": "API key",
+        "subscriptionLabel": "Subscription",
+        "savedApiKey": "Saved API key",
+        "savedSubscription": "Saved subscription",
+        "enterNewApiKey": "Enter a new API key",
+        "signInAnotherAccount": "Sign in to another account",
+        "checking": "Checking saved API keys…",
+        "loadError": "Some saved keys could not be loaded. You can still enter a new key.",
+        "reuseKey": "Reuse this saved key for this agent.",
+        "reuseSubscription": "Reuse this saved subscription for this agent."
+      },
+      "stepper": {
+        "nameOrganization": "Name your organization",
+        "createFirstAgent": "Create your first agent",
+        "connectModel": "Connect a model",
+        "review": "Review",
+        "stepFallback": "Step {{step}}",
+        "progress": "Step {{step}} of {{total}}"
+      }
+    }
+  },
+  "pt-BR": {
+    "onboarding": {
+      "connectModelPreview": {
+        "title": "Conecte um modelo",
+        "lede": "O Paperclip funciona com sua assinatura atual ou com chaves de API.",
+        "modelSource": "Fonte do modelo",
+        "useApiKeys": "Usar chaves de API em vez disso",
+        "connect": "Conectar"
+      },
+      "credentialModeLink": {
+        "subscription": "Usar assinatura em vez disso",
+        "api": "Usar chave de API em vez disso"
+      },
+      "modelSourceTiles": {
+        "subscription": "Assinatura",
+        "api": "Chave de API",
+        "advanced": "Gateway personalizado"
+      },
+      "gatewaySetup": {
+        "trigger": "Usar um gateway personalizado",
+        "title": "Conexão com gateway personalizado",
+        "description": "Salve a conexão e depois escolha um modelo e teste-o com seu agente.",
+        "submitLabel": "Salvar conexão"
+      },
+      "savedProviderKeySelect": {
+        "apiKeyLabel": "Chave de API",
+        "subscriptionLabel": "Assinatura",
+        "savedApiKey": "Chave de API salva",
+        "savedSubscription": "Assinatura salva",
+        "enterNewApiKey": "Informar uma nova chave de API",
+        "signInAnotherAccount": "Entrar em outra conta",
+        "checking": "Verificando chaves de API salvas…",
+        "loadError": "Não foi possível carregar algumas chaves salvas. Você ainda pode informar uma nova chave.",
+        "reuseKey": "Reutilizar esta chave salva para este agente.",
+        "reuseSubscription": "Reutilizar esta assinatura salva para este agente."
+      },
+      "stepper": {
+        "nameOrganization": "Dê um nome à sua empresa",
+        "createFirstAgent": "Crie seu primeiro agente",
+        "connectModel": "Conecte um modelo",
+        "review": "Revisão",
+        "stepFallback": "Etapa {{step}}",
+        "progress": "Etapa {{step}} de {{total}}"
+      }
+    }
+  }
+}

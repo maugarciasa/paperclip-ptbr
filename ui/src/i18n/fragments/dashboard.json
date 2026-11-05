@@ -1,0 +1,128 @@
+{
+  "en": {
+    "dashboard": {
+      "breadcrumb": "Dashboard",
+      "selectCompany": "Create or select an organization to view the dashboard.",
+      "emptyCompanies": {
+        "message": "Welcome to Paperclip. Set up your first organization and agent to get started.",
+        "action": "Get Started"
+      },
+      "banner": {
+        "importedPausedSingular": "{{n}} imported agent is paused and will not run.",
+        "importedPausedPlural": "{{n}} imported agents are paused and will not run.",
+        "resuming": "Resuming…",
+        "resumeAll": "Resume all",
+        "importedBody": "Agents from an organization import arrive paused as a safety default. Resume them so assigned tasks can start.",
+        "allPausedTitle": "All agents in this organization are paused — nothing will run.",
+        "allPausedReview": "Review agents",
+        "allPausedBody": "Resume at least one agent to let assigned tasks start."
+      },
+      "noAgents": {
+        "message": "You have no agents.",
+        "action": "Create one here"
+      },
+      "budgetIncidentSingular": "{{n}} active budget incident",
+      "budgetIncidentPlural": "{{n}} active budget incidents",
+      "budgetIncidentDetails": "{{agents}} agents paused · {{projects}} projects paused · {{approvals}} pending budget approvals",
+      "openBudgets": "Open budgets",
+      "metrics": {
+        "agentsEnabled": "Agents Enabled",
+        "agentsRunning": "{{n}} running",
+        "agentsPaused": "{{n}} paused",
+        "agentsErrors": "{{n}} errors",
+        "tasksInProgress": "Tasks In Progress",
+        "tasksOpen": "{{n}} open",
+        "tasksBlocked": "{{n}} blocked",
+        "monthSpend": "Month Spend",
+        "unlimitedBudget": "Unlimited budget",
+        "monthBudgetUtilization": "{{percent}}% of {{budget}} budget",
+        "pendingApprovals": "Pending Approvals",
+        "overridesAwaiting": "{{n}} budget overrides awaiting board review",
+        "awaitingReview": "Awaiting board review"
+      },
+      "charts": {
+        "runActivity": "Run Activity",
+        "priority": "Tasks by Priority",
+        "status": "Tasks by Status",
+        "successRate": "Success Rate",
+        "last14Days": "Last 14 days"
+      },
+      "recentActivity": "Recent Activity",
+      "recentTasks": "Recent Tasks",
+      "noTasks": "No tasks yet.",
+      "live": {
+        "liveRuns": "Live runs",
+        "createCompany": "Create an organization to view live runs.",
+        "selectCompany": "Select an organization to view live runs.",
+        "title": "Live agent runs",
+        "description": "Active runs first, followed by the most recent completed runs.",
+        "showingUpTo": "Showing up to {{n}}",
+        "panelTitle": "Active / recent",
+        "empty": "No active or recent agent runs."
+      }
+    }
+  },
+  "pt-BR": {
+    "dashboard": {
+      "breadcrumb": "Painel",
+      "selectCompany": "Crie ou selecione uma empresa para ver o painel.",
+      "emptyCompanies": {
+        "message": "Bem-vindo ao Paperclip. Configure sua primeira empresa e seu primeiro agente para começar.",
+        "action": "Começar"
+      },
+      "banner": {
+        "importedPausedSingular": "{{n}} agente importado está pausado e não será executado.",
+        "importedPausedPlural": "{{n}} agentes importados estão pausados e não serão executados.",
+        "resuming": "Retomando…",
+        "resumeAll": "Retomar todos",
+        "importedBody": "Agentes de uma importação de empresa chegam pausados como padrão de segurança. Retome-os para que as tarefas atribuídas possam começar.",
+        "allPausedTitle": "Todos os agentes desta empresa estão pausados — nada será executado.",
+        "allPausedReview": "Revisar agentes",
+        "allPausedBody": "Retome pelo menos um agente para que as tarefas atribuídas possam começar."
+      },
+      "noAgents": {
+        "message": "Você não tem agentes.",
+        "action": "Criar um aqui"
+      },
+      "budgetIncidentSingular": "{{n}} incidente de orçamento ativo",
+      "budgetIncidentPlural": "{{n}} incidentes de orçamento ativos",
+      "budgetIncidentDetails": "{{agents}} agentes pausados · {{projects}} projetos pausados · {{approvals}} aprovações de orçamento pendentes",
+      "openBudgets": "Abrir orçamentos",
+      "metrics": {
+        "agentsEnabled": "Agentes habilitados",
+        "agentsRunning": "{{n}} em execução",
+        "agentsPaused": "{{n}} pausados",
+        "agentsErrors": "{{n}} com erros",
+        "tasksInProgress": "Tarefas em andamento",
+        "tasksOpen": "{{n}} abertas",
+        "tasksBlocked": "{{n}} bloqueadas",
+        "monthSpend": "Gasto do mês",
+        "unlimitedBudget": "Orçamento ilimitado",
+        "monthBudgetUtilization": "{{percent}}% de {{budget}} do orçamento",
+        "pendingApprovals": "Aprovações pendentes",
+        "overridesAwaiting": "{{n}} substituições de orçamento aguardando revisão do Board",
+        "awaitingReview": "Aguardando revisão do Board"
+      },
+      "charts": {
+        "runActivity": "Atividade de execuções",
+        "priority": "Tarefas por prioridade",
+        "status": "Tarefas por status",
+        "successRate": "Taxa de sucesso",
+        "last14Days": "Últimos 14 dias"
+      },
+      "recentActivity": "Atividade recente",
+      "recentTasks": "Tarefas recentes",
+      "noTasks": "Nenhuma tarefa ainda.",
+      "live": {
+        "liveRuns": "Execuções ao vivo",
+        "createCompany": "Crie uma empresa para ver as execuções ao vivo.",
+        "selectCompany": "Selecione uma empresa para ver as execuções ao vivo.",
+        "title": "Execuções de agentes ao vivo",
+        "description": "Execuções ativas primeiro, seguidas pelas execuções concluídas mais recentes.",
+        "showingUpTo": "Mostrando até {{n}}",
+        "panelTitle": "Ativas / recentes",
+        "empty": "Nenhuma execução de agente ativa ou recente."
+      }
+    }
+  }
+}

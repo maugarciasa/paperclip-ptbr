@@ -1,0 +1,80 @@
+{
+  "en": {
+    "sidePanel": {
+      "frame": {
+        "label": "Side panel"
+      },
+      "toggleButton": {
+        "label": "Toggle side panel"
+      },
+      "windowControls": {
+        "restore": "Restore side panel",
+        "maximize": "Maximize side panel",
+        "close": "Close side panel"
+      },
+      "launcher": {
+        "loading": "Loading…",
+        "alreadyOpen": "Already open",
+        "title": "Open a side panel tab",
+        "description": "Choose a view or resource to open.",
+        "placeholder": "Search tabs and resources…",
+        "emptyMessage": "No matching tabs or resources."
+      },
+      "mobileTabs": {
+        "switchTabs": "Switch tabs, {{total}} open",
+        "chooseTab": "Choose a tab",
+        "openTabs": "Open tabs",
+        "close": "Close {{label}}"
+      },
+      "tab": {
+        "close": "Close {{label}}"
+      },
+      "tabs": {
+        "addLabel": "Open a new tab",
+        "tabClosed": "Tab closed.",
+        "lastTabClosed": "Last tab closed. Choose something to open.",
+        "moved": "Moved {{label}} to position {{position}} of {{total}}.",
+        "tabFallback": "tab"
+      }
+    }
+  },
+  "pt-BR": {
+    "sidePanel": {
+      "frame": {
+        "label": "Painel lateral"
+      },
+      "toggleButton": {
+        "label": "Alternar painel lateral"
+      },
+      "windowControls": {
+        "restore": "Restaurar painel lateral",
+        "maximize": "Maximizar painel lateral",
+        "close": "Fechar painel lateral"
+      },
+      "launcher": {
+        "loading": "Carregando…",
+        "alreadyOpen": "Já aberto",
+        "title": "Abrir uma aba do painel lateral",
+        "description": "Escolha uma visão ou recurso para abrir.",
+        "placeholder": "Buscar abas e recursos…",
+        "emptyMessage": "Nenhuma aba ou recurso correspondente."
+      },
+      "mobileTabs": {
+        "switchTabs": "Alternar abas, {{total}} abertas",
+        "chooseTab": "Escolha uma aba",
+        "openTabs": "Abas abertas",
+        "close": "Fechar {{label}}"
+      },
+      "tab": {
+        "close": "Fechar {{label}}"
+      },
+      "tabs": {
+        "addLabel": "Abrir uma nova aba",
+        "tabClosed": "Aba fechada.",
+        "lastTabClosed": "Última aba fechada. Escolha algo para abrir.",
+        "moved": "{{label}} movida para a posição {{position}} de {{total}}.",
+        "tabFallback": "Aba"
+      }
+    }
+  }
+}

@@ -1,9 +1,1797 @@
 {
+  "agents": {
+    "detail": {
+      "actionErrors": {
+        "action": "A ação falhou",
+        "bundleResource": "Falha ao atualizar o recurso do pacote",
+        "disableSchedule": "Falha ao desativar a agenda da rotina",
+        "enableSchedule": "Falha ao ativar a agenda da rotina",
+        "noAgentReference": "Referência de agente ausente",
+        "permissions": "Falha ao atualizar as permissões",
+        "runRoutine": "Falha ao executar a rotina integrada",
+        "saveBeforeName": "Salve ou descarte suas alterações não salvas antes de alterar o nome.",
+        "saveBeforeTitle": "Salve ou descarte suas alterações não salvas antes de alterar o título.",
+        "saveChange": "Não foi possível salvar esta alteração",
+        "uploadCompany": "Selecione uma empresa para enviar imagens",
+        "uploadOrganization": "Selecione uma empresa para enviar imagens"
+      },
+      "approval": {
+        "approve": "Aprovar agente",
+        "pending": "Este agente aguarda aprovação do Board e ainda não pode ser invocado."
+      },
+      "banner": {
+        "chainRepairDefault": "Atribua este agente a um gestor ou raiz ativo, ou pause ou encerre explicitamente o agente ou a subárvore afetada.",
+        "chainRepairNeeded": "{{name}} não pode aceitar tarefas nem iniciar execuções até que a cadeia hierárquica seja corrigida.",
+        "dismissNotice": "Dispensar aviso de participação no agente",
+        "escalationPaused": "O caminho de escalonamento está pausado",
+        "invalidChain": "Cadeia hierárquica inválida",
+        "leftNotice": "Você saiu deste agente. Ele não aparece mais na sua barra lateral."
+      },
+      "breadcrumbs": {
+        "run": "Execução {{id}}"
+      },
+      "builtIn": {
+        "description": "Configure-o como qualquer agente: modelo, instruções e orçamento. Ele pode ser pausado, mas não excluído; pausá-lo pausa {{feature}}.",
+        "resetDefaults": "Redefinir para o padrão",
+        "resetting": "Redefinindo…",
+        "shipsWith": "Vem com o Paperclip e alimenta",
+        "title": "Agente integrado"
+      },
+      "config": {
+        "adapterNote": "A configuração salva do adapter afeta a próxima execução. As execuções ativas mantêm a configuração com que começaram, e alterações podem iniciar uma nova sessão do adapter.",
+        "apiKeys": "Chaves de API",
+        "changed": "Alterado:",
+        "noRevisions": "Nenhuma revisão da configuração ainda.",
+        "noTrackedChanges": "nenhuma alteração rastreada",
+        "restore": "Restaurar",
+        "revisions": "Revisões da configuração",
+        "saveFailed": "Falha ao salvar",
+        "saveFailedFallback": "Não foi possível salvar o agente",
+        "saved": "Agente salvo",
+        "total": "{{count}} no total"
+      },
+      "costs": {
+        "cached": "Em cache",
+        "cachedTokens": "Tokens em cache",
+        "cost": "Custo",
+        "input": "Entrada",
+        "inputTokens": "Tokens de entrada",
+        "output": "Saída",
+        "outputTokens": "Tokens de saída",
+        "run": "Execução",
+        "totalCost": "Custo total",
+        "unavailable": "Indisponível"
+      },
+      "discardChanges": "Descartar as alterações não salvas da configuração do agente?",
+      "fallbackAgentName": "Agente",
+      "fileNotice": {
+        "storageWarningTitle": "Aviso de armazenamento do agente",
+        "syncFailedTitle": "Falha ao sincronizar os arquivos do agente nesta execução"
+      },
+      "header": {
+        "agentHistory": "Histórico do agente",
+        "assignTask": "Atribuir tarefa",
+        "avatarLabel": "Avatar de {{name}}",
+        "board": "Board",
+        "namePlaceholder": "Nome do agente",
+        "pauseDescription": "{{feature}} depende deste agente. Enquanto estiver pausado, a geração de {{featureLower}} é ignorada e a página de {{feature}} exibe um aviso.",
+        "pauseTitle": "Pausar {{name}}?",
+        "reportsTo": "Reporta a",
+        "runHeartbeat": "Executar Heartbeat",
+        "workDisabledReason": "Corrija a cadeia hierárquica deste agente antes de atribuir tarefas ou iniciar execuções"
+      },
+      "instructions": {
+        "addFile": "Adicionar arquivo do agente",
+        "advanced": "Avançado",
+        "binaryPreserved": "Este arquivo é preservado com o diretório do agente. Baixe-o para ver o conteúdo.",
+        "candidateNotRetrieved": "Estas edições de instruções ainda não foram recuperadas.",
+        "compareCurrent": "Comparar instruções atuais",
+        "contentPlaceholder": "Conteúdo do arquivo",
+        "copyFileAria": "Copiar arquivo de instruções como markdown",
+        "copyFileTitle": "Copiar como markdown",
+        "copyPreserved": "Copiar edições preservadas",
+        "copyPreservedAria": "Copiar edições preservadas de {{file}}",
+        "deleteFile": "Excluir arquivo",
+        "deleteFileAria": "Excluir {{file}}",
+        "deleteFileConfirm": "Excluir {{file}}?",
+        "deprecatedFile": "Arquivo virtual obsoleto",
+        "download": "Baixar {{file}}",
+        "draftStale": "As instruções atuais foram alteradas depois que este rascunho foi carregado. Atualize a revisão atual, compare as instruções e salve novamente o rascunho resolvido.",
+        "editFile": "Editar {{file}}",
+        "editorAria": "Editor de arquivo de instruções",
+        "emptyFile": "Este arquivo de instruções está vazio.",
+        "entry": "principal",
+        "entryChanged": "A entrada de instruções foi alterada. Estas edições permanecem preservadas para o arquivo original.",
+        "entryFile": "Arquivo de entrada",
+        "entryFileTip": "O arquivo principal que o agente lê primeiro ao carregar as instruções. O padrão é AGENTS.md.",
+        "external": "Externo",
+        "files": "Arquivos",
+        "languageFile": "Arquivo {{language}}",
+        "managed": "Gerenciado",
+        "managedByYou": "Gerenciado por você",
+        "managedExternally": "Gerenciado externamente",
+        "managedPath": "(gerenciado)",
+        "markdownPlaceholder": "# Instruções do agente",
+        "mode": "Modo",
+        "modeTip": "Gerenciado: o Paperclip armazena e serve o pacote de instruções. Externo: você informa um caminho no disco onde as instruções ficam.",
+        "newFileInBundle": "Novo arquivo neste pacote",
+        "preservedEdits": "Edições de instruções preservadas",
+        "preservedEditsFor": "Edições preservadas de {{file}}",
+        "preservedEditsHint": "Sessões antigas somente com instruções têm edições para revisar.",
+        "preservedRemain": "Suas edições preservadas continuam disponíveis.",
+        "readOnlyNotice": "Somente leitura: {{file}}. Para manter alguma dessas edições em {{currentFile}}, copie-as e edite explicitamente a entrada atual.",
+        "refreshRevision": "Atualizar revisão atual",
+        "reviewPreserved": "Revisar edições preservadas",
+        "reviewingPreserved": "Revisando edições preservadas. Salve para aplicar o rascunho resolvido e encerrar esta edição preservada.",
+        "revisionSavedPending": "Revisão salva. O arquivo de instruções ainda precisa ser reconstruído a partir da revisão salva.",
+        "rootPath": "Caminho raiz",
+        "rootPathTip": "O diretório absoluto no disco onde fica o pacote de instruções. No modo gerenciado, o Paperclip define isso automaticamente.",
+        "saveNote": "As instruções salvas afetam a próxima execução. As execuções ativas mantêm as instruções com que começaram, e alterações podem iniciar uma nova sessão do adapter.",
+        "stopEditing": "Parar de editar",
+        "stopEditingFile": "Parar de editar {{file}}",
+        "textLanguage": "texto",
+        "unavailable": "Os pacotes de instruções só estão disponíveis para adapters locais.",
+        "unsavedRetained": "Suas edições não salvas foram mantidas.",
+        "virtualFile": "arquivo virtual",
+        "virtualFileTip": "Prompt inline legado: este arquivo virtual obsoleto preserva o conteúdo antigo do promptTemplate"
+      },
+      "keys": {
+        "activeKeys": "Chaves ativas",
+        "clipboardUnavailable": "O acesso à área de transferência não está disponível.",
+        "copied": "Copiado!",
+        "copyFailed": "Falha ao copiar",
+        "createHeading": "Criar chave de API",
+        "createHint": "As chaves de API permitem que este agente autentique chamadas ao servidor do Paperclip.",
+        "createdOn": "Criada em",
+        "dismiss": "Dispensar",
+        "empty": "Nenhuma chave de API ativa.",
+        "hide": "Ocultar",
+        "loading": "Carregando chaves...",
+        "namePlaceholder": "Nome da chave (ex.: produção)",
+        "revoke": "Revogar",
+        "revokedKeys": "Chaves revogadas",
+        "revokedOn": "Revogada em",
+        "show": "Mostrar",
+        "tokenCreated": "Chave de API criada. Copie-a agora, pois ela não será exibida novamente."
+      },
+      "latestRun": {
+        "latest": "Última execução",
+        "live": "Execução ao vivo"
+      },
+      "overview": {
+        "activity": "Atividade",
+        "budgetUsed": "Orçamento usado",
+        "costs": "Custos",
+        "created": "Criado",
+        "createdBy": "Criado por",
+        "creatorLoadFailed": "Não foi possível carregar o criador",
+        "directReports": "Subordinados diretos",
+        "eventsThisWeek": "Eventos nesta semana",
+        "failedLastTwoDays": "{{count}} com falha nos últimos 2 dias",
+        "last14Days": "Últimos 14 dias",
+        "monthToDate": "Mês até agora",
+        "moreTasks": "+{{count}} tarefas a mais",
+        "noMonthlyBudget": "Nenhum orçamento mensal definido",
+        "noRecentTasks": "Nenhuma tarefa recente.",
+        "noSkills": "Nenhuma skill habilitada.",
+        "ofThisMonth": "de {{amount}} neste mês",
+        "profile": "Perfil",
+        "recentTasks": "Tarefas recentes",
+        "recentTasksSection": "Tarefas recentes",
+        "runActivity": "Atividade das execuções",
+        "seeAll": "Ver todas",
+        "seeAllTasks": "Ver todas as tarefas",
+        "skillsEnabled": "{{count}} habilitadas",
+        "successRate": "Taxa de sucesso",
+        "tasksByPriority": "Tarefas por prioridade",
+        "tasksByStatus": "Tarefas por status"
+      },
+      "page": {
+        "changesSaved": "Alterações salvas",
+        "discard": "Descartar",
+        "discardChanges": "Descartar alterações",
+        "keepEditing": "Continuar editando",
+        "leaveDescription": "Você tem alterações não salvas em {{section}} de {{name}}. Se continuar, elas serão perdidas.",
+        "leaveTitle": "Descartar alterações não salvas?",
+        "loadingConfiguration": "Carregando configuração…",
+        "noUnsavedChanges": "Nenhuma alteração pendente",
+        "saveChanges": "Salvar alterações",
+        "saving": "Salvando…",
+        "savingChanges": "Salvando alterações…",
+        "sectionConfiguration": "configuração",
+        "sectionHarness": "configurações do harness",
+        "sectionInstructions": "instruções",
+        "sectionSecrets": "segredos e variáveis",
+        "unsavedChanges": "Alterações não salvas"
+      },
+      "permissions": {
+        "canAssignTasks": "Pode atribuir tarefas",
+        "canCreateAgents": "Pode criar novos agentes",
+        "canCreateAgentsHint": "Permite que este agente crie ou contrate agentes. Isso também concede autoridade para atribuir tarefas.",
+        "canCreateSkills": "Pode criar ou importar skills",
+        "canCreateSkillsHint": "Permite que este agente instale, importe, crie e analise skills da empresa sem criar agentes.",
+        "canCreateSkillsHintOrg": "Permite que este agente instale, importe, crie e analise skills da empresa sem criar agentes.",
+        "capabilities": "Capacidades",
+        "heading": "Permissões",
+        "hintCeo": "Ativado automaticamente para agentes CEO.",
+        "hintCreator": "Ativado automaticamente enquanto este agente puder criar novos agentes.",
+        "hintDisabled": "Desativado, a menos que seja concedido explicitamente.",
+        "hintExplicit": "Ativado por concessão explícita de permissão da empresa.",
+        "hintExplicitOrg": "Ativado por concessão explícita de permissão da empresa.",
+        "hintSimple": "Ativado pelos padrões simples de atribuição de tarefas da empresa.",
+        "hintSimpleOrg": "Ativado pelos padrões simples de atribuição de tarefas da empresa."
+      },
+      "runDetail": {
+        "claudeLogin": "Fazer login no Claude Code",
+        "claudeLoginFailed": "Falha ao executar o login do Claude",
+        "claudeLoginRunning": "Executando claude login...",
+        "clearSessionConfirmMany": "Limpar a sessão de {{count}} issues tocadas por esta execução?",
+        "clearSessionConfirmOne": "Limpar a sessão de {{count}} issue tocada por esta execução?",
+        "clearSessionFailed": "Falha ao limpar as sessões",
+        "clearSessionTasks": "limpar a sessão destas tarefas",
+        "clearingSession": "limpando a sessão...",
+        "duration": "Duração",
+        "exitCode": "Código de saída",
+        "githubIdentityHistory": "Histórico de identidade do GitHub",
+        "grokNotice": "Executa no Grok Bot. Uso não informado. Parar esta sessão revoga a autoridade do Paperclip; a execução remota pode continuar. Abra o app de desktop do Grok Bot para inspecioná-la. Esta visualização contém atividade informada pelo Paperclip.",
+        "inspectRun": "Inspecionar execução",
+        "loginUrl": "URL de login:",
+        "noGithubOperation": "Nenhuma operação do GitHub registrada",
+        "noResponsiblePerson": "Nenhuma pessoa responsável",
+        "onBehalfOf": "Em nome de",
+        "rerunWithTrace": "Executar novamente com rastreamento do provedor",
+        "resume": "Retomar",
+        "resumeFailed": "Falha ao retomar a execução",
+        "resumeSkipped": "A solicitação de retomada foi ignorada.",
+        "resuming": "Retomando…",
+        "retryFailed": "Falha ao repetir a execução",
+        "retrying": "Tentando novamente…",
+        "session": "Sessão",
+        "sessionAfter": "Depois",
+        "sessionBefore": "Antes",
+        "sessionChanged": "(alterada)",
+        "sessionId": "ID",
+        "signal": "sinal",
+        "startingTrace": "Iniciando…",
+        "stopFailed": "Falha ao parar a execução",
+        "tasksTouched": "Tarefas tocadas",
+        "traceRerunSkipped": "A nova execução com rastreamento foi ignorada."
+      },
+      "runs": {
+        "back": "Voltar para as execuções",
+        "empty": "Nenhuma execução ainda.",
+        "loading": "Carregando execução…",
+        "tokensAbbr": "tok",
+        "tryAgain": "Tentar novamente",
+        "unavailable": "Esta execução não está disponível para este agente.",
+        "usageUnavailable": "Uso e custo indisponíveis"
+      },
+      "sources": {
+        "assignment": "Atribuição",
+        "automation": "Automação",
+        "onDemand": "Sob demanda",
+        "timer": "Temporizador"
+      },
+      "tabs": {
+        "audit": "Auditoria",
+        "budget": "Orçamento",
+        "channels": "Canais",
+        "configuration": "Configuração",
+        "dashboard": "Painel",
+        "instructions": "Instruções",
+        "runs": "Execuções",
+        "secrets": "Segredos",
+        "skills": "Skills",
+        "tools": "Ferramentas"
+      },
+      "viewDescription": {
+        "activity": "Tudo o que {{name}} fez e tudo o que foi feito com {{name}}.",
+        "costs": "Quanto {{name}} gastou, por modelo.",
+        "permissions": "O que {{name}} pode fazer sem pedir permissão, e onde.",
+        "runs": "Todas as execuções de {{name}}, das mais recentes para as mais antigas.",
+        "runtime": "Como {{name}} executa: harness, modelo e ambiente.",
+        "secrets": "Segredos que este agente pode acessar. Os valores nunca são exibidos aqui."
+      }
+    },
+    "environment": {
+      "loading": "Carregando ambiente",
+      "local": "Local",
+      "localTitle": "Local - Host do Paperclip",
+      "managed": "Gerenciado pelo Paperclip",
+      "paperclipHost": "Host do Paperclip",
+      "sandbox": "Sandbox",
+      "sandboxProvider": "Provedor de sandbox {{provider}}",
+      "unknown": "Ambiente desconhecido",
+      "unknownTitle": "Ambiente desconhecido - {{environmentId}}"
+    },
+    "list": {
+      "agentNoun": "agente",
+      "agentsNoun": "agentes",
+      "breadcrumb": "Agentes",
+      "chat": "Chat",
+      "createFirst": "Crie seu primeiro agente para começar.",
+      "invalidChain": "Cadeia hierárquica inválida",
+      "lastHeartbeat": "Último heartbeat",
+      "listView": "Visualização em lista",
+      "live": "Ao vivo",
+      "newAgent": "Novo agente",
+      "noHierarchy": "Nenhuma hierarquia organizacional definida.",
+      "noMatches": "Nenhum agente corresponde à sua busca e ao status selecionado.",
+      "noMatchesStatus": "Nenhum agente corresponde ao status selecionado.",
+      "orgChartView": "Visualização do organograma",
+      "selectCompany": "Selecione uma empresa para visualizar os agentes.",
+      "selectCompanyToView": "Selecione uma empresa para visualizar os agentes.",
+      "setUp": "Configurar",
+      "viewMode": "Modo de visualização"
+    },
+    "newAgent": {
+      "breadcrumb": "Novo agente"
+    },
+    "pluginDetail": {
+      "agentUnavailable": "Agente indisponível",
+      "loadingView": "Carregando visualização do agente…",
+      "pluginView": "Visualização do plugin",
+      "pluginViewUnavailable": "Esta visualização do plugin está indisponível",
+      "viewUnavailable": "Visualização do agente indisponível"
+    }
+  },
   "app": {
+    "cloudCreateUnavailable": "As empresas são criadas no Paperclip Cloud. Esta instância não consegue se conectar a ele agora — tente novamente pelo seu portfólio no Cloud.",
     "noCompanies": {
-      "title": "Crie sua primeira empresa",
       "description": "Comece criando uma empresa.",
-      "newCompany": "Nova empresa"
+      "newCompany": "Nova empresa",
+      "title": "Crie sua primeira empresa"
+    }
+  },
+  "approvals": {
+    "breadcrumb": "Aprovações",
+    "detail": {
+      "agentFallback": "Agente",
+      "approve": "Aprovar",
+      "backToApprovals": "Voltar para aprovações",
+      "boardName": "Board",
+      "breadcrumbFallback": "Aprovação",
+      "budgetStopAfter": ".",
+      "budgetStopBefore": "Resolva esta parada de orçamento nos controles de orçamento em",
+      "commentFailed": "Falha ao comentar",
+      "commentPlaceholder": "Adicione um comentário...",
+      "comments": "Comentários ({{n}})",
+      "confirmedBody": "O agente solicitante foi notificado para revisar esta aprovação e as tarefas vinculadas.",
+      "confirmedTitle": "Aprovação confirmada",
+      "decisionNote": "Observação da decisão: {{note}}",
+      "deleteDisapproved": "Excluir agente reprovado",
+      "deleteDisapprovedConfirm": "Excluir este agente reprovado? Isso não pode ser desfeito.",
+      "deleteFailed": "Falha ao excluir",
+      "linkedTasks": "Tarefas vinculadas",
+      "linkedTasksHint": "As tarefas vinculadas permanecem abertas até que o agente solicitante acompanhe e as feche.",
+      "markResubmitted": "Marcar como reenviada",
+      "notFound": "Aprovação não encontrada.",
+      "openHiredAgent": "Abrir agente contratado",
+      "postComment": "Publicar comentário",
+      "posting": "Publicando…",
+      "reject": "Rejeitar",
+      "requestRevision": "Solicitar revisão",
+      "requestedBy": "Solicitado por",
+      "reviewLinkedTask": "Revisar tarefa vinculada",
+      "reviewLinkedTasks": "Revisar tarefas vinculadas",
+      "seeFullRequest": "Ver solicitação completa"
+    },
+    "emptyAll": "Nenhuma aprovação ainda.",
+    "emptyPending": "Nenhuma aprovação pendente.",
+    "selectCompany": "Selecione uma empresa primeiro.",
+    "tabs": {
+      "all": "Todas",
+      "pending": "Pendentes"
+    }
+  },
+  "auth": {
+    "errors": {
+      "requiredFields": "Preencha todos os campos obrigatórios."
+    },
+    "fields": {
+      "email": "E-mail",
+      "password": "Senha"
+    },
+    "signIn": {
+      "description": "Use seu e-mail e senha para acessar esta instância.",
+      "title": "Entrar no Paperclip"
+    },
+    "signUp": {
+      "description": "Crie uma conta para esta instância. A confirmação por e-mail não é necessária na v1.",
+      "title": "Crie sua conta no Paperclip"
+    },
+    "submit": {
+      "signIn": "Entrar",
+      "signUp": "Criar conta",
+      "working": "Aguarde…"
+    },
+    "switch": {
+      "createOne": "Criar uma",
+      "haveAccount": "Já tem uma conta?",
+      "needAccount": "Precisa de uma conta?",
+      "signIn": "Entrar"
+    }
+  },
+  "common": {
+    "active": "Ativo",
+    "add": "Adicionar",
+    "all": "Todos",
+    "and": "e",
+    "apply": "Aplicar",
+    "back": "Voltar",
+    "cancel": "Cancelar",
+    "clear": "Limpar",
+    "close": "Fechar",
+    "confirm": "Confirmar",
+    "copied": "Copiado",
+    "copy": "Copiar",
+    "create": "Criar",
+    "creating": "Criando...",
+    "date": "Data",
+    "delete": "Excluir",
+    "deleting": "Excluindo...",
+    "description": "Descrição",
+    "disabled": "Desativado",
+    "done": "Concluído",
+    "download": "Baixar",
+    "edit": "Editar",
+    "enabled": "Ativado",
+    "error": "Erro",
+    "filter": "Filtrar",
+    "inactive": "Inativo",
+    "learnMore": "Saiba mais",
+    "loading": "Carregando...",
+    "more": "Mais",
+    "name": "Nome",
+    "next": "Próximo",
+    "no": "Não",
+    "none": "Nenhum",
+    "notes": "Observações",
+    "open": "Abrir",
+    "optional": "Opcional",
+    "or": "ou",
+    "previous": "Anterior",
+    "refresh": "Atualizar",
+    "remove": "Remover",
+    "required": "Obrigatório",
+    "reset": "Redefinir",
+    "retry": "Tentar novamente",
+    "save": "Salvar",
+    "saving": "Salvando...",
+    "search": "Buscar",
+    "select": "Selecionar",
+    "showLess": "Mostrar menos",
+    "showMore": "Mostrar mais",
+    "sort": "Ordenar",
+    "status": "Status",
+    "submit": "Enviar",
+    "type": "Tipo",
+    "unknown": "Desconhecido",
+    "update": "Atualizar",
+    "updating": "Atualizando...",
+    "upload": "Enviar arquivo",
+    "view": "Visualizar",
+    "yes": "Sim"
+  },
+  "companies": {
+    "breadcrumb": "Empresas",
+    "deleteCompany": "Excluir empresa",
+    "deleteConfirm": "Excluir esta empresa e todos os seus dados? Isso não pode ser desfeito.",
+    "deleting": "Excluindo…",
+    "loading": "Carregando empresas...",
+    "newCompany": "Nova empresa",
+    "rename": "Renomear",
+    "stats": {
+      "agentPlural": "{{n}} agentes",
+      "agentSingular": "{{n}} agente",
+      "created": "Criada {{time}}",
+      "taskPlural": "{{n}} tarefas",
+      "taskSingular": "{{n}} tarefa",
+      "unlimitedBudget": "Orçamento ilimitado"
+    },
+    "status": {
+      "active": "Ativa",
+      "archived": "Arquivada",
+      "paused": "Pausada"
+    },
+    "unarchive": "Desarquivar"
+  },
+  "costs": {
+    "agentDetailsError": "Não foi possível carregar os detalhes do agente. Os totais abaixo mostram os custos registrados da empresa.",
+    "agentGroupLabel": "Custos de {{name}}",
+    "agentTokens": "entrada {{input}} ({{cached}} em cache) · saída {{output}}",
+    "allBillers": "Todos os faturadores",
+    "allProviders": "Todos os provedores",
+    "breadcrumb": "Custos",
+    "budget": {
+      "activeIncidents": "Incidentes ativos",
+      "activeIncidentsSubtitle": "Ultrapassagens abertas de limite leve ou rígido",
+      "agentScopeDescription": "Políticas recorrentes de gasto mensal para agentes individuais.",
+      "agentScopeTitle": "Orçamentos de agentes",
+      "companyScopeDescription": "Política mensal de toda a empresa.",
+      "companyScopeTitle": "Orçamentos da empresa",
+      "controlPlaneDescription": "Limites rígidos de gasto para agentes e projetos. A cota de assinatura dos provedores fica separada e aparece em Provedores.",
+      "controlPlaneTitle": "Controle de orçamento",
+      "incidentsHint": "Aumente o orçamento ou mantenha a parada rígida pausada. Dispense um aviso quando nenhuma ação for necessária.",
+      "noPolicies": "Nenhuma política de orçamento ainda. Defina orçamentos de agentes e projetos nas páginas de detalhes ou use o controle de orçamento mensal existente da empresa.",
+      "pausedAgents": "Agentes pausados",
+      "pausedAgentsSubtitle": "Heartbeats de agentes bloqueados pelo orçamento",
+      "pausedProjects": "Projetos pausados",
+      "pausedProjectsSubtitle": "Execução de projetos bloqueada pelo orçamento",
+      "pendingApprovals": "Aprovações pendentes",
+      "pendingApprovalsSubtitle": "Aprovações de substituição de orçamento aguardando ação do Board",
+      "projectScopeDescription": "Políticas de gasto vitalícias para projetos vinculados à execução.",
+      "projectScopeTitle": "Orçamentos de projetos"
+    },
+    "budgetLoadError": "Não foi possível carregar os dados de orçamento. Tente novamente em instantes.",
+    "budgetPolicyError": "Não foi possível atualizar a política de orçamento. Revise suas configurações e tente novamente.",
+    "byAgent": "Por agente",
+    "byProject": "Por projeto",
+    "connectedAccountsError": "Não foi possível verificar as contas conectadas. As estimativas de assinatura existentes continuam exibidas.",
+    "currencyNotice": "Os totais principais financeiros estão somente em USD. Outras moedas são listadas separadamente; nenhuma conversão de câmbio é aplicada.",
+    "dateRangeTo": "a",
+    "finance": {
+      "byBiller": "Por faturador",
+      "byBillerDescription": "Eventos financeiros no nível da conta agrupados por quem cobrou ou creditou.",
+      "credits": "Créditos",
+      "creditsSubtitle": "Reembolsos, compensações e devoluções de crédito",
+      "debits": "Débitos",
+      "estimated": "Estimado",
+      "estimatedSubtitle": "Débitos estimados que ainda não têm validade de fatura",
+      "eventsInRangePlural": "{{n}} eventos totais no período",
+      "eventsInRangeSingular": "{{n}} evento total no período",
+      "ledgerDescription": "Cobranças no nível da conta que não correspondem a uma única requisição de inferência.",
+      "ledgerTitle": "Razão financeiro",
+      "net": "Líquido",
+      "netSubtitle": "Débito menos crédito no período selecionado",
+      "noEvents": "Nenhum evento financeiro ainda.",
+      "providerReports": "Relatórios de custo de API dos provedores: {{amount}}. Os totais dos relatórios se sobrepõem às faturas e às estimativas de execução e são exibidos separadamente das cobranças registradas."
+    },
+    "financeLoadError": "Não foi possível carregar os eventos financeiros. Tente novamente em instantes.",
+    "incidentError": "Não foi possível atualizar o orçamento. Verifique as execuções pendentes ou o uso sem preço exibido nesta página e tente novamente.",
+    "loadError": "Não foi possível carregar os dados de custo. Tente novamente em instantes.",
+    "loadingFinance": "Carregando eventos financeiros…",
+    "metrics": {
+      "apiLoading": "Carregando uso de API",
+      "apiSpend": "Gasto com API",
+      "apiUnavailable": "Uso de API indisponível",
+      "budget": "Orçamento",
+      "budgetPausedDetail": "{{agents}} agentes pausados · {{projects}} projetos pausados",
+      "creditsAmount": "{{amount}} créditos",
+      "debitsAmount": "{{amount}} débitos",
+      "estimatedInRange": "{{amount}} estimados no período",
+      "financeEvents": "Eventos financeiros",
+      "financialUnavailable": "Dados financeiros indisponíveis",
+      "monthlyLimit": "Limite mensal",
+      "noCap": "Nenhum teto mensal configurado",
+      "open": "Aberto",
+      "recordedCharges": "Cobranças registradas",
+      "spendOfBudget": "{{spent}} de {{budget}} neste mês"
+    },
+    "museUnavailable": "A atividade do Muse de {{name}} não tem uso nem custo informados. Os totais abaixo mostram apenas as cobranças registradas da empresa. O Paperclip não consegue aplicar um teto de gasto ao Muse.",
+    "noBillableEvents": "Nenhum evento faturável no período.",
+    "noCostEvents": "Nenhum evento de custo ainda.",
+    "noCostEventsPeriod": "Nenhum evento de custo no período.",
+    "noProjectCosts": "Nenhum custo de execução atribuído a projetos ainda.",
+    "otherBilling": "Outro uso de faturamento: {{tokens}} tokens, incluído no registro de inferência.",
+    "otherBillingWithCharges": "Outro uso de faturamento: {{tokens}} tokens · {{amount}} em cobranças registradas, incluído no registro de inferência.",
+    "paperclipServices": "Serviços do Paperclip",
+    "retryAccountCheck": "Tentar verificar a conta novamente",
+    "runsApi": "{{n}} API",
+    "runsLabel": "execuções: ",
+    "runsSub": "{{n}} assinatura",
+    "selectCompany": "Selecione uma empresa para ver os custos.",
+    "selectDateRange": "Selecione uma data inicial e uma final para carregar os dados.",
+    "staleApiSubscription": "Mostrando o último uso de API e assinatura carregado. As atualizações serão retomadas automaticamente.",
+    "staleData": "Mostrando os últimos dados carregados. As atualizações serão retomadas automaticamente.",
+    "subscriptionUsage": "Contas de assinatura também têm {{amount}} em cobranças de uso registradas neste período, separadas das mensalidades.",
+    "tabs": {
+      "billers": "Faturadores",
+      "budgets": "Orçamentos",
+      "decisions": "Decisões",
+      "fastResponses": "Respostas rápidas",
+      "finance": "Financeiro",
+      "overview": "Visão geral",
+      "providers": "Provedores"
+    },
+    "title": "Custos",
+    "tokensShort": "{{tokens}} tok",
+    "unattributed": "Não atribuído",
+    "userCostsLoadError": "Não foi possível carregar os custos por usuário. Tente novamente em instantes.",
+    "userCostsRefreshError": "Não foi possível atualizar os custos por usuário. Mostrando os últimos dados carregados."
+  },
+  "dashboard": {
+    "banner": {
+      "allPausedBody": "Retome pelo menos um agente para que as tarefas atribuídas possam começar.",
+      "allPausedReview": "Revisar agentes",
+      "allPausedTitle": "Todos os agentes desta empresa estão pausados — nada será executado.",
+      "importedBody": "Agentes de uma importação de empresa chegam pausados como padrão de segurança. Retome-os para que as tarefas atribuídas possam começar.",
+      "importedPausedPlural": "{{n}} agentes importados estão pausados e não serão executados.",
+      "importedPausedSingular": "{{n}} agente importado está pausado e não será executado.",
+      "resumeAll": "Retomar todos",
+      "resuming": "Retomando…"
+    },
+    "breadcrumb": "Painel",
+    "budgetIncidentDetails": "{{agents}} agentes pausados · {{projects}} projetos pausados · {{approvals}} aprovações de orçamento pendentes",
+    "budgetIncidentPlural": "{{n}} incidentes de orçamento ativos",
+    "budgetIncidentSingular": "{{n}} incidente de orçamento ativo",
+    "charts": {
+      "last14Days": "Últimos 14 dias",
+      "priority": "Tarefas por prioridade",
+      "runActivity": "Atividade de execuções",
+      "status": "Tarefas por status",
+      "successRate": "Taxa de sucesso"
+    },
+    "emptyCompanies": {
+      "action": "Começar",
+      "message": "Bem-vindo ao Paperclip. Configure sua primeira empresa e seu primeiro agente para começar."
+    },
+    "live": {
+      "createCompany": "Crie uma empresa para ver as execuções ao vivo.",
+      "description": "Execuções ativas primeiro, seguidas pelas execuções concluídas mais recentes.",
+      "empty": "Nenhuma execução de agente ativa ou recente.",
+      "liveRuns": "Execuções ao vivo",
+      "panelTitle": "Ativas / recentes",
+      "selectCompany": "Selecione uma empresa para ver as execuções ao vivo.",
+      "showingUpTo": "Mostrando até {{n}}",
+      "title": "Execuções de agentes ao vivo"
+    },
+    "metrics": {
+      "agentsEnabled": "Agentes habilitados",
+      "agentsErrors": "{{n}} com erros",
+      "agentsPaused": "{{n}} pausados",
+      "agentsRunning": "{{n}} em execução",
+      "awaitingReview": "Aguardando revisão do Board",
+      "monthBudgetUtilization": "{{percent}}% de {{budget}} do orçamento",
+      "monthSpend": "Gasto do mês",
+      "overridesAwaiting": "{{n}} substituições de orçamento aguardando revisão do Board",
+      "pendingApprovals": "Aprovações pendentes",
+      "tasksBlocked": "{{n}} bloqueadas",
+      "tasksInProgress": "Tarefas em andamento",
+      "tasksOpen": "{{n}} abertas",
+      "unlimitedBudget": "Orçamento ilimitado"
+    },
+    "noAgents": {
+      "action": "Criar um aqui",
+      "message": "Você não tem agentes."
+    },
+    "noTasks": "Nenhuma tarefa ainda.",
+    "openBudgets": "Abrir orçamentos",
+    "recentActivity": "Atividade recente",
+    "recentTasks": "Tarefas recentes",
+    "selectCompany": "Crie ou selecione uma empresa para ver o painel."
+  },
+  "inbox": {
+    "inbox": {
+      "actionErrors": {
+        "approveRequest": "aprovar esta solicitação",
+        "rejectRequest": "rejeitar esta solicitação"
+      },
+      "actions": {
+        "approve": "Aprovar",
+        "dismiss": "Dispensar",
+        "markAsRead": "Marcar como lido",
+        "reject": "Rejeitar"
+      },
+      "alerts": {
+        "agentErrors": "agente(s) com erro(s)",
+        "budgetAt": "Orçamento em",
+        "budgetUtilization": "de utilização neste mês",
+        "title": "Alertas"
+      },
+      "approval": {
+        "requestedBy": "solicitada por {{name}}",
+        "updated": "atualizada {{time}}"
+      },
+      "approvalStatus": {
+        "approved": "Aprovada",
+        "cancelled": "Cancelada",
+        "pending": "Pendente",
+        "rejected": "Rejeitada",
+        "revisionRequested": "Revisão solicitada"
+      },
+      "controls": {
+        "columns": "Escolha quais colunas ficam visíveis",
+        "group": "Agrupar",
+        "nestingDisable": "Desativar aninhamento pai-filho",
+        "nestingEnable": "Ativar aninhamento pai-filho"
+      },
+      "creator": {
+        "board": "Board",
+        "me": "Eu"
+      },
+      "empty": {
+        "noMatchFilters": "Nenhum item da caixa de entrada corresponde a estes filtros.",
+        "noNew": "Nenhum item novo na caixa de entrada.",
+        "noRecent": "Nenhum item recente na caixa de entrada.",
+        "searchNoMatch": "Nenhum item da caixa de entrada corresponde à sua busca.",
+        "selectOrganization": "Selecione uma empresa para ver {{surface}}.",
+        "zeroMine": "Caixa de entrada zerada."
+      },
+      "error": {
+        "accountChanged": "Sua conta mudou. Atualize a caixa de entrada."
+      },
+      "failedRun": {
+        "attemptFailed": "Não foi possível concluir esta tentativa. Sua mensagem foi salva.",
+        "exitedWithError": "A execução terminou com erro.",
+        "retryIn": "Tentando novamente em {{seconds}}s…",
+        "thinking": "Pensando",
+        "title": "Execução com falha",
+        "titleWithAgent": "Execução com falha — {{agent}}",
+        "waiting": {
+          "approval": "Aprovação necessária",
+          "assignAgent": "Atribuir um agente",
+          "budget": "Limite de orçamento atingido",
+          "chooseModel": "Escolha um modelo compatível",
+          "projectAccess": "O agente precisa de acesso ao projeto",
+          "reconnect": "Reconectar conta",
+          "resume": "Trabalho pausado"
+        }
+      },
+      "feedback": {
+        "activeStatuses": "Status ativos — tarefas abertas, com ou sem execução de agente.",
+        "liveOnly": "Somente execuções ao vivo — tarefas conectadas a uma execução de agente no momento."
+      },
+      "group": {
+        "newTask": "Nova tarefa em {{label}}"
+      },
+      "groupBy": {
+        "assignee": "Responsável",
+        "project": "Projeto"
+      },
+      "joinRequest": {
+        "adapter": "adapter: {{adapter}}",
+        "agentRequest": "Solicitação de entrada de agente",
+        "agentRequestNamed": "Solicitação de entrada de agente: {{name}}",
+        "human": "Solicitação de entrada de pessoa",
+        "requestedFromIp": "solicitada {{time}} do IP {{ip}}"
+      },
+      "listError": {
+        "unableToLoad": "Não foi possível carregar a caixa de entrada: {{error}}"
+      },
+      "markAll": {
+        "button": "Marcar todos como lidos",
+        "description": "Isto marcará {{count}} item(ns) não lido(s) como lido(s).",
+        "progress": "Marcando…",
+        "title": "Marcar todos como lidos?"
+      },
+      "notice": {
+        "retryMissing": "Tentar novamente os itens ausentes",
+        "someItemsFailed": "Alguns itens da caixa de entrada não puderam ser carregados. Mostrando os itens disponíveis."
+      },
+      "rows": {
+        "collapseSubtasks": "Recolher subtarefas",
+        "earlier": "Anteriores",
+        "expandSubtasks": "Expandir subtarefas",
+        "subtaskCount": "{{count}} subtarefa(s)"
+      },
+      "search": {
+        "placeholder": "Buscar em {{surface}}…"
+      },
+      "section": {
+        "archived": "Arquivados",
+        "otherResults": "Outros resultados"
+      },
+      "surface": {
+        "inbox": "Caixa de entrada"
+      },
+      "tabs": {
+        "blocked": "Bloqueados",
+        "mine": "Meus",
+        "recent": "Recentes",
+        "unread": "Não lidos"
+      },
+      "toast": {
+        "runRetryFailed": "Falha ao tentar a execução novamente",
+        "unableToRetry": "Não foi possível tentar a execução novamente"
+      }
+    },
+    "whatNeedsMe": {
+      "bundle": {
+        "anAgent": "Um agente",
+        "from": "· de ",
+        "pending": "{{count}} pendente(s)",
+        "proposed": "{{agent}} propôs {{count}} decisão(ões)"
+      },
+      "caughtUp": {
+        "adjust": "Ajuste ou limpe sua busca e seus filtros para ver as demais.",
+        "allCaughtUp": "Você está em dia.",
+        "filtered": "Nenhuma decisão corresponde à sua busca ou aos seus filtros."
+      },
+      "curtains": {
+        "aging": "Paradas",
+        "agingHint": "Paradas há mais de {{days}} dias, fora da lista principal. Mantenha as que você ainda quer ver.",
+        "decided": "Tomadas",
+        "dismissed": "Dispensadas",
+        "expired": "Expiradas",
+        "snoozed": "Adiadas"
+      },
+      "emptyCompany": "Selecione uma empresa primeiro.",
+      "history": {
+        "loadingDecided": "Carregando decisões tomadas…",
+        "loadingExpired": "Carregando decisões expiradas…",
+        "noDecided": "Nenhuma decisão tomada.",
+        "noExpired": "Nenhuma decisão expirada."
+      },
+      "loadErrorAction": "carregar suas decisões",
+      "title": "Decisões",
+      "toast": {
+        "dismissed": "Dispensada",
+        "undo": "Desfazer"
+      },
+      "zero": {
+        "body": "Nada precisa de uma decisão sua agora.",
+        "title": "Você está em dia"
+      }
+    }
+  },
+  "issues": {
+    "issueDetail": {
+      "actions": {
+        "addSubtask": "Adicionar subtarefa",
+        "copyTaskAsMarkdown": "Copiar tarefa como markdown",
+        "moreTaskActions": "Mais ações da tarefa",
+        "openFile": "Abrir arquivo... (g f)",
+        "openFileInIssue": "Abrir arquivo nesta issue",
+        "showTaskActivity": "Mostrar atividade da tarefa",
+        "stopAndCancel": "Parar e cancelar",
+        "stopAndDone": "Parar e concluir",
+        "stoppingAndCancelling": "Parando e cancelando...",
+        "stoppingAndMarkingDone": "Parando e marcando como concluída..."
+      },
+      "actor": {
+        "system": "Sistema"
+      },
+      "agent": {
+        "configure": "Configurar {{name}}"
+      },
+      "attachments": {
+        "fallbackName": "Anexo",
+        "upload": "Enviar",
+        "uploadAttachment": "Enviar anexo",
+        "uploadFailed": "Falha no envio",
+        "uploading": "Enviando..."
+      },
+      "attribution": {
+        "accessibleLabel": "{{label}}: {{name}}",
+        "accessibleLabelVia": "{{label}}: {{name}} · via {{via}}",
+        "assignee": "Responsável",
+        "originating": "Origem",
+        "taskPeople": "Pessoas da tarefa",
+        "userFallback": "Usuário"
+      },
+      "badges": {
+        "live": "Ao vivo",
+        "parkedBlocker": "Bloqueada por trabalho em espera",
+        "parkedBlockerTitle": "Bloqueada por trabalho em espera — pelo menos um bloqueador atribuído está em Backlog e não vai reativar o responsável.",
+        "paused": "Pausada",
+        "taskHidden": "Esta tarefa está oculta",
+        "watchdogTitle": "Esta tarefa é uma tarefa watchdog gerada automaticamente. Ela verifica se o trabalho interrompido na árvore de tarefas monitorada é legítimo.",
+        "workModeTitle": "Esta tarefa está em {{mode}}."
+      },
+      "breadcrumb": {
+        "tasks": "Tarefas"
+      },
+      "chat": {
+        "agentChatDisabled": "O Agent Chat está desativado nas configurações experimentais.",
+        "couldntInterrupt": "Não foi possível interromper. A mensagem ainda está na fila.",
+        "grokBotFooter": "Executando no Grok Bot · Uso não informado. Parar o trabalho do Paperclip revoga a autoridade desta sessão; a execução remota pode continuar. Abra o aplicativo de desktop do Grok Bot para inspecioná-lo.",
+        "loadEarlierComments": "Carregar comentários anteriores",
+        "loadingEarlierComments": "Carregando comentários anteriores...",
+        "messagesStillQueued": "As mensagens ainda estão na fila.",
+        "moreMessages": "Mais mensagens",
+        "pauseWork": "Pausar trabalho",
+        "pausing": "Pausando...",
+        "previewAgent": "Agente de prévia",
+        "replySent": "Resposta enviada. Envie uma mensagem para continuar.",
+        "stopPaperclipWork": "Parar trabalho do Paperclip",
+        "stoppingPaperclipWork": "Parando trabalho do Paperclip…"
+      },
+      "cost": {
+        "includingSubtasks": "Incluindo subtarefas",
+        "noData": "Nenhum dado de custo ainda.",
+        "noDirectData": "Sem dados diretos de custo.",
+        "runsCount": " (execuções: {{count}})",
+        "runtime": "Tempo de execução",
+        "summary": "Resumo de custos",
+        "tasksCount": "Tarefas: {{count}}",
+        "thisTask": "Esta tarefa",
+        "tokens": "Tokens",
+        "tokensDetail": " (entrada {{input}}, saída {{output}})",
+        "tokensDetailCached": " (entrada {{input}}, saída {{output}}, em cache {{cached}})"
+      },
+      "description": {
+        "placeholder": "Adicionar uma descrição..."
+      },
+      "errors": {
+        "approvalUpdateFailed": "Não foi possível atualizar a aprovação",
+        "createdTasksLoadFailed": "Não foi possível carregar as tarefas criadas.",
+        "documentImportFailed": "Falha ao importar o documento",
+        "failedRunUnavailable": "A execução com falha não está mais disponível.",
+        "monitorTriggerFailed": "Não foi possível acionar o monitor agora",
+        "noAssigneeAgent": "Nenhum agente responsável",
+        "noSubtreePauseHold": "Nenhuma pausa de subárvore ativa está disponível para retomar.",
+        "queuedAwaitingAck": "A mensagem na fila aguarda confirmação do servidor.",
+        "queuedMessagesAwaitingAck": "As mensagens na fila aguardam confirmação do servidor.",
+        "queuedNoActiveTarget": "A mensagem na fila não tem mais uma execução ativa como destino.",
+        "runStoppedRetryStatus": "A execução foi interrompida, mas a atualização da tarefa falhou. Tente atualizar o status da tarefa novamente.",
+        "runStoppedStatusUpdateFailed": "A execução foi interrompida, mas a atualização da tarefa falhou: {{detail}}",
+        "someDetailsNotLoaded": "Alguns detalhes da tarefa não puderam ser carregados.",
+        "stopRunUpdateFailed": "Não foi possível parar a execução e atualizar a tarefa",
+        "subtaskSaveFailed": "Não foi possível salvar as alterações da subtarefa",
+        "taskDetailsLoading": "Os detalhes da tarefa ainda estão carregando. Tente novamente.",
+        "taskNotLoaded": "A tarefa ainda não foi carregada.",
+        "taskStateChanged": "O estado da tarefa mudou. Atualize para ver o estado atual.",
+        "treeActionInvalid": "Esta ação de subárvore não é válida para as tarefas selecionadas no momento.",
+        "treePreviewBoardOnly": "Somente usuários do Board podem visualizar os controles de subárvore.",
+        "treePreviewLoadFailed": "Não foi possível carregar a prévia.",
+        "treePreviewStale": "A prévia está desatualizada porque o estado de pausa da subárvore mudou. Tente novamente para atualizar.",
+        "unableApplyVerdicts": "Não foi possível aplicar os vereditos",
+        "unableArchiveFromInbox": "Não foi possível arquivar esta tarefa da caixa de entrada",
+        "unableCancelQuestion": "Não foi possível cancelar a pergunta",
+        "unableCancelQueuedComment": "Não foi possível cancelar o comentário na fila",
+        "unableCopyMarkdown": "Não foi possível copiar o markdown da tarefa",
+        "unableDeleteComment": "Não foi possível excluir o comentário",
+        "unableIsolatedReissue": "Não foi possível criar uma reemissão isolada.",
+        "unableReconcileBranch": "Não foi possível reconciliar a branch do workspace.",
+        "unableResolveRecovery": "Não foi possível resolver a ação de recuperação",
+        "unableRestoreInbox": "Não foi possível restaurar esta tarefa para a caixa de entrada",
+        "unableSkipRequest": "Não foi possível pular esta solicitação"
+      },
+      "feedback": {
+        "saveFailed": "Falha ao salvar o feedback",
+        "saved": "Feedback salvo",
+        "savedLocalFuture": "Feedback salvo. Os próximos votos ficarão locais",
+        "savedSharedFuture": "Feedback salvo. Os próximos votos serão compartilhados",
+        "savedSharingEnabled": "Feedback salvo e compartilhamento ativado",
+        "unknownError": "Erro desconhecido"
+      },
+      "inbox": {
+        "archiveFromInbox": "Arquivar da caixa de entrada",
+        "backToInbox": "Voltar para a caixa de entrada",
+        "moreActions": "Mais ações"
+      },
+      "labels": {
+        "noProject": "Sem projeto",
+        "routine": "Rotina",
+        "routineExecutionTitle": "Execução originada da rotina {{originId}}"
+      },
+      "loading": {
+        "conversation": "Carregando conversa"
+      },
+      "menu": {
+        "copyAsMarkdown": "Copiar como markdown",
+        "hideTask": "Ocultar esta tarefa",
+        "properties": "Propriedades"
+      },
+      "people": {
+        "agent": "Agente",
+        "me": "Eu",
+        "owner": "Dono"
+      },
+      "recovery": {
+        "noPermissionRepairWorkspace": "Você não tem permissão para reparar o workspace desta tarefa.",
+        "noPermissionRetryAction": "Você não tem permissão para tentar novamente esta ação de recuperação.",
+        "noPermissionRetryTask": "Você não tem permissão para tentar novamente esta tarefa.",
+        "pauseCheckFailed": "Não foi possível verificar se esta tarefa está pausada. Atualize para tentar novamente.",
+        "projectPausedResume": "O projeto está pausado. Retome-o antes de tentar novamente.",
+        "respondPendingFirst": "Responda à pergunta ou confirmação pendente antes de tentar novamente.",
+        "resumeProjectFirst": "Retome o projeto antes de tentar novamente.",
+        "resumeTaskFirst": "Retome a tarefa antes de tentar novamente.",
+        "taskPausedResume": "A tarefa está pausada. Retome-a antes de tentar novamente."
+      },
+      "sections": {
+        "artifacts": "Artefatos",
+        "plan": "Plano"
+      },
+      "sheet": {
+        "taskSidePanel": "Painel lateral da tarefa"
+      },
+      "subtasks": {
+        "createLabel": "Subtarefa",
+        "newSubtask": "Nova subtarefa",
+        "sectionTitle": "Subtarefas"
+      },
+      "tabs": {
+        "activity": "Atividade",
+        "chat": "Chat",
+        "relatedWork": "Trabalho relacionado"
+      },
+      "toasts": {
+        "acceptFailed": "Falha ao aceitar",
+        "allVerdictsApplied": "Todos os vereditos aplicados",
+        "answersSubmitted": "Respostas enviadas",
+        "applyFailed": "Falha ao aplicar",
+        "approvalApproved": "Aprovação concedida",
+        "approvalFailed": "Falha na aprovação",
+        "approvalRejected": "Aprovação rejeitada",
+        "archiveFailed": "Falha ao arquivar",
+        "branchReconciled": "Branch do workspace reconciliada",
+        "branchReconciledBody": "A branch registrada agora corresponde à branch ativa; a tarefa será retomada.",
+        "cancelFailed": "Falha ao cancelar",
+        "commentDeleted": "Comentário excluído",
+        "continuationBody": "A continuação começou antes de a exclusão ser confirmada, então o Paperclip não pôde cancelar o envio.",
+        "copiedToClipboard": "Copiado para a área de transferência",
+        "copyFailed": "Falha ao copiar",
+        "decisionsApplied": "Decisões aplicadas: {{count}}",
+        "deleteFailed": "Falha ao excluir",
+        "deletedCommentMarker": "A conversa agora mostra um marcador de comentário excluído.",
+        "draftsAccepted": "Rascunhos aceitos: {{created}}, ignorados: {{skipped}}",
+        "isolatedReissueCreated": "Reemissão isolada criada",
+        "isolatedReissueCreatedBody": "Uma nova reemissão isolada foi criada.",
+        "isolatedReissueInfo": "{{identifier}} vai executar em um workspace isolado novo.",
+        "messageAlreadySending": "A mensagem já está sendo enviada",
+        "monitorCheckFailed": "Falha na verificação do monitor",
+        "monitorCheckQueued": "Verificação do monitor enfileirada",
+        "noWorkspaceToReconcile": "Esta tarefa não tem workspace de execução para reconciliar.",
+        "noWorkspaceToRepair": "Esta tarefa não tem workspace de execução para reparar.",
+        "pauseReleasedPartial": "Pausa liberada, mas as tarefas não puderam iniciar ({{count}}). {{message}} Verifique os agentes afetados e tente iniciá-los novamente.",
+        "questionCancelled": "Pergunta cancelada",
+        "queuedCommentCanceled": "Comentário na fila cancelado",
+        "queuedMessageRestored": "A mensagem na fila foi restaurada no campo de mensagem.",
+        "reconcileFailed": "Falha ao reconciliar",
+        "recoveryResolutionFailed": "Falha ao resolver a recuperação",
+        "reissueFailed": "Falha na reemissão",
+        "rejectFailed": "Falha ao rejeitar",
+        "rejectionFailed": "Falha na rejeição",
+        "repairFailed": "Falha no reparo",
+        "requestConfirmed": "Solicitação confirmada",
+        "retryQueuedBody": "A mesma solicitação será repetida quando esta tarefa estiver pronta.",
+        "retryQueuedTitle": "Nova tentativa na fila",
+        "runRetryFailedBody": "Não foi possível tentar a execução novamente",
+        "runRetryFailedTitle": "Falha ao tentar a execução novamente",
+        "runStoppedTaskCancelled": "Execução interrompida e tarefa cancelada",
+        "runStoppedTaskDone": "Execução interrompida e tarefa concluída",
+        "runStoppedUpdateFailed": "Execução interrompida; falha ao atualizar a tarefa",
+        "selectionConfirmed": "Seleção confirmada",
+        "skipFailed": "Falha ao pular",
+        "stopAndCancelFailed": "Falha ao parar e cancelar",
+        "stopAndDoneFailed": "Falha ao parar e concluir",
+        "submitFailed": "Falha ao enviar",
+        "suggestedTasksAccepted": "Tarefas sugeridas aceitas",
+        "suggestionRejected": "Sugestão rejeitada",
+        "taskArchivedFromInbox": "Tarefa arquivada da caixa de entrada",
+        "taskRestoredToInbox": "Tarefa restaurada para a caixa de entrada",
+        "taskUpdateFailed": "Falha ao atualizar a tarefa",
+        "undo": "Desfazer",
+        "undoFailed": "Falha ao desfazer",
+        "workspaceRepaired": "Workspace reparado",
+        "workspaceRepairedBody": "As alterações pendentes foram isoladas em uma branch de resgate e a branch registrada foi restaurada; a tarefa será retomada."
+      },
+      "workspace": {
+        "archivedNotice": "O workspace isolado desta issue foi arquivado. Seu próximo comentário ou a retomada reabre o workspace e recria o worktree."
+      }
+    },
+    "issueRow": {
+      "archive": "Arquivar",
+      "markAsRead": "Marcar como lido",
+      "openIssueSrOnly": "Abrir {{identifier}}: {{title}}",
+      "openTaskAria": "Abrir tarefa {{identifier}} ({{status}})",
+      "parkedBlocker": {
+        "label": "Bloqueado por trabalho em espera",
+        "title": "Bloqueado por trabalho em espera — pelo menos um bloqueador atribuído está no backlog e não vai reativar o responsável."
+      },
+      "recovery": {
+        "title": "{{label}} — abra a tarefa de origem para agir.",
+        "titleWithDetail": "{{label}} — {{detail}}. Abra a tarefa de origem para agir."
+      },
+      "recoveryStatusAria": "Status de recuperação da tarefa"
+    },
+    "issueRowDetailsNotice": {
+      "message": "Não foi possível carregar alguns detalhes da tarefa.",
+      "retryLabel": "Tentar novamente os detalhes"
+    },
+    "issues": {
+      "empty": {
+        "selectCompany": "Selecione uma empresa para ver as tarefas.",
+        "selectOrganization": "Selecione uma empresa para ver as tarefas."
+      },
+      "errors": {
+        "loadTasks": "carregar tarefas"
+      },
+      "newTask": "Nova tarefa",
+      "surfaceLabel": "Tarefas",
+      "tasks": "Tarefas"
+    },
+    "issuesList": {
+      "ageSeparator": {
+        "olderThanDay": "Mais de um dia",
+        "olderThanWeek": "Mais de uma semana"
+      },
+      "assignee": {
+        "label": "Responsável",
+        "me": "Eu",
+        "none": "Nenhum responsável",
+        "searchPlaceholder": "Buscar responsável..."
+      },
+      "badges": {
+        "needsNextStep": "Precisa de próximo passo",
+        "needsNextStepTitle": "Esta tarefa precisa de um próximo passo",
+        "paused": "Pausado"
+      },
+      "board": {
+        "cardsPerColumn": "Cards por coluna",
+        "collapseColdLanes": "Recolher colunas frias",
+        "expandColdLanes": "Expandir colunas frias",
+        "limitReached": "Algumas colunas do board mostram até {{limit}} tarefas. Refine os filtros ou a busca para ver o restante.",
+        "perColumn": "{{n}} por coluna",
+        "resetDensity": "Redefinir densidade do board",
+        "useComfortableCards": "Usar cards confortáveis",
+        "useCompactCards": "Usar cards compactos"
+      },
+      "checklist": {
+        "andMore": " ... e mais {{n}}",
+        "blockedBy": "bloqueado por {{label}}",
+        "stepSuffix": " · passo {{step}}"
+      },
+      "columns": {
+        "chooseVisible": "Escolha quais colunas de tarefas continuam visíveis"
+      },
+      "creatorOptions": {
+        "me": "Eu"
+      },
+      "empty": {
+        "noMatches": "Nenhuma tarefa corresponde aos filtros ou à busca atual."
+      },
+      "errors": {
+        "externalFilter": "Não foi possível filtrar tarefas pelo status externo: {{error}}",
+        "retryExternalStatuses": "Tentar novamente os status externos",
+        "retryHierarchy": "Tentar novamente a hierarquia"
+      },
+      "group": {
+        "newTaskIn": "Nova tarefa em {{label}}",
+        "noParent": "Sem tarefa pai",
+        "noProject": "Sem projeto",
+        "noWorkspace": "Sem workspace",
+        "unassigned": "Sem responsável",
+        "user": "Usuário"
+      },
+      "groupOptions": {
+        "assignee": "Responsável",
+        "parent": "Tarefa pai",
+        "priority": "Prioridade",
+        "project": "Projeto",
+        "workspace": "Workspace"
+      },
+      "loader": {
+        "loadingMore": "Carregando mais tarefas...",
+        "rendering": "Exibindo {{shown}} de {{total}} tarefas",
+        "scrollToLoad": "Role para carregar mais tarefas"
+      },
+      "nesting": {
+        "disable": "Desativar aninhamento pai-filho",
+        "enable": "Ativar aninhamento pai-filho"
+      },
+      "search": {
+        "ariaLabel": "Buscar tarefas",
+        "limitReached": "Mostrando até {{limit}} resultados. Refine a busca para restringir mais.",
+        "placeholder": "Buscar tarefas..."
+      },
+      "sortOptions": {
+        "created": "Criado",
+        "priority": "Prioridade",
+        "title": "Título",
+        "updated": "Atualizado",
+        "workflow": "Fluxo de trabalho"
+      },
+      "status": {
+        "backlog": "Backlog",
+        "blocked": "Bloqueado",
+        "cancelled": "Cancelado",
+        "inProgress": "Em andamento",
+        "inReview": "Em revisão",
+        "monitoring": "Monitorando",
+        "todo": "A fazer"
+      },
+      "subIssues": {
+        "allSubTasksDone": "Todas as sub-tarefas concluídas",
+        "blockedCount": "{{n}} bloqueadas",
+        "collapse": "Recolher sub-tarefas",
+        "costTooltip": "{{runs}} execução(ões) em {{subTasks}} sub-tarefa(s)",
+        "descendantsCount": "({{n}} sub-tarefa(s))",
+        "doneCount": "{{done}}/{{total}} concluídas",
+        "expand": "Expandir sub-tarefas",
+        "inProgressCount": "{{n}} em andamento",
+        "nextUp": "Próxima",
+        "noActionableSubTasks": "Nenhuma sub-tarefa acionável",
+        "noActiveSubTasks": "Nenhuma sub-tarefa ativa",
+        "progressAriaLabel": "Progresso de conclusão das sub-tarefas",
+        "runtime": "{{value}} de execução",
+        "subTasksLabel": "(sub-tarefas)",
+        "tokens": "{{value}} tokens",
+        "waitingOnBlockers": "Aguardando bloqueios"
+      },
+      "toolbar": {
+        "createTask": "Criar tarefa",
+        "createWithLabel": "Criar {{label}}",
+        "group": "Agrupar",
+        "newTask": "Nova tarefa",
+        "newWithLabel": "Criar {{label}}",
+        "taskControls": "Controles de tarefas"
+      },
+      "viewMode": {
+        "board": "Visualização em board",
+        "group": "Modo de visualização",
+        "list": "Visualização em lista"
+      }
+    },
+    "myIssues": {
+      "breadcrumb": "Minhas tarefas",
+      "empty": {
+        "noTasksAssigned": "Nenhuma tarefa atribuída a você.",
+        "selectCompany": "Selecione uma empresa para ver suas tarefas.",
+        "selectOrganization": "Selecione uma empresa para ver suas tarefas."
+      },
+      "errors": {
+        "loadYourTasks": "carregar suas tarefas"
+      }
+    },
+    "newIssueDialog": {
+      "actions": {
+        "createTask": "criar a tarefa"
+      },
+      "backlogNote": {
+        "leaveStatus": "Atribuir implica intenção executável. Deixe o status como",
+        "onlyToPark": "apenas para deixar esta tarefa em espera de propósito. O responsável não será acionado até que o status mude para"
+      },
+      "contextBar": {
+        "noProject": "Nenhum projeto",
+        "noProjectsFound": "Nenhum projeto encontrado.",
+        "privateProject": "Projeto privado",
+        "project": "Projeto",
+        "searchProjects": "Buscar projetos...",
+        "selectProject": "Selecionar projeto"
+      },
+      "dialogTitle": {
+        "subTask": "Nova subtarefa",
+        "task": "Nova tarefa"
+      },
+      "lowTrustNote": "Agente de revisão de baixa confiança. Ele só pode agir dentro do limite de revisão atribuído; a política da tarefa, do projeto ou da execução define o escopo concreto.",
+      "parentAccess": {
+        "checking": "Verificando o acesso da tarefa pai…",
+        "couldNotCheck": "Não foi possível verificar o acesso da tarefa pai."
+      },
+      "pausedAssignee": {
+        "importSuffix": " — ele chegou pausado por uma importação da empresa",
+        "isPaused": "está pausado e não iniciará o trabalho nesta tarefa até ser retomado",
+        "resumeHint": ". Você pode retomá-lo na página da tarefa depois de criar a tarefa."
+      },
+      "pendingSendNoun": "tarefa",
+      "placeholders": {
+        "describeTask": "Descreva uma tarefa…"
+      },
+      "privacy": {
+        "inPrivateProject": "No projeto privado {{name}}",
+        "subtaskOfPrivateTask": "Subtarefa de tarefa privada {{title}}"
+      },
+      "savedRequest": {
+        "attachAgain": "Anexe novamente os arquivos originais: {{names}}.",
+        "cancel": "Cancelar solicitação salva",
+        "needsAttention": "A solicitação salva precisa de atenção",
+        "restoreFields": "Restaure os campos originais da tarefa salva antes de tentar novamente, ou cancele a solicitação salva para iniciar outra tarefa.",
+        "unavailable": "A solicitação salva não está disponível. Cancele-a antes de criar outra tarefa."
+      },
+      "staged": {
+        "attachments": "Anexos",
+        "documents": "Documentos",
+        "removeAttachment": "Remover anexo",
+        "removeDocument": "Remover documento"
+      },
+      "stagedFilesMissing": {
+        "multiple": "Esta página não tem mais os {{count}} arquivos preparados para esta tarefa ({{names}}). Anexe-os novamente e depois crie a tarefa.",
+        "single": "Esta página não tem mais o arquivo preparado para esta tarefa ({{names}}). Anexe-o novamente e depois crie a tarefa."
+      },
+      "statusLabels": {
+        "backlog": "Backlog",
+        "inProgress": "Em andamento",
+        "todo": "A fazer"
+      },
+      "submitLabel": {
+        "subTask": "Criar subtarefa",
+        "task": "Criar tarefa"
+      },
+      "subtaskOf": "Subtarefa de",
+      "subtaskWorkspaceWarning": "Esta subtarefa não usará mais o workspace da tarefa pai",
+      "taskTitle": "Título da tarefa",
+      "toasts": {
+        "created": "Tarefa {{ref}} criada",
+        "createdWithUploadWarnings": "Tarefa {{ref}} criada com avisos de envio",
+        "openIssue": "Abrir {{ref}}",
+        "stagedFilesNotAdded": "Não foi possível adicionar {{total}} dos arquivos preparados."
+      },
+      "workspaceLabelSuffix": " ({{label}})",
+      "worktree": {
+        "couldNotCheck": "Não foi possível verificar o worktree selecionado. Tente novamente em Worktrees ou escolha Novo worktree.",
+        "noLongerAvailable": "O worktree selecionado não está mais disponível. Escolha outro worktree ou inicie um novo."
+      }
+    }
+  },
+  "nav": {
+    "breadcrumbBar": {
+      "hideProperties": "Ocultar propriedades",
+      "openSidebar": "Abrir barra lateral",
+      "showProperties": "Mostrar propriedades"
+    },
+    "layout": {
+      "closeSidebar": "Fechar barra lateral",
+      "companyArchived": "A empresa {{name}} foi arquivada",
+      "skipToMain": "Pular para o conteúdo principal",
+      "switchedTo": "Mudou para {{name}}."
+    },
+    "mobileBottomNav": {
+      "agents": "Agentes",
+      "chat": "Chat",
+      "home": "Início",
+      "inbox": "Caixa de entrada",
+      "navLabel": "Navegação móvel",
+      "needsYou": "Precisa de você",
+      "newTask": "Nova tarefa",
+      "newTaskLower": "Nova tarefa",
+      "tasks": "Tarefas"
+    },
+    "sidebar": {
+      "activity": "Atividade",
+      "agents": "Agentes",
+      "artifacts": "Artefatos",
+      "audit": "Auditoria",
+      "cases": "Casos",
+      "chat": "Chat",
+      "commentary": "Comentários",
+      "company": "Empresa",
+      "conferenceRoom": "Sala de conferência",
+      "connectors": "Conectores",
+      "costs": "Custos",
+      "dashboard": "Painel",
+      "decisions": "Decisões",
+      "decisionsCount": "decisões",
+      "goals": "Metas",
+      "inbox": "Caixa de entrada",
+      "newTask": "Nova tarefa",
+      "org": "Organograma",
+      "orgSection": "Organização",
+      "organization": "Organização",
+      "projects": "Projetos",
+      "routines": "Rotinas",
+      "settings": "Configurações",
+      "skills": "Skills",
+      "tasks": "Tarefas",
+      "timeline": "Linha do tempo",
+      "unread": "não lidos",
+      "unreadChats": "chats não lidos",
+      "work": "Trabalho",
+      "workspaces": "Workspaces"
+    },
+    "sidebarAccountMenu": {
+      "account": "Conta",
+      "board": "Board",
+      "docsDescription": "Abra a documentação do Paperclip em uma nova aba.",
+      "documentation": "Documentação",
+      "endSession": "Encerra esta sessão do navegador.",
+      "invite": "Convidar",
+      "inviteDescription": "Convide pessoas para a sua empresa.",
+      "localBoard": "Board do workspace local",
+      "openMenu": "Abrir menu da conta",
+      "settings": "Configurações",
+      "sha": "SHA {{sha}}",
+      "shareFeedback": "Enviar feedback",
+      "signOut": "Sair",
+      "signedIn": "Conectado",
+      "signingOut": "Saindo...",
+      "viewCommit": "Ver commit {{sha}} no GitHub",
+      "viewProfile": "Ver perfil"
+    },
+    "sidebarAgents": {
+      "agentPausedByBudget": "Agente pausado por orçamento",
+      "agents": "Agentes",
+      "browse": "Explorar agentes",
+      "budgetLimits": "O agente foi pausado pelos limites de orçamento",
+      "budgetPaused": "Pausado por orçamento",
+      "builtInAgent": "Agente integrado {{status}}",
+      "couldNotPause": "Não foi possível pausar o agente",
+      "couldNotResume": "Não foi possível retomar o agente",
+      "editAgent": "Editar agente",
+      "invalidOrgChain": "Cadeia organizacional inválida",
+      "invalidReportingChain": "Cadeia de reporte inválida",
+      "leaveAgent": "Sair do agente",
+      "leaving": "Saindo...",
+      "newAgent": "Novo agente",
+      "openActions": "Abrir ações para {{name}}",
+      "pauseAgent": "Pausar agente",
+      "paused": "Agente pausado",
+      "removeFromStarred": "Remover dos favoritos",
+      "resumeAgent": "Retomar agente",
+      "resumed": "Agente retomado",
+      "sectionActions": "Ações da seção de agentes",
+      "seeAll": "Ver todos os agentes",
+      "sortAlphabetical": "Alfabética",
+      "sortLabel": "Ordenação de agentes",
+      "sortRecent": "Recentes",
+      "sortTop": "Principais",
+      "starAgent": "Favoritar agente"
+    },
+    "sidebarCompanyMenu": {
+      "createOrganization": "Criar empresa",
+      "invitePeople": "Convidar pessoas",
+      "invitePeopleTo": "Convidar pessoas para {{name}}",
+      "loadFailed": "Não foi possível carregar as empresas",
+      "loadFailedCompany": "Não foi possível carregar as empresas",
+      "noCompanies": "Nenhuma empresa",
+      "noOrganizations": "Nenhuma empresa",
+      "openSwitcher": "Abrir seletor de empresa",
+      "openSwitcherCompany": "Abrir seletor de empresa",
+      "openSwitcherNamed": "Abrir seletor de empresa de {{name}}",
+      "openSwitcherNamedCompany": "Abrir seletor da empresa {{name}}",
+      "organizations": "Empresas",
+      "reorder": "Reordenar {{name}}",
+      "select": "Selecionar empresa",
+      "selectCompany": "Selecionar empresa",
+      "signOut": "Sair",
+      "signingOut": "Saindo...",
+      "tryAgain": "Tentar novamente"
+    },
+    "sidebarNavItem": {
+      "attentionNeeded": "atenção necessária",
+      "liveCount": "{{liveCount}} ao vivo"
+    },
+    "sidebarProjects": {
+      "browse": "Explorar projetos",
+      "leaveProject": "Sair do projeto",
+      "leaving": "Saindo...",
+      "newProject": "Novo projeto",
+      "openActions": "Abrir ações para {{name}}",
+      "pausedByBudget": "Projeto pausado por orçamento",
+      "privateProject": "Projeto privado",
+      "projects": "Projetos",
+      "sectionActions": "Ações da seção de projetos",
+      "sortAlphabetical": "Alfabética",
+      "sortLabel": "Ordenação de projetos",
+      "sortRecent": "Recentes",
+      "sortTop": "Principais"
+    },
+    "sidebarRecentTasks": {
+      "archive": "Arquivar",
+      "archiveFailed": "Falha ao arquivar a tarefa",
+      "archived": "Tarefa arquivada da caixa de entrada",
+      "idle": "Aguardando",
+      "moreActions": "Mais ações para {{title}}",
+      "pauseFailed": "Falha ao atualizar a pausa da tarefa",
+      "pauseRestart": "Pausar/Reiniciar",
+      "paused": "Tarefa pausada",
+      "pausedByParent": "Esta tarefa está pausada por uma tarefa-pai. Reinicie-a a partir da raiz da pausa.",
+      "recentTasks": "Tarefas recentes",
+      "rename": "Renomear",
+      "renameDescription": "Escolha um nome curto e claro para esta tarefa.",
+      "renameFailed": "Falha ao renomear a tarefa",
+      "renameTitle": "Renomear tarefa",
+      "renamed": "Tarefa renomeada",
+      "restarted": "Tarefa reiniciada",
+      "taskName": "Nome da tarefa",
+      "unableArchive": "Não foi possível arquivar esta tarefa da caixa de entrada.",
+      "unablePause": "Não foi possível pausar ou reiniciar esta tarefa.",
+      "unableRename": "Não foi possível renomear esta tarefa.",
+      "wakeSkipped": "O despertar do responsável foi ignorado."
+    },
+    "sidebarSection": {
+      "actions": "Ações de {{label}}",
+      "collapse": "Recolher {{label}}",
+      "expand": "Expandir {{label}}"
+    },
+    "sidebarServerInfo": {
+      "changeStatusUnavailable": "Status de alterações indisponível",
+      "checkoutState": "Estado do checkout",
+      "cleanCheckout": "Checkout limpo",
+      "commitUnavailable": "Commit indisponível",
+      "healthUnavailable": "Health indisponível",
+      "lastRestarted": "Último reinício",
+      "localChanges": "Alterações locais presentes",
+      "localChangesWithParts": "Alterações locais presentes ({{parts}})",
+      "runningCommit": "Commit em execução",
+      "server": "Servidor",
+      "staged": "preparados",
+      "unavailable": "Indisponível",
+      "unstaged": "não preparados",
+      "untracked": "não rastreados"
+    },
+    "sidebarShell": {
+      "resize": "Redimensionar barra lateral"
+    },
+    "sidebarStarredProjects": {
+      "leaveProject": "Sair do projeto",
+      "openActions": "Abrir ações para {{name}}",
+      "pausedByBudget": "Projeto pausado por orçamento",
+      "privateProject": "Projeto privado",
+      "removeFromStarred": "Remover dos favoritos",
+      "starred": "Projetos favoritos"
+    }
+  },
+  "notFound": {
+    "breadcrumb": "Não encontrado",
+    "companyTitle": "Empresa não encontrada",
+    "goHome": "Ir para o início",
+    "openDashboard": "Abrir painel",
+    "pageTitle": "Página não encontrada",
+    "prefixDescription": "Nenhuma empresa corresponde ao prefixo \"{{prefix}}\".",
+    "requestedPath": "Caminho solicitado:",
+    "routeDescription": "Esta rota não existe."
+  },
+  "onboarding": {
+    "connectModelPreview": {
+      "connect": "Conectar",
+      "lede": "O Paperclip funciona com sua assinatura atual ou com chaves de API.",
+      "modelSource": "Fonte do modelo",
+      "title": "Conecte um modelo",
+      "useApiKeys": "Usar chaves de API em vez disso"
+    },
+    "credentialModeLink": {
+      "api": "Usar chave de API em vez disso",
+      "subscription": "Usar assinatura em vez disso"
+    },
+    "gatewaySetup": {
+      "description": "Salve a conexão e depois escolha um modelo e teste-o com seu agente.",
+      "submitLabel": "Salvar conexão",
+      "title": "Conexão com gateway personalizado",
+      "trigger": "Usar um gateway personalizado"
+    },
+    "modelSourceTiles": {
+      "advanced": "Gateway personalizado",
+      "api": "Chave de API",
+      "subscription": "Assinatura"
+    },
+    "savedProviderKeySelect": {
+      "apiKeyLabel": "Chave de API",
+      "checking": "Verificando chaves de API salvas…",
+      "enterNewApiKey": "Informar uma nova chave de API",
+      "loadError": "Não foi possível carregar algumas chaves salvas. Você ainda pode informar uma nova chave.",
+      "reuseKey": "Reutilizar esta chave salva para este agente.",
+      "reuseSubscription": "Reutilizar esta assinatura salva para este agente.",
+      "savedApiKey": "Chave de API salva",
+      "savedSubscription": "Assinatura salva",
+      "signInAnotherAccount": "Entrar em outra conta",
+      "subscriptionLabel": "Assinatura"
+    },
+    "stepper": {
+      "connectModel": "Conecte um modelo",
+      "createFirstAgent": "Crie seu primeiro agente",
+      "nameOrganization": "Dê um nome à sua empresa",
+      "progress": "Etapa {{step}} de {{total}}",
+      "review": "Revisão",
+      "stepFallback": "Etapa {{step}}"
+    }
+  },
+  "projects": {
+    "detail": {
+      "archiveFailed": "Falha ao arquivar projeto",
+      "archivedToast": "\"{{name}}\" foi arquivado",
+      "dismissMembership": "Dispensar aviso de participação no projeto",
+      "leftNotice": "Você saiu deste projeto. Ele não aparece mais na sua barra lateral.",
+      "loadingWorkspaces": "Carregando workspaces...",
+      "managedBy": "Gerenciado por {{plugin}}",
+      "pausedByBudget": "Pausado pelo limite máximo do orçamento",
+      "projectFallback": "Projeto",
+      "summaryDescription": "O Summarizer mantém aqui o status mais recente do projeto, o próximo passo e os itens que precisam de ação do operador.",
+      "summaryTitle": "Resumo do projeto",
+      "tabs": {
+        "budget": "Orçamento",
+        "configuration": "Configuração",
+        "pluginOperations": "Operações do plugin",
+        "tasks": "Tarefas",
+        "workspaces": "Workspaces"
+      },
+      "unarchiveFailed": "Falha ao desarquivar projeto",
+      "unarchivedToast": "\"{{name}}\" foi desarquivado"
+    },
+    "list": {
+      "addProject": "Adicionar projeto",
+      "breadcrumb": "Projetos",
+      "mine": "Meus projetos",
+      "noMatches": "Nenhum projeto corresponde à sua busca.",
+      "noProjects": "Nenhum projeto ainda.",
+      "other": "Outros projetos",
+      "privateProject": "Projeto privado",
+      "projectNoun": "projeto",
+      "projectsNoun": "projetos",
+      "selectCompany": "Selecione uma empresa para visualizar os projetos.",
+      "taskNoun": "tarefa",
+      "tasksNoun": "tarefas"
+    },
+    "tilePicker": {
+      "changeIconColor": "Alterar ícone e cor do projeto",
+      "color": "Cor",
+      "icon": "Ícone",
+      "neutral": "Neutro (padrão)",
+      "noIcons": "Nenhum ícone encontrado",
+      "resetNeutral": "Redefinir para cinza neutro",
+      "searchIcons": "Buscar ícones...",
+      "selectColor": "Selecionar cor {{color}}"
+    }
+  },
+  "search": {
+    "filterBar": {
+      "assigneeLabel": "Responsável",
+      "labelLabel": "Etiqueta",
+      "me": "Eu",
+      "meSearch": "eu meu minha",
+      "noAssignees": "Nenhum responsável",
+      "noLabels": "Nenhuma etiqueta",
+      "noProjects": "Nenhum projeto",
+      "openItems": "Itens abertos",
+      "priorityLabel": "Prioridade",
+      "priorityValues": {
+        "critical": "Crítica",
+        "high": "Alta",
+        "low": "Baixa",
+        "medium": "Média"
+      },
+      "projectLabel": "Projeto",
+      "searchAssignees": "Buscar responsáveis…",
+      "searchLabels": "Buscar etiquetas…",
+      "searchProjects": "Buscar projetos…",
+      "statusValues": {
+        "backlog": "Backlog",
+        "blocked": "Bloqueado",
+        "cancelled": "Cancelado",
+        "in_progress": "Em andamento",
+        "in_review": "Em revisão",
+        "monitoring": "Monitorando",
+        "todo": "A fazer"
+      },
+      "unassigned": "Sem responsável",
+      "unassignedSearch": "sem responsável sem responsavel nenhum ninguém ninguem",
+      "updatedLabel": "Atualizado"
+    },
+    "matchSourceChip": {
+      "comment": "Comentário",
+      "document": "Doc",
+      "identifier": "Identificador",
+      "title": "Título"
+    },
+    "searchFilterChips": {
+      "clearAll": "Limpar tudo",
+      "removeFilter": "Remover filtro {{label}}"
+    },
+    "searchFilterMenu": {
+      "emptyMessage": "Nenhuma opção",
+      "filterBy": "Filtrar por {{label}}",
+      "searchPlaceholder": "Buscar…"
+    },
+    "searchFilterSheet": {
+      "assignee": "Responsável",
+      "clearAll": "Limpar tudo",
+      "label": "Etiqueta",
+      "priority": "Prioridade",
+      "project": "Projeto",
+      "showMany": "Mostrar {{total}} resultados",
+      "showOne": "Mostrar 1 resultado",
+      "showResults": "Mostrar resultados",
+      "sortBy": "Ordenar por",
+      "title": "Filtros",
+      "updated": "Atualizado"
+    },
+    "searchFilterSheetTrigger": {
+      "label": "Filtros"
+    },
+    "searchResultRow": {
+      "agentFallback": "Agente",
+      "artifactFallback": "Artefato",
+      "justNow": "agora mesmo",
+      "projectFallback": "Projeto",
+      "relDays": "{{n}}d",
+      "relHours": "{{n}}h",
+      "relMinutes": "{{n}}min",
+      "relMonths": "{{n}}me",
+      "relWeeks": "{{n}}sem",
+      "relYears": "{{n}}a",
+      "snippetArtifact": "Artefato",
+      "snippetComment": "Comentário",
+      "snippetDocument": "Doc"
+    },
+    "searchSortMenu": {
+      "sortBy": "Ordenar por",
+      "sortLabel": "Ordenar:",
+      "sortResults": "Ordenar resultados"
+    },
+    "zeroResultsRecovery": {
+      "activeOne": "seu filtro ativo oculta",
+      "activeOther": "seus {{activeCount}} filtros ativos ocultam",
+      "allOfThem": "todos eles.",
+      "but": "mas",
+      "clearAll": "Limpar todos os filtros",
+      "loosenHeading": "Remova um filtro",
+      "matchesOne": "1 resultado corresponde",
+      "matchesOther": "{{total}} resultados correspondem",
+      "remove": "Remover",
+      "resultOne": "resultado",
+      "resultOther": "resultados",
+      "title": "Nenhum resultado com estes filtros"
+    }
+  },
+  "settings": {
+    "breadcrumb": "Configurações",
+    "company": {
+      "alreadyArchived": "Já arquivada",
+      "appearance": "Aparência",
+      "archiveButton": "Arquivar empresa",
+      "archiveConfirm": "Arquivar a empresa \"{{name}}\"? Ela será ocultada da barra lateral.",
+      "archiveHint": "Arquive esta empresa para ocultá-la da barra lateral. Isso fica salvo no banco de dados.",
+      "archivedTitle": "A empresa {{name}} foi arquivada",
+      "archiving": "Arquivando...",
+      "companyFallback": "Empresa",
+      "dangerZone": "Zona de perigo",
+      "descriptionHint": "Descrição opcional exibida no perfil da empresa.",
+      "descriptionPlaceholder": "Descrição opcional da empresa",
+      "general": "Geral",
+      "hiring": "Contratações",
+      "logoHint": "Envie uma imagem de logotipo em PNG, JPEG, WEBP, GIF ou SVG.",
+      "logoLabel": "Logotipo",
+      "nameHint": "Nome de exibição da sua empresa.",
+      "nameLabel": "Nome da empresa",
+      "noCompany": "Nenhuma empresa selecionada. Selecione uma empresa no seletor acima.",
+      "organizationFallback": "Empresa",
+      "removeLogo": "Remover logotipo",
+      "removingLogo": "Removendo...",
+      "renameWarning": "Renomear pode alterar o prefixo de IDs de tarefas desta empresa. Os IDs de tarefas existentes são renumerados e os links antigos deixam de funcionar.",
+      "requireApproval": "Exigir aprovação do Board para novas contratações",
+      "requireApprovalHint": "Novas contratações de agentes ficam pendentes até serem aprovadas pelo Board.",
+      "saveChanges": "Salvar alterações",
+      "saved": "Salvo",
+      "switchedTo": "Trocamos para {{name}}.",
+      "unarchiveHint": "Você pode desarquivá-la nesta lista.",
+      "uploadingLogo": "Enviando logotipo..."
+    },
+    "profile": {
+      "avatarHint": "Clique no avatar para enviar uma nova imagem. {{hint}}",
+      "changePhoto": "Trocar foto",
+      "description": "Controle como sua conta aparece na barra lateral e em outras áreas do Board.",
+      "displayName": "Nome de exibição",
+      "displayNameHint": "Exibido no rodapé da conta na barra lateral e nos autores de comentários.",
+      "email": "E-mail",
+      "emailHint": "O e-mail é gerenciado pela sua sessão de autenticação e não pode ser editado aqui.",
+      "loadFailed": "Falha ao carregar o perfil.",
+      "loading": "Carregando perfil...",
+      "noEmail": "Sem e-mail",
+      "saveProfile": "Salvar perfil",
+      "selectCompanyForAvatar": "Selecione uma empresa antes de enviar um avatar de perfil.",
+      "title": "Perfil",
+      "uploadHintCompany": "Armazenado no armazenamento de arquivos do Paperclip para {{name}}.",
+      "uploadHintNoCompany": "Selecione uma empresa para enviar um avatar ao armazenamento do Paperclip.",
+      "uploadPhoto": "Enviar foto"
+    }
+  },
+  "sidePanel": {
+    "frame": {
+      "label": "Painel lateral"
+    },
+    "launcher": {
+      "alreadyOpen": "Já aberto",
+      "description": "Escolha uma visão ou recurso para abrir.",
+      "emptyMessage": "Nenhuma aba ou recurso correspondente.",
+      "loading": "Carregando…",
+      "placeholder": "Buscar abas e recursos…",
+      "title": "Abrir uma aba do painel lateral"
+    },
+    "mobileTabs": {
+      "chooseTab": "Escolha uma aba",
+      "close": "Fechar {{label}}",
+      "openTabs": "Abas abertas",
+      "switchTabs": "Alternar abas, {{total}} abertas"
+    },
+    "tab": {
+      "close": "Fechar {{label}}"
+    },
+    "tabs": {
+      "addLabel": "Abrir uma nova aba",
+      "lastTabClosed": "Última aba fechada. Escolha algo para abrir.",
+      "moved": "{{label}} movida para a posição {{position}} de {{total}}.",
+      "tabClosed": "Aba fechada.",
+      "tabFallback": "Aba"
+    },
+    "toggleButton": {
+      "label": "Alternar painel lateral"
+    },
+    "windowControls": {
+      "close": "Fechar painel lateral",
+      "maximize": "Maximizar painel lateral",
+      "restore": "Restaurar painel lateral"
     }
   }
 }

@@ -1,0 +1,52 @@
+{
+  "en": {
+    "companies": {
+      "breadcrumb": "Organizations",
+      "newCompany": "New Organization",
+      "loading": "Loading organizations...",
+      "rename": "Rename",
+      "unarchive": "Unarchive",
+      "deleteCompany": "Delete Organization",
+      "deleteConfirm": "Delete this organization and all its data? This cannot be undone.",
+      "deleting": "Deleting…",
+      "status": {
+        "active": "active",
+        "paused": "paused",
+        "archived": "archived"
+      },
+      "stats": {
+        "agentSingular": "{{n}} agent",
+        "agentPlural": "{{n}} agents",
+        "taskSingular": "{{n}} task",
+        "taskPlural": "{{n}} tasks",
+        "unlimitedBudget": "Unlimited budget",
+        "created": "Created {{time}}"
+      }
+    }
+  },
+  "pt-BR": {
+    "companies": {
+      "breadcrumb": "Empresas",
+      "newCompany": "Nova empresa",
+      "loading": "Carregando empresas...",
+      "rename": "Renomear",
+      "unarchive": "Desarquivar",
+      "deleteCompany": "Excluir empresa",
+      "deleteConfirm": "Excluir esta empresa e todos os seus dados? Isso não pode ser desfeito.",
+      "deleting": "Excluindo…",
+      "status": {
+        "active": "Ativa",
+        "paused": "Pausada",
+        "archived": "Arquivada"
+      },
+      "stats": {
+        "agentSingular": "{{n}} agente",
+        "agentPlural": "{{n}} agentes",
+        "taskSingular": "{{n}} tarefa",
+        "taskPlural": "{{n}} tarefas",
+        "unlimitedBudget": "Orçamento ilimitado",
+        "created": "Criada {{time}}"
+      }
+    }
+  }
+}

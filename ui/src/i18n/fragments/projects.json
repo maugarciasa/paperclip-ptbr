@@ -1,0 +1,100 @@
+{
+  "en": {
+    "projects": {
+      "list": {
+        "breadcrumb": "Projects",
+        "selectCompany": "Select an organization to view projects.",
+        "noProjects": "No projects yet.",
+        "addProject": "Add Project",
+        "noMatches": "No projects match your search.",
+        "mine": "My Projects",
+        "other": "Other Projects",
+        "projectNoun": "project",
+        "projectsNoun": "projects",
+        "taskNoun": "task",
+        "tasksNoun": "tasks",
+        "privateProject": "Private project"
+      },
+      "tilePicker": {
+        "changeIconColor": "Change project icon and color",
+        "icon": "Icon",
+        "searchIcons": "Search icons...",
+        "noIcons": "No icons match",
+        "color": "Color",
+        "resetNeutral": "Reset to neutral gray",
+        "neutral": "Neutral (default)",
+        "selectColor": "Select color {{color}}"
+      },
+      "detail": {
+        "projectFallback": "Project",
+        "archivedToast": "\"{{name}}\" has been archived",
+        "unarchivedToast": "\"{{name}}\" has been unarchived",
+        "archiveFailed": "Failed to archive project",
+        "unarchiveFailed": "Failed to unarchive project",
+        "pausedByBudget": "Paused by budget hard stop",
+        "managedBy": "Managed by {{plugin}}",
+        "leftNotice": "You left this project. It no longer appears in your sidebar.",
+        "dismissMembership": "Dismiss project membership notice",
+        "summaryTitle": "Project summary",
+        "summaryDescription": "Summarizer keeps the latest project status, next step, and operator-needed items here.",
+        "tabs": {
+          "tasks": "Tasks",
+          "pluginOperations": "Plugin operations",
+          "workspaces": "Workspaces",
+          "configuration": "Configuration",
+          "budget": "Budget"
+        },
+        "loadingWorkspaces": "Loading workspaces..."
+      }
+    }
+  },
+  "pt-BR": {
+    "projects": {
+      "list": {
+        "breadcrumb": "Projetos",
+        "selectCompany": "Selecione uma empresa para visualizar os projetos.",
+        "noProjects": "Nenhum projeto ainda.",
+        "addProject": "Adicionar projeto",
+        "noMatches": "Nenhum projeto corresponde à sua busca.",
+        "mine": "Meus projetos",
+        "other": "Outros projetos",
+        "projectNoun": "projeto",
+        "projectsNoun": "projetos",
+        "taskNoun": "tarefa",
+        "tasksNoun": "tarefas",
+        "privateProject": "Projeto privado"
+      },
+      "tilePicker": {
+        "changeIconColor": "Alterar ícone e cor do projeto",
+        "icon": "Ícone",
+        "searchIcons": "Buscar ícones...",
+        "noIcons": "Nenhum ícone encontrado",
+        "color": "Cor",
+        "resetNeutral": "Redefinir para cinza neutro",
+        "neutral": "Neutro (padrão)",
+        "selectColor": "Selecionar cor {{color}}"
+      },
+      "detail": {
+        "projectFallback": "Projeto",
+        "archivedToast": "\"{{name}}\" foi arquivado",
+        "unarchivedToast": "\"{{name}}\" foi desarquivado",
+        "archiveFailed": "Falha ao arquivar projeto",
+        "unarchiveFailed": "Falha ao desarquivar projeto",
+        "pausedByBudget": "Pausado pelo limite máximo do orçamento",
+        "managedBy": "Gerenciado por {{plugin}}",
+        "leftNotice": "Você saiu deste projeto. Ele não aparece mais na sua barra lateral.",
+        "dismissMembership": "Dispensar aviso de participação no projeto",
+        "summaryTitle": "Resumo do projeto",
+        "summaryDescription": "O Summarizer mantém aqui o status mais recente do projeto, o próximo passo e os itens que precisam de ação do operador.",
+        "tabs": {
+          "tasks": "Tarefas",
+          "pluginOperations": "Operações do plugin",
+          "workspaces": "Workspaces",
+          "configuration": "Configuração",
+          "budget": "Orçamento"
+        },
+        "loadingWorkspaces": "Carregando workspaces..."
+      }
+    }
+  }
+}

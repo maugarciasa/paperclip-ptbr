@@ -1,0 +1,334 @@
+{
+  "en": {
+    "inbox": {
+      "inbox": {
+        "failedRun": {
+          "exitedWithError": "Run exited with an error.",
+          "thinking": "Thinking",
+          "retryIn": "Trying again in {{seconds}}s…",
+          "attemptFailed": "Couldn’t finish this attempt. Your message is saved.",
+          "waiting": {
+            "approval": "Approval required",
+            "reconnect": "Reconnect account",
+            "assignAgent": "Assign an agent",
+            "chooseModel": "Choose a supported model",
+            "resume": "Work is paused",
+            "budget": "Budget limit reached",
+            "projectAccess": "Agent needs project access"
+          },
+          "title": "Failed run",
+          "titleWithAgent": "Failed run — {{agent}}"
+        },
+        "approvalStatus": {
+          "pending": "pending",
+          "revisionRequested": "revision requested",
+          "approved": "approved",
+          "rejected": "rejected",
+          "cancelled": "cancelled"
+        },
+        "joinRequest": {
+          "agentRequest": "Agent join request",
+          "agentRequestNamed": "Agent join request: {{name}}",
+          "human": "Human join request",
+          "requestedFromIp": "requested {{time}} from IP {{ip}}",
+          "adapter": "adapter: {{adapter}}"
+        },
+        "approval": {
+          "requestedBy": "requested by {{name}}",
+          "updated": "updated {{time}}"
+        },
+        "actions": {
+          "approve": "Approve",
+          "reject": "Reject",
+          "markAsRead": "Mark as read",
+          "dismiss": "Dismiss"
+        },
+        "actionErrors": {
+          "approveRequest": "approve this request",
+          "rejectRequest": "reject this request"
+        },
+        "toast": {
+          "runRetryFailed": "Run retry failed",
+          "unableToRetry": "Unable to retry run"
+        },
+        "error": {
+          "accountChanged": "Your account changed. Refresh the inbox."
+        },
+        "creator": {
+          "board": "Board",
+          "me": "Me"
+        },
+        "surface": {
+          "inbox": "Inbox"
+        },
+        "empty": {
+          "selectOrganization": "Select an organization to view {{surface}}.",
+          "searchNoMatch": "No inbox items match your search.",
+          "zeroMine": "Inbox zero.",
+          "noNew": "No new inbox items.",
+          "noRecent": "No recent inbox items.",
+          "noMatchFilters": "No inbox items match these filters."
+        },
+        "feedback": {
+          "liveOnly": "Live runs only — tasks currently connected to an agent run.",
+          "activeStatuses": "Active statuses — open tasks, whether or not an agent is running."
+        },
+        "notice": {
+          "someItemsFailed": "Some inbox items couldn’t load. Showing available items.",
+          "retryMissing": "Retry missing items"
+        },
+        "tabs": {
+          "mine": "Mine",
+          "recent": "Recent",
+          "unread": "Unread",
+          "blocked": "Blocked"
+        },
+        "search": {
+          "placeholder": "Search {{surface}}…"
+        },
+        "controls": {
+          "group": "Group",
+          "columns": "Choose which columns stay visible",
+          "nestingDisable": "Disable parent-child nesting",
+          "nestingEnable": "Enable parent-child nesting"
+        },
+        "groupBy": {
+          "assignee": "Responsible",
+          "project": "Project"
+        },
+        "markAll": {
+          "progress": "Marking…",
+          "button": "Mark all as read",
+          "title": "Mark all as read?",
+          "description": "This will mark {{count}} unread item(s) as read."
+        },
+        "listError": {
+          "unableToLoad": "Unable to load the inbox: {{error}}"
+        },
+        "rows": {
+          "collapseSubtasks": "Collapse sub-tasks",
+          "expandSubtasks": "Expand sub-tasks",
+          "subtaskCount": "{{count}} sub-task(s)",
+          "earlier": "Earlier"
+        },
+        "section": {
+          "archived": "Archived",
+          "otherResults": "Other results"
+        },
+        "group": {
+          "newTask": "New task in {{label}}"
+        },
+        "alerts": {
+          "title": "Alerts",
+          "agentErrors": "agent(s) with errors",
+          "budgetAt": "Budget at",
+          "budgetUtilization": "utilization this month"
+        }
+      },
+      "whatNeedsMe": {
+        "title": "Decisions",
+        "emptyCompany": "Select an organization first.",
+        "loadErrorAction": "load your decisions",
+        "curtains": {
+          "snoozed": "Snoozed",
+          "dismissed": "Dismissed",
+          "aging": "Aging",
+          "agingHint": "Idle past {{days}} days — kept off the desk. Keep any you still want surfaced.",
+          "decided": "Decided",
+          "expired": "Expired"
+        },
+        "history": {
+          "loadingDecided": "Loading decided decisions…",
+          "noDecided": "No decided decisions.",
+          "loadingExpired": "Loading expired decisions…",
+          "noExpired": "No expired decisions."
+        },
+        "toast": {
+          "dismissed": "Dismissed",
+          "undo": "Undo"
+        },
+        "bundle": {
+          "proposed": "{{agent}} proposed {{count}} decisions",
+          "anAgent": "An agent",
+          "from": "· from ",
+          "pending": "{{count}} pending"
+        },
+        "caughtUp": {
+          "filtered": "No decisions match your search or filters.",
+          "allCaughtUp": "You're all caught up.",
+          "adjust": "Adjust or clear your search and filters to see the rest."
+        },
+        "zero": {
+          "title": "You're all caught up",
+          "body": "Nothing needs a decision from you right now."
+        }
+      }
+    }
+  },
+  "pt-BR": {
+    "inbox": {
+      "inbox": {
+        "failedRun": {
+          "exitedWithError": "A execução terminou com erro.",
+          "thinking": "Pensando",
+          "retryIn": "Tentando novamente em {{seconds}}s…",
+          "attemptFailed": "Não foi possível concluir esta tentativa. Sua mensagem foi salva.",
+          "waiting": {
+            "approval": "Aprovação necessária",
+            "reconnect": "Reconectar conta",
+            "assignAgent": "Atribuir um agente",
+            "chooseModel": "Escolha um modelo compatível",
+            "resume": "Trabalho pausado",
+            "budget": "Limite de orçamento atingido",
+            "projectAccess": "O agente precisa de acesso ao projeto"
+          },
+          "title": "Execução com falha",
+          "titleWithAgent": "Execução com falha — {{agent}}"
+        },
+        "approvalStatus": {
+          "pending": "Pendente",
+          "revisionRequested": "Revisão solicitada",
+          "approved": "Aprovada",
+          "rejected": "Rejeitada",
+          "cancelled": "Cancelada"
+        },
+        "joinRequest": {
+          "agentRequest": "Solicitação de entrada de agente",
+          "agentRequestNamed": "Solicitação de entrada de agente: {{name}}",
+          "human": "Solicitação de entrada de pessoa",
+          "requestedFromIp": "solicitada {{time}} do IP {{ip}}",
+          "adapter": "adapter: {{adapter}}"
+        },
+        "approval": {
+          "requestedBy": "solicitada por {{name}}",
+          "updated": "atualizada {{time}}"
+        },
+        "actions": {
+          "approve": "Aprovar",
+          "reject": "Rejeitar",
+          "markAsRead": "Marcar como lido",
+          "dismiss": "Dispensar"
+        },
+        "actionErrors": {
+          "approveRequest": "aprovar esta solicitação",
+          "rejectRequest": "rejeitar esta solicitação"
+        },
+        "toast": {
+          "runRetryFailed": "Falha ao tentar a execução novamente",
+          "unableToRetry": "Não foi possível tentar a execução novamente"
+        },
+        "error": {
+          "accountChanged": "Sua conta mudou. Atualize a caixa de entrada."
+        },
+        "creator": {
+          "board": "Board",
+          "me": "Eu"
+        },
+        "surface": {
+          "inbox": "Caixa de entrada"
+        },
+        "empty": {
+          "selectOrganization": "Selecione uma empresa para ver {{surface}}.",
+          "searchNoMatch": "Nenhum item da caixa de entrada corresponde à sua busca.",
+          "zeroMine": "Caixa de entrada zerada.",
+          "noNew": "Nenhum item novo na caixa de entrada.",
+          "noRecent": "Nenhum item recente na caixa de entrada.",
+          "noMatchFilters": "Nenhum item da caixa de entrada corresponde a estes filtros."
+        },
+        "feedback": {
+          "liveOnly": "Somente execuções ao vivo — tarefas conectadas a uma execução de agente no momento.",
+          "activeStatuses": "Status ativos — tarefas abertas, com ou sem execução de agente."
+        },
+        "notice": {
+          "someItemsFailed": "Alguns itens da caixa de entrada não puderam ser carregados. Mostrando os itens disponíveis.",
+          "retryMissing": "Tentar novamente os itens ausentes"
+        },
+        "tabs": {
+          "mine": "Meus",
+          "recent": "Recentes",
+          "unread": "Não lidos",
+          "blocked": "Bloqueados"
+        },
+        "search": {
+          "placeholder": "Buscar em {{surface}}…"
+        },
+        "controls": {
+          "group": "Agrupar",
+          "columns": "Escolha quais colunas ficam visíveis",
+          "nestingDisable": "Desativar aninhamento pai-filho",
+          "nestingEnable": "Ativar aninhamento pai-filho"
+        },
+        "groupBy": {
+          "assignee": "Responsável",
+          "project": "Projeto"
+        },
+        "markAll": {
+          "progress": "Marcando…",
+          "button": "Marcar todos como lidos",
+          "title": "Marcar todos como lidos?",
+          "description": "Isto marcará {{count}} item(ns) não lido(s) como lido(s)."
+        },
+        "listError": {
+          "unableToLoad": "Não foi possível carregar a caixa de entrada: {{error}}"
+        },
+        "rows": {
+          "collapseSubtasks": "Recolher subtarefas",
+          "expandSubtasks": "Expandir subtarefas",
+          "subtaskCount": "{{count}} subtarefa(s)",
+          "earlier": "Anteriores"
+        },
+        "section": {
+          "archived": "Arquivados",
+          "otherResults": "Outros resultados"
+        },
+        "group": {
+          "newTask": "Nova tarefa em {{label}}"
+        },
+        "alerts": {
+          "title": "Alertas",
+          "agentErrors": "agente(s) com erro(s)",
+          "budgetAt": "Orçamento em",
+          "budgetUtilization": "de utilização neste mês"
+        }
+      },
+      "whatNeedsMe": {
+        "title": "Decisões",
+        "emptyCompany": "Selecione uma empresa primeiro.",
+        "loadErrorAction": "carregar suas decisões",
+        "curtains": {
+          "snoozed": "Adiadas",
+          "dismissed": "Dispensadas",
+          "aging": "Paradas",
+          "agingHint": "Paradas há mais de {{days}} dias, fora da lista principal. Mantenha as que você ainda quer ver.",
+          "decided": "Tomadas",
+          "expired": "Expiradas"
+        },
+        "history": {
+          "loadingDecided": "Carregando decisões tomadas…",
+          "noDecided": "Nenhuma decisão tomada.",
+          "loadingExpired": "Carregando decisões expiradas…",
+          "noExpired": "Nenhuma decisão expirada."
+        },
+        "toast": {
+          "dismissed": "Dispensada",
+          "undo": "Desfazer"
+        },
+        "bundle": {
+          "proposed": "{{agent}} propôs {{count}} decisão(ões)",
+          "anAgent": "Um agente",
+          "from": "· de ",
+          "pending": "{{count}} pendente(s)"
+        },
+        "caughtUp": {
+          "filtered": "Nenhuma decisão corresponde à sua busca ou aos seus filtros.",
+          "allCaughtUp": "Você está em dia.",
+          "adjust": "Ajuste ou limpe sua busca e seus filtros para ver as demais."
+        },
+        "zero": {
+          "title": "Você está em dia",
+          "body": "Nada precisa de uma decisão sua agora."
+        }
+      }
+    }
+  }
+}

@@ -3,6 +3,8 @@ import type { Resource } from "i18next";
 import { assertValidLocaleMessages } from "./locale-validation";
 
 export const DEFAULT_LOCALE = "en" as const;
+// Idioma exibido por padrão no fork; o inglês segue como fallback.
+export const UI_LOCALE = "pt-BR" as const;
 
 const localeModules = import.meta.glob("./locales/*.json", {
   eager: true,

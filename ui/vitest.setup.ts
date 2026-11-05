@@ -1,3 +1,8 @@
+import { i18n } from "./src/i18n";
+
+// Os testes existentes asserem textos em inglês; o idioma padrão da UI é pt-BR.
+void i18n.changeLanguage("en");
+
 const storageEntries = new Map<string, string>();
 
 function installStorageMock(target: Record<string, unknown>) {

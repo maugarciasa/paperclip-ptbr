@@ -1,0 +1,206 @@
+{
+  "en": {
+    "search": {
+      "matchSourceChip": {
+        "title": "Title",
+        "identifier": "Identifier",
+        "comment": "Comment",
+        "document": "Doc"
+      },
+      "filterBar": {
+        "assigneeLabel": "Assignee",
+        "projectLabel": "Project",
+        "labelLabel": "Label",
+        "priorityLabel": "Priority",
+        "updatedLabel": "Updated",
+        "openItems": "Open items",
+        "me": "Me",
+        "meSearch": "me mine",
+        "unassigned": "Unassigned",
+        "unassignedSearch": "unassigned none nobody",
+        "searchAssignees": "Search assignees…",
+        "noAssignees": "No assignees",
+        "searchProjects": "Search projects…",
+        "noProjects": "No projects",
+        "searchLabels": "Search labels…",
+        "noLabels": "No labels",
+        "statusValues": {
+          "backlog": "Backlog",
+          "todo": "Todo",
+          "in_progress": "In Progress",
+          "monitoring": "Monitoring",
+          "in_review": "In Review",
+          "blocked": "Blocked",
+          "cancelled": "Cancelled"
+        },
+        "priorityValues": {
+          "critical": "Critical",
+          "high": "High",
+          "medium": "Medium",
+          "low": "Low"
+        }
+      },
+      "searchFilterChips": {
+        "removeFilter": "Remove filter {{label}}",
+        "clearAll": "Clear all"
+      },
+      "searchFilterMenu": {
+        "filterBy": "Filter by {{label}}",
+        "searchPlaceholder": "Search…",
+        "emptyMessage": "No options"
+      },
+      "searchFilterSheet": {
+        "title": "Filters",
+        "clearAll": "Clear all",
+        "priority": "Priority",
+        "assignee": "Assignee",
+        "project": "Project",
+        "label": "Label",
+        "updated": "Updated",
+        "sortBy": "Sort by",
+        "showResults": "Show results",
+        "showOne": "Show 1 result",
+        "showMany": "Show {{total}} results"
+      },
+      "searchFilterSheetTrigger": {
+        "label": "Filters"
+      },
+      "searchSortMenu": {
+        "sortResults": "Sort results",
+        "sortLabel": "Sort:",
+        "sortBy": "Sort by"
+      },
+      "zeroResultsRecovery": {
+        "title": "No results with these filters",
+        "matchesOne": "1 result matches",
+        "matchesOther": "{{total}} results match",
+        "but": "but your",
+        "activeOne": "active filter hides",
+        "activeOther": "{{activeCount}} active filters hide",
+        "allOfThem": "all of them.",
+        "loosenHeading": "Loosen a filter",
+        "remove": "Remove",
+        "resultOne": "result",
+        "resultOther": "results",
+        "clearAll": "Clear all filters"
+      },
+      "searchResultRow": {
+        "snippetComment": "Comment",
+        "snippetDocument": "Doc",
+        "snippetArtifact": "Artifact",
+        "agentFallback": "Agent",
+        "projectFallback": "Project",
+        "artifactFallback": "Artifact",
+        "justNow": "just now",
+        "relMinutes": "{{n}}m",
+        "relHours": "{{n}}h",
+        "relDays": "{{n}}d",
+        "relWeeks": "{{n}}w",
+        "relMonths": "{{n}}mo",
+        "relYears": "{{n}}y"
+      }
+    }
+  },
+  "pt-BR": {
+    "search": {
+      "matchSourceChip": {
+        "title": "Título",
+        "identifier": "Identificador",
+        "comment": "Comentário",
+        "document": "Doc"
+      },
+      "filterBar": {
+        "assigneeLabel": "Responsável",
+        "projectLabel": "Projeto",
+        "labelLabel": "Etiqueta",
+        "priorityLabel": "Prioridade",
+        "updatedLabel": "Atualizado",
+        "openItems": "Itens abertos",
+        "me": "Eu",
+        "meSearch": "eu meu minha",
+        "unassigned": "Sem responsável",
+        "unassignedSearch": "sem responsável sem responsavel nenhum ninguém ninguem",
+        "searchAssignees": "Buscar responsáveis…",
+        "noAssignees": "Nenhum responsável",
+        "searchProjects": "Buscar projetos…",
+        "noProjects": "Nenhum projeto",
+        "searchLabels": "Buscar etiquetas…",
+        "noLabels": "Nenhuma etiqueta",
+        "statusValues": {
+          "backlog": "Backlog",
+          "todo": "A fazer",
+          "in_progress": "Em andamento",
+          "monitoring": "Monitorando",
+          "in_review": "Em revisão",
+          "blocked": "Bloqueado",
+          "cancelled": "Cancelado"
+        },
+        "priorityValues": {
+          "critical": "Crítica",
+          "high": "Alta",
+          "medium": "Média",
+          "low": "Baixa"
+        }
+      },
+      "searchFilterChips": {
+        "removeFilter": "Remover filtro {{label}}",
+        "clearAll": "Limpar tudo"
+      },
+      "searchFilterMenu": {
+        "filterBy": "Filtrar por {{label}}",
+        "searchPlaceholder": "Buscar…",
+        "emptyMessage": "Nenhuma opção"
+      },
+      "searchFilterSheet": {
+        "title": "Filtros",
+        "clearAll": "Limpar tudo",
+        "priority": "Prioridade",
+        "assignee": "Responsável",
+        "project": "Projeto",
+        "label": "Etiqueta",
+        "updated": "Atualizado",
+        "sortBy": "Ordenar por",
+        "showResults": "Mostrar resultados",
+        "showOne": "Mostrar 1 resultado",
+        "showMany": "Mostrar {{total}} resultados"
+      },
+      "searchFilterSheetTrigger": {
+        "label": "Filtros"
+      },
+      "searchSortMenu": {
+        "sortResults": "Ordenar resultados",
+        "sortLabel": "Ordenar:",
+        "sortBy": "Ordenar por"
+      },
+      "zeroResultsRecovery": {
+        "title": "Nenhum resultado com estes filtros",
+        "matchesOne": "1 resultado corresponde",
+        "matchesOther": "{{total}} resultados correspondem",
+        "but": "mas",
+        "activeOne": "seu filtro ativo oculta",
+        "activeOther": "seus {{activeCount}} filtros ativos ocultam",
+        "allOfThem": "todos eles.",
+        "loosenHeading": "Remova um filtro",
+        "remove": "Remover",
+        "resultOne": "resultado",
+        "resultOther": "resultados",
+        "clearAll": "Limpar todos os filtros"
+      },
+      "searchResultRow": {
+        "snippetComment": "Comentário",
+        "snippetDocument": "Doc",
+        "snippetArtifact": "Artefato",
+        "agentFallback": "Agente",
+        "projectFallback": "Projeto",
+        "artifactFallback": "Artefato",
+        "justNow": "agora mesmo",
+        "relMinutes": "{{n}}min",
+        "relHours": "{{n}}h",
+        "relDays": "{{n}}d",
+        "relWeeks": "{{n}}sem",
+        "relMonths": "{{n}}me",
+        "relYears": "{{n}}a"
+      }
+    }
+  }
+}

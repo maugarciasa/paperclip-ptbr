@@ -1,0 +1,26 @@
+{
+  "en": {
+    "notFound": {
+      "breadcrumb": "Not Found",
+      "companyTitle": "Organization not found",
+      "pageTitle": "Page not found",
+      "prefixDescription": "No organization matches prefix \"{{prefix}}\".",
+      "routeDescription": "This route does not exist.",
+      "requestedPath": "Requested path:",
+      "openDashboard": "Open dashboard",
+      "goHome": "Go home"
+    }
+  },
+  "pt-BR": {
+    "notFound": {
+      "breadcrumb": "Não encontrado",
+      "companyTitle": "Empresa não encontrada",
+      "pageTitle": "Página não encontrada",
+      "prefixDescription": "Nenhuma empresa corresponde ao prefixo \"{{prefix}}\".",
+      "routeDescription": "Esta rota não existe.",
+      "requestedPath": "Caminho solicitado:",
+      "openDashboard": "Abrir painel",
+      "goHome": "Ir para o início"
+    }
+  }
+}
