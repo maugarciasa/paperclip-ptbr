@@ -3086,6 +3086,52 @@
       "couldNotVerifyWho": "We couldn't verify who can reconnect this identity. Reload the page to try again.",
       "ownerMustReconnect": "The person this connection belongs to must reconnect it.",
       "noPermissionReconnect": "You don't have permission to reconnect this identity."
+    },
+    "accessRetryBanner": {
+      "fallbackMessage": "GitHub access could not be checked. Try again.",
+      "openSettingsOnGitHub": "Open installation settings on GitHub",
+      "retryAccess": "Retry access"
+    },
+    "readError": {
+      "loadToolsAction": "load tools for this app",
+      "notFound": "We couldn't find that app.",
+      "backToConnectors": "Back to connectors"
+    },
+    "reviewPanel": {
+      "title": "Review",
+      "waitingForOk": "Waiting for your OK"
+    },
+    "agentAccess": {
+      "title": "Additional agent access",
+      "description": "These agents can use the listed actions in addition to the permissions above. Removing a grant restores their other permissions.",
+      "removing": "Removing…",
+      "removeGrant": "Remove grant",
+      "askFirst": "Ask first",
+      "allowed": "Allowed",
+      "defaultAgentName": "Agent"
+    },
+    "unverifiedServerBadge": "Unverified server",
+    "slackAppDetails": {
+      "advanced": "Advanced",
+      "appNameLabel": "Slack app name",
+      "appNameHelp": "The name of your app in Slack’s app directory and settings.",
+      "botNameLabel": "Bot display name",
+      "botNameHelp": "The name people see when your bot sends a message.",
+      "commandLabel": "Slash command",
+      "commandHelp": "The command people type in Slack to talk to this agent.",
+      "helpAria": "Help with {{label}}"
+    },
+    "gatewaysToolsPanel": {
+      "description": "These apps go through this gateway. The bound profile{{profileName}} decides which tools are allowed{{allowedTools}}. Change the profile under Advanced.",
+      "empty": "No apps are assigned to this gateway’s profile yet.",
+      "thApp": "App",
+      "thTools": "Tools",
+      "thStatus": "Status",
+      "toolsCount_one": "1 tool",
+      "toolsCount_other": "{{count}} tools",
+      "statusNeedsAttention": "Needs attention",
+      "statusHealthy": "Healthy",
+      "openAction": "Open →"
     }
   },
   "artifacts": {

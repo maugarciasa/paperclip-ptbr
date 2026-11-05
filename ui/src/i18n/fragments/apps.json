@@ -153,6 +153,52 @@
         "couldNotVerifyWho": "We couldn't verify who can reconnect this identity. Reload the page to try again.",
         "ownerMustReconnect": "The person this connection belongs to must reconnect it.",
         "noPermissionReconnect": "You don't have permission to reconnect this identity."
+      },
+      "accessRetryBanner": {
+        "fallbackMessage": "GitHub access could not be checked. Try again.",
+        "openSettingsOnGitHub": "Open installation settings on GitHub",
+        "retryAccess": "Retry access"
+      },
+      "readError": {
+        "loadToolsAction": "load tools for this app",
+        "notFound": "We couldn't find that app.",
+        "backToConnectors": "Back to connectors"
+      },
+      "reviewPanel": {
+        "title": "Review",
+        "waitingForOk": "Waiting for your OK"
+      },
+      "agentAccess": {
+        "title": "Additional agent access",
+        "description": "These agents can use the listed actions in addition to the permissions above. Removing a grant restores their other permissions.",
+        "removing": "Removing…",
+        "removeGrant": "Remove grant",
+        "askFirst": "Ask first",
+        "allowed": "Allowed",
+        "defaultAgentName": "Agent"
+      },
+      "unverifiedServerBadge": "Unverified server",
+      "slackAppDetails": {
+        "advanced": "Advanced",
+        "appNameLabel": "Slack app name",
+        "appNameHelp": "The name of your app in Slack’s app directory and settings.",
+        "botNameLabel": "Bot display name",
+        "botNameHelp": "The name people see when your bot sends a message.",
+        "commandLabel": "Slash command",
+        "commandHelp": "The command people type in Slack to talk to this agent.",
+        "helpAria": "Help with {{label}}"
+      },
+      "gatewaysToolsPanel": {
+        "description": "These apps go through this gateway. The bound profile{{profileName}} decides which tools are allowed{{allowedTools}}. Change the profile under Advanced.",
+        "empty": "No apps are assigned to this gateway’s profile yet.",
+        "thApp": "App",
+        "thTools": "Tools",
+        "thStatus": "Status",
+        "toolsCount_one": "1 tool",
+        "toolsCount_other": "{{count}} tools",
+        "statusNeedsAttention": "Needs attention",
+        "statusHealthy": "Healthy",
+        "openAction": "Open →"
       }
     }
   },
@@ -310,6 +356,52 @@
         "couldNotVerifyWho": "Não foi possível verificar quem pode reconectar esta identidade. Recarregue a página para tentar novamente.",
         "ownerMustReconnect": "A pessoa proprietária desta conexão deve reconectá-la.",
         "noPermissionReconnect": "Você não tem permissão para reconectar esta identidade."
+      },
+      "accessRetryBanner": {
+        "fallbackMessage": "Não foi possível verificar o acesso ao GitHub. Tente novamente.",
+        "openSettingsOnGitHub": "Abrir configurações da instalação no GitHub",
+        "retryAccess": "Tentar acesso novamente"
+      },
+      "readError": {
+        "loadToolsAction": "carregar ferramentas para este app",
+        "notFound": "Não encontramos esse app.",
+        "backToConnectors": "Voltar para conectores"
+      },
+      "reviewPanel": {
+        "title": "Revisão",
+        "waitingForOk": "Aguardando seu OK"
+      },
+      "agentAccess": {
+        "title": "Acesso adicional de agentes",
+        "description": "Estes agentes podem usar as ações listadas além das permissões acima. Remover uma concessão restaura suas outras permissões.",
+        "removing": "Removendo…",
+        "removeGrant": "Remover concessão",
+        "askFirst": "Perguntar antes",
+        "allowed": "Permitido",
+        "defaultAgentName": "Agente"
+      },
+      "unverifiedServerBadge": "Servidor não verificado",
+      "slackAppDetails": {
+        "advanced": "Avançado",
+        "appNameLabel": "Nome do app no Slack",
+        "appNameHelp": "O nome do seu app no diretório e configurações de apps do Slack.",
+        "botNameLabel": "Nome de exibição do bot",
+        "botNameHelp": "O nome visível quando seu bot envia uma mensagem.",
+        "commandLabel": "Comando slash",
+        "commandHelp": "O comando que as pessoas digitam no Slack para falar com este agente.",
+        "helpAria": "Ajuda com {{label}}"
+      },
+      "gatewaysToolsPanel": {
+        "description": "Estes apps passam por este gateway. O perfil vinculado{{profileName}} define quais ferramentas são permitidas{{allowedTools}}. Altere o perfil em Avançado.",
+        "empty": "Nenhum app está atribuído ao perfil deste gateway ainda.",
+        "thApp": "App",
+        "thTools": "Ferramentas",
+        "thStatus": "Status",
+        "toolsCount_one": "1 ferramenta",
+        "toolsCount_other": "{{count}} ferramentas",
+        "statusNeedsAttention": "Requer atenção",
+        "statusHealthy": "Saudável",
+        "openAction": "Abrir →"
       }
     }
   }

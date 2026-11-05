@@ -768,9 +768,23 @@
     }
   },
   "apps": {
+    "accessRetryBanner": {
+      "fallbackMessage": "GitHub access could not be checked. Try again.",
+      "openSettingsOnGitHub": "Open installation settings on GitHub",
+      "retryAccess": "Retry access"
+    },
     "activity": "Activity",
     "addConnection": "Add connection",
     "advanced": "Advanced",
+    "agentAccess": {
+      "allowed": "Allowed",
+      "askFirst": "Ask first",
+      "defaultAgentName": "Agent",
+      "description": "These agents can use the listed actions in addition to the permissions above. Removing a grant restores their other permissions.",
+      "removeGrant": "Remove grant",
+      "removing": "Removing…",
+      "title": "Additional agent access"
+    },
     "back": "Back",
     "browse": {
       "appFiltersAria": "App filters",
@@ -863,6 +877,18 @@
     "emailEndpoints": "Email endpoints",
     "gatewayUrl": "Gateway URL",
     "gatewaysTitle": "Gateways",
+    "gatewaysToolsPanel": {
+      "description": "These apps go through this gateway. The bound profile{{profileName}} decides which tools are allowed{{allowedTools}}. Change the profile under Advanced.",
+      "empty": "No apps are assigned to this gateway’s profile yet.",
+      "openAction": "Open →",
+      "statusHealthy": "Healthy",
+      "statusNeedsAttention": "Needs attention",
+      "thApp": "App",
+      "thStatus": "Status",
+      "thTools": "Tools",
+      "toolsCount_one": "1 tool",
+      "toolsCount_other": "{{count}} tools"
+    },
     "installApp": "Install app",
     "manageConnection": "Manage connection",
     "mcp": {
@@ -905,12 +931,31 @@
       "ownerMustReconnect": "The person this connection belongs to must reconnect it."
     },
     "permissions": "Permissions",
+    "readError": {
+      "backToConnectors": "Back to connectors",
+      "loadToolsAction": "load tools for this app",
+      "notFound": "We couldn't find that app."
+    },
     "reconnect": "Reconnect",
     "removeConnection": "Remove connection",
+    "reviewPanel": {
+      "title": "Review",
+      "waitingForOk": "Waiting for your OK"
+    },
     "saveChanges": "Save changes",
     "searchPlaceholder": "Search apps and integrations…",
     "settings": "Settings",
     "setup": "Setup",
+    "slackAppDetails": {
+      "advanced": "Advanced",
+      "appNameHelp": "The name of your app in Slack’s app directory and settings.",
+      "appNameLabel": "Slack app name",
+      "botNameHelp": "The name people see when your bot sends a message.",
+      "botNameLabel": "Bot display name",
+      "commandHelp": "The command people type in Slack to talk to this agent.",
+      "commandLabel": "Slash command",
+      "helpAria": "Help with {{label}}"
+    },
     "statusConnected": "Connected",
     "statusDisconnected": "Disconnected",
     "statusError": "Error",
@@ -920,7 +965,8 @@
     "testing": "Testing…",
     "title": "Apps & Connections",
     "tryAgain": "Try again",
-    "uninstallApp": "Uninstall app"
+    "uninstallApp": "Uninstall app",
+    "unverifiedServerBadge": "Unverified server"
   },
   "artifacts": {
     "actions": {
