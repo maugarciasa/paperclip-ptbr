@@ -194,7 +194,7 @@
         "selectZipFile": "Escolha um pacote .zip ou .tar.gz",
         "dropFilePrompt": "Arraste e solte um pacote aqui, ou procure",
         "githubUrlLabel": "URL do repositório ou formato curto",
-        "githubUrlPlaceholder": "proprietário/repo ou https://github.com/proprietário/repo",
+        "githubUrlPlaceholder": "proprietário/repo ou https://github.com/owner/repo",
         "githubBranchLabel": "Branch, tag ou ref (opcional)",
         "githubSubdirLabel": "Subdiretório (opcional)",
         "inspectBundle": "Inspecionar pacote",

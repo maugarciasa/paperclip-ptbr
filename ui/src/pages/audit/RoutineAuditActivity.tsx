@@ -1,4 +1,5 @@
 import { useQuery } from "@tanstack/react-query";
+import { useTranslation } from "react-i18next";
 import { Activity } from "lucide-react";
 import { routinesApi } from "@/api/routines";
 import { EmptyState } from "@/components/EmptyState";
@@ -42,7 +43,7 @@ export function RoutineAuditActivity({
     return (
       <QueryErrorState
         error={activityView.error}
-        action="load routine activity"
+        action={t("audit.routineActivity.loadAction")}
         onRetry={activityView.retry}
         retrying={activityView.isFetching}
       />
@@ -51,11 +52,11 @@ export function RoutineAuditActivity({
 
   const events = activityView.data ?? [];
   if (events.length === 0) {
-    return <EmptyState icon={Activity} message="No routine activity yet." />;
+    return <EmptyState icon={Activity} message={t("audit.routineActivity.empty")} />;
   }
 
   return (
-    <div className="border-y border-border" aria-label="Routine activity">
+    <div className="border-y border-border" aria-label={t("audit.routineActivity.listAria")}>
       {events.map((event) => (
         <RoutineActivityRow key={event.id} event={event} />
       ))}

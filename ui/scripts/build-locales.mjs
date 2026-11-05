@@ -74,12 +74,27 @@ function fillMissing(target, reference) {
   return changed;
 }
 
+function pruneExtra(target, reference) {
+  let changed = false;
+  for (const key of Object.keys(target)) {
+    if (!(key in reference)) {
+      delete target[key];
+      changed = true;
+    } else if (isPlainObject(target[key]) && isPlainObject(reference[key])) {
+      changed = pruneExtra(target[key], reference[key]) || changed;
+    }
+  }
+  return changed;
+}
+
 for (const file of readdirSync(localesDir).filter((f) => f.endsWith(".json"))) {
   const locale = file.replace(/\.json$/, "");
   if (LOCALES.includes(locale)) continue;
   const path = join(localesDir, file);
   const data = JSON.parse(readFileSync(path, "utf8"));
-  if (fillMissing(data, merged.en)) {
+  let changed = fillMissing(data, merged.en);
+  changed = pruneExtra(data, merged.en) || changed;
+  if (changed) {
     writeFileSync(path, JSON.stringify(data, null, 2) + "\n");
   }
 }

@@ -1,4 +1,5 @@
 import { useEffect, useState, type ReactNode } from "react";
+import { useTranslation } from "react-i18next";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { AlertTriangle, FlaskConical, Lock, Play } from "lucide-react";
 import type {
@@ -185,7 +186,7 @@ export function InstanceExperimentalSettings() {
     return (
       <div className="max-w-6xl space-y-6">
         <CoordinatorWorkspaceSetting key="personal-workspace" />
-        <div className="text-sm text-muted-foreground">Loading experimental settings...</div>
+        <div className="text-sm text-muted-foreground">{t("settings.instanceExperimental.loading")}</div>
       </div>
     );
   }
@@ -195,7 +196,7 @@ export function InstanceExperimentalSettings() {
 <div className="max-w-6xl space-y-6"><CoordinatorWorkspaceSetting key="personal-workspace" />      <QueryErrorState
         size="page"
         error={experimentalQuery.error}
-        action="load experimental settings"
+        action={t("settings.instanceExperimental.loadAction")}
         onRetry={experimentalView.retry}
         retrying={experimentalView.isFetching}
       />
@@ -701,7 +702,7 @@ export function InstanceExperimentalSettings() {
                 <div className="flex items-start justify-between gap-4">
                   <div className="space-y-1.5">
                     <div className="flex flex-wrap items-center gap-2">
-                      <h3 className="text-sm font-semibold">Run tasks in this worktree</h3>
+                      <h3 className="text-sm font-semibold">{t("settings.instanceExperimental.worktreeRunExecution.title")}</h3>
                       {worktreeRunExecutionManaged ? <ManagedByCloudBadge /> : null}
                     </div>
                     <p className="max-w-2xl text-sm text-muted-foreground">
@@ -717,7 +718,7 @@ export function InstanceExperimentalSettings() {
                       toggleMutation.mutate({ enableWorktreeRunExecution: checked });
                     }}
                     disabled={toggleMutation.isPending || worktreeRunExecutionManaged}
-                    aria-label="Toggle worktree run execution setting"
+                    aria-label={t("settings.instanceExperimental.worktreeRunExecution.ariaLabel")}
                   />
                 </div>
 

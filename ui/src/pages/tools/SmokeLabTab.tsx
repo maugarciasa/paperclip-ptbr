@@ -176,7 +176,7 @@ export function SmokeLabTab({ companyId }: { companyId: string }) {
       <div className="rounded-lg border border-border bg-card p-6">
         <div className="flex items-center gap-2 text-foreground">
           <FlaskConical className="h-5 w-5 text-muted-foreground" />
-          <h2 className="text-base font-semibold">{t("smokeLab.turnedOffTitle", { defaultValue: "Smoke Lab is turned off" })}</h2>
+          <h2 className="text-base font-semibold">{t("tools.smokeLab.turnedOffTitle", { defaultValue: "Smoke Lab is turned off" })}</h2>
         </div>
         <p className="mt-1.5 max-w-xl text-sm text-muted-foreground">
           The Smoke Lab is an experimental developer surface for exercising the integration paths
@@ -188,7 +188,7 @@ export function SmokeLabTab({ companyId }: { companyId: string }) {
   }
 
   if (!loaded) {
-    return <div className="p-6 text-sm text-muted-foreground">{t("smokeLab.loading", { defaultValue: "Loading Smoke Lab…" })}</div>;
+    return <div className="p-6 text-sm text-muted-foreground">{t("tools.smokeLab.loading", { defaultValue: "Loading Smoke Lab…" })}</div>;
   }
 
   const services = servicesQuery.data?.services ?? [];
@@ -200,15 +200,15 @@ export function SmokeLabTab({ companyId }: { companyId: string }) {
       <header>
         <div className="flex flex-wrap items-center gap-2">
           <FlaskConical className="h-5 w-5 text-muted-foreground" />
-          <h1 className="text-xl font-bold text-foreground">{t("smokeLab.title", { defaultValue: "Smoke Lab" })}</h1>
-          <Badge variant="outline">{t("smokeLab.experimental", { defaultValue: "Experimental" })}</Badge>
+          <h1 className="text-xl font-bold text-foreground">{t("tools.smokeLab.title", { defaultValue: "Smoke Lab" })}</h1>
+          <Badge variant="outline">{t("tools.smokeLab.experimental", { defaultValue: "Experimental" })}</Badge>
           <a
             href="https://github.com/paperclipai/paperclip/blob/master/doc/connections/SMOKE-LAB-TUTORIAL.md"
             target="_blank"
             rel="noreferrer"
             className="ml-auto inline-flex items-center gap-1.5 text-sm font-medium text-primary hover:underline"
           >
-            <BookOpen className="h-4 w-4" /> {t("smokeLab.handsOnTutorial", { defaultValue: "Hands-on tutorial" })}
+            <BookOpen className="h-4 w-4" /> {t("tools.smokeLab.handsOnTutorial", { defaultValue: "Hands-on tutorial" })}
           </a>
         </div>
         <p className="mt-1.5 max-w-3xl text-sm text-muted-foreground">
@@ -233,7 +233,7 @@ export function SmokeLabTab({ companyId }: { companyId: string }) {
         <div className="flex flex-wrap items-center justify-between gap-2">
           <div className="flex items-center gap-2">
             <ServerCog className="h-4 w-4 text-muted-foreground" />
-            <h2 className="text-sm font-semibold text-foreground">{t("smokeLab.fixtureServices", { defaultValue: "Fixture services" })}</h2>
+            <h2 className="text-sm font-semibold text-foreground">{t("tools.smokeLab.fixtureServices", { defaultValue: "Fixture services" })}</h2>
           </div>
           <div className="flex flex-wrap items-center gap-2">
             <Button
@@ -241,7 +241,7 @@ export function SmokeLabTab({ companyId }: { companyId: string }) {
               onClick={() => startMutation.mutate()}
               disabled={anyMutating}
             >
-              <Power className="h-4 w-4" /> {t("smokeLab.startServices", { defaultValue: "Start services" })}
+              <Power className="h-4 w-4" /> {t("tools.smokeLab.startServices", { defaultValue: "Start services" })}
             </Button>
             <Button
               size="sm"
@@ -249,7 +249,7 @@ export function SmokeLabTab({ companyId }: { companyId: string }) {
               onClick={() => stopMutation.mutate()}
               disabled={anyMutating}
             >
-              {t("smokeLab.stop", { defaultValue: "Stop" })}
+              {t("tools.smokeLab.stop", { defaultValue: "Stop" })}
             </Button>
             <Button
               size="sm"
@@ -257,7 +257,7 @@ export function SmokeLabTab({ companyId }: { companyId: string }) {
               onClick={() => installMutation.mutate()}
               disabled={anyMutating}
             >
-              {t("smokeLab.installFixtureApps", { defaultValue: "Install fixture apps" })}
+              {t("tools.smokeLab.installFixtureApps", { defaultValue: "Install fixture apps" })}
             </Button>
             <Button
               size="sm"
@@ -265,7 +265,7 @@ export function SmokeLabTab({ companyId }: { companyId: string }) {
               onClick={() => resetMutation.mutate()}
               disabled={anyMutating}
             >
-              <RotateCcw className="h-4 w-4" /> {t("smokeLab.reset", { defaultValue: "Reset" })}
+              <RotateCcw className="h-4 w-4" /> {t("tools.smokeLab.reset", { defaultValue: "Reset" })}
             </Button>
           </div>
         </div>

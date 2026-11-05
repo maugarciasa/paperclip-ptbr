@@ -59,7 +59,10 @@
       "status": "Status",
       "type": "Type",
       "date": "Date",
-      "notes": "Notes"
+      "notes": "Notes",
+      "agent": "agent",
+      "agents": "agents",
+      "company": "company"
     }
   },
   "pt-BR": {
@@ -122,7 +125,10 @@
       "status": "Status",
       "type": "Tipo",
       "date": "Data",
-      "notes": "Observações"
+      "notes": "Observações",
+      "agent": "agente",
+      "agents": "agentes",
+      "company": "empresa"
     }
   }
 }

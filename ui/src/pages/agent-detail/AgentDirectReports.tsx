@@ -80,7 +80,7 @@ export function AgentDirectReports({ reports }: { reports: Agent[] }) {
         ) : null}
         {expanded && shown < reports.length ? (
           <button type="button" className={toggleClass} onClick={() => setExpanded(false)}>
-            Show less
+            {t("agents.detail.reports.showLess", { defaultValue: "Show less" })}
           </button>
         ) : null}
       </div>

@@ -1,5 +1,6 @@
 import { readTaskListSortParams, taskListOrderToIssueSort, type TaskListSort } from "@/lib/task-list";
 import { useDeferredValue, useEffect, useRef, useState } from "react";
+import { useTranslation } from "react-i18next";
 import { useWarmTaskDetailCode } from "@/hooks/useWarmTaskDetailCode";
 import { useInfiniteQuery, useMutation, useQueries, useQuery, useQueryClient } from "@tanstack/react-query";
 import { ListChecks, SearchX } from "lucide-react";
@@ -109,7 +110,7 @@ export function CoordinatorTasks() {
     next.set("view", nextView === "blocked" ? "needs_attention" : nextView);
     return next;
   });
-  useEffect(() => { setBreadcrumbs([{ label: "Tasks" }]); }, [setBreadcrumbs]);
+  useEffect(() => { setBreadcrumbs([{ label: t("issues.coordinator.tasks") }]); }, [setBreadcrumbs, t]);
 
   const tasks = useInfiniteQuery({
     queryKey: [...queryKeys.issues.list(companyId!), "coordinator-table", "index", userId, deferredQuery, participantAgentId, workspaceIds, originKind, serverSortField, serverSortDir, includeBlockedBy, view === "unread"],
@@ -140,7 +141,7 @@ export function CoordinatorTasks() {
         includeAgentCreatedTasks: true, includeRoutineExecutions: true,
       }, { signal });
       if (!deferredQuery && !participantAgentId && !originKind && ids.some(id => !rows.some(row => row.id === id))) {
-        throw new Error("Some tasks with pending decisions couldn’t load.");
+        throw new Error(t("issues.coordinator.someTasksError"));
       }
       return rows;
     },
@@ -279,9 +280,9 @@ export function CoordinatorTasks() {
       allExpanded={collection.allExpanded} onToggleExpanded={collection.toggleExpanded} onNewTask={() => openNewIssue()}
       filters={{ enableRoutineTasksFilter: true, state: collection.filters, onChange: updateFilters, activeFilterCount: collection.activeFilterCount,
         agents: agents.data ?? [], projects: projects.data ?? [], labels: labels.data ?? [], currentUserId: userId, creators: collection.creators }} />
-    {error ? <div role="alert" className="flex items-center gap-2 text-sm text-destructive"><span>{error instanceof Error ? error.message : "Could not load tasks"}</span><Button variant="outline" size="sm" onClick={retry}>Retry</Button></div> : null}
-    {rowDetailsError ? <div role="status" className="flex items-center gap-2 text-sm text-muted-foreground"><span>Task details couldn’t load.</span><Button variant="ghost" size="sm" onClick={() => void retryRowDetails()}>Retry</Button></div> : null}
-    {pending ? <p role="status" className="text-sm text-muted-foreground">Loading tasks…</p> : !error && <>
+    {error ? <div role="alert" className="flex items-center gap-2 text-sm text-destructive"><span>{error instanceof Error ? error.message : t("issues.coordinator.loadError")}</span><Button variant="outline" size="sm" onClick={retry}>{t("issues.coordinator.retry")}</Button></div> : null}
+    {rowDetailsError ? <div role="status" className="flex items-center gap-2 text-sm text-muted-foreground"><span>{t("issues.coordinator.rowDetailsError")}</span><Button variant="ghost" size="sm" onClick={() => void retryRowDetails()}>{t("issues.coordinator.retry")}</Button></div> : null}
+    {pending ? <p role="status" className="text-sm text-muted-foreground">{t("issues.coordinator.loading")}</p> : !error && <>
       <div hidden={collection.layout !== "list"} className="design-task-list-panel">{collection.matchingItems.length ? <TaskList key={companyId}
         items={(needsAttention ? collection.matchingItems : collection.visibleItems).map(enrichItem)} allItems={collection.companyItems.map(enrichItem)}
         collectionKey={JSON.stringify([companyId, userId, needsAttention, deferredQuery, participantAgentId, workspaceIds, collection.view, collection.filters])}
@@ -289,7 +290,7 @@ export function CoordinatorTasks() {
         issueLinkState={issueLinkState} collapsedIds={collection.collapsedIds} onCollapsedIdsChange={collection.setCollapsedIds} /> : empty}</div>
       {collection.layout === "board" ? collection.matchingItems.length
         ? <KanbanBoard showOverflowFades issues={collection.matchingItems.map(item => enrichIssueRow(item.issue))} agents={agents.data} onUpdateIssue={(id, data) => update.mutate({ id, data })} /> : empty : null}
-      {!needsAttention && tasks.hasNextPage ? <div className="flex flex-wrap items-center gap-3 text-sm text-muted-foreground"><span>{view === "unread" ? unreadIds.size : items.length} tasks loaded. Load more to include them in filters.</span><Button variant="outline" size="sm" disabled={tasks.isFetchingNextPage} onClick={() => void tasks.fetchNextPage()}>{tasks.isFetchingNextPage ? "Loading…" : "Load more tasks"}</Button></div> : null}
+      {!needsAttention && tasks.hasNextPage ? <div className="flex flex-wrap items-center gap-3 text-sm text-muted-foreground"><span>{t("issues.coordinator.tasksLoaded", { count: view === "unread" ? unreadIds.size : items.length })}</span><Button variant="outline" size="sm" disabled={tasks.isFetchingNextPage} onClick={() => void tasks.fetchNextPage()}>{tasks.isFetchingNextPage ? t("common.loading") : t("issues.coordinator.loadMoreTasks")}</Button></div> : null}
     </>}
   </section></TruncatedTextMarqueeProvider></FlyoutAppearanceProvider>;
 }

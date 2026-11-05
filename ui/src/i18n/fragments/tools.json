@@ -229,7 +229,17 @@
           "archive": "Archive",
           "restore": "Restore",
           "delete": "Delete",
-          "organizationDefault": "Organization default"
+          "organizationDefault": "Organization default",
+          "checkAgentAccess": "Check an agent's access",
+          "thProfile": "Profile",
+          "thAllows": "Allows",
+          "thAssignedTo": "Assigned to",
+          "thStatus": "Status",
+          "thUpdated": "Updated",
+          "doesNotChangeAccess": "does not change access",
+          "resume": "Resume",
+          "createFirstTitle": "Create your first access profile",
+          "createFirstSubtitle": "Pick a starting point. You can fine-tune exactly which tools it allows in the next step."
         },
         "dialogs": {
           "archiveTitle": "Archive profile",
@@ -347,6 +357,150 @@
           "ruleKindCatalogEntry": "By tool ID",
           "placeholderToolName": "e.g. gmail.send*",
           "placeholderToolId": "tool ID"
+        },
+        "tab": {
+          "effective": {
+            "agent": "Agent",
+            "pickPrompt": "Pick an agent to see what it can use right now.",
+            "checking": "Checking access...",
+            "checkAction": "check this agent's access",
+            "canUse": "Can use",
+            "toolCount": "{{count}} tools",
+            "emptyTools": "This agent cannot use any app tools right now.",
+            "accessProfiles": "Access profiles",
+            "noActiveProfiles": "No active profile applies to this agent.",
+            "orgDefault": "Organization default"
+          },
+          "sourceBadge": {
+            "explicit": "explicit",
+            "defaultAllow": "default allow",
+            "pattern": "pattern {{label}}"
+          },
+          "allowList": {
+            "title": "Allow list",
+            "toolsCount": "{{count}} tools",
+            "explicitCount": " · {{count}} explicit",
+            "patternCount": " · {{count}} via pattern",
+            "defaultCount": " · {{count}} via default",
+            "resolving": "Resolving allowed tools…",
+            "empty": "No tools resolved for this profile. Add an include selector or refresh the tool catalog.",
+            "thTool": "Tool",
+            "thApplication": "Application",
+            "thCapabilities": "Capabilities",
+            "thRisk": "Risk",
+            "thSource": "Source",
+            "patternWarning": "Tools marked pattern were pulled in by a wildcard, application, connection, or risk selector rather than named explicitly — review them when the catalog changes."
+          },
+          "selectors": {
+            "toolName": "Tool name",
+            "riskLevel": "Risk level",
+            "application": "Application",
+            "connection": "Connection",
+            "catalogEntry": "Catalog entry ID"
+          },
+          "targets": {
+            "company": "Company",
+            "agent": "Agent",
+            "project": "Project",
+            "routine": "Routine",
+            "issue": "Issue ID"
+          },
+          "bindings": {
+            "unbound": "unbound",
+            "boundToAgents": "bound to {{count}} agents",
+            "bindingCount": "{{count}} bindings"
+          },
+          "header": {
+            "title": "Access profiles",
+            "description": "Govern which tools each agent can use across your connected apps.",
+            "newProfile": "New profile"
+          },
+          "toasts": {
+            "profileCreated": "Profile created",
+            "createFailed": "Could not create profile",
+            "profileUpdated": "Profile updated",
+            "updateFailed": "Could not update profile",
+            "entryAdded": "Entry added",
+            "entryAddFailed": "Could not add entry",
+            "entryRemoved": "Entry removed",
+            "entryRemoveFailed": "Could not remove entry",
+            "profileBound": "Profile bound",
+            "bindFailed": "Could not bind profile",
+            "bindingRemoved": "Binding removed",
+            "unbindFailed": "Could not remove binding",
+            "loadProfiles": "load profiles"
+          },
+          "empty": {
+            "title": "No access profiles",
+            "description": "Create a profile to govern which tools each agent can run.",
+            "createFirst": "Create your first profile"
+          },
+          "masterRail": {
+            "title": "Profiles",
+            "totalCount": "{{count}} total"
+          },
+          "detailSelect": {
+            "title": "Select a profile",
+            "description": "Pick an access profile from the list to view its rules, allow list, and assignments."
+          },
+          "dialogs": {
+            "createTitle": "Create access profile",
+            "editTitle": "Edit access profile",
+            "nameLabel": "Name",
+            "namePlaceholder": "e.g. read-only-auditor",
+            "keyLabel": "Key",
+            "keyPlaceholder": "e.g. read-only-auditor",
+            "keyHint": "Lowercase identifier used in configs and logs.",
+            "descLabel": "Description",
+            "descPlaceholder": "What this profile allows and why.",
+            "defaultActionLabel": "Default action",
+            "denyRemaining": "Deny remaining tools (whitelist approach)",
+            "allowRemaining": "Allow remaining tools (blacklist approach)",
+            "statusLabel": "Status",
+            "statusActive": "Active",
+            "statusArchived": "Archived",
+            "statusDisabled": "Disabled",
+            "cancel": "Cancel",
+            "save": "Save",
+            "create": "Create profile",
+            "addSelectorTitle": "Add selector entry",
+            "addSelectorDesc": "Choose which tools to include or exclude from this profile.",
+            "effectLabel": "Effect",
+            "effectInclude": "Include (allow)",
+            "effectExclude": "Exclude (block)",
+            "selectorTypeLabel": "Selector type",
+            "selectAppPlaceholder": "Select application",
+            "selectConnectionPlaceholder": "Select connection",
+            "catalogEntryIdPlaceholder": "Catalog entry ID",
+            "toolNamePlaceholder": "e.g. mail.send or mail.*",
+            "riskLevelPlaceholder": "Risk level",
+            "addEntry": "Add entry",
+            "bindProfileTitle": "Bind profile",
+            "bindProfileDesc": "Attach this profile to an agent, project, routine, or issue.",
+            "targetTypeLabel": "Target type",
+            "selectAgentPlaceholder": "Select agent",
+            "selectProjectPlaceholder": "Select project",
+            "selectRoutinePlaceholder": "Select routine",
+            "issueIdLabel": "Issue ID",
+            "issueIdPlaceholder": "e.g. PAP-1234",
+            "priorityLabel": "Priority",
+            "priorityHint": "Higher numbers take precedence when multiple profiles apply.",
+            "bindProfile": "Bind profile"
+          },
+          "detailsPanel": {
+            "edit": "Edit",
+            "addRule": "Add rule",
+            "bind": "Bind",
+            "rulesTitle": "Rules",
+            "noRules": "No selector rules defined yet.",
+            "removeRuleAria": "Remove rule",
+            "bindingsTitle": "Bindings",
+            "noBindings": "Not bound to any agents, projects, or routines.",
+            "priorityBadge": "priority {{priority}}",
+            "removeBindingAria": "Remove binding",
+            "checkAccess": "Check what an agent can use",
+            "checkAccessSubtitle": "Pick an agent to see the tools its active profiles allow."
+          }
         }
       },
       "smokeLab": {
@@ -361,6 +515,106 @@
         "stop": "Stop",
         "installFixtureApps": "Install fixture apps",
         "reset": "Reset"
+      },
+      "audit": {
+        "header": {
+          "title": "Activity",
+          "description": "What your agents actually did with your apps, newest first. Each line is one decision — allowed, blocked, asked first, waiting, or failed."
+        },
+        "outcomes": {
+          "allowed": "Allowed",
+          "blocked": "Blocked",
+          "askedFirst": "Asked first",
+          "waiting": "Waiting",
+          "failed": "Failed",
+          "recorded": "Recorded"
+        },
+        "filters": {
+          "app": "App",
+          "allApps": "All apps",
+          "allAgents": "All agents",
+          "allOutcomes": "All outcomes",
+          "allTime": "All time",
+          "last1Hour": "Last 1 hour",
+          "last24Hours": "Last 24 hours",
+          "last7Days": "Last 7 days",
+          "last30Days": "Last 30 days",
+          "searchPlaceholder": "Search activity…",
+          "clearFilters": "Clear filters"
+        },
+        "lifecycle": {
+          "someone": "Someone",
+          "thisApp": "this app",
+          "appConnected": "{{who}} connected {{app}}",
+          "appPaused": "{{who}} paused {{app}}",
+          "appResumed": "{{who}} resumed {{app}}",
+          "reconnected": "{{who}} reconnected {{app}}",
+          "disconnected": "{{who}} disconnected {{app}}",
+          "allowlistAddedOne": "{{who}} added 1 allowed item in {{app}}",
+          "allowlistAddedMany": "{{who}} added {{count}} allowed items in {{app}}",
+          "allowlistRemovedOne": "{{who}} removed 1 allowed item in {{app}}",
+          "allowlistRemovedMany": "{{who}} removed {{count}} allowed items in {{app}}",
+          "allowlistUpdated": "{{who}} updated the allowlist for {{app}}",
+          "actionsQuarantinedOne": "1 new action needs review in {{app}}",
+          "actionsQuarantinedMany": "{{count}} new actions need review in {{app}}",
+          "updated": "{{who}} updated {{app}}"
+        },
+        "reasons": {
+          "lifecycleRecorded": "This connection change was recorded in the app's activity history.",
+          "permittedNotInstalled": "Permitted connections were not installed, so their tools were not added to this run.",
+          "allowed": "Allowed by your rules.",
+          "rateLimited": "Blocked because it ran too many times in a short window.",
+          "secretLeak": "Blocked to keep a sensitive value from leaving.",
+          "blockedRule": "Blocked by a rule.",
+          "askedFirst": "Held for someone to approve before it could run.",
+          "waiting": "Waiting — the app it needs wasn't ready yet.",
+          "failed": "The app was allowed to run it, but returned an error.",
+          "recorded": "Recorded by Paperclip."
+        },
+        "row": {
+          "anAgent": "An agent",
+          "anAction": "an action",
+          "inApp": "in {{app}}",
+          "mcpDeliveryDiagnostic": "{{who}}'s run received 0 MCP servers — {{count}} permitted {{connectionText}} not installed",
+          "connectionSingular": "connection",
+          "connectionPlural": "connections",
+          "used": "{{who}} used {{action}}",
+          "usedIn": "{{who}} used {{action}} in {{app}}",
+          "viewTask": "View task",
+          "viewRun": "View run",
+          "details": "Details",
+          "actionName": "Action name",
+          "reasonCode": "Reason code",
+          "actorType": "Actor type",
+          "runId": "Run ID",
+          "transport": "Transport",
+          "httpRequest": "HTTP request",
+          "mcpMethod": "MCP method",
+          "requestId": "Request ID",
+          "dispatched": "Dispatched",
+          "yes": "Yes",
+          "no": "No",
+          "httpStatus": "HTTP status",
+          "contentType": "Content type",
+          "responseSize": "Response size",
+          "bytes": "{{count}} bytes",
+          "upstreamId": "Upstream ID",
+          "deliveredMcpServers": "Delivered MCP servers",
+          "notInstalled": "Not installed",
+          "unnamedConnection": "Unnamed connection",
+          "parametersRedacted": "Parameters (redacted)"
+        },
+        "empty": {
+          "filteredTitle": "No activity matches these filters",
+          "filteredDescription": "Try a wider time window or different filters.",
+          "emptyTitle": "Nothing here yet",
+          "emptyDescription": "As soon as your agents start using connected apps, what they do shows up here."
+        },
+        "actions": {
+          "loadMore": "Load more",
+          "loading": "Loading…",
+          "loadActivity": "load activity"
+        }
       }
     }
   },
@@ -456,7 +710,7 @@
           "remoteHttpOption": "HTTP remoto (sem processo local)",
           "localStdioOption": "Stdio local (modelo aprovado)",
           "endpointUrlLabel": "URL do endpoint",
-          "endpointUrlPlaceholder": "https://mcp.exemplo.com",
+          "endpointUrlPlaceholder": "https://mcp.example.com",
           "templateLabel": "Modelo de comando",
           "templatePlaceholder": "Selecione um modelo aprovado",
           "templateNote": "Apenas modelos de comando aprovados pelo board podem ser executados. Comandos arbitrários nunca são aceitos.",
@@ -594,7 +848,17 @@
           "archive": "Arquivar",
           "restore": "Restaurar",
           "delete": "Excluir",
-          "organizationDefault": "Padrão da empresa"
+          "organizationDefault": "Padrão da empresa",
+          "checkAgentAccess": "Verificar o acesso de um agente",
+          "thProfile": "Perfil",
+          "thAllows": "Permite",
+          "thAssignedTo": "Atribuído a",
+          "thStatus": "Status",
+          "thUpdated": "Atualizado",
+          "doesNotChangeAccess": "não altera o acesso",
+          "resume": "Retomar",
+          "createFirstTitle": "Crie seu primeiro perfil de acesso",
+          "createFirstSubtitle": "Escolha um ponto de partida. Você pode ajustar exatamente quais ferramentas ele permite na próxima etapa."
         },
         "dialogs": {
           "archiveTitle": "Arquivar perfil",
@@ -712,6 +976,150 @@
           "ruleKindCatalogEntry": "Por ID da ferramenta",
           "placeholderToolName": "ex.: gmail.send*",
           "placeholderToolId": "ID da ferramenta"
+        },
+        "tab": {
+          "effective": {
+            "agent": "Agente",
+            "pickPrompt": "Escolha um agente para ver o que ele pode usar agora.",
+            "checking": "Verificando acesso...",
+            "checkAction": "verificar o acesso deste agente",
+            "canUse": "Pode usar",
+            "toolCount": "{{count}} ferramentas",
+            "emptyTools": "Este agente não pode usar nenhuma ferramenta de app no momento.",
+            "accessProfiles": "Perfis de acesso",
+            "noActiveProfiles": "Nenhum perfil ativo se aplica a este agente.",
+            "orgDefault": "Padrão da organização"
+          },
+          "sourceBadge": {
+            "explicit": "explícito",
+            "defaultAllow": "permissão padrão",
+            "pattern": "padrão {{label}}"
+          },
+          "allowList": {
+            "title": "Lista de permissões",
+            "toolsCount": "{{count}} ferramentas",
+            "explicitCount": " · {{count}} explícitas",
+            "patternCount": " · {{count}} por padrão",
+            "defaultCount": " · {{count}} por padrão do sistema",
+            "resolving": "Resolvendo ferramentas permitidas…",
+            "empty": "Nenhuma ferramenta resolvida para este perfil. Adicione um seletor de inclusão ou atualize o catálogo de ferramentas.",
+            "thTool": "Ferramenta",
+            "thApplication": "Aplicação",
+            "thCapabilities": "Recursos",
+            "thRisk": "Risco",
+            "thSource": "Origem",
+            "patternWarning": "Ferramentas marcadas como padrão foram incluídas por curinga, aplicação, conexão ou seletor de risco em vez de nomeadas explicitamente — revise-as quando o catálogo mudar."
+          },
+          "selectors": {
+            "toolName": "Nome da ferramenta",
+            "riskLevel": "Nível de risco",
+            "application": "Aplicação",
+            "connection": "Conexão",
+            "catalogEntry": "ID da entrada do catálogo"
+          },
+          "targets": {
+            "company": "Empresa",
+            "agent": "Agente",
+            "project": "Projeto",
+            "routine": "Rotina",
+            "issue": "ID da issue"
+          },
+          "bindings": {
+            "unbound": "não vinculado",
+            "boundToAgents": "vinculado a {{count}} agentes",
+            "bindingCount": "{{count}} vínculos"
+          },
+          "header": {
+            "title": "Perfis de acesso",
+            "description": "Controle quais ferramentas cada agente pode usar em seus apps conectados.",
+            "newProfile": "Novo perfil"
+          },
+          "toasts": {
+            "profileCreated": "Perfil criado",
+            "createFailed": "Não foi possível criar o perfil",
+            "profileUpdated": "Perfil atualizado",
+            "updateFailed": "Não foi possível atualizar o perfil",
+            "entryAdded": "Entrada adicionada",
+            "entryAddFailed": "Não foi possível adicionar entrada",
+            "entryRemoved": "Entrada removida",
+            "entryRemoveFailed": "Não foi possível remover entrada",
+            "profileBound": "Perfil vinculado",
+            "bindFailed": "Não foi possível vincular perfil",
+            "bindingRemoved": "Vínculo removido",
+            "unbindFailed": "Não foi possível remover vínculo",
+            "loadProfiles": "carregar perfis"
+          },
+          "empty": {
+            "title": "Nenhum perfil de acesso",
+            "description": "Crie um perfil para controlar quais ferramentas cada agente pode executar.",
+            "createFirst": "Criar seu primeiro perfil"
+          },
+          "masterRail": {
+            "title": "Perfis",
+            "totalCount": "{{count}} no total"
+          },
+          "detailSelect": {
+            "title": "Selecione um perfil",
+            "description": "Escolha um perfil de acesso na lista para ver suas regras, lista de permissões e atribuições."
+          },
+          "dialogs": {
+            "createTitle": "Criar perfil de acesso",
+            "editTitle": "Editar perfil de acesso",
+            "nameLabel": "Nome",
+            "namePlaceholder": "ex.: auditor-somente-leitura",
+            "keyLabel": "Chave",
+            "keyPlaceholder": "ex.: auditor-somente-leitura",
+            "keyHint": "Identificador em minúsculas usado em configurações e logs.",
+            "descLabel": "Descrição",
+            "descPlaceholder": "O que este perfil permite e por quê.",
+            "defaultActionLabel": "Ação padrão",
+            "denyRemaining": "Negar ferramentas restantes (lista de permissões)",
+            "allowRemaining": "Permitir ferramentas restantes (lista de bloqueio)",
+            "statusLabel": "Status",
+            "statusActive": "Ativo",
+            "statusArchived": "Arquivado",
+            "statusDisabled": "Desativado",
+            "cancel": "Cancelar",
+            "save": "Salvar",
+            "create": "Criar perfil",
+            "addSelectorTitle": "Adicionar regra seletora",
+            "addSelectorDesc": "Escolha quais ferramentas incluir ou excluir deste perfil.",
+            "effectLabel": "Efeito",
+            "effectInclude": "Incluir (permitir)",
+            "effectExclude": "Excluir (bloquear)",
+            "selectorTypeLabel": "Tipo de seletor",
+            "selectAppPlaceholder": "Selecionar aplicação",
+            "selectConnectionPlaceholder": "Selecionar conexão",
+            "catalogEntryIdPlaceholder": "ID da entrada do catálogo",
+            "toolNamePlaceholder": "ex.: mail.send ou mail.*",
+            "riskLevelPlaceholder": "Nível de risco",
+            "addEntry": "Adicionar regra",
+            "bindProfileTitle": "Vincular perfil",
+            "bindProfileDesc": "Associe este perfil a um agente, projeto, rotina ou issue.",
+            "targetTypeLabel": "Tipo de destino",
+            "selectAgentPlaceholder": "Selecionar agente",
+            "selectProjectPlaceholder": "Selecionar projeto",
+            "selectRoutinePlaceholder": "Selecionar rotina",
+            "issueIdLabel": "ID da issue",
+            "issueIdPlaceholder": "ex.: PAP-1234",
+            "priorityLabel": "Prioridade",
+            "priorityHint": "Valores maiores têm precedência quando múltiplos perfis se aplicam.",
+            "bindProfile": "Vincular perfil"
+          },
+          "detailsPanel": {
+            "edit": "Editar",
+            "addRule": "Adicionar regra",
+            "bind": "Vincular",
+            "rulesTitle": "Regras",
+            "noRules": "Nenhuma regra definida ainda.",
+            "removeRuleAria": "Remover regra",
+            "bindingsTitle": "Vínculos",
+            "noBindings": "Não vinculado a nenhum agente, projeto ou rotina.",
+            "priorityBadge": "prioridade {{priority}}",
+            "removeBindingAria": "Remover vínculo",
+            "checkAccess": "Verificar o que um agente pode usar",
+            "checkAccessSubtitle": "Escolha um agente para ver as ferramentas que seus perfis ativos permitem."
+          }
         }
       },
       "smokeLab": {
@@ -726,6 +1134,106 @@
         "stop": "Parar",
         "installFixtureApps": "Instalar apps fictícios",
         "reset": "Redefinir"
+      },
+      "audit": {
+        "header": {
+          "title": "Atividade",
+          "description": "O que seus agentes realmente fizeram com seus apps, mais recentes primeiro. Cada linha é uma decisão — permitida, bloqueada, pediu aprovação, aguardando ou com falha."
+        },
+        "outcomes": {
+          "allowed": "Permitido",
+          "blocked": "Bloqueado",
+          "askedFirst": "Pediu aprovação",
+          "waiting": "Aguardando",
+          "failed": "Falhou",
+          "recorded": "Registrado"
+        },
+        "filters": {
+          "app": "App",
+          "allApps": "Todos os apps",
+          "allAgents": "Todos os agentes",
+          "allOutcomes": "Todos os resultados",
+          "allTime": "Todo o período",
+          "last1Hour": "Última 1 hora",
+          "last24Hours": "Últimas 24 horas",
+          "last7Days": "Últimos 7 dias",
+          "last30Days": "Últimos 30 dias",
+          "searchPlaceholder": "Buscar atividade…",
+          "clearFilters": "Limpar filtros"
+        },
+        "lifecycle": {
+          "someone": "Alguém",
+          "thisApp": "este app",
+          "appConnected": "{{who}} conectou {{app}}",
+          "appPaused": "{{who}} pausou {{app}}",
+          "appResumed": "{{who}} retomou {{app}}",
+          "reconnected": "{{who}} reconectou {{app}}",
+          "disconnected": "{{who}} desconectou {{app}}",
+          "allowlistAddedOne": "{{who}} adicionou 1 item permitido em {{app}}",
+          "allowlistAddedMany": "{{who}} adicionou {{count}} itens permitidos em {{app}}",
+          "allowlistRemovedOne": "{{who}} removeu 1 item permitido em {{app}}",
+          "allowlistRemovedMany": "{{who}} removeu {{count}} itens permitidos em {{app}}",
+          "allowlistUpdated": "{{who}} atualizou a lista de permissões de {{app}}",
+          "actionsQuarantinedOne": "1 nova ação precisa de revisão em {{app}}",
+          "actionsQuarantinedMany": "{{count}} novas ações precisam de revisão em {{app}}",
+          "updated": "{{who}} atualizou {{app}}"
+        },
+        "reasons": {
+          "lifecycleRecorded": "Esta alteração de conexão foi registrada no histórico de atividade do app.",
+          "permittedNotInstalled": "Conexões permitidas não foram instaladas, portanto suas ferramentas não foram adicionadas a esta execução.",
+          "allowed": "Permitido pelas suas regras.",
+          "rateLimited": "Bloqueado por excesso de execuções em um intervalo curto.",
+          "secretLeak": "Bloqueado para impedir a saída de um valor confidencial.",
+          "blockedRule": "Bloqueado por uma regra.",
+          "askedFirst": "Retido para aprovação antes de executar.",
+          "waiting": "Aguardando — o app necessário ainda não estava pronto.",
+          "failed": "O app teve permissão para executar, mas retornou um erro.",
+          "recorded": "Registrado pelo Paperclip."
+        },
+        "row": {
+          "anAgent": "Um agente",
+          "anAction": "uma ação",
+          "inApp": "em {{app}}",
+          "mcpDeliveryDiagnostic": "A execução de {{who}} recebeu 0 servidores MCP — {{count}} {{connectionText}} permitida(s) não instalada(s)",
+          "connectionSingular": "conexão",
+          "connectionPlural": "conexões",
+          "used": "{{who}} usou {{action}}",
+          "usedIn": "{{who}} usou {{action}} em {{app}}",
+          "viewTask": "Ver tarefa",
+          "viewRun": "Ver execução",
+          "details": "Detalhes",
+          "actionName": "Nome da ação",
+          "reasonCode": "Código do motivo",
+          "actorType": "Tipo de ator",
+          "runId": "ID da execução",
+          "transport": "Transporte",
+          "httpRequest": "Requisição HTTP",
+          "mcpMethod": "Método MCP",
+          "requestId": "ID da requisição",
+          "dispatched": "Despachado",
+          "yes": "Sim",
+          "no": "Não",
+          "httpStatus": "Status HTTP",
+          "contentType": "Tipo de conteúdo",
+          "responseSize": "Tamanho da resposta",
+          "bytes": "{{count}} bytes",
+          "upstreamId": "ID upstream",
+          "deliveredMcpServers": "Servidores MCP entregues",
+          "notInstalled": "Não instalado",
+          "unnamedConnection": "Conexão sem nome",
+          "parametersRedacted": "Parâmetros (ocultados)"
+        },
+        "empty": {
+          "filteredTitle": "Nenhuma atividade corresponde a estes filtros",
+          "filteredDescription": "Tente um intervalo de tempo maior ou filtros diferentes.",
+          "emptyTitle": "Nada aqui ainda",
+          "emptyDescription": "Assim que seus agentes começarem a usar apps conectados, o que eles fizerem aparecerá aqui."
+        },
+        "actions": {
+          "loadMore": "Carregar mais",
+          "loading": "Carregando…",
+          "loadActivity": "carregar atividade"
+        }
       }
     }
   }

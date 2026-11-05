@@ -1,4 +1,5 @@
 import { useMemo } from "react";
+import { useTranslation } from "react-i18next";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { Link, useParams, useSearchParams } from "@/lib/router";
 import { accessApi } from "../api/access";
@@ -43,11 +44,11 @@ export function BoardClaimPage() {
   });
 
   if (!token || !code) {
-    return <div className="mx-auto max-w-xl py-10 text-sm text-destructive">Invalid board claim URL.</div>;
+    return <div className="mx-auto max-w-xl py-10 text-sm text-destructive">{t("auth.boardClaim.invalidUrl")}</div>;
   }
 
   if (statusQuery.isLoading || sessionQuery.isLoading) {
-    return <div className="mx-auto max-w-xl py-10 text-sm text-muted-foreground">Loading claim challenge...</div>;
+    return <div className="mx-auto max-w-xl py-10 text-sm text-muted-foreground">{t("auth.boardClaim.loading")}</div>;
   }
 
   if (statusView.kind === "error") {
@@ -57,7 +58,7 @@ export function BoardClaimPage() {
           <QueryErrorState
             size="panel"
             error={statusView.error}
-            action="load the board claim challenge"
+            action={t("auth.boardClaim.loadAction")}
             onRetry={statusView.retry}
             retrying={statusView.isFetching}
           />
@@ -68,7 +69,7 @@ export function BoardClaimPage() {
 
   const status = statusQuery.data;
   if (!status) {
-    return <div className="mx-auto max-w-xl py-10 text-sm text-destructive">Claim challenge unavailable.</div>;
+    return <div className="mx-auto max-w-xl py-10 text-sm text-destructive">{t("auth.boardClaim.unavailable")}</div>;
   }
 
   if (status.status === "claimed") {
@@ -120,7 +121,7 @@ export function BoardClaimPage() {
           onClick={() => claimMutation.mutate()}
           disabled={claimMutation.isPending}
         >
-          {claimMutation.isPending ? "Claiming…" : "Claim ownership"}
+          {claimMutation.isPending ? t("auth.boardClaim.claiming") : t("auth.boardClaim.claimButton")}
         </Button>
       </Card>
     </div>

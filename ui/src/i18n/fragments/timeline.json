@@ -1,0 +1,86 @@
+{
+  "en": {
+    "timeline": {
+      "breadcrumbs": {
+        "projectTimeline": "Project Timeline",
+        "timeline": "Timeline"
+      },
+      "projectTimeline": "Project Timeline",
+      "workTimeline": "Work Timeline",
+      "noCompany": "Select an organization to view its work timeline.",
+      "range": "Range",
+      "today": "Today",
+      "sevenDays": "7 days",
+      "thirtyDays": "30 days",
+      "startDate": "Timeline start date",
+      "to": "to",
+      "endDate": "Timeline end date",
+      "zoomControls": "Timeline zoom controls",
+      "zoomOut": "Zoom out",
+      "zoomIn": "Zoom in",
+      "resetZoom": "Reset zoom",
+      "errorLoading": "Couldn't load the timeline. The aggregation endpoint may be unavailable.",
+      "noProjectActivity": "No project activity in this window.",
+      "noActivity": "No activity in this window.",
+      "legend": {
+        "delegated": "Delegated",
+        "automation": "Automation",
+        "cancelled": "Cancelled",
+        "now": "Now"
+      },
+      "stats": {
+        "runs": "Runs",
+        "agents": "Agents",
+        "runtime": "Run time",
+        "tokensUsed": "Tokens used",
+        "notTracked": "Not tracked"
+      },
+      "errors": {
+        "chooseDates": "Choose a start and end date.",
+        "startBeforeEnd": "Start date must be before end date."
+      }
+    }
+  },
+  "pt-BR": {
+    "timeline": {
+      "breadcrumbs": {
+        "projectTimeline": "Linha do tempo do projeto",
+        "timeline": "Linha do tempo"
+      },
+      "projectTimeline": "Linha do tempo do projeto",
+      "workTimeline": "Linha do tempo de trabalho",
+      "noCompany": "Selecione uma empresa para ver sua linha do tempo de trabalho.",
+      "range": "Período",
+      "today": "Hoje",
+      "sevenDays": "7 dias",
+      "thirtyDays": "30 dias",
+      "startDate": "Data inicial da linha do tempo",
+      "to": "até",
+      "endDate": "Data final da linha do tempo",
+      "zoomControls": "Controles de zoom da linha do tempo",
+      "zoomOut": "Diminuir zoom",
+      "zoomIn": "Aumentar zoom",
+      "resetZoom": "Redefinir zoom",
+      "errorLoading": "Não foi possível carregar a linha do tempo. O serviço de agregação pode estar indisponível.",
+      "noProjectActivity": "Nenhuma atividade de projeto neste período.",
+      "noActivity": "Nenhuma atividade neste período.",
+      "legend": {
+        "delegated": "Delegado",
+        "automation": "Automação",
+        "cancelled": "Cancelado",
+        "now": "Agora"
+      },
+      "stats": {
+        "runs": "Execuções",
+        "agents": "Agentes",
+        "runtime": "Tempo de execução",
+        "tokensUsed": "Tokens usados",
+        "notTracked": "Não rastreado"
+      },
+      "errors": {
+        "chooseDates": "Escolha uma data de início e de término.",
+        "startBeforeEnd": "A data inicial deve ser anterior à data final."
+      }
+    }
+  }
+}

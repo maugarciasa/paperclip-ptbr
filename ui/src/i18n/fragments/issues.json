@@ -479,6 +479,24 @@
         "errors": {
           "loadYourTasks": "load your tasks"
         }
+      },
+      "coordinator": {
+        "tasks": "Tasks",
+        "someTasksError": "Some tasks with pending decisions couldn’t load.",
+        "unknownAgent": "Unknown agent",
+        "board": "Board",
+        "noTasksMatch": "No tasks match this view",
+        "noTasksDecision": "No tasks need a decision.",
+        "noTasksOrg": "No tasks in this organization",
+        "clearFilters": "Clear filters",
+        "newTask": "New Task",
+        "selectOrg": "Select an organization to view tasks.",
+        "loadError": "Could not load tasks",
+        "retry": "Retry",
+        "rowDetailsError": "Task details couldn’t load.",
+        "loading": "Loading tasks…",
+        "tasksLoaded": "{{count}} tasks loaded. Load more to include them in filters.",
+        "loadMoreTasks": "Load more tasks"
       }
     }
   },
@@ -962,6 +980,24 @@
         "errors": {
           "loadYourTasks": "carregar suas tarefas"
         }
+      },
+      "coordinator": {
+        "tasks": "Tarefas",
+        "someTasksError": "Algumas tarefas com decisões pendentes não puderam ser carregadas.",
+        "unknownAgent": "Agente desconhecido",
+        "board": "Diretoria",
+        "noTasksMatch": "Nenhuma tarefa corresponde a esta visualização",
+        "noTasksDecision": "Nenhuma tarefa precisa de uma decisão.",
+        "noTasksOrg": "Nenhuma tarefa nesta empresa",
+        "clearFilters": "Limpar filtros",
+        "newTask": "Nova Tarefa",
+        "selectOrg": "Selecione uma empresa para visualizar tarefas.",
+        "loadError": "Não foi possível carregar as tarefas",
+        "retry": "Tentar novamente",
+        "rowDetailsError": "Não foi possível carregar os detalhes da tarefa.",
+        "loading": "Carregando tarefas…",
+        "tasksLoaded": "{{count}} tarefas carregadas. Carregue mais para incluí-las nos filtros.",
+        "loadMoreTasks": "Carregar mais tarefas"
       }
     }
   }
