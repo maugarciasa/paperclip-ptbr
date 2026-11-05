@@ -82,7 +82,8 @@
         "shareFeedback": "Share feedback",
         "inviteDescription": "Invite people to your organization.",
         "docsDescription": "Open Paperclip docs in a new tab.",
-        "endSession": "End this browser session."
+        "endSession": "End this browser session.",
+        "language": "Language"
       },
       "sidebarAgents": {
         "resumeAgent": "Resume agent",
@@ -282,7 +283,8 @@
         "shareFeedback": "Enviar feedback",
         "inviteDescription": "Convide pessoas para a sua empresa.",
         "docsDescription": "Abra a documentação do Paperclip em uma nova aba.",
-        "endSession": "Encerra esta sessão do navegador."
+        "endSession": "Encerra esta sessão do navegador.",
+        "language": "Idioma"
       },
       "sidebarAgents": {
         "resumeAgent": "Retomar agente",

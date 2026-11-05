@@ -25,6 +25,7 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { cn, SIDEBAR_RAIL_HIDDEN_LABEL } from "../lib/utils";
 import { useTranslation } from "@/i18n";
 import { ThemeToggle } from "./ThemeToggle";
+import { LanguageSelect } from "./LanguageSelect";
 import { SidebarServerInfo } from "./SidebarServerInfo";
 
 const INVITES_PATH = "/company/settings/members?tab=invites";
@@ -250,6 +251,7 @@ export function SidebarAccountMenu({
                 onClick={() => setOpen(false)}
               />
               <ThemeToggle variant="menu-action" onAfterToggle={() => setOpen(false)} />
+              <LanguageSelect />
               {deploymentMode === "authenticated" ? (
                 <button
                   type="button"
