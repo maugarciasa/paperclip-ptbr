@@ -1,0 +1,62 @@
+{
+  "en": {
+    "teamCatalog": {
+      "title": "Team Catalog",
+      "description": "Pre-built agent teams and workflows ready to install.",
+      "searchPlaceholder": "Search teams...",
+      "noTeamsFound": "No teams found matching your search.",
+      "installTeam": "Install team",
+      "reinstallLatest": "Re-install latest",
+      "installed": "Installed",
+      "installedCount": "Installed · {{count}}",
+      "teamInstalled": "Team installed",
+      "installWithExecutables": "Install with executables",
+      "agents": "Agents",
+      "projects": "Projects",
+      "tasks": "Starter tasks",
+      "routines": "Routines",
+      "skills": "Skills",
+      "summary": "Summary",
+      "stepPreviewTitleAgents": "Agents · {{count}}",
+      "stepPreviewTitleProjects": "Projects · {{count}}",
+      "stepPreviewTitleTasks": "Starter tasks · {{count}}",
+      "stepPreviewTitleAdapters": "Adapter selection · {{count}}",
+      "stepPreviewTitleSecrets": "Secrets & env inputs · {{count}}",
+      "cancel": "Cancel",
+      "back": "Back",
+      "next": "Next",
+      "preview": "Preview",
+      "close": "Close"
+    }
+  },
+  "pt-BR": {
+    "teamCatalog": {
+      "title": "Catálogo de Equipes",
+      "description": "Equipes de agentes e fluxos de trabalho pré-configurados prontos para instalar.",
+      "searchPlaceholder": "Buscar equipes...",
+      "noTeamsFound": "Nenhuma equipe encontrada correspondente à sua busca.",
+      "installTeam": "Instalar equipe",
+      "reinstallLatest": "Reinstalar versão mais recente",
+      "installed": "Instalado",
+      "installedCount": "Instaladas · {{count}}",
+      "teamInstalled": "Equipe instalada",
+      "installWithExecutables": "Instalar com executáveis",
+      "agents": "Agentes",
+      "projects": "Projetos",
+      "tasks": "Tarefas iniciais",
+      "routines": "Rotinas",
+      "skills": "Skills",
+      "summary": "Resumo",
+      "stepPreviewTitleAgents": "Agentes · {{count}}",
+      "stepPreviewTitleProjects": "Projetos · {{count}}",
+      "stepPreviewTitleTasks": "Tarefas iniciais · {{count}}",
+      "stepPreviewTitleAdapters": "Seleção de adapters · {{count}}",
+      "stepPreviewTitleSecrets": "Segredos e variáveis de ambiente · {{count}}",
+      "cancel": "Cancelar",
+      "back": "Voltar",
+      "next": "Avançar",
+      "preview": "Pré-visualização",
+      "close": "Fechar"
+    }
+  }
+}

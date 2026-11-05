@@ -1,0 +1,128 @@
+{
+  "en": {
+    "artifacts": {
+      "title": "Artifacts",
+      "selectOrg": "Select an organization to view artifacts.",
+      "allStacks": "All stacks",
+      "loadingMore": "Loading more artifacts...",
+      "updating": "Updating artifacts...",
+      "actions": {
+        "loadArtifacts": "load artifacts"
+      },
+      "empty": {
+        "stacksSearch": "No artifact stacks match this search.",
+        "stacksEmpty": "No artifact stacks yet.",
+        "artifactsSearch": "No artifacts match this search.",
+        "stackFilters": "No artifacts in this stack match the current filters.",
+        "noArtifactsYet": "No artifacts yet. Outputs attached to issues will appear here.",
+        "noArtifactsOfType": "No artifacts of this type yet."
+      },
+      "toolbar": {
+        "controlsAria": "Artifacts controls",
+        "searchLabel": "Search artifacts",
+        "searchPlaceholder": "Search artifacts…",
+        "clearSearch": "Clear artifact search",
+        "groupAria": "Group artifacts (currently {{current}})",
+        "groupTitle": "Group artifacts",
+        "groupBy": "Group by"
+      },
+      "groupBy": {
+        "none": "None",
+        "task": "Task",
+        "parentTask": "Parent task"
+      },
+      "filters": {
+        "label": "Filter artifacts by type",
+        "all": "All",
+        "images": "Images",
+        "videos": "Videos",
+        "documents": "Documents",
+        "text": "Text",
+        "files": "Files"
+      },
+      "card": {
+        "artifactSingular": "artifact",
+        "artifactPlural": "artifacts",
+        "updated": "Updated {{date}}",
+        "lastEdited": "Last edited {{date}}",
+        "openInNewTab": "Open file in new tab",
+        "downloadFile": "Download file"
+      },
+      "media": {
+        "image": "Image",
+        "video": "Video",
+        "document": "Document",
+        "text": "Text",
+        "file": "File"
+      },
+      "v1": {
+        "tasks": "Tasks",
+        "allFiles": "All files",
+        "filterLabel": "Show artifacts by task or by type"
+      }
+    }
+  },
+  "pt-BR": {
+    "artifacts": {
+      "title": "Artefatos",
+      "selectOrg": "Selecione uma empresa para visualizar artefatos.",
+      "allStacks": "Todas as pilhas",
+      "loadingMore": "Carregando mais artefatos...",
+      "updating": "Atualizando artefatos...",
+      "actions": {
+        "loadArtifacts": "carregar artefatos"
+      },
+      "empty": {
+        "stacksSearch": "Nenhuma pilha de artefatos corresponde a esta busca.",
+        "stacksEmpty": "Nenhuma pilha de artefatos ainda.",
+        "artifactsSearch": "Nenhum artefato corresponde a esta busca.",
+        "stackFilters": "Nenhum artefato nesta pilha corresponde aos filtros atuais.",
+        "noArtifactsYet": "Nenhum artefato ainda. Saídas anexadas a issues aparecerão aqui.",
+        "noArtifactsOfType": "Nenhum artefato deste tipo ainda."
+      },
+      "toolbar": {
+        "controlsAria": "Controles de artefatos",
+        "searchLabel": "Buscar artefatos",
+        "searchPlaceholder": "Buscar artefatos…",
+        "clearSearch": "Limpar busca de artefatos",
+        "groupAria": "Agrupar artefatos (atualmente {{current}})",
+        "groupTitle": "Agrupar artefatos",
+        "groupBy": "Agrupar por"
+      },
+      "groupBy": {
+        "none": "Nenhum",
+        "task": "Tarefa",
+        "parentTask": "Tarefa pai"
+      },
+      "filters": {
+        "label": "Filtrar artefatos por tipo",
+        "all": "Todos",
+        "images": "Imagens",
+        "videos": "Vídeos",
+        "documents": "Documentos",
+        "text": "Texto",
+        "files": "Arquivos"
+      },
+      "card": {
+        "artifactSingular": "artefato",
+        "artifactPlural": "artefatos",
+        "updated": "Atualizado em {{date}}",
+        "lastEdited": "Última edição em {{date}}",
+        "openInNewTab": "Abrir arquivo em nova aba",
+        "downloadFile": "Baixar arquivo"
+      },
+      "media": {
+        "image": "Imagem",
+        "video": "Vídeo",
+        "document": "Documento",
+        "text": "Texto",
+        "file": "Arquivo"
+      },
+      "v1": {
+        "tasks": "Tarefas",
+        "allFiles": "Todos os arquivos",
+        "filterLabel": "Mostrar artefatos por tarefa ou por tipo"
+      }
+    }
+  }
+}

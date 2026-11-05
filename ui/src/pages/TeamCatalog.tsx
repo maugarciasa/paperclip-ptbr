@@ -1,4 +1,5 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import { t, useTranslation } from "@/i18n";
 import { useNavigate, useParams, useSearchParams } from "@/lib/router";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import type {
@@ -717,7 +718,7 @@ export function TeamDetailPane({
       ) : (
         <Download className="h-4 w-4" />
       )}
-      {isInstalled ? "Re-install latest" : "Install team"}
+      {isInstalled ? t("teamCatalog.reinstallLatest", { defaultValue: "Re-install latest" }) : t("teamCatalog.installTeam", { defaultValue: "Install team" })}
     </Button>
   );
 
@@ -738,7 +739,7 @@ export function TeamDetailPane({
               <ProvenanceBadge team={team} />
               {isInstalled && !outOfDate && (
                 <Badge variant="secondary" className="gap-1 text-(length:--text-nano)">
-                  <CheckCircle2 className="h-3 w-3" /> Installed
+                  <CheckCircle2 className="h-3 w-3" /> {t("teamCatalog.installed", { defaultValue: "Installed" })}
                 </Badge>
               )}
               {outOfDate && (
@@ -1418,7 +1419,7 @@ export function TeamInstallerDialog({
             ) : (
               <Button onClick={submitInstall} disabled={installBlocked || previewMutation.isPending || !previewResult}>
                 {needsScriptsConfirm ? <AlertTriangle className="h-4 w-4" /> : <Download className="h-4 w-4" />}
-                {needsScriptsConfirm ? "Install with executables" : "Install team"}
+                {needsScriptsConfirm ? t("teamCatalog.installWithExecutables", { defaultValue: "Install with executables" }) : t("teamCatalog.installTeam", { defaultValue: "Install team" })}
               </Button>
             )
           ) : (
@@ -1823,6 +1824,7 @@ export function StepPreview({
   }
   if (!result) return null;
 
+  const { t } = useTranslation();
   const plan = result.portabilityPreview.plan;
   const envInputs = result.portabilityPreview.envInputs;
   const manifestAgents = result.portabilityPreview.manifest.agents;
@@ -1874,7 +1876,7 @@ export function StepPreview({
 
       {/* Agents */}
       {plan.agentPlans.length > 0 && (
-        <PreviewSection title={`Agents · ${plan.agentPlans.length}`}>
+        <PreviewSection title={t("teamCatalog.stepPreviewTitleAgents", { count: plan.agentPlans.length, defaultValue: `Agents · ${plan.agentPlans.length}` })}>
           {plan.agentPlans.map((p) => (
             <PlanRow
               key={p.slug}
@@ -1892,7 +1894,7 @@ export function StepPreview({
 
       {/* Projects */}
       {plan.projectPlans.length > 0 && (
-        <PreviewSection title={`Projects · ${plan.projectPlans.length}`}>
+        <PreviewSection title={t("teamCatalog.stepPreviewTitleProjects", { count: plan.projectPlans.length, defaultValue: `Projects · ${plan.projectPlans.length}` })}>
           {plan.projectPlans.map((p) => (
             <PlanRow
               key={p.slug}
@@ -1910,7 +1912,7 @@ export function StepPreview({
 
       {/* Starter tasks */}
       {plan.issuePlans.length > 0 && (
-        <PreviewSection title={`Starter tasks · ${plan.issuePlans.length}`}>
+        <PreviewSection title={t("teamCatalog.stepPreviewTitleTasks", { count: plan.issuePlans.length, defaultValue: `Starter tasks · ${plan.issuePlans.length}` })}>
           {plan.issuePlans.map((p) => (
             <PlanRow key={p.slug} slug={p.slug} action={p.action} plannedName={p.plannedTitle} reason={p.reason} canRename={false} />
           ))}
@@ -1919,7 +1921,7 @@ export function StepPreview({
 
       {/* Adapter selection — install schema accepts adapterOverrides (design §4.4) */}
       {manifestAgents.length > 0 && (
-        <PreviewSection title={`Adapter selection · ${manifestAgents.length}`}>
+        <PreviewSection title={t("teamCatalog.stepPreviewTitleAdapters", { count: manifestAgents.length, defaultValue: `Adapter selection · ${manifestAgents.length}` })}>
           {manifestAgents.map((agent) => {
             const selected = resolveTeamInstallAdapterType(
               adapterOverrides[agent.slug] ?? agent.adapterType,
@@ -1958,7 +1960,7 @@ export function StepPreview({
 
       {/* Env inputs */}
       {envInputs.length > 0 && (
-        <PreviewSection title={`Secrets & env inputs · ${envInputs.length}`}>
+        <PreviewSection title={t("teamCatalog.stepPreviewTitleSecrets", { count: envInputs.length, defaultValue: `Secrets & env inputs · ${envInputs.length}` })}>
           {envInputs.map((input) => {
             const formKey = envInputFormKey(input);
             const visible = Boolean(visibleSecretKeys[formKey]);
@@ -2553,7 +2555,7 @@ export function TeamCatalog() {
               {grouped.installed.length > 0 && (
                 <>
                   <div className="px-3 py-2 text-(length:--text-micro) font-semibold uppercase tracking-wide text-muted-foreground">
-                    Installed · {grouped.installed.length}
+                    {t("teamCatalog.installedCount", { count: grouped.installed.length, defaultValue: `Installed · ${grouped.installed.length}` })}
                   </div>
                   {grouped.installed.map((team) => (
                     <TeamRow

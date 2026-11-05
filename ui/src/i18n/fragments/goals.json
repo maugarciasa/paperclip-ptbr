@@ -1,0 +1,102 @@
+{
+  "en": {
+    "goals": {
+      "list": {
+        "breadcrumb": "Goals",
+        "selectCompany": "Select an organization to view goals.",
+        "loadGoalsAction": "load goals",
+        "emptyMessage": "No goals yet.",
+        "addGoal": "Add Goal",
+        "newGoal": "New Goal"
+      },
+      "detail": {
+        "showProperties": "Show properties",
+        "defaultGoal": "Goal",
+        "loadGoalAction": "load this goal",
+        "descriptionPlaceholder": "Add a description...",
+        "subGoalsTab": "Sub-Goals ({{count}})",
+        "projectsTab": "Projects ({{count}})",
+        "subGoalButton": "Sub Goal",
+        "noSubGoals": "No sub-goals.",
+        "noLinkedProjects": "No linked projects."
+      },
+      "tree": {
+        "noGoals": "No goals.",
+        "subtreeAria": "{{title}} subtree"
+      },
+      "properties": {
+        "level": "Level",
+        "owner": "Owner",
+        "parentGoal": "Parent Goal",
+        "created": "Created",
+        "updated": "Updated"
+      },
+      "levels": {
+        "company": "Organization",
+        "team": "Team",
+        "agent": "Agent",
+        "task": "Task"
+      },
+      "dialog": {
+        "newGoal": "New goal",
+        "newSubGoal": "New sub-goal",
+        "titlePlaceholder": "Goal title",
+        "descriptionPlaceholder": "Add description...",
+        "parentGoal": "Parent goal",
+        "noParent": "No parent",
+        "createGoal": "Create goal",
+        "createSubGoal": "Create sub-goal"
+      }
+    }
+  },
+  "pt-BR": {
+    "goals": {
+      "list": {
+        "breadcrumb": "Metas",
+        "selectCompany": "Selecione uma empresa para visualizar as metas.",
+        "loadGoalsAction": "carregar metas",
+        "emptyMessage": "Nenhuma meta ainda.",
+        "addGoal": "Adicionar meta",
+        "newGoal": "Nova meta"
+      },
+      "detail": {
+        "showProperties": "Mostrar propriedades",
+        "defaultGoal": "Meta",
+        "loadGoalAction": "carregar esta meta",
+        "descriptionPlaceholder": "Adicionar uma descrição...",
+        "subGoalsTab": "Submetas ({{count}})",
+        "projectsTab": "Projetos ({{count}})",
+        "subGoalButton": "Submeta",
+        "noSubGoals": "Nenhuma submeta.",
+        "noLinkedProjects": "Nenhum projeto vinculado."
+      },
+      "tree": {
+        "noGoals": "Nenhuma meta.",
+        "subtreeAria": "Subárvore de {{title}}"
+      },
+      "properties": {
+        "level": "Nível",
+        "owner": "Responsável",
+        "parentGoal": "Meta pai",
+        "created": "Criado em",
+        "updated": "Atualizado em"
+      },
+      "levels": {
+        "company": "Empresa",
+        "team": "Equipe",
+        "agent": "Agente",
+        "task": "Tarefa"
+      },
+      "dialog": {
+        "newGoal": "Nova meta",
+        "newSubGoal": "Nova submeta",
+        "titlePlaceholder": "Título da meta",
+        "descriptionPlaceholder": "Adicionar descrição...",
+        "parentGoal": "Meta pai",
+        "noParent": "Sem meta pai",
+        "createGoal": "Criar meta",
+        "createSubGoal": "Criar submeta"
+      }
+    }
+  }
+}

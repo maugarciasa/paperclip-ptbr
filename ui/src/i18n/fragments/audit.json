@@ -1,0 +1,86 @@
+{
+  "en": {
+    "audit": {
+      "title": "Audit",
+      "activity": "Activity",
+      "empty": {
+        "selectOrg": "Select an organization to view Audit.",
+        "selectOrgActivity": "Select an organization to view activity."
+      },
+      "tabs": {
+        "activity": "Activity",
+        "runs": "Runs",
+        "commentary": "Commentary",
+        "costs": "Costs",
+        "budgets": "Budgets",
+        "timeline": "Timeline"
+      },
+      "feed": {
+        "scopeAria": "Activity scope",
+        "allActivity": "Activity",
+        "allActivityProd": "All activity",
+        "agentActions": "Agent actions",
+        "agentActionsRestricted": "Agent Actions requires audit access",
+        "filterAgent": "Agent",
+        "filterResponsibleUser": "Responsible user",
+        "filterAction": "Action",
+        "filterEntity": "Entity",
+        "caseIdAria": "Case ID or identifier",
+        "fromDateAria": "From date",
+        "toDateAria": "To date",
+        "clearFilters": "Clear filters",
+        "listAria": "Audit activity",
+        "loadAction": "load the audit log",
+        "emptyFiltered": "No actions match these filters",
+        "emptyInitial": "Nothing here yet",
+        "emptyFilteredHint": "Try a wider date range or different filters.",
+        "emptyAgentsHint": "As soon as your agents start doing things, their actions show up here.",
+        "emptyAllHint": "As soon as anyone in your organization does something, it shows up here.",
+        "emptyAllHintProd": "As soon as anyone in your company does something, it shows up here.",
+        "loadMore": "Load more"
+      }
+    }
+  },
+  "pt-BR": {
+    "audit": {
+      "title": "Auditoria",
+      "activity": "Atividade",
+      "empty": {
+        "selectOrg": "Selecione uma empresa para visualizar a Auditoria.",
+        "selectOrgActivity": "Selecione uma empresa para visualizar a atividade."
+      },
+      "tabs": {
+        "activity": "Atividade",
+        "runs": "Execuções",
+        "commentary": "Comentários",
+        "costs": "Custos",
+        "budgets": "Orçamentos",
+        "timeline": "Linha do tempo"
+      },
+      "feed": {
+        "scopeAria": "Escopo da atividade",
+        "allActivity": "Atividade",
+        "allActivityProd": "Toda atividade",
+        "agentActions": "Ações de agentes",
+        "agentActionsRestricted": "Ações de Agentes requer acesso de auditoria",
+        "filterAgent": "Agente",
+        "filterResponsibleUser": "Usuário responsável",
+        "filterAction": "Ação",
+        "filterEntity": "Entidade",
+        "caseIdAria": "ID ou identificador do caso",
+        "fromDateAria": "Data inicial",
+        "toDateAria": "Data final",
+        "clearFilters": "Limpar filtros",
+        "listAria": "Atividade de auditoria",
+        "loadAction": "carregar o log de auditoria",
+        "emptyFiltered": "Nenhuma ação corresponde a estes filtros",
+        "emptyInitial": "Nada aqui ainda",
+        "emptyFilteredHint": "Tente um intervalo de datas mais amplo ou filtros diferentes.",
+        "emptyAgentsHint": "Assim que seus agentes começarem a executar ações, elas aparecerão aqui.",
+        "emptyAllHint": "Assim que qualquer pessoa na sua empresa realizar uma ação, ela aparecerá aqui.",
+        "emptyAllHintProd": "Assim que qualquer pessoa na sua empresa realizar uma ação, ela aparecerá aqui.",
+        "loadMore": "Carregar mais"
+      }
+    }
+  }
+}

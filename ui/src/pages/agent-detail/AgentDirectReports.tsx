@@ -1,4 +1,5 @@
 import { useLayoutEffect, useRef, useState } from "react";
+import { t } from "@/i18n";
 import type { Agent } from "@paperclipai/shared";
 import { AgentAvatar } from "@/components/AgentAvatar";
 import { Link } from "@/lib/router";
@@ -74,7 +75,7 @@ export function AgentDirectReports({ reports }: { reports: Agent[] }) {
         ))}
         {hidden > 0 ? (
           <button type="button" className={toggleClass} onClick={() => setExpanded(true)}>
-            +{hidden} more
+            {t("agents.detail.reports.more", { count: hidden, defaultValue: `+${hidden} more` })}
           </button>
         ) : null}
         {expanded && shown < reports.length ? (

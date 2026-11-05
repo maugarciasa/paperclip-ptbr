@@ -15,6 +15,33 @@
         "tasksNoun": "tasks",
         "privateProject": "Private project"
       },
+      "toolbar": {
+        "ariaLabel": "Projects controls",
+        "searchLabel": "Search projects",
+        "searchPlaceholder": "Search projects…",
+        "sortWithLabel": "Sort: {{label}}",
+        "sortUpdated": "Updated",
+        "sortCreated": "Created",
+        "sortTargetDate": "Target date",
+        "asc": "Asc",
+        "desc": "Desc",
+        "addProject": "Add Project"
+      },
+      "create": {
+        "connectGithub": "Connect GitHub",
+        "title": "Create project",
+        "closeAria": "Close new project",
+        "namePlaceholder": "Project name",
+        "sourceReposAria": "Source repositories",
+        "submit": "Create project"
+      },
+      "repos": {
+        "ariaLabel": "Repositories",
+        "saved": "Changes saved",
+        "discard": "Discard changes",
+        "save": "Save changes",
+        "connectGithub": "Connect GitHub"
+      },
       "tilePicker": {
         "changeIconColor": "Change project icon and color",
         "icon": "Icon",
@@ -63,6 +90,33 @@
         "taskNoun": "tarefa",
         "tasksNoun": "tarefas",
         "privateProject": "Projeto privado"
+      },
+      "toolbar": {
+        "ariaLabel": "Controles de projetos",
+        "searchLabel": "Buscar projetos",
+        "searchPlaceholder": "Buscar projetos…",
+        "sortWithLabel": "Ordenar: {{label}}",
+        "sortUpdated": "Atualizado",
+        "sortCreated": "Criado",
+        "sortTargetDate": "Data alvo",
+        "asc": "Cresc",
+        "desc": "Decresc",
+        "addProject": "Adicionar projeto"
+      },
+      "create": {
+        "connectGithub": "Conectar GitHub",
+        "title": "Criar projeto",
+        "closeAria": "Fechar novo projeto",
+        "namePlaceholder": "Nome do projeto",
+        "sourceReposAria": "Repositórios de origem",
+        "submit": "Criar projeto"
+      },
+      "repos": {
+        "ariaLabel": "Repositórios",
+        "saved": "Alterações salvas",
+        "discard": "Descartar alterações",
+        "save": "Salvar alterações",
+        "connectGithub": "Conectar GitHub"
       },
       "tilePicker": {
         "changeIconColor": "Alterar ícone e cor do projeto",

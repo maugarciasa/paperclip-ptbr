@@ -1,0 +1,458 @@
+{
+  "en": {
+    "workspaces": {
+      "title": "Workspaces",
+      "breadcrumbs": {
+        "workspaces": "Workspaces",
+        "projects": "Projects"
+      },
+      "defaultProjectName": "Task workspaces",
+      "defaultProjectRefName": "Project",
+      "actions": {
+        "loadWorkspaces": "load workspaces",
+        "loadThisWorkspace": "load this workspace",
+        "loadWorkspaceTasks": "load workspace tasks",
+        "loadWorkspaceOperations": "load workspace operations",
+        "loadWorkspaceRoutines": "load workspace routines",
+        "inspectCloseReadiness": "inspect workspace close readiness"
+      },
+      "summaryTitle": "Workspace summary",
+      "summaryDescription": "Summarizer tracks workspace activity, live services, and follow-up needs across projects.",
+      "emptyState": "No workspace activity yet.",
+      "counts": {
+        "workspace": "workspace",
+        "workspaces": "workspaces"
+      },
+      "pagination": {
+        "showing": "Showing {{current}} of {{total}} workspaces.",
+        "loadMore": "Load more"
+      },
+      "content": {
+        "empty": "No non-default workspace activity yet.",
+        "cleanupAttentionNeeded": "Cleanup attention needed"
+      },
+      "card": {
+        "kindExecution": "Execution workspace",
+        "kindProject": "Project workspace",
+        "updated": "Updated {{time}}",
+        "servicesCount": "{{running}}/{{total}} services"
+      },
+      "detail": {
+        "eyebrow": "Execution workspace",
+        "loading": "Loading workspace…",
+        "loadingPlugin": "Loading workspace plugin...",
+        "tabs": {
+          "tasks": "Tasks",
+          "services": "Services",
+          "configuration": "Configuration",
+          "runtimeLogs": "Runtime logs",
+          "routines": "Routines",
+          "backToTasks": "Back to tasks"
+        },
+        "status": {
+          "eager": "Eager · provisioned during workspace setup",
+          "deferred": "Deferred",
+          "deferredHint": "Runs once before the first runtime-service start.",
+          "provisioning": "Provisioning…",
+          "provisioned": "Provisioned",
+          "provisionedAt": "Provisioned · {{time}}",
+          "provisioningFailed": "Provisioning failed",
+          "provisioningFailedAt": "Provisioning failed · {{time}}",
+          "viewRuntimeLogs": "View runtime logs"
+        },
+        "runtimeAction": {
+          "jobCompleted": "Workspace job completed.",
+          "serviceStopped": "Workspace service stopped.",
+          "serviceRestarted": "Workspace service restarted.",
+          "serviceStarted": "Workspace service started."
+        },
+        "runtimeControls": {
+          "serviceEmptyWithConfig": "No services have been started for this execution workspace yet.",
+          "serviceEmptyNoConfig": "No workspace command config is defined for this execution workspace yet.",
+          "jobEmpty": "No one-shot jobs are configured for this execution workspace yet.",
+          "disabledHint": "Execution workspaces need a working directory before local commands can run, and services also need runtime config."
+        },
+        "settings": {
+          "title": "Workspace settings",
+          "description": "Edit the concrete path, repo, branch, provisioning, teardown, and runtime overrides attached to this execution workspace. Saved changes affect future runs; Paperclip may refresh or replace a reused workspace when config changes.",
+          "closeWorkspace": "Close workspace",
+          "retryClose": "Retry close",
+          "saveChanges": "Save changes",
+          "reset": "Reset",
+          "noUnsavedChanges": "No unsaved changes."
+        },
+        "sections": {
+          "general": "General",
+          "sourceControl": "Source control",
+          "paths": "Paths",
+          "lifecycleCommands": "Lifecycle commands",
+          "runtimeConfig": "Runtime config"
+        },
+        "fields": {
+          "workspaceName": "Workspace name",
+          "workspaceNamePlaceholder": "Execution workspace name",
+          "branchName": "Branch name",
+          "branchNameHint": "Useful for isolated worktrees",
+          "baseRef": "Base ref",
+          "repoUrl": "Repo URL",
+          "workingDirectory": "Working directory",
+          "providerRef": "Provider path / ref",
+          "provisionCommand": "Provision command",
+          "provisionCommandHint": "Runs when Paperclip prepares this execution workspace",
+          "runtimeProvisionCommand": "Runtime provision command",
+          "runtimeProvisionCommandHint": "Runs once before the first runtime-service start. Leave empty to keep eager provisioning.",
+          "teardownCommand": "Teardown command",
+          "teardownCommandHint": "Runs when the execution workspace is archived or cleaned up",
+          "cleanupCommand": "Cleanup command",
+          "cleanupCommandHint": "Workspace-specific cleanup before teardown",
+          "workspaceCommandsJson": "Workspace commands JSON",
+          "workspaceCommandsJsonHint": "Legacy `services` arrays still work, but `commands` supports both services and jobs."
+        },
+        "runtimeConfig": {
+          "source": "Runtime config source",
+          "sourceExecution": "This execution workspace currently overrides the project workspace runtime config.",
+          "sourceProject": "This execution workspace is inheriting the project workspace runtime config.",
+          "sourceNone": "No runtime config is currently defined on this execution workspace or its project workspace.",
+          "resetToInherit": "Reset to inherit",
+          "advancedSummary": "Advanced runtime JSON",
+          "advancedDescription": "Override the inherited workspace command model only when this execution workspace truly needs different service or job behavior.",
+          "inheritCheckbox": "Inherit project workspace runtime config"
+        },
+        "servicePorts": {
+          "title": "Service ports",
+          "description": "Set a fixed port for a service or leave it blank to use its configured automatic behavior. Editing an inherited service creates an execution-workspace runtime override.",
+          "fixedPortHint": "Fixed port",
+          "warningCheck": "Paperclip checks fixed ports again when a service starts and rejects cross-workspace conflicts."
+        },
+        "context": {
+          "title": "Workspace context",
+          "description": "Linked objects and relationships",
+          "project": "Project",
+          "noProject": "No project",
+          "projectWorkspace": "Project workspace",
+          "sourceTask": "Source task",
+          "derivedFrom": "Derived from",
+          "runtimeProvisioning": "Runtime provisioning",
+          "workspaceId": "Workspace ID"
+        },
+        "location": {
+          "title": "Concrete location",
+          "description": "Paths and refs",
+          "workingDir": "Working dir",
+          "providerRef": "Provider ref",
+          "repoUrl": "Repo URL",
+          "baseRef": "Base ref",
+          "branch": "Branch",
+          "opened": "Opened",
+          "lastUsed": "Last used",
+          "cleanup": "Cleanup",
+          "notScheduled": "Not scheduled"
+        },
+        "logs": {
+          "title": "Runtime and cleanup logs",
+          "description": "Recent operations",
+          "loading": "Loading workspace operations…",
+          "empty": "No workspace operations have been recorded yet."
+        },
+        "phases": {
+          "worktreeSetup": "Worktree setup",
+          "configFreshness": "Config freshness",
+          "provision": "Provision",
+          "databaseSeed": "Database seed",
+          "runtimeProvision": "Runtime provision",
+          "teardown": "Teardown",
+          "worktreeCleanup": "Worktree cleanup",
+          "finalize": "Finalize"
+        },
+        "routines": {
+          "title": "Workspace routines",
+          "description": "Routines that use workspace-specific variables can be run against this execution workspace.",
+          "loading": "Loading routines...",
+          "empty": "No routines use workspace-specific variables yet.",
+          "defaultAgentSet": "Default agent set",
+          "chooseAgentWhenRunning": "Choose agent when running",
+          "lastRun": "Last run {{time}}",
+          "runNow": "Run now",
+          "running": "Running...",
+          "toastStartedTitle": "Routine started",
+          "toastStartedBody": "Paperclip created a run using this execution workspace.",
+          "toastFailedTitle": "Routine run failed"
+        },
+        "summarySlotTitle": "Workspace summary",
+        "summarySlotDescription": "Summarizer keeps the latest workspace status, next step, and operator-needed items here.",
+        "validation": {
+          "repoUrl": "Repo URL must be a valid URL.",
+          "jsonNotObject": "Workspace commands JSON must be a JSON object.",
+          "invalidJson": "Invalid JSON.",
+          "invalidFixedPort": "{{name}} has an invalid fixed port.",
+          "portConflict": "Port {{port}} is assigned to multiple services: {{services}}."
+        }
+      },
+      "closeDialog": {
+        "titleClose": "Close workspace",
+        "titleRetry": "Retry close",
+        "descriptionPrefix": "Archive ",
+        "descriptionSuffix": " and clean up any owned workspace artifacts. Paperclip keeps the workspace record and task history, but removes it from active workspace views.",
+        "checking": "Checking whether this workspace is safe to close...",
+        "toastRetried": "Workspace close retried",
+        "toastClosed": "Workspace closed",
+        "toastFailed": "Failed to close workspace",
+        "stateBlocked": "Close is blocked",
+        "stateWarnings": "Close is allowed with warnings",
+        "stateReady": "Close is ready",
+        "hintShared": "This is a shared workspace session. Archiving it removes this session record but keeps the underlying project workspace.",
+        "hintOwnCheckout": "This execution workspace has its own checkout path and can be archived independently.",
+        "hintPrimary": "This execution workspace currently points at the project's primary workspace path.",
+        "hintDisposable": "This workspace is disposable and can be archived.",
+        "blockingTasks": "Blocking tasks",
+        "blockingReasons": "Blocking reasons",
+        "warnings": "Warnings",
+        "gitStatus": "Git status",
+        "branch": "Branch",
+        "baseRef": "Base ref",
+        "notSet": "Not set",
+        "mergedIntoBase": "Merged into base",
+        "aheadBehind": "Ahead / behind",
+        "dirtyFiles": "Dirty tracked files",
+        "untrackedFiles": "Untracked files",
+        "otherLinkedTasks": "Other linked tasks",
+        "attachedRuntimeServices": "Attached runtime services",
+        "noAdditionalDetails": "No additional details",
+        "cleanupActions": "Cleanup actions",
+        "cleanupFailedNotice": "Cleanup previously failed on this workspace. Retrying close will rerun the cleanup flow and update the workspace status if it succeeds.",
+        "alreadyArchived": "This workspace is already archived.",
+        "repoRoot": "Repo root: ",
+        "workspacePath": " · Workspace path: ",
+        "lastChecked": "Last checked {{time}}"
+      }
+    }
+  },
+  "pt-BR": {
+    "workspaces": {
+      "title": "Workspaces",
+      "breadcrumbs": {
+        "workspaces": "Workspaces",
+        "projects": "Projetos"
+      },
+      "defaultProjectName": "Workspaces de tarefas",
+      "defaultProjectRefName": "Projeto",
+      "actions": {
+        "loadWorkspaces": "carregar workspaces",
+        "loadThisWorkspace": "carregar este workspace",
+        "loadWorkspaceTasks": "carregar tarefas do workspace",
+        "loadWorkspaceOperations": "carregar operações do workspace",
+        "loadWorkspaceRoutines": "carregar rotinas do workspace",
+        "inspectCloseReadiness": "inspecionar prontidão para fechamento do workspace"
+      },
+      "summaryTitle": "Resumo do workspace",
+      "summaryDescription": "O sumarizador monitora a atividade dos workspaces, serviços ativos e necessidades de acompanhamento em todos os projetos.",
+      "emptyState": "Nenhuma atividade de workspace ainda.",
+      "counts": {
+        "workspace": "workspace",
+        "workspaces": "workspaces"
+      },
+      "pagination": {
+        "showing": "Exibindo {{current}} de {{total}} workspaces.",
+        "loadMore": "Carregar mais"
+      },
+      "content": {
+        "empty": "Nenhuma atividade de workspace não padrão ainda.",
+        "cleanupAttentionNeeded": "Atenção de limpeza necessária"
+      },
+      "card": {
+        "kindExecution": "Workspace de execução",
+        "kindProject": "Workspace do projeto",
+        "updated": "Atualizado {{time}}",
+        "servicesCount": "{{running}}/{{total}} serviços"
+      },
+      "detail": {
+        "eyebrow": "Workspace de execução",
+        "loading": "Carregando workspace…",
+        "loadingPlugin": "Carregando plugin do workspace...",
+        "tabs": {
+          "tasks": "Tarefas",
+          "services": "Serviços",
+          "configuration": "Configuração",
+          "runtimeLogs": "Logs de execução",
+          "routines": "Rotinas",
+          "backToTasks": "Voltar para tarefas"
+        },
+        "status": {
+          "eager": "Imediato · provisionado durante a configuração do workspace",
+          "deferred": "Diferido",
+          "deferredHint": "Executa uma vez antes do primeiro início do serviço de execução.",
+          "provisioning": "Provisionando…",
+          "provisioned": "Provisionado",
+          "provisionedAt": "Provisionado · {{time}}",
+          "provisioningFailed": "Falha no provisionamento",
+          "provisioningFailedAt": "Falha no provisionamento · {{time}}",
+          "viewRuntimeLogs": "Ver logs de execução"
+        },
+        "runtimeAction": {
+          "jobCompleted": "Job do workspace concluído.",
+          "serviceStopped": "Serviço do workspace parado.",
+          "serviceRestarted": "Serviço do workspace reiniciado.",
+          "serviceStarted": "Serviço do workspace iniciado."
+        },
+        "runtimeControls": {
+          "serviceEmptyWithConfig": "Nenhum serviço foi iniciado para este workspace de execução ainda.",
+          "serviceEmptyNoConfig": "Nenhuma configuração de comando de workspace está definida para este workspace de execução ainda.",
+          "jobEmpty": "Nenhum job de execução única está configurado para este workspace de execução ainda.",
+          "disabledHint": "Workspaces de execução precisam de um diretório de trabalho antes que comandos locais possam rodar, e serviços também precisam de configuração de runtime."
+        },
+        "settings": {
+          "title": "Configurações do workspace",
+          "description": "Edite o caminho concreto, repositório, branch, provisionamento, encerramento e substituições de runtime associados a este workspace de execução. Alterações salvas afetam execuções futuras; o Paperclip pode atualizar ou substituir um workspace reutilizado quando a configuração mudar.",
+          "closeWorkspace": "Fechar workspace",
+          "retryClose": "Tentar fechar novamente",
+          "saveChanges": "Salvar alterações",
+          "reset": "Redefinir",
+          "noUnsavedChanges": "Nenhuma alteração não salva."
+        },
+        "sections": {
+          "general": "Geral",
+          "sourceControl": "Controle de versão",
+          "paths": "Caminhos",
+          "lifecycleCommands": "Comandos de ciclo de vida",
+          "runtimeConfig": "Configuração de runtime"
+        },
+        "fields": {
+          "workspaceName": "Nome do workspace",
+          "workspaceNamePlaceholder": "Nome do workspace de execução",
+          "branchName": "Nome da branch",
+          "branchNameHint": "Útil para worktrees isoladas",
+          "baseRef": "Ref base",
+          "repoUrl": "URL do repositório",
+          "workingDirectory": "Diretório de trabalho",
+          "providerRef": "Caminho / ref do provedor",
+          "provisionCommand": "Comando de provisionamento",
+          "provisionCommandHint": "Executa quando o Paperclip prepara este workspace de execução",
+          "runtimeProvisionCommand": "Comando de provisionamento de runtime",
+          "runtimeProvisionCommandHint": "Executa uma vez antes do primeiro início do serviço de execução. Deixe em branco para manter o provisionamento imediato.",
+          "teardownCommand": "Comando de encerramento",
+          "teardownCommandHint": "Executa quando o workspace de execução é arquivado ou limpo",
+          "cleanupCommand": "Comando de limpeza",
+          "cleanupCommandHint": "Limpeza específica do workspace antes do encerramento",
+          "workspaceCommandsJson": "JSON de comandos do workspace",
+          "workspaceCommandsJsonHint": "Arrays de `services` legados ainda funcionam, mas `commands` oferece suporte a serviços e jobs."
+        },
+        "runtimeConfig": {
+          "source": "Origem da configuração de runtime",
+          "sourceExecution": "Este workspace de execução atualmente substitui a configuração de runtime do workspace do projeto.",
+          "sourceProject": "Este workspace de execução está herdando a configuração de runtime do workspace do projeto.",
+          "sourceNone": "Nenhuma configuração de runtime está definida atualmente neste workspace de execução ou em seu workspace do projeto.",
+          "resetToInherit": "Redefinir para herdar",
+          "advancedSummary": "JSON avançado de runtime",
+          "advancedDescription": "Substitua o modelo herdado de comando do workspace apenas quando este workspace de execução realmente precisar de comportamento diferente de serviço ou job.",
+          "inheritCheckbox": "Herdar configuração de runtime do workspace do projeto"
+        },
+        "servicePorts": {
+          "title": "Portas dos serviços",
+          "description": "Defina uma porta fixa para um serviço ou deixe em branco para usar o comportamento automático configurado. Editar um serviço herdado cria uma substituição de runtime no workspace de execução.",
+          "fixedPortHint": "Porta fixa",
+          "warningCheck": "O Paperclip verifica as portas fixas novamente quando um serviço inicia e rejeita conflitos entre workspaces."
+        },
+        "context": {
+          "title": "Contexto do workspace",
+          "description": "Objetos vinculados e relacionamentos",
+          "project": "Projeto",
+          "noProject": "Nenhum projeto",
+          "projectWorkspace": "Workspace do projeto",
+          "sourceTask": "Tarefa de origem",
+          "derivedFrom": "Derivado de",
+          "runtimeProvisioning": "Provisionamento de runtime",
+          "workspaceId": "ID do workspace"
+        },
+        "location": {
+          "title": "Localização concreta",
+          "description": "Caminhos e referências",
+          "workingDir": "Diretório de trabalho",
+          "providerRef": "Ref do provedor",
+          "repoUrl": "URL do repositório",
+          "baseRef": "Ref base",
+          "branch": "Branch",
+          "opened": "Aberto",
+          "lastUsed": "Último uso",
+          "cleanup": "Limpeza",
+          "notScheduled": "Não agendado"
+        },
+        "logs": {
+          "title": "Logs de execução e limpeza",
+          "description": "Operações recentes",
+          "loading": "Carregando operações do workspace…",
+          "empty": "Nenhuma operação de workspace foi registrada ainda."
+        },
+        "phases": {
+          "worktreeSetup": "Configuração da worktree",
+          "configFreshness": "Atualização de configuração",
+          "provision": "Provisionamento",
+          "databaseSeed": "Seed do banco de dados",
+          "runtimeProvision": "Provisionamento de runtime",
+          "teardown": "Encerramento",
+          "worktreeCleanup": "Limpeza da worktree",
+          "finalize": "Finalização"
+        },
+        "routines": {
+          "title": "Rotinas do workspace",
+          "description": "Rotinas que usam variáveis específicas do workspace podem ser executadas neste workspace de execução.",
+          "loading": "Carregando rotinas...",
+          "empty": "Nenhuma rotina usa variáveis específicas do workspace ainda.",
+          "defaultAgentSet": "Agente padrão definido",
+          "chooseAgentWhenRunning": "Escolher agente ao executar",
+          "lastRun": "Última execução {{time}}",
+          "runNow": "Executar agora",
+          "running": "Executando...",
+          "toastStartedTitle": "Rotina iniciada",
+          "toastStartedBody": "O Paperclip criou uma execução usando este workspace de execução.",
+          "toastFailedTitle": "Falha na execução da rotina"
+        },
+        "summarySlotTitle": "Resumo do workspace",
+        "summarySlotDescription": "O sumarizador mantém o status mais recente do workspace, próximo passo e itens que precisam do operador aqui.",
+        "validation": {
+          "repoUrl": "A URL do repositório deve ser uma URL válida.",
+          "jsonNotObject": "O JSON de comandos do workspace deve ser um objeto JSON.",
+          "invalidJson": "JSON inválido.",
+          "invalidFixedPort": "{{name}} tem uma porta fixa inválida.",
+          "portConflict": "A porta {{port}} está atribuída a múltiplos serviços: {{services}}."
+        }
+      },
+      "closeDialog": {
+        "titleClose": "Fechar workspace",
+        "titleRetry": "Tentar fechar novamente",
+        "descriptionPrefix": "Arquivar ",
+        "descriptionSuffix": " e limpar quaisquer artefatos pertencentes ao workspace. O Paperclip mantém o registro do workspace e o histórico de tarefas, mas o remove das visualizações de workspaces ativos.",
+        "checking": "Verificando se este workspace é seguro para fechar...",
+        "toastRetried": "Fechamento do workspace tentado novamente",
+        "toastClosed": "Workspace fechado",
+        "toastFailed": "Falha ao fechar workspace",
+        "stateBlocked": "O fechamento está bloqueado",
+        "stateWarnings": "O fechamento é permitido com avisos",
+        "stateReady": "Pronto para fechar",
+        "hintShared": "Esta é uma sessão de workspace compartilhada. Arquivá-la remove este registro de sessão, mas mantém o workspace do projeto subjacente.",
+        "hintOwnCheckout": "Este workspace de execução tem seu próprio caminho de checkout e pode ser arquivado de forma independente.",
+        "hintPrimary": "Este workspace de execução atualmente aponta para o caminho do workspace primário do projeto.",
+        "hintDisposable": "Este workspace é descartável e pode ser arquivado.",
+        "blockingTasks": "Tarefas bloqueantes",
+        "blockingReasons": "Motivos de bloqueio",
+        "warnings": "Avisos",
+        "gitStatus": "Status do Git",
+        "branch": "Branch",
+        "baseRef": "Ref base",
+        "notSet": "Não definido",
+        "mergedIntoBase": "Mesclado na base",
+        "aheadBehind": "À frente / atrás",
+        "dirtyFiles": "Arquivos rastreados modificados",
+        "untrackedFiles": "Arquivos não rastreados",
+        "otherLinkedTasks": "Outras tarefas vinculadas",
+        "attachedRuntimeServices": "Serviços de runtime vinculados",
+        "noAdditionalDetails": "Sem detalhes adicionais",
+        "cleanupActions": "Ações de limpeza",
+        "cleanupFailedNotice": "A limpeza falhou anteriormente neste workspace. Tentar fechar novamente executará novamente o fluxo de limpeza e atualizará o status do workspace se for bem-sucedido.",
+        "alreadyArchived": "Este workspace já está arquivado.",
+        "repoRoot": "Raiz do repositório: ",
+        "workspacePath": " · Caminho do workspace: ",
+        "lastChecked": "Última verificação {{time}}"
+      }
+    }
+  }
+}

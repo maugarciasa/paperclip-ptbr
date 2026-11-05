@@ -1,0 +1,46 @@
+{
+  "en": {
+    "orgChart": {
+      "title": "Org Chart",
+      "import": "Import organization",
+      "export": "Export organization",
+      "controls": {
+        "zoomIn": "Zoom in",
+        "zoomOut": "Zoom out",
+        "fitToScreen": "Fit to screen",
+        "fitAria": "Fit chart to screen"
+      },
+      "empty": {
+        "selectCompany": "Select an organization to view the org chart.",
+        "selectCompanyProd": "Select a company to view the org chart.",
+        "noHierarchy": "No organizational hierarchy defined.",
+        "noAgents": "No agents in the organization. Create agents to build your org chart."
+      },
+      "actions": {
+        "loadChart": "load the org chart"
+      }
+    }
+  },
+  "pt-BR": {
+    "orgChart": {
+      "title": "Organograma",
+      "import": "Importar empresa",
+      "export": "Exportar empresa",
+      "controls": {
+        "zoomIn": "Aumentar zoom",
+        "zoomOut": "Diminuir zoom",
+        "fitToScreen": "Ajustar à tela",
+        "fitAria": "Ajustar gráfico à tela"
+      },
+      "empty": {
+        "selectCompany": "Selecione uma empresa para visualizar o organograma.",
+        "selectCompanyProd": "Selecione uma empresa para visualizar o organograma.",
+        "noHierarchy": "Nenhuma hierarquia organizacional definida.",
+        "noAgents": "Nenhum agente na empresa. Crie agentes para construir seu organograma."
+      },
+      "actions": {
+        "loadChart": "carregar o organograma"
+      }
+    }
+  }
+}
