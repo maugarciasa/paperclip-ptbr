@@ -81,6 +81,79 @@
         "fullOutput": "Full error output",
         "noStoredMessage": "No stored error message.",
         "close": "Close"
+      },
+      "settingsPage": {
+        "tabs": {
+          "configuration": "Configuration",
+          "status": "Status"
+        },
+        "about": "About",
+        "description": "Description",
+        "author": "Author",
+        "categories": "Categories",
+        "none": "None",
+        "settings": "Settings",
+        "worker": {
+          "title": "Worker Process",
+          "status": "Status",
+          "pid": "PID",
+          "uptime": "Uptime",
+          "pendingRpcs": "Pending RPCs",
+          "crashes": "Crashes",
+          "lastCrash": "Last Crash",
+          "consecutiveAndTotal": "{{consecutive}} consecutive / {{total}} total",
+          "noWorker": "No worker process registered."
+        },
+        "jobs": {
+          "title": "Recent Job Runs",
+          "noJobs": "No job runs recorded yet."
+        },
+        "webhooks": {
+          "title": "Recent Webhook Deliveries",
+          "noWebhooks": "No webhook deliveries recorded yet."
+        },
+        "lastChecked": "Last checked: {{time}}",
+        "runtimeDiagnosticsUnavailable": "Runtime diagnostics are unavailable right now.",
+        "health": {
+          "title": "Health Status",
+          "checking": "Checking health...",
+          "overall": "Overall",
+          "lifecycle": "Lifecycle",
+          "runsWhenReady": "Health checks run once the plugin is ready."
+        },
+        "details": {
+          "title": "Details",
+          "pluginId": "Plugin ID",
+          "pluginKey": "Plugin Key",
+          "npmPackage": "NPM Package",
+          "version": "Version"
+        },
+        "permissions": {
+          "title": "Capabilities",
+          "noPermissions": "No special permissions requested."
+        },
+        "folders": {
+          "configured": "Configured",
+          "readable": "Readable",
+          "writable": "Writable",
+          "notRequested": "Not requested",
+          "yes": "Yes",
+          "no": "No",
+          "configuredPath": "Configured path",
+          "localFolderPath": "Local folder path",
+          "placeholder": "/absolute/path/to/folder",
+          "save": "Save",
+          "validationProblems": "Validation problems",
+          "requiredDirectories": "Required directories",
+          "requiredFiles": "Required files",
+          "notInspected": "Not inspected",
+          "missingCount": "{{count}} missing",
+          "present": "Present",
+          "noneDeclared": "None declared.",
+          "rootNotInspected": "Configured root was not inspected.",
+          "missingDirectoriesLabel": "Missing directories",
+          "missingFilesLabel": "Missing files"
+        }
       }
     }
   },
@@ -166,6 +239,79 @@
         "fullOutput": "Saída completa do erro",
         "noStoredMessage": "Nenhuma mensagem de erro registrada.",
         "close": "Fechar"
+      },
+      "settingsPage": {
+        "tabs": {
+          "configuration": "Configuração",
+          "status": "Status"
+        },
+        "about": "Sobre",
+        "description": "Descrição",
+        "author": "Autor",
+        "categories": "Categorias",
+        "none": "Nenhuma",
+        "settings": "Configurações",
+        "worker": {
+          "title": "Processo de execução (Worker)",
+          "status": "Status",
+          "pid": "PID",
+          "uptime": "Tempo de atividade",
+          "pendingRpcs": "RPCs pendentes",
+          "crashes": "Falhas",
+          "lastCrash": "Última falha",
+          "consecutiveAndTotal": "{{consecutive}} consecutivas / {{total}} no total",
+          "noWorker": "Nenhum processo de execução registrado."
+        },
+        "jobs": {
+          "title": "Execuções de tarefas recentes",
+          "noJobs": "Nenhuma execução de tarefa registrada ainda."
+        },
+        "webhooks": {
+          "title": "Entregas recentes de webhooks",
+          "noWebhooks": "Nenhuma entrega de webhook registrada ainda."
+        },
+        "lastChecked": "Última verificação: {{time}}",
+        "runtimeDiagnosticsUnavailable": "Diagnósticos de execução indisponíveis no momento.",
+        "health": {
+          "title": "Status de integridade",
+          "checking": "Verificando integridade...",
+          "overall": "Geral",
+          "lifecycle": "Ciclo de vida",
+          "runsWhenReady": "As verificações de integridade iniciam quando o plugin estiver pronto."
+        },
+        "details": {
+          "title": "Detalhes",
+          "pluginId": "ID do plugin",
+          "pluginKey": "Chave do plugin",
+          "npmPackage": "Pacote NPM",
+          "version": "Versão"
+        },
+        "permissions": {
+          "title": "Recursos",
+          "noPermissions": "Nenhuma permissão especial solicitada."
+        },
+        "folders": {
+          "configured": "Configurado",
+          "readable": "Legível",
+          "writable": "Gravável",
+          "notRequested": "Não solicitado",
+          "yes": "Sim",
+          "no": "Não",
+          "configuredPath": "Caminho configurado",
+          "localFolderPath": "Caminho da pasta local",
+          "placeholder": "/caminho/absoluto/para/pasta",
+          "save": "Salvar",
+          "validationProblems": "Problemas de validação",
+          "requiredDirectories": "Diretórios obrigatórios",
+          "requiredFiles": "Arquivos obrigatórios",
+          "notInspected": "Não inspecionado",
+          "missingCount": "{{count}} ausente(s)",
+          "present": "Presente",
+          "noneDeclared": "Nenhum declarado.",
+          "rootNotInspected": "A raiz configurada não foi inspecionada.",
+          "missingDirectoriesLabel": "Diretórios ausentes",
+          "missingFilesLabel": "Arquivos ausentes"
+        }
       }
     }
   }

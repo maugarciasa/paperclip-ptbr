@@ -3000,6 +3000,79 @@
     "loading": "Carregando plugins...",
     "noDescription": "Nenhuma descrição fornecida.",
     "pluginFallback": "Plugin",
+    "settingsPage": {
+      "about": "Sobre",
+      "author": "Autor",
+      "categories": "Categorias",
+      "description": "Descrição",
+      "details": {
+        "npmPackage": "Pacote NPM",
+        "pluginId": "ID do plugin",
+        "pluginKey": "Chave do plugin",
+        "title": "Detalhes",
+        "version": "Versão"
+      },
+      "folders": {
+        "configured": "Configurado",
+        "configuredPath": "Caminho configurado",
+        "localFolderPath": "Caminho da pasta local",
+        "missingCount": "{{count}} ausente(s)",
+        "missingDirectoriesLabel": "Diretórios ausentes",
+        "missingFilesLabel": "Arquivos ausentes",
+        "no": "Não",
+        "noneDeclared": "Nenhum declarado.",
+        "notInspected": "Não inspecionado",
+        "notRequested": "Não solicitado",
+        "placeholder": "/caminho/absoluto/para/pasta",
+        "present": "Presente",
+        "readable": "Legível",
+        "requiredDirectories": "Diretórios obrigatórios",
+        "requiredFiles": "Arquivos obrigatórios",
+        "rootNotInspected": "A raiz configurada não foi inspecionada.",
+        "save": "Salvar",
+        "validationProblems": "Problemas de validação",
+        "writable": "Gravável",
+        "yes": "Sim"
+      },
+      "health": {
+        "checking": "Verificando integridade...",
+        "lifecycle": "Ciclo de vida",
+        "overall": "Geral",
+        "runsWhenReady": "As verificações de integridade iniciam quando o plugin estiver pronto.",
+        "title": "Status de integridade"
+      },
+      "jobs": {
+        "noJobs": "Nenhuma execução de tarefa registrada ainda.",
+        "title": "Execuções de tarefas recentes"
+      },
+      "lastChecked": "Última verificação: {{time}}",
+      "none": "Nenhuma",
+      "permissions": {
+        "noPermissions": "Nenhuma permissão especial solicitada.",
+        "title": "Recursos"
+      },
+      "runtimeDiagnosticsUnavailable": "Diagnósticos de execução indisponíveis no momento.",
+      "settings": "Configurações",
+      "tabs": {
+        "configuration": "Configuração",
+        "status": "Status"
+      },
+      "webhooks": {
+        "noWebhooks": "Nenhuma entrega de webhook registrada ainda.",
+        "title": "Entregas recentes de webhooks"
+      },
+      "worker": {
+        "consecutiveAndTotal": "{{consecutive}} consecutivas / {{total}} no total",
+        "crashes": "Falhas",
+        "lastCrash": "Última falha",
+        "noWorker": "Nenhum processo de execução registrado.",
+        "pendingRpcs": "RPCs pendentes",
+        "pid": "PID",
+        "status": "Status",
+        "title": "Processo de execução (Worker)",
+        "uptime": "Tempo de atividade"
+      }
+    },
     "title": "Gerenciador de plugins",
     "toasts": {
       "disableFailed": "Falha ao desativar plugin",
@@ -3532,20 +3605,31 @@
       "newFolder": "Nova pasta",
       "newSecret": "Novo segredo"
     },
+    "coverage": {
+      "inactive": "Inativo",
+      "memberGuidance": "Instruções aos membros",
+      "missing": "Ausente",
+      "set": "Definido",
+      "unavailable": "Cobertura indisponível"
+    },
     "create": {
       "companySecret": "Segredo da empresa",
+      "deploymentDefault": "Padrão da implantação",
       "description": "Escolha quem fornece o valor. Campos compartilhados mantêm seus valores quando você alterna entre os modos.",
       "descriptionLabel": "Descrição",
-      "descriptionPlaceholder": "Descrição opcional",
+      "descriptionPlaceholder": "Para que serve este segredo? (não insira valores)",
       "envKeyLabel": "Nome da variável de ambiente",
       "envKeyPlaceholder": "PROD_DB_PASSWORD",
       "externalRefLabel": "Referência externa",
       "externalRefPlaceholder": "arn:aws:secretsmanager:...",
+      "externalReference": "Referência externa",
       "managedModeDirect": "Valor gerenciado pelo Paperclip",
       "managedModeExternal": "Referência a cofre externo",
       "managedModeLabel": "Modo gerenciado",
+      "managedValue": "Valor gerenciado",
       "nameLabel": "Nome do segredo",
       "namePlaceholder": "producao/banco_de_dados/senha",
+      "optional": "(opcional)",
       "providerLabel": "Provedor",
       "saveButton": "Salvar alterações",
       "secretValueLabel": "Valor do segredo",
@@ -3553,9 +3637,12 @@
       "submitButton": "Adicionar segredo",
       "titleCreate": "Criar segredo",
       "titleEdit": "Editar segredo fornecido pelo usuário",
+      "usageGuidance": "Instruções de uso",
       "usageGuidanceLabel": "Orientações de uso",
-      "usageGuidancePlaceholder": "Instruções para usuários que fornecem este segredo",
+      "usageGuidancePlaceholder": "Oriente os membros sobre como criar o token, escopos necessários, etc.",
       "userSecret": "Cada usuário fornece o seu",
+      "valueLabel": "Valor",
+      "valuePlaceholder": "Armazenado uma vez, nunca reexibido",
       "vaultLabel": "Cofre do provedor",
       "whoProvides": "Quem fornece o valor?"
     },
@@ -3581,6 +3668,10 @@
         "updateReference": "Atualizar referência",
         "updateValue": "Atualizar valor"
       },
+      "agentAccessTitle": "Acesso dos agentes",
+      "apiAlias": "Alias de API",
+      "loadingAgents": "Carregando agentes…",
+      "noAgentsAccess": "Nenhum agente tem acesso ainda.",
       "referencesDescription": "{{name}} é referenciado em {{count}} locais.",
       "referencesTitle": "Referências do segredo",
       "tabs": {
@@ -3590,7 +3681,19 @@
         "usage": "Uso"
       }
     },
+    "discovery": {
+      "awsTitle": "Descoberta da AWS",
+      "configureVaultTitle": "Configure um cofre de provedor da AWS para habilitar a importação remota",
+      "enterRegion": "Informe uma região da AWS antes da descoberta.",
+      "operation": "Operação",
+      "provider": "Provedor",
+      "region": "Região",
+      "requiredIam": "Capacidade IAM necessária",
+      "safeDetails": "Detalhes seguros da requisição/erro",
+      "vaultContext": "Contexto do cofre"
+    },
     "filters": {
+      "allProviders": "Todos os provedores",
       "archived": "Arquivado",
       "button": "Filtros",
       "companyProvided": "Fornecido pela empresa",
@@ -3600,12 +3703,17 @@
     },
     "folder": {
       "allSecrets": "Todos os segredos",
+      "breadcrumbAriaLabel": "Navegação estrutural",
       "createFolderButton": "Criar pasta",
+      "createFolderGroup": "Criar pasta",
       "emptyFolder": "Nenhum segredo nesta pasta ainda.",
       "folderNameLabel": "Nome da pasta",
+      "folderNamePlaceholder": "Nome da pasta",
       "newFolderDescription": "Crie uma pasta para organizar segredos em caminhos hierárquicos.",
       "newFolderTitle": "Nova pasta",
       "newSecretHere": "Novo segredo aqui",
+      "removeFolderPrefix": "Remover prefixo de pasta",
+      "upOneFolder": "Subir uma pasta",
       "upTo": "Subir para {{parent}}"
     },
     "howToUse": {
@@ -3793,22 +3901,31 @@
       "noExpiry": "sem expiração"
     },
     "rotate": {
+      "changeReference": "Alterar referência",
       "description": "Crie uma nova versão deste segredo. Tarefas em execução continuam usando os valores resolvidos existentes.",
       "newReference": "Nova referência externa",
-      "newValue": "Novo valor do segredo",
+      "newValue": "Novo valor",
+      "newValuePlaceholder": "Cole o novo valor",
       "submitButton": "Rotacionar segredo",
       "title": "Rotacionar segredo",
       "updateReference": "Atualizar referência",
-      "updateValue": "Atualizar valor"
+      "updateValue": "Atualizar valor",
+      "writeValue": "Gravar novo valor"
     },
     "search": {
       "ariaLabel": "Buscar segredos",
-      "placeholder": "Buscar por nome, chave, ref"
+      "match": "resultado",
+      "matches": "resultados",
+      "matchesAcrossFolders": "{{count}} {{matchLabel}} em todas as pastas{{scopeSuffix}}",
+      "placeholder": "Buscar por nome, chave, ref",
+      "results": "Resultados da busca",
+      "searchingEverywhere": " · buscando em tudo, não apenas em {{folderPath}}"
     },
     "selectOrg": "Selecione uma empresa para gerenciar segredos.",
     "table": {
       "actions": "Ações",
       "eachUser": "Cada usuário",
+      "eachUserTooltip": "Cada usuário fornece e gerencia seu próprio valor",
       "emptyFilter": "Nenhum segredo corresponde aos seus filtros.",
       "emptySearch": "Nenhum segredo corresponde à sua busca.",
       "moreActions": "Mais ações para {{name}}",
@@ -3817,6 +3934,8 @@
       "updated": "Atualizado",
       "versionCoverage": "Versão / cobertura",
       "viewDetails": "Ver detalhes",
+      "viewInCoverage": "· Ver na cobertura",
+      "viewInUsage": "· Ver no uso",
       "viewReferences": "Ver referências ({{count}})"
     },
     "tabs": {
@@ -3880,6 +3999,15 @@
       "setValue": "Definir valor",
       "valueCleared": "Valor limpo",
       "valueSet": "Valor definido"
+    },
+    "vault": {
+      "comingSoon": "Em breve",
+      "disabled": "Desativado",
+      "displayName": "Nome de exibição",
+      "displayNamePlaceholder": "Cofre local de produção",
+      "healthNotChecked": "Integridade não verificada",
+      "removeTitle": "Remover cofre do provedor",
+      "status": "Status"
     },
     "viewMode": {
       "ariaLabel": "Modo de visualização",
@@ -3957,6 +4085,80 @@
       "toastMemberUpdated": "Membro atualizado",
       "toastReassignedTasksCleaned": "{{count}} tarefas atribuídas limpas.",
       "unknownHumanRequester": "Solicitante humano desconhecido"
+    },
+    "adapters": {
+      "alphaBadge": "Alpha",
+      "alphaWarningBody": "O sistema de plugins de adapter está em desenvolvimento ativo. As APIs e o formato de armazenamento podem mudar. Use o ícone de energia para ocultar adapters dos menus de agentes sem removê-los.",
+      "alphaWarningTitle": "Adapters externos são alpha.",
+      "breadcrumb": "Adapters",
+      "builtinBadge": "Integrado",
+      "builtinSectionTitle": "Adapters integrados",
+      "currentLabel": "Atual",
+      "externalBadge": "Externo",
+      "externalSectionTitle": "Adapters externos",
+      "hiddenFromMenus": "Oculto dos menus",
+      "installButton": "Instalar adapter",
+      "installDialog": {
+        "cancel": "Cancelar",
+        "description": "Adicione um adapter do npm ou de um caminho local. O pacote do adapter deve exportar",
+        "install": "Instalar",
+        "installing": "Instalando...",
+        "packageName": "Nome do pacote",
+        "packageNamePlaceholder": "meu-paperclip-adapter",
+        "pathHint": "Aceita caminhos Linux, WSL e Windows. Caminhos Windows são convertidos automaticamente.",
+        "pathToPackage": "Caminho para o pacote do adapter",
+        "pathToPackagePlaceholder": "/mnt/e/Projetos/meu-adapter  ou  E:\\Projetos\\meu-adapter",
+        "title": "Instalar adapter externo",
+        "versionLabel": "Versão (opcional)",
+        "versionPlaceholder": "latest"
+      },
+      "installedFromLocal": "Instalado de caminho local",
+      "installedFromNpm": "Instalado via npm",
+      "latestOnNpm": "Mais recente no npm",
+      "loading": "Carregando adapters...",
+      "localPath": "Caminho local",
+      "noBuiltin": "Nenhum adapter integrado encontrado.",
+      "noExternalDescription": "Instale um pacote de adapter para estender o suporte a modelos.",
+      "noExternalTitle": "Nenhum adapter externo instalado",
+      "npmPackage": "Pacote npm",
+      "overriddenBy": "Sobrescrito por {{name}}",
+      "overridesBuiltin": "Sobrescreve integrado",
+      "packageLabel": "Pacote",
+      "reinstallDialog": {
+        "cancel": "Cancelar",
+        "description": "Reinstalar {{name}} do npm? Isso obtém o pacote mais recente correspondente ao especificador de versão atual.",
+        "reinstall": "Reinstalar",
+        "reinstalling": "Reinstalando...",
+        "title": "Reinstalar adapter"
+      },
+      "reinstallTooltip": "Reinstalar adapter (obter versão mais recente do npm)",
+      "reloadTooltip": "Recarregar adapter (hot-swap)",
+      "removeDialog": {
+        "cancel": "Cancelar",
+        "confirm": "Tem certeza de que deseja remover o adapter {{name}}? Ele será cancelado e removido do armazenamento de adapters. Esta ação não pode ser desfeita.",
+        "description": "Tem certeza de que deseja remover o adapter {{type}}? Ele será cancelado e removido do armazenamento de adapters.{{npmCleanup}} Esta ação não pode ser desfeita.",
+        "npmCleanup": "Pacotes npm serão limpos do disco.",
+        "remove": "Remover",
+        "removing": "Removendo...",
+        "title": "Remover adapter"
+      },
+      "removeTooltip": "Remover adapter",
+      "title": "Adapters",
+      "toasts": {
+        "installFailed": "Falha na instalação",
+        "installSuccess": "Tipo \"{{type}}\" registrado com sucesso.{{version}}",
+        "installed": "Adapter instalado",
+        "overrideToggleFailed": "Falha ao alternar sobreposição",
+        "reinstallFailed": "Falha na reinstalação",
+        "reinstallSuccess": "Tipo \"{{type}}\" reinstalado.{{version}}",
+        "reinstalled": "Adapter reinstalado",
+        "reloadFailed": "Falha no recarregamento",
+        "reloadSuccess": "Tipo \"{{type}}\" recarregado.{{version}}",
+        "reloaded": "Adapter recarregado",
+        "removalFailed": "Falha na remoção",
+        "removed": "Adapter removido",
+        "toggleFailed": "Falha ao alternar"
+      }
     },
     "breadcrumb": "Configurações",
     "company": {

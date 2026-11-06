@@ -3000,6 +3000,79 @@
     "loading": "Loading plugins...",
     "noDescription": "No description provided.",
     "pluginFallback": "Plugin",
+    "settingsPage": {
+      "about": "About",
+      "author": "Author",
+      "categories": "Categories",
+      "description": "Description",
+      "details": {
+        "npmPackage": "NPM Package",
+        "pluginId": "Plugin ID",
+        "pluginKey": "Plugin Key",
+        "title": "Details",
+        "version": "Version"
+      },
+      "folders": {
+        "configured": "Configured",
+        "configuredPath": "Configured path",
+        "localFolderPath": "Local folder path",
+        "missingCount": "{{count}} missing",
+        "missingDirectoriesLabel": "Missing directories",
+        "missingFilesLabel": "Missing files",
+        "no": "No",
+        "noneDeclared": "None declared.",
+        "notInspected": "Not inspected",
+        "notRequested": "Not requested",
+        "placeholder": "/absolute/path/to/folder",
+        "present": "Present",
+        "readable": "Readable",
+        "requiredDirectories": "Required directories",
+        "requiredFiles": "Required files",
+        "rootNotInspected": "Configured root was not inspected.",
+        "save": "Save",
+        "validationProblems": "Validation problems",
+        "writable": "Writable",
+        "yes": "Yes"
+      },
+      "health": {
+        "checking": "Checking health...",
+        "lifecycle": "Lifecycle",
+        "overall": "Overall",
+        "runsWhenReady": "Health checks run once the plugin is ready.",
+        "title": "Health Status"
+      },
+      "jobs": {
+        "noJobs": "No job runs recorded yet.",
+        "title": "Recent Job Runs"
+      },
+      "lastChecked": "Last checked: {{time}}",
+      "none": "None",
+      "permissions": {
+        "noPermissions": "No special permissions requested.",
+        "title": "Capabilities"
+      },
+      "runtimeDiagnosticsUnavailable": "Runtime diagnostics are unavailable right now.",
+      "settings": "Settings",
+      "tabs": {
+        "configuration": "Configuration",
+        "status": "Status"
+      },
+      "webhooks": {
+        "noWebhooks": "No webhook deliveries recorded yet.",
+        "title": "Recent Webhook Deliveries"
+      },
+      "worker": {
+        "consecutiveAndTotal": "{{consecutive}} consecutive / {{total}} total",
+        "crashes": "Crashes",
+        "lastCrash": "Last Crash",
+        "noWorker": "No worker process registered.",
+        "pendingRpcs": "Pending RPCs",
+        "pid": "PID",
+        "status": "Status",
+        "title": "Worker Process",
+        "uptime": "Uptime"
+      }
+    },
     "title": "Plugin Manager",
     "toasts": {
       "disableFailed": "Failed to disable plugin",
@@ -3532,20 +3605,31 @@
       "newFolder": "New folder",
       "newSecret": "New secret"
     },
+    "coverage": {
+      "inactive": "Inactive",
+      "memberGuidance": "Member guidance",
+      "missing": "Missing",
+      "set": "Set",
+      "unavailable": "Coverage unavailable"
+    },
     "create": {
       "companySecret": "Company secret",
+      "deploymentDefault": "Deployment default",
       "description": "Choose who provides the value. Shared fields keep their values when you switch modes.",
       "descriptionLabel": "Description",
-      "descriptionPlaceholder": "Optional description",
+      "descriptionPlaceholder": "What is this secret used for? (no values)",
       "envKeyLabel": "Environment variable name",
       "envKeyPlaceholder": "PROD_DB_PASSWORD",
       "externalRefLabel": "External reference",
       "externalRefPlaceholder": "arn:aws:secretsmanager:...",
+      "externalReference": "External reference",
       "managedModeDirect": "Paperclip-managed value",
       "managedModeExternal": "External vault reference",
       "managedModeLabel": "Managed mode",
+      "managedValue": "Managed value",
       "nameLabel": "Secret name",
       "namePlaceholder": "production/database/password",
+      "optional": "(optional)",
       "providerLabel": "Provider",
       "saveButton": "Save changes",
       "secretValueLabel": "Secret value",
@@ -3553,9 +3637,12 @@
       "submitButton": "Add secret",
       "titleCreate": "Create secret",
       "titleEdit": "Edit user-provided secret",
+      "usageGuidance": "Usage guidance",
       "usageGuidanceLabel": "Usage guidance",
-      "usageGuidancePlaceholder": "Instructions for users supplying this secret",
+      "usageGuidancePlaceholder": "Tell members how to create their token, required scopes, etc.",
       "userSecret": "Each user provides their own",
+      "valueLabel": "Value",
+      "valuePlaceholder": "Stored once, never re-displayed",
       "vaultLabel": "Provider vault",
       "whoProvides": "Who provides the value?"
     },
@@ -3581,6 +3668,10 @@
         "updateReference": "Update reference",
         "updateValue": "Update value"
       },
+      "agentAccessTitle": "Agent access",
+      "apiAlias": "API alias",
+      "loadingAgents": "Loading agents…",
+      "noAgentsAccess": "No agents have access yet.",
       "referencesDescription": "{{name}} is referenced by {{count}} places.",
       "referencesTitle": "Secret references",
       "tabs": {
@@ -3590,7 +3681,19 @@
         "usage": "Usage"
       }
     },
+    "discovery": {
+      "awsTitle": "AWS discovery",
+      "configureVaultTitle": "Configure an AWS provider vault to enable remote import",
+      "enterRegion": "Enter an AWS region before discovery.",
+      "operation": "Operation",
+      "provider": "Provider",
+      "region": "Region",
+      "requiredIam": "Required IAM capability",
+      "safeDetails": "Safe request/error details",
+      "vaultContext": "Vault context"
+    },
     "filters": {
+      "allProviders": "All providers",
       "archived": "Archived",
       "button": "Filters",
       "companyProvided": "Company provided",
@@ -3600,12 +3703,17 @@
     },
     "folder": {
       "allSecrets": "All secrets",
+      "breadcrumbAriaLabel": "Breadcrumb",
       "createFolderButton": "Create folder",
+      "createFolderGroup": "Create folder",
       "emptyFolder": "No secrets in this folder yet.",
       "folderNameLabel": "Folder name",
+      "folderNamePlaceholder": "Folder name",
       "newFolderDescription": "Create a folder to organize secrets into hierarchical paths.",
       "newFolderTitle": "New folder",
       "newSecretHere": "New secret here",
+      "removeFolderPrefix": "Remove folder prefix",
+      "upOneFolder": "Up one folder",
       "upTo": "Up to {{parent}}"
     },
     "howToUse": {
@@ -3793,22 +3901,31 @@
       "noExpiry": "no expiry"
     },
     "rotate": {
+      "changeReference": "Change reference",
       "description": "Create a new version of this secret. Running tasks continue using their existing resolved values.",
       "newReference": "New external reference",
-      "newValue": "New secret value",
+      "newValue": "New value",
+      "newValuePlaceholder": "Paste the new value",
       "submitButton": "Rotate secret",
       "title": "Rotate secret",
       "updateReference": "Update reference",
-      "updateValue": "Update value"
+      "updateValue": "Update value",
+      "writeValue": "Write new value"
     },
     "search": {
       "ariaLabel": "Search secrets",
-      "placeholder": "Search by name, key, ref"
+      "match": "match",
+      "matches": "matches",
+      "matchesAcrossFolders": "{{count}} {{matchLabel}} across all folders{{scopeSuffix}}",
+      "placeholder": "Search by name, key, ref",
+      "results": "Search results",
+      "searchingEverywhere": " · searching everywhere, not just {{folderPath}}"
     },
     "selectOrg": "Select an organization to manage secrets.",
     "table": {
       "actions": "Actions",
       "eachUser": "Each user",
+      "eachUserTooltip": "Each user provides and owns their own value",
       "emptyFilter": "No secrets match your filters.",
       "emptySearch": "No secrets match your search.",
       "moreActions": "More actions for {{name}}",
@@ -3817,6 +3934,8 @@
       "updated": "Updated",
       "versionCoverage": "Version / coverage",
       "viewDetails": "View details",
+      "viewInCoverage": "· View in Coverage",
+      "viewInUsage": "· View in Usage",
       "viewReferences": "View references ({{count}})"
     },
     "tabs": {
@@ -3880,6 +3999,15 @@
       "setValue": "Set value",
       "valueCleared": "Value cleared",
       "valueSet": "Value set"
+    },
+    "vault": {
+      "comingSoon": "Coming soon",
+      "disabled": "Disabled",
+      "displayName": "Display name",
+      "displayNamePlaceholder": "Production local vault",
+      "healthNotChecked": "Health not checked",
+      "removeTitle": "Remove provider vault",
+      "status": "Status"
     },
     "viewMode": {
       "ariaLabel": "View mode",
@@ -3957,6 +4085,80 @@
       "toastMemberUpdated": "Member updated",
       "toastReassignedTasksCleaned": "{{count}} assigned tasks cleaned up.",
       "unknownHumanRequester": "Unknown human requester"
+    },
+    "adapters": {
+      "alphaBadge": "Alpha",
+      "alphaWarningBody": "The adapter plugin system is under active development. APIs and storage format may change. Use the power icon to hide adapters from agent menus without removing them.",
+      "alphaWarningTitle": "External adapters are alpha.",
+      "breadcrumb": "Adapters",
+      "builtinBadge": "Built-in",
+      "builtinSectionTitle": "Built-in Adapters",
+      "currentLabel": "Current",
+      "externalBadge": "External",
+      "externalSectionTitle": "External Adapters",
+      "hiddenFromMenus": "Hidden from menus",
+      "installButton": "Install Adapter",
+      "installDialog": {
+        "cancel": "Cancel",
+        "description": "Add an adapter from npm or a local path. The adapter package must export",
+        "install": "Install",
+        "installing": "Installing...",
+        "packageName": "Package Name",
+        "packageNamePlaceholder": "my-paperclip-adapter",
+        "pathHint": "Accepts Linux, WSL, and Windows paths. Windows paths are auto-converted.",
+        "pathToPackage": "Path to adapter package",
+        "pathToPackagePlaceholder": "/mnt/e/Projects/my-adapter  or  E:\\Projects\\my-adapter",
+        "title": "Install External Adapter",
+        "versionLabel": "Version (optional)",
+        "versionPlaceholder": "latest"
+      },
+      "installedFromLocal": "Installed from local path",
+      "installedFromNpm": "Installed from npm",
+      "latestOnNpm": "Latest on npm",
+      "loading": "Loading adapters...",
+      "localPath": "Local path",
+      "noBuiltin": "No built-in adapters found.",
+      "noExternalDescription": "Install an adapter package to extend model support.",
+      "noExternalTitle": "No external adapters installed",
+      "npmPackage": "npm package",
+      "overriddenBy": "Overridden by {{name}}",
+      "overridesBuiltin": "Overrides built-in",
+      "packageLabel": "Package",
+      "reinstallDialog": {
+        "cancel": "Cancel",
+        "description": "Reinstall {{name}} from npm? This fetches the latest package matching the current version specifier.",
+        "reinstall": "Reinstall",
+        "reinstalling": "Reinstalling...",
+        "title": "Reinstall Adapter"
+      },
+      "reinstallTooltip": "Reinstall adapter (pull latest from npm)",
+      "reloadTooltip": "Reload adapter (hot-swap)",
+      "removeDialog": {
+        "cancel": "Cancel",
+        "confirm": "Are you sure you want to remove the {{name}} adapter? It will be unregistered and removed from the adapter store. This action cannot be undone.",
+        "description": "Are you sure you want to remove the {{type}} adapter? It will be unregistered and removed from the adapter store.{{npmCleanup}} This action cannot be undone.",
+        "npmCleanup": "npm packages will be cleaned up from disk.",
+        "remove": "Remove",
+        "removing": "Removing...",
+        "title": "Remove Adapter"
+      },
+      "removeTooltip": "Remove adapter",
+      "title": "Adapters",
+      "toasts": {
+        "installFailed": "Install failed",
+        "installSuccess": "Type \"{{type}}\" registered successfully.{{version}}",
+        "installed": "Adapter installed",
+        "overrideToggleFailed": "Override toggle failed",
+        "reinstallFailed": "Reinstall failed",
+        "reinstallSuccess": "Type \"{{type}}\" reinstalled.{{version}}",
+        "reinstalled": "Adapter reinstalled",
+        "reloadFailed": "Reload failed",
+        "reloadSuccess": "Type \"{{type}}\" reloaded.{{version}}",
+        "reloaded": "Adapter reloaded",
+        "removalFailed": "Removal failed",
+        "removed": "Adapter removed",
+        "toggleFailed": "Toggle failed"
+      }
     },
     "breadcrumb": "Settings",
     "company": {
