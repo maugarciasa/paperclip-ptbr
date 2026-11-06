@@ -1,0 +1,8 @@
+# Camada com FFmpeg e Chromium sobre a imagem pt-BR, para o agente de vídeos (hyperframes).
+ARG BASE_IMAGE
+FROM ${BASE_IMAGE}
+
+USER root
+RUN apt-get update \
+ && apt-get install -y --no-install-recommends ffmpeg chromium unzip fonts-liberation fonts-noto-color-emoji \
+ && rm -rf /var/lib/apt/lists/*
