@@ -55,6 +55,7 @@ function RoutineScopedRuns({
   runs: RoutineRunSummary[];
   view: QueryViewState<RoutineRunSummary[]>;
 }) {
+  const { t } = useTranslation();
   // A loaded list stays on screen through a failed refetch; an outage before
   // the first load reads as loading, and only a real failure shows copy.
   if (view.kind === "loading" || view.kind === "reconnecting") {

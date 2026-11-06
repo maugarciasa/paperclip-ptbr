@@ -25,6 +25,7 @@ function isCliAuthRateLimit(error: unknown): error is ApiError {
 }
 
 export function CliAuthPage() {
+  const { t } = useTranslation();
   const queryClient = useQueryClient();
   const params = useParams();
   const [searchParams] = useSearchParams();

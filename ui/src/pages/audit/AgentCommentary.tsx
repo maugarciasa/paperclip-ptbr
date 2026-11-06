@@ -27,6 +27,7 @@ function MessageKind({ kind }: { kind: AgentCommentaryKind }) {
 }
 
 function CommentaryRow({ entry, onOpen }: { entry: AgentCommentaryEntry; onOpen: (trigger: HTMLButtonElement) => void }) {
+  const { t } = useTranslation();
   return (
     <li>
       <button type="button" onClick={(event) => onOpen(event.currentTarget)} aria-label={`Read ${entry.kind} from ${entry.agent.name}`}
@@ -44,6 +45,7 @@ function CommentaryRow({ entry, onOpen }: { entry: AgentCommentaryEntry; onOpen:
 }
 
 function CommentaryDetail({ companyId, id, onClose, triggerRef }: { companyId: string; id: string | null; onClose: () => void; triggerRef: RefObject<HTMLButtonElement | null> }) {
+  const { t } = useTranslation();
   const detail = useQuery({
     queryKey: queryKeys.agentCommentary.detail(companyId, id),
     queryFn: ({ signal }) => agentCommentaryApi.get(companyId, id!, signal),
@@ -78,6 +80,7 @@ function CommentaryDetail({ companyId, id, onClose, triggerRef }: { companyId: s
 }
 
 export function AgentCommentary({ companyId }: { companyId: string }) {
+  const { t } = useTranslation();
   const [params, setParams] = useSearchParams();
   const q = params.get("q") ?? "";
   const agentId = params.get("agentId") ?? ALL;

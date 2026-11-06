@@ -14,6 +14,7 @@ export function RoutineAuditActivity({
   companyId: string;
   routineId: string;
 }) {
+  const { t } = useTranslation();
   const activity = useQuery({
     queryKey: [...queryKeys.routines.activity(companyId, routineId), "audit"],
     queryFn: async () => {

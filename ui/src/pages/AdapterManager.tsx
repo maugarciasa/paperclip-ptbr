@@ -53,7 +53,6 @@ function AdapterRow({
   disabledBadgeLabel,
 }: {
   adapter: AdapterInfo;
-  const { t } = useTranslation();
   canRemove: boolean;
   onToggle: (type: string, disabled: boolean) => void;
   onRemove: (type: string) => void;
@@ -191,6 +190,7 @@ function ReinstallDialog({
   onConfirm: () => void;
   onCancel: () => void;
 }) {
+  const { t } = useTranslation();
   const { data: latestVersion, isLoading: isFetchingVersion } = useQuery({
     queryKey: ["npm-latest-version", adapter?.packageName],
     queryFn: () => {

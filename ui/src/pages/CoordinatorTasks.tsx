@@ -40,6 +40,7 @@ const pageSize = 200;
 /** Coordinator's existing IA and attention feed, rendered with the production
  * components reviewed in Design proposals / Pages / Tasks. */
 export function CoordinatorTasks() {
+  const { t } = useTranslation();
   const { selectedCompanyId: companyId } = useCompany();
   const { userId, loaded: identitySettled } = useCoordinatorWorkspaceEnabled();
   const { openNewIssue } = useDialogActions();

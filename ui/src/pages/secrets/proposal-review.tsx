@@ -61,6 +61,7 @@ export function FingerprintChip({
   length: number | null;
   className?: string;
 }) {
+  const { t } = useTranslation();
   const { pushToast } = useToastActions();
   const label = fingerprintLabel(fingerprint, length);
   if (!fingerprint) {
@@ -380,6 +381,7 @@ function ApproveDialog({
   onCancel: () => void;
   onConfirm: () => void;
 }) {
+  const { t } = useTranslation();
   const isSecret = draft?.proposal.kind === "secret";
   const previewName = draft
     ? draft.folder.trim()
@@ -525,6 +527,7 @@ function BindingApproveBody({
   draft: ApproveDraft;
   onChange: (next: ApproveDraft) => void;
 }) {
+  const { t } = useTranslation();
   const { proposal } = draft;
   const secret = bindingSecretLabel(proposal);
   const envKey = bindingEnvKey(proposal);
