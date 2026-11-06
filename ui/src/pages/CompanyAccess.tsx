@@ -588,7 +588,7 @@ export function CompanyAccess() {
               }}
               disabled={archiveMemberMutation.isPending || assignedIssuesQuery.isLoading}
             >
-              {archiveMemberMutation.isPending ? t("settings.access.removing") : t("settings.access.remove")}
+              {archiveMemberMutation.isPending ? t("settings.access.removing") : t("settings.access.removeMemberConfirm")}
             </Button>
           </DialogFooter>
         </DialogContent>
