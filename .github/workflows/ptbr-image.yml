@@ -16,7 +16,6 @@ on:
       - "Dockerfile"
       - "docker/Dockerfile.video"
       - "pnpm-lock.yaml"
-      - ".github/workflows/ptbr-image.yml"
 
 concurrency:
   group: ptbr-image
@@ -82,3 +81,25 @@ jobs:
           tags: |
             ${{ env.VIDEO_IMAGE }}:sha-${{ github.sha }}
             ${{ env.VIDEO_IMAGE }}:latest
+
+  # Recria o container na VPS com a imagem recém-publicada. A chave SSH só executa
+  # ~/paperclip/atualizar.sh (command= no authorized_keys). Sem os segredos, o job só avisa e sai.
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Atualizar a VPS
+        env:
+          VPS_SSH_KEY: ${{ secrets.VPS_SSH_KEY }}
+          VPS_KNOWN_HOSTS: ${{ secrets.VPS_KNOWN_HOSTS }}
+        run: |
+          if [ -z "$VPS_SSH_KEY" ] || [ -z "$VPS_KNOWN_HOSTS" ]; then
+            echo "Segredos VPS_SSH_KEY e VPS_KNOWN_HOSTS não configurados; deploy pulado."
+            exit 0
+          fi
+          install -m 700 -d ~/.ssh
+          echo "$VPS_SSH_KEY" > ~/.ssh/deploy_key
+          chmod 600 ~/.ssh/deploy_key
+          echo "$VPS_KNOWN_HOSTS" > ~/.ssh/known_hosts
+          ssh -i ~/.ssh/deploy_key -o IdentitiesOnly=yes -o StrictHostKeyChecking=yes mau@31.97.163.204
