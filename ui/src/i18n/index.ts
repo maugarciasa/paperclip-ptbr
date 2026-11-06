@@ -39,8 +39,15 @@ function syncDocumentLang(locale: string) {
 syncDocumentLang(i18n.language);
 i18n.on("languageChanged", syncDocumentLang);
 
-export function t(key: string, options: TOptions = {}) {
-  return i18n.t(key, options);
+export function t(
+  key: string,
+  defaultValueOrOptions?: string | TOptions,
+  options?: TOptions,
+) {
+  if (typeof defaultValueOrOptions === "string") {
+    return i18n.t(key, { defaultValue: defaultValueOrOptions, ...(options || {}) });
+  }
+  return i18n.t(key, defaultValueOrOptions);
 }
 
 /** Troca o idioma da interface e lembra a escolha neste navegador. */

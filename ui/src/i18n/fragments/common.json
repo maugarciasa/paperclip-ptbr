@@ -62,7 +62,11 @@
       "notes": "Notes",
       "agent": "agent",
       "agents": "agents",
-      "company": "company"
+      "company": "company",
+      "pause": "Pause",
+      "resume": "Resume",
+      "connect": "Connect",
+      "reconnect": "Reconnect"
     }
   },
   "pt-BR": {
@@ -128,7 +132,11 @@
       "notes": "Observações",
       "agent": "agente",
       "agents": "agentes",
-      "company": "empresa"
+      "company": "empresa",
+      "pause": "Pausar",
+      "resume": "Retomar",
+      "connect": "Conectar",
+      "reconnect": "Reconectar"
     }
   }
 }

@@ -72,6 +72,7 @@ import { queryKeys } from "@/lib/queryKeys";
 import { copyTextToClipboard } from "@/lib/clipboard";
 import { Link, Navigate, useLocation, useNavigate, useParams } from "@/lib/router";
 import { describeError } from "@/api/errors";
+import { t, useTranslation } from "@/i18n";
 
 const tabs = ["settings", "access", "reviews", "conversations", "activity"] as const;
 type ChatTab = (typeof tabs)[number];
@@ -247,6 +248,7 @@ export function connectionHealthPresentation(
 }
 
 export function ChatEndpointDetail() {
+  const { t } = useTranslation();
   const { userId, settled: identitySettled } = useAccountIdentity();
   const { endpointId = "", tab: routeTab, reviewId } = useParams<{
     endpointId: string;
@@ -307,7 +309,7 @@ export function ChatEndpointDetail() {
     return (
       <div className="flex items-center gap-2 text-sm text-muted-foreground">
         <Loader2 className="h-4 w-4 animate-spin" />
-        Loading connection…
+        {t("apps.chatDetail.loadingConnection", "Loading connection…")}
       </div>
     );
   if (endpointView.kind === "error" || !endpoint)
@@ -315,7 +317,7 @@ export function ChatEndpointDetail() {
       <QueryErrorState
         size="page"
         error={endpointQuery.error}
-        action="load the connection"
+        action={t("apps.chatDetail.loadConnectionAction", "load the connection")}
         onRetry={endpointView.retry}
         retrying={endpointView.isFetching}
       />
@@ -440,6 +442,7 @@ function EndpointExecutionDefaults({ endpoint }: { endpoint: ChatEndpoint }) {
 }
 
 function EmailAccess({ endpoint }: { endpoint: ChatEndpoint }) {
+  const { t } = useTranslation();
   const connection = useQuery({
     queryKey: queryKeys.tools.connection(endpoint.connectionId ?? ""),
     queryFn: () => toolsApi.getConnection(endpoint.connectionId!),
@@ -455,13 +458,13 @@ function EmailAccess({ endpoint }: { endpoint: ChatEndpoint }) {
   if (agentsView.kind === "error" || connectionView.kind === "error") return (
     <QueryErrorState
       error={agentsView.kind === "error" ? agents.error : connection.error}
-      action="load connection access"
+      action={t("apps.chatDetail.couldNotLoadConnection", "load connection access")}
       onRetry={() => { agentsView.retry(); connectionView.retry(); }}
       retrying={agents.isFetching || connection.isFetching}
     />
   );
   if (agents.isPending || connection.isPending || agentsView.kind === "reconnecting" || connectionView.kind === "reconnecting") {
-    return <p role="status" className="text-sm text-muted-foreground">Loading access…</p>;
+    return <p role="status" className="text-sm text-muted-foreground">{t("apps.chatDetail.loadingAccess", "Loading access…")}</p>;
   }
   const sourceId = connection.data?.config?.credentialConnectionId;
   const credentialId = typeof sourceId === "string" ? sourceId : endpoint.connectionId;
