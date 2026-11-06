@@ -13,7 +13,10 @@ export const UI_LANGUAGE_OPTIONS = [
   { value: "en", label: "English" },
 ] as const;
 
-const localeModules = import.meta.glob("./locales/*.json", {
+// Só os idiomas do seletor entram no bundle: os outros arquivos em locales/ não são
+// carregados (cada um pesa ~1 MB). Para oferecer outro idioma, inclua-o aqui e em
+// UI_LANGUAGE_OPTIONS.
+const localeModules = import.meta.glob("./locales/{en,pt-BR}.json", {
   eager: true,
   import: "default",
 }) as Record<string, unknown>;
