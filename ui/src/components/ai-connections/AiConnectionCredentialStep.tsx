@@ -93,7 +93,7 @@ function SubscriptionConnectionStep({ companyId, provider, initialMethod, fixedM
       <SelectTrigger aria-label={t("agents.AiConnectionCredentialStep.signInEnvironment")}><SelectValue placeholder={t("agents.AiConnectionCredentialStep.signInEnvironment")} /></SelectTrigger>
       <SelectContent>{loginEnvironments.map((env) => <SelectItem key={env.id} value={env.id}>{env.name}</SelectItem>)}</SelectContent>
     </Select>}
-    {loadError ? <QueryErrorState size="inline" error={loadError.error} action="prepare sign-in" onRetry={loadError.retry} retrying={loadError.isFetching} />
+    {loadError ? <QueryErrorState size="inline" error={loadError.error} action={t("errorActions.prepareSignIn")} onRetry={loadError.retry} retrying={loadError.isFetching} />
       : environmentError ? <p role="alert" className="text-sm text-destructive">{environmentError}</p> : null}
     {defaults}
     {loading ? <p role="status" className="text-sm text-muted-foreground">{t("agents.AiConnectionCredentialStep.preparingSignIn")}</p> : <AgentProviderConnection

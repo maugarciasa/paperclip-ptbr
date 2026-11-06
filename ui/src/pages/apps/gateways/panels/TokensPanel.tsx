@@ -24,7 +24,7 @@ import { gatewaysQueryKey } from "../NewGatewayDialog";
 import {
   defaultGatewayTokenName,
   maskedTokenLabel,
-  TOKEN_STATUS_LABEL,
+  tokenStatusLabels,
   toDate,
   tokenStatus,
   type TokenStatus,
@@ -53,7 +53,7 @@ function StatusBadge({ status }: { status: TokenStatus }) {
         STATUS_CLASS[status],
       )}
     >
-      {TOKEN_STATUS_LABEL[status]}
+      {tokenStatusLabels()[status]}
     </span>
   );
 }

@@ -333,7 +333,7 @@ export function IssueShareSheet({
               <div data-testid="share-sheet-error">
                 <QueryErrorState
                   error={grantsQuery.error}
-                  action="load access"
+                  action={t("errorActions.loadAccess")}
                   onRetry={grantsView.retry}
                   retrying={grantsView.isFetching}
                 />

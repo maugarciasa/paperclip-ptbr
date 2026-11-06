@@ -8,7 +8,7 @@ import { useToastActions } from "../context/ToastContext";
 import { queryKeys } from "../lib/queryKeys";
 import {
   attentionTaskRef,
-  DECIDE_BY_OPTIONS,
+  decideByOptions,
   decideByLabel,
   type DecideByPreset,
 } from "../lib/attention";
@@ -169,7 +169,7 @@ export function DecisionTriageStrip({ item, companyId, agents }: DecisionTriageS
       <div className="flex flex-wrap items-center gap-2">
         <span className="text-xs font-medium text-muted-foreground">{t("inbox.decisionTriageStrip.whenToDecide")}</span>
         <div className="flex flex-wrap items-center gap-1" role="group" aria-label={t("inbox.decisionTriageStrip.whenToDecide")}>
-          {DECIDE_BY_OPTIONS.map(([value, label]) => (
+          {decideByOptions().map(([value, label]) => (
             <SegmentButton
               key={value}
               active={decideBy === (value satisfies DecideByPreset)}

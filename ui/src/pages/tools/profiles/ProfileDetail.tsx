@@ -172,7 +172,7 @@ export function ProfileDetail({
       <QueryErrorState
         size="page"
         error={data.profiles.error}
-        action="load the profile"
+        action={t("errorActions.loadTheProfile")}
         onRetry={profilesView.retry}
         retrying={profilesView.isFetching}
       />
@@ -404,7 +404,7 @@ function NewToolsReviewDialog({
         {loading ? (
           <LoadingState label="Loading new tools..." />
         ) : error ? (
-          <QueryErrorState error={error} action="load new tools" onRetry={onRetry} retrying={retrying} />
+          <QueryErrorState error={error} action={t("errorActions.loadNewTools")} onRetry={onRetry} retrying={retrying} />
         ) : tools.length === 0 ? (
           <div className="rounded-lg border border-dashed border-border px-4 py-6 text-sm text-muted-foreground">
             There are no new tools waiting for review.

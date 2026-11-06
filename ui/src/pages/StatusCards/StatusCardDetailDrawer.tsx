@@ -133,7 +133,7 @@ export function StatusCardDetailDrawer({
       await invalidateCard();
       setActionNote(t("statusCards.drawer.refreshQueuedNote", { defaultValue: "Refresh queued — the Summarizer is updating this card." }));
     },
-    onError: (err) => setActionError(describeError(err, { action: "refresh the card" }).body),
+    onError: (err) => setActionError(describeError(err, { action: t("errorActions.refreshTheCard") }).body),
   });
 
   const recompileMutation = useMutation({
@@ -146,7 +146,7 @@ export function StatusCardDetailDrawer({
       await invalidateCard();
       setActionNote(t("statusCards.drawer.runQueuedNote", { defaultValue: "Run queued — the Summarizer is updating this card." }));
     },
-    onError: (err) => setActionError(describeError(err, { action: "run the card" }).body),
+    onError: (err) => setActionError(describeError(err, { action: t("errorActions.runTheCard") }).body),
   });
 
   const saveSettingsMutation = useMutation({
@@ -173,7 +173,7 @@ export function StatusCardDetailDrawer({
         queryClient.invalidateQueries({ queryKey: queryKeys.statusCards.detail(card.id) }),
       ]);
     },
-    onError: (err) => setActionError(describeError(err, { action: "save the settings" }).body),
+    onError: (err) => setActionError(describeError(err, { action: t("errorActions.saveTheSettings") }).body),
   });
 
   if (!card) return null;

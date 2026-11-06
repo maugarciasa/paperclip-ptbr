@@ -2002,7 +2002,7 @@ export function AgentConfigForm(props: AgentConfigFormProps) {
                 <QueryErrorState
                   size="inline"
                   error={fetchedModelsError}
-                  action="load adapter models"
+                  action={t("errorActions.loadAdapterModels")}
                   onRetry={fetchedModelsView.retry}
                   retrying={fetchedModelsView.isFetching}
                 />

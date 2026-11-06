@@ -138,7 +138,7 @@ export function ProfileSettings() {
       <QueryErrorState
         size="page"
         error={sessionQuery.error}
-        action="load your profile"
+        action={t("errorActions.loadYourProfile")}
         onRetry={sessionView.retry}
         retrying={sessionView.isFetching}
       />

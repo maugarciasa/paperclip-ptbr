@@ -346,6 +346,124 @@
     },
     "ToastViewport": {
       "dismiss": "Dismiss notification"
+    },
+    "errors": {
+      "codes": {
+        "tenant_app_unavailable": {
+          "title": "Reconnecting to Paperclip",
+          "body": "Paperclip is restarting or updating. Please try again in a moment."
+        },
+        "tenant_app_starting": {
+          "title": "Paperclip is starting",
+          "body": "Paperclip is starting up. Please try again in a few seconds."
+        },
+        "WORKER_UNAVAILABLE": {
+          "title": "Plugin unavailable",
+          "body": "This plugin is restarting. Please try again in a moment."
+        },
+        "TIMEOUT": {
+          "title": "Request timed out",
+          "body": "This took too long to respond. Please try again in a moment."
+        },
+        "interaction_audience_denied": {
+          "title": "You can’t respond to this card",
+          "body": "You are not in this card's resolver audience."
+        },
+        "interaction_forbidden": {
+          "title": "You can’t respond to this card",
+          "body": "You do not have permission to respond to this card."
+        },
+        "interaction_settled": {
+          "title": "Already handled",
+          "body": "This request is no longer waiting for a decision."
+        },
+        "interaction_submit_failed": {
+          "title": "Couldn't submit",
+          "body": "Couldn't submit. Try again."
+        }
+      },
+      "kinds": {
+        "transient": {
+          "title": "Connection interrupted",
+          "body": "Paperclip is temporarily unavailable. Please try again in a moment."
+        },
+        "auth": {
+          "title": "Signed out",
+          "body": "Your session has ended. Sign in again to continue."
+        },
+        "forbidden": {
+          "title": "Not allowed",
+          "body": "You don’t have permission to do that."
+        },
+        "not_found": {
+          "title": "Not found",
+          "body": "This item doesn’t exist or was moved."
+        },
+        "conflict": {
+          "title": "Out of date",
+          "body": "This changed since you loaded it. Refresh and try again."
+        },
+        "invalid": {
+          "title": "Check your input",
+          "body": "Some details aren’t valid. Review them and try again."
+        },
+        "aborted": {
+          "title": "Cancelled",
+          "body": "The request was cancelled."
+        },
+        "unknown": {
+          "title": "Something went wrong",
+          "body": "An unexpected error occurred. Please try again."
+        }
+      },
+      "couldNot": "Couldn't {{action}}"
+    },
+    "time": {
+      "justNow": "just now",
+      "minutesAgo": "{{count}}m ago",
+      "hoursAgo": "{{count}}h ago",
+      "daysAgo_one": "{{count}}d ago",
+      "daysAgo_other": "{{count}}d ago",
+      "weeksAgo_one": "{{count}}w ago",
+      "weeksAgo_other": "{{count}}w ago",
+      "monthsAgo_one": "{{count}}mo ago",
+      "monthsAgo_other": "{{count}}mo ago",
+      "seconds_one": "{{count}} second",
+      "seconds_other": "{{count}} seconds",
+      "minutes_one": "{{count}} minute",
+      "minutes_other": "{{count}} minutes",
+      "hours_one": "{{count}} hour",
+      "hours_other": "{{count}} hours",
+      "underMinute": "under 1 minute",
+      "secondsShort": "{{count}}s",
+      "minutesShort": "{{count}}m",
+      "hoursShort": "{{count}}h",
+      "daysShort": "{{count}}d",
+      "hoursMinutesShort": "{{hours}}h {{minutes}}m",
+      "daysHoursShort": "{{days}}d {{hours}}h"
+    },
+    "fileKind": {
+      "pdf": "PDF",
+      "doc": "Doc",
+      "text": "Text",
+      "markdown": "Markdown",
+      "csv": "CSV",
+      "tsv": "TSV",
+      "sheet": "Sheet",
+      "zip": "ZIP",
+      "archive": "Archive",
+      "audio": "Audio",
+      "video": "Video",
+      "json": "JSON",
+      "yaml": "YAML",
+      "xml": "XML",
+      "html": "HTML",
+      "css": "CSS",
+      "code": "Code",
+      "sql": "SQL",
+      "log": "Log",
+      "patch": "Patch",
+      "file": "File"
     }
   },
   "onboarding": {
@@ -4987,6 +5105,81 @@
       "withdrawn": "This decision was withdrawn by the proposer before a response.",
       "dismissedNoEffects": "Dismissed — no effects were run.",
       "partialHint": "Some effects may already have been applied. Review the results before asking the proposer to re-propose."
+    },
+    "attention": {
+      "source": {
+        "approval": "Approval",
+        "decision": "Decision",
+        "issueThreadInteraction": "Decision requested",
+        "joinRequest": "Join request",
+        "recoveryAction": "Recovery",
+        "productivityReview": "Task",
+        "blockerAttention": "Blocked dependency",
+        "review": "Review",
+        "failedRun": "Failed run",
+        "budgetAlert": "Budget",
+        "agentErrorAlert": "Agent error"
+      },
+      "severity": {
+        "critical": "Critical",
+        "high": "High",
+        "medium": "Medium",
+        "low": "Low"
+      },
+      "detail": {
+        "optionCount_one": "{{count}} option",
+        "optionCount_other": "{{count}} options",
+        "questionCount_one": "{{count}} question",
+        "questionCount_other": "{{count}} questions",
+        "suggestedTaskCount_one": "{{count}} suggested task",
+        "suggestedTaskCount_other": "{{count}} suggested tasks",
+        "itemsToVerdict_one": "{{count}} item to verdict",
+        "itemsToVerdict_other": "{{count}} items to verdict",
+        "blockedByTitle": "Blocked by {{id}}{{title}}",
+        "blockedBy": "Blocked by {{identifier}}",
+        "budgetUsed": "{{percent}}% of budget used (${{observed}} / ${{limit}})"
+      },
+      "decideBy": {
+        "notSet": "Not set",
+        "today": "Today",
+        "thisWeek": "This week",
+        "whenever": "Whenever"
+      },
+      "dateRange": {
+        "all": "All",
+        "today": "Today",
+        "yesterday": "Yesterday",
+        "last7Days": "Last 7 days",
+        "thisMonth": "This month"
+      },
+      "groupBy": {
+        "none": "None",
+        "date": "Date",
+        "type": "Type",
+        "project": "Project",
+        "severity": "Severity"
+      },
+      "sort": {
+        "newest": "Newest first",
+        "oldest": "Oldest first"
+      },
+      "dateBucket": {
+        "today": "Today",
+        "yesterday": "Yesterday",
+        "thisWeek": "This week",
+        "earlier": "Earlier"
+      },
+      "desk": {
+        "decideNow": "Decide now",
+        "newToday": "New today",
+        "earlier": "Earlier"
+      },
+      "group": {
+        "noProject": "No project"
+      }
+    },
+    "interactionResolutionError": {
+      "retry": "{{reason}} Try again."
     }
   },
   "issues": {
@@ -8400,6 +8593,67 @@
       "sendMessage": "Send message",
       "resizeAria": "Resize board chat and agent feed",
       "openAgentFeedAria": "Open agent feed"
+    },
+    "monitor": {
+      "inDuration": "in {{duration}}",
+      "dueNow": "due now",
+      "overdueBy": "overdue by {{duration}}",
+      "offsetNow": "now",
+      "offsetAgo": "{{duration}} ago",
+      "today": "Today, {{time}}"
+    },
+    "recovery": {
+      "attemptLabel": "Attempt {{attempt}} of {{maxAttempts}}",
+      "chip": {
+        "needed": "Recovery needed",
+        "inProgress": "Recovery in progress",
+        "inProgressAttempt": "Recovery in progress · {{attempt}}/{{maxAttempts}}",
+        "observeOnly": "Observing active run",
+        "escalated": "Recovery escalated",
+        "workspaceNeeded": "Workspace recovery needed"
+      }
+    },
+    "reviewPolicyBadge": {
+      "notCreatorLabel": "Anyone else",
+      "notCreatorDescription": "Anyone except whoever asked for the review can approve it.",
+      "humanOnlyLabel": "Human only",
+      "humanOnlyDescription": "Only a person can approve this review. Agents cannot give the verdict."
+    },
+    "sourceResolvedFold": {
+      "cleanup": {
+        "terminated": "terminated",
+        "terminationSentStillRunning": "termination sent (still running)",
+        "failed": "failed",
+        "notRunning": "not running",
+        "noProcessMetadata": "no process metadata",
+        "skippedNonLocalAdapter": "skipped (non-local adapter)"
+      }
+    },
+    "waitingTaskStatus": {
+      "backlog": "Backlog",
+      "todo": "Todo",
+      "in_progress": "In Progress",
+      "in_review": "In Review",
+      "blocked": "Blocked",
+      "done": "Done",
+      "cancelled": "Cancelled"
+    },
+    "taskListColumns": {
+      "task": "Task",
+      "taskId": "Task ID",
+      "createdBy": "Created by",
+      "assignee": "Assignee",
+      "project": "Project",
+      "parentTask": "Parent Task",
+      "tags": "Tags",
+      "worktree": "Worktree",
+      "lastUpdated": "Last updated"
+    },
+    "taskListViews": {
+      "inbox": "Inbox",
+      "unread": "Unread",
+      "blocked": "Needs attention",
+      "all": "All tasks"
     }
   },
   "nav": {
@@ -9700,6 +9954,28 @@
       "presetField": "Trust preset",
       "presetHint": "Choose how broadly this agent can read and act on Paperclip work objects.",
       "advancedNotice": "Advanced permissions remain editable through the EE permissions extension when installed."
+    },
+    "trust": {
+      "preset": {
+        "standard": "Standard",
+        "lowTrustReview": "Low-trust review"
+      },
+      "presetDescription": {
+        "standard": "Organization-visible collaboration. This is the default for normal work.",
+        "lowTrustReview": "Contained for hostile or untrusted input. Narrow Paperclip API, quarantined output. Use for PR review and external-content triage."
+      },
+      "boundary": {
+        "project": "Project {{id}}",
+        "rootIssue": "Root issue {{id}}",
+        "issue": "Issue {{id}}",
+        "none": "No boundary selected",
+        "count_one": "{{count}} boundary",
+        "count_other": "{{count}} boundaries"
+      },
+      "source": {
+        "promoted": "Promoted from low-trust",
+        "lowTrust": "Low-trust source"
+      }
     }
   },
   "apps": {
@@ -12414,6 +12690,63 @@
       "revokeNameAria": "Type the token name to confirm",
       "revoking": "Revoking…",
       "revokeToken": "Revoke token"
+    },
+    "gatewayHelpers": {
+      "tokenStatus": {
+        "active": "Active",
+        "expiring": "Expiring",
+        "expired": "Expired",
+        "revoked": "Revoked"
+      },
+      "allowedTools": {
+        "profileUnavailable": "Profile unavailable",
+        "none": "No tools allowed",
+        "count_one": "{{count}} tool",
+        "count_other": "{{count}} tools"
+      },
+      "scope": {
+        "project": "Project · {{value}}",
+        "agent": "Agent · {{value}}",
+        "organization": "Organization"
+      },
+      "owner": {
+        "agent": "Agent {{id}}",
+        "board": "Board"
+      },
+      "attention": {
+        "signInExpired": "Sign-in expired — reconnect to restore access."
+      }
+    },
+    "gatewayTabs": {
+      "overview": "Overview",
+      "apps": "Apps & tools",
+      "tokens": "Tokens",
+      "activity": "Activity",
+      "advanced": "Advanced"
+    },
+    "connectionIdentity": {
+      "type": {
+        "personal": "Personal",
+        "dedicatedAgent": "Dedicated agent",
+        "organization": "Organization"
+      },
+      "grantStatus": {
+        "connected": "Connected",
+        "needsAttention": "Needs attention",
+        "expired": "Expired",
+        "revoked": "Revoked",
+        "notConnected": "Not connected"
+      },
+      "grantAccount": {
+        "connectedAccount": "Connected account",
+        "dedicatedAccount": "Dedicated account",
+        "sharedCredential": "Shared credential"
+      },
+      "audience": {
+        "allMembers": "All organization members",
+        "selected_one": "{{count}} selected member",
+        "selected_other": "{{count}} selected members"
+      }
     }
   },
   "artifacts": {
@@ -14374,6 +14707,23 @@
       "saving": "Saving…",
       "saveSecrets": "Save secrets",
       "unsavedChanges": "Unsaved changes"
+    },
+    "secretDelivery": {
+      "modeLabel": {
+        "env": "Env var",
+        "api": "API access",
+        "config": "Config"
+      },
+      "modeDescription": {
+        "env": "Injected as an environment variable at run start.",
+        "api": "Fetched on demand via the run-bound agent API. Never written to the environment.",
+        "config": "Provided through adapter configuration."
+      },
+      "consumerType": {
+        "agentApi": "Agent API",
+        "pluginWorker": "Plugin worker",
+        "toolConnection": "Tool connection"
+      }
     }
   },
   "skills": {
@@ -16642,6 +16992,83 @@
       "copyTitle": "Click to copy worktree name",
       "copied": "Copied!",
       "copyFailed": "Copy failed"
+    },
+    "accessState": {
+      "actions": {
+        "openWorkspace": "Open workspace",
+        "startWorkspace": "Start workspace",
+        "repairWorkspace": "Repair workspace",
+        "repairInProgress": "Repair in progress",
+        "provisioning": "Provisioning",
+        "starting": "Starting workspace",
+        "validating": "Validating",
+        "viewRepairLog": "View repair log",
+        "viewProvisioningLog": "View provisioning log"
+      },
+      "repairFailed": {
+        "title": "Repair failed",
+        "description": "The repair stopped before the workspace became usable. The pre-repair backup was kept.",
+        "descriptionWithPhase": "The repair stopped during {{phase}}. The pre-repair backup was kept."
+      },
+      "provisionFailed": {
+        "title": "Database provisioning failed",
+        "noticeDescription": "An earlier clone attempt failed, but the workspace later became usable.",
+        "noticeDescriptionWithPhase": "The earlier clone attempt failed during {{phase}}. The workspace later became usable.",
+        "description": "The clone did not finish, so this workspace has no usable database yet.",
+        "descriptionWithPhase": "The clone failed during {{phase}}. Repairing replaces only the isolated database."
+      },
+      "repairing": {
+        "title": "Repairing workspace database",
+        "description": "Only the isolated database is replaced; the git worktree and your files are preserved.",
+        "descriptionWithPhase": "Only the isolated database is replaced; the git worktree and your files are preserved. Current phase: {{phase}}."
+      },
+      "provisioning": {
+        "title": "Provisioning database",
+        "description": "Restoring the isolated database clone for this workspace. This runs once before the first start."
+      },
+      "notRunning": {
+        "title": "Workspace is not running",
+        "description": "Start the workspace runtime to publish its board."
+      },
+      "starting": {
+        "title": "Workspace is starting",
+        "description": "Paperclip is starting the workspace runtime and waiting for its board URL."
+      },
+      "validating": {
+        "title": "Validating clone"
+      },
+      "degraded": {
+        "title": "Workspace is degraded",
+        "fallbackCause": "The workspace is serving, but its clone did not pass the readiness contract.",
+        "unhealthyCause": "The runtime is up but did not report a usable database, so Paperclip will not publish it as ready.",
+        "validatingHint": "Paperclip is still confirming the clone.",
+        "repairHint": "One bounded repair replaces the isolated database."
+      },
+      "ready": {
+        "title": "Ready",
+        "description": "Opening the workspace signs you in to the cloned board without a password.",
+        "snapshotTitle": "Ready — snapshot-local sign-in",
+        "snapshotDescription": "Opening the board will ask for the credentials captured in this snapshot."
+      },
+      "cause": {
+        "lastRecordedPhase": "Last recorded phase: {{phase}}."
+      },
+      "handoffReason": {
+        "handoffNotConfigured": "This instance has no workspace login handoff configured, so opening the board falls back to snapshot-local credentials.",
+        "noBoardIdentity": "Your session has no cloned user to sign in as, so opening the board falls back to snapshot-local credentials.",
+        "runtimeNotRunning": "No healthy runtime service is publishing a URL for this workspace yet.",
+        "runtimeUrlUnusable": "The runtime row is publishing a URL Paperclip cannot open.",
+        "workspaceNotReady": "The cloned database is not ready to accept a login yet."
+      },
+      "readinessFailure": {
+        "databaseUnreachable": "The isolated database is not answering.",
+        "cloneDataMissing": "The clone restored no organization or issue rows.",
+        "cloneDataUnreadable": "The cloned product tables could not be read.",
+        "clonedMembershipMissing": "No cloned user has an active organization membership.",
+        "clonedIdentityUnreadable": "The cloned identity tables could not be read.",
+        "authHandoffNotConfigured": "The workspace was started without a login handoff key.",
+        "seedManifestUnreadable": "The seed manifest is unreadable, so the restore cannot be trusted."
+      }
     }
   },
   "userProfile": {
@@ -17342,5 +17769,125 @@
       "acceptInvite": "Accept invite",
       "submitRequest": "Submit request"
     }
+  },
+  "errorActions": {
+    "loadAdapterModels": "load adapter models",
+    "prepareSignIn": "prepare sign-in",
+    "loadConnections": "load connections",
+    "loadAgents": "load agents",
+    "loadConnectionPermissions": "load connection permissions",
+    "loadActiveRuns": "load active runs",
+    "loadTheCSVPreview": "load the CSV preview",
+    "loadTheBlockedTab": "load the Blocked tab",
+    "loadRevisions": "load revisions",
+    "loadThisAgentsTasks": "load this agent's tasks",
+    "loadThisAgentsArtifacts": "load this agent's artifacts",
+    "loadThisEndpoint": "load this endpoint",
+    "loadDecisionSettings": "load decision settings",
+    "loadWorkspaces": "load workspaces",
+    "uploadTheFile": "upload the file",
+    "saveTheDocument": "save the document",
+    "loadAccess": "load access",
+    "loadTasks": "load tasks",
+    "loadTaskHierarchy": "load task hierarchy",
+    "loadTheAdapterList": "load the adapter list",
+    "loadAgentSetupData": "load agent setup data",
+    "loadRoutineActivity": "load routine activity",
+    "loadTheRunnerInspection": "load the runner inspection",
+    "deleteTheRawTrace": "delete the raw trace",
+    "createTheTask": "create the task",
+    "sendThisMessage": "send this message",
+    "loadAttachmentDetails": "load attachment details",
+    "openThisWorkspace": "open this workspace",
+    "loadSavedAccess": "load saved access",
+    "loadThisAgent": "load this agent",
+    "approveThisRequest": "approve this request",
+    "rejectThisRequest": "reject this request",
+    "requestARevision": "request a revision",
+    "resubmitThisRequest": "resubmit this request",
+    "loadApprovals": "load approvals",
+    "loadProfiles": "load profiles",
+    "loadBrowserSettings": "load browser settings",
+    "loadTheConnection": "load the connection",
+    "loadThisApp": "load this app",
+    "loadYourComposioAccounts": "load your Composio accounts",
+    "loadTheConnector": "load the connector",
+    "loadYourConnectionStatus": "load your connection status",
+    "loadAssistantSetup": "load assistant setup",
+    "loadYourConnections": "load your connections",
+    "loadEveryConnector": "load every connector",
+    "loadPeople": "load people",
+    "loadTheConversations": "load the conversations",
+    "loadTheConnectionActivity": "load the connection activity",
+    "checkGitHubSetup": "check GitHub setup",
+    "loadComposioAccounts": "load Composio accounts",
+    "loadTheGateway": "load the gateway",
+    "loadGateways": "load gateways",
+    "loadGatewayActivity": "load gateway activity",
+    "loadConnectionReviews": "load connection reviews",
+    "exportTheAuditLog": "export the audit log",
+    "loadTheAuditLog": "load the audit log",
+    "checkSignIn": "check sign-in",
+    "loadOrganizations": "load organizations",
+    "loadPluginExtensions": "load plugin extensions",
+    "loadSkills": "load skills",
+    "loadTheFile": "load the file",
+    "loadTheDashboard": "load the dashboard",
+    "postTheComment": "post the comment",
+    "loadThisTask": "load this task",
+    "checkTheMonitor": "check the monitor",
+    "approveTheJoinRequest": "approve the join request",
+    "rejectTheJoinRequest": "reject the join request",
+    "retryTheRun": "retry the run",
+    "archiveTheTask": "archive the task",
+    "undoTheInboxArchive": "undo the inbox archive",
+    "loadThisConnectionRequest": "load this connection request",
+    "checkThisPairingCode": "check this pairing code",
+    "connectDot": "connect Dot",
+    "loadAssistantConnections": "load assistant connections",
+    "revokeTheConnection": "revoke the connection",
+    "loadThisPlugin": "load this plugin",
+    "loadLocalFolderSettings": "load local folder settings",
+    "loadYourProfile": "load your profile",
+    "loadProjectTasks": "load project tasks",
+    "loadThisProject": "load this project",
+    "loadProjects": "load projects",
+    "copyToTheClipboard": "copy to the clipboard",
+    "moveTheSelectedRoutines": "move the selected routines",
+    "saveTheFolder": "save the folder",
+    "updateTheFolder": "update the folder",
+    "deleteTheFolder": "delete the folder",
+    "moveTheRoutine": "move the routine",
+    "updateTheRoutine": "update the routine",
+    "startTheRoutineRun": "start the routine run",
+    "createTheRoutine": "create the routine",
+    "runThatSearch": "run that search",
+    "loadSecrets": "load secrets",
+    "loadProviderVaults": "load provider vaults",
+    "loadTheFolder": "load the folder",
+    "loadSkillSources": "load skill sources",
+    "loadThisSkill": "load this skill",
+    "createTheCard": "create the card",
+    "refreshTheCard": "refresh the card",
+    "runTheCard": "run the card",
+    "archiveTheCard": "archive the card",
+    "restoreTheCard": "restore the card",
+    "saveTheSettings": "save the settings",
+    "loadTheInstallPreview": "load the install preview",
+    "installTheTeam": "install the team",
+    "loadTheTeamCatalog": "load the team catalog",
+    "loadTheToolCatalog": "load the tool catalog",
+    "probeTheConnection": "probe the connection",
+    "checkTheConfig": "check the config",
+    "checkTheApp": "check the app",
+    "finishSetup": "finish setup",
+    "loadTheProfile": "load the profile",
+    "loadNewTools": "load new tools",
+    "loadTheChannels": "load the channels",
+    "loadTheDestinations": "load the destinations",
+    "loadConnectionAccess": "load connection access",
+    "updateTheTask": "update the task",
+    "save": "save",
+    "loadProviderApps": "load {{provider}} apps"
   }
 }

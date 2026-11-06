@@ -15,7 +15,7 @@ import { QueryErrorState, useQueryView } from "@/components/QueryView";
 import { Button } from "@/components/ui/button";
 import { Skeleton } from "@/components/ui/skeleton";
 import { cn } from "@/lib/utils";
-import { GATEWAY_TABS, gatewayTabHref, isGatewayTabKey, type GatewayTabKey } from "./gateway-tabs";
+import { gatewayTabs, gatewayTabHref, isGatewayTabKey, type GatewayTabKey } from "./gateway-tabs";
 import { gatewaysQueryKey } from "./NewGatewayDialog";
 import { ConnectClientDialog } from "./ConnectClientDialog";
 import { EditGatewayDialog } from "./EditGatewayDialog";
@@ -158,7 +158,7 @@ export function GatewayDetail() {
       <QueryErrorState
         size="page"
         error={gatewaysQuery.error}
-        action="load the gateway"
+        action={t("errorActions.loadTheGateway")}
         onRetry={gatewaysView.retry}
         retrying={gatewaysView.isFetching}
       />
@@ -200,7 +200,7 @@ export function GatewayDetail() {
       </div>
 
       <nav className="flex items-center gap-6 overflow-x-auto border-b border-border text-sm" aria-label={t("apps.GatewayDetail.gatewayTabsAria")}>
-        {GATEWAY_TABS.map((item) => {
+        {gatewayTabs().map((item) => {
           const isActive = item.key === activeTab;
           return (
             <Link

@@ -167,7 +167,7 @@ export function BlockedInboxView({
           <div className="flex-1 space-y-1">
             <p className="text-sm font-medium">{t("inbox.BlockedInboxView.loadFailed")}</p>
             <p className="text-xs opacity-80">
-              {t("inbox.BlockedInboxView.otherTabs")} {describeError(blockedView.error, { action: "load the Blocked tab" }).body}
+              {t("inbox.BlockedInboxView.otherTabs")} {describeError(blockedView.error, { action: t("errorActions.loadTheBlockedTab") }).body}
             </p>
           </div>
           <Button

@@ -302,7 +302,7 @@ export function GatewaysTab({ companyId }: { companyId: string }) {
     return (
       <QueryErrorState
         error={gatewaysQuery.error}
-        action="load gateways"
+        action={t("errorActions.loadGateways")}
         onRetry={gatewaysView.retry}
         retrying={gatewaysView.isFetching}
       />

@@ -174,7 +174,7 @@ export function ProfilesIndex({
         {header}
         <QueryErrorState
           error={profiles.error}
-          action="load profiles"
+          action={t("errorActions.loadProfiles")}
           onRetry={profilesView.retry}
           retrying={profilesView.isFetching}
         />

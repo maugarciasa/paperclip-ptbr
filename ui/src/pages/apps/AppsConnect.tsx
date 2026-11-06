@@ -59,7 +59,7 @@ export function AppsConnect({ byoOnly = false, credentialSource = "paperclip_vau
   }, [hasSavedComposio, toolkit, navigate]);
   if (reuseComposio && selectedCompanyId && (saved.isPending || savedView.kind === "reconnecting" || hasSavedComposio)) return <p role="status" className="text-sm text-muted-foreground">{t("apps.AppsConnect.checkingSavedComposio")}</p>;
   if (reuseComposio && savedView.kind === "error") return <div className="space-y-3">
-    <QueryErrorState error={saved.error} action="load your Composio accounts" onRetry={savedView.retry} retrying={savedView.isFetching} />
+    <QueryErrorState error={saved.error} action={t("errorActions.loadYourComposioAccounts")} onRetry={savedView.retry} retrying={savedView.isFetching} />
     <Button variant="ghost" onClick={() => navigate("/apps")}>{t("apps.AppsConnect.cancel")}</Button>
   </div>;
   const returningToSkills = source === "github" && selectedCompanyId && skillSourceReturnPath(selectedCompanyId);
@@ -94,7 +94,7 @@ export function AppsConnect({ byoOnly = false, credentialSource = "paperclip_vau
   );
   if (source?.startsWith("ai-router-")) {
     if (gallery.isPending || galleryView.kind === "reconnecting") return <p role="status">{t("apps.AppsConnect.loadingConnector")}</p>;
-    if (galleryView.kind === "error") return <QueryErrorState error={gallery.error} action="load the connector" onRetry={galleryView.retry} retrying={galleryView.isFetching} />;
+    if (galleryView.kind === "error") return <QueryErrorState error={gallery.error} action={t("errorActions.loadTheConnector")} onRetry={galleryView.retry} retrying={galleryView.isFetching} />;
     if (!router) return <p role="alert">{t("apps.AppsConnect.poolPluginUnavailable")}</p>;
     return <AiConnectionPoolConnector pluginKey={router.pluginKey} />;
   }

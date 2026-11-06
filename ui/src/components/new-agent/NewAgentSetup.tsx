@@ -987,7 +987,7 @@ function Setup({
           <QueryErrorState
             size="inline"
             error={setupError}
-            action="load agent setup data"
+            action={t("errorActions.loadAgentSetupData")}
             onRetry={setupRetry}
           />
         )}

@@ -67,7 +67,7 @@ export function ConnectedAggregatorApps({ connection }: { connection: ToolConnec
         {syncing ? t("apps.ConnectedAggregatorApps.refreshing") : t("apps.ConnectedAggregatorApps.refreshProvider", { provider: providerName })}
       </Button>
     </div>
-    {queryView.kind === "error" ? <QueryErrorState error={query.error} action={`load ${providerName} apps`} onRetry={queryView.retry} retrying={queryView.isFetching} /> : null}
+    {queryView.kind === "error" ? <QueryErrorState error={query.error} action={t("errorActions.loadProviderApps", { provider: providerName })} onRetry={queryView.retry} retrying={queryView.isFetching} /> : null}
     {failed || syncFailed ? <p role="alert" className="text-sm text-destructive">
       {t("apps.ConnectedAggregatorApps.refreshFailed", { provider: providerName })}{" "}{apps.length ? t("apps.ConnectedAggregatorApps.lastKnownShown") : t("apps.ConnectedAggregatorApps.tryRefreshingAgain")}
     </p> : null}

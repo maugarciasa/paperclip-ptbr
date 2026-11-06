@@ -364,7 +364,7 @@ export function RoutineDetail() {
       } catch (copyError) {
         pushToast({
           title: `Failed to copy ${label.toLowerCase()}`,
-          body: describeError(copyError, { action: "copy to the clipboard" }).body,
+          body: describeError(copyError, { action: t("errorActions.copyToTheClipboard") }).body,
           tone: "error",
         });
       }

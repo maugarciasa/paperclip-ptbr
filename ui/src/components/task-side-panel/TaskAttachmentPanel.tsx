@@ -100,7 +100,7 @@ export function TaskAttachmentPanel({ issueId, attachmentId }: { issueId: string
       <QueryErrorState
         className="m-4"
         error={attachments.error}
-        action="load attachment details"
+        action={t("errorActions.loadAttachmentDetails")}
         onRetry={attachmentsView.retry}
         retrying={attachmentsView.isFetching}
       />

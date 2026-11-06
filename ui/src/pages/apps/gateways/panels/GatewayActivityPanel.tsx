@@ -190,7 +190,7 @@ export function GatewayActivityPanel({
     return (
       <QueryErrorState
         error={activityQuery.error}
-        action="load gateway activity"
+        action={t("errorActions.loadGatewayActivity")}
         onRetry={activityView.retry}
         retrying={activityView.isFetching}
       />

@@ -33,6 +33,7 @@ import {
   PopoverTrigger,
 } from "@/components/ui/popover";
 import { Textarea } from "@/components/ui/textarea";
+import { isMonitorOffsetNow } from "@/lib/issue-monitor";
 import { agentUrl } from "@/lib/utils";
 import { cn } from "@/lib/utils";
 import { Badge } from "@/components/ui/badge";
@@ -1265,7 +1266,7 @@ export function IssueRecoveryActionCard({
                     title={formatTimeAbsolute(lineage.nextRetryAt) ?? undefined}
                     data-testid="recovery-next-retry"
                   >
-                    {retryOffset === "now" ? t("issues.IssueRecoveryActionCard.nextTryNow") : t("issues.IssueRecoveryActionCard.nextTryOffset", { offset: retryOffset })}
+                    {lineage?.nextRetryAt && isMonitorOffsetNow(lineage.nextRetryAt) ? t("issues.IssueRecoveryActionCard.nextTryNow") : t("issues.IssueRecoveryActionCard.nextTryOffset", { offset: retryOffset })}
                   </span>
                 ) : lineage.exhausted ? (
                   <span className={RETRY_PILL_CLASS} data-testid="recovery-next-retry">

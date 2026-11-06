@@ -124,7 +124,7 @@ function PoolConnector({ companyId, pluginKey, connection }: { companyId: string
   const failedViews = [accountsView, poolsView, galleryView].filter(view => view.kind === "error");
   const reconnecting = [accountsView, poolsView, galleryView].some(view => view.kind === "reconnecting");
   if (accountsQuery.data && !canManage) return <p role="alert" className="text-sm text-muted-foreground">{t("agents.AiConnectionPoolConnector.managerView")}</p>;
-  if (failedViews.length > 0) return <QueryErrorState error={failedViews[0]!.error} action="load connections" onRetry={() => failedViews.forEach(view => view.retry())} retrying={failedViews.some(view => view.isFetching)} />;
+  if (failedViews.length > 0) return <QueryErrorState error={failedViews[0]!.error} action={t("errorActions.loadConnections")} onRetry={() => failedViews.forEach(view => view.retry())} retrying={failedViews.some(view => view.isFetching)} />;
   if (accountsQuery.isPending || poolsQuery.isPending || galleryQuery.isPending || reconnecting || (connection && !editing && poolsQuery.data?.some(pool => pool.id === connection.id))) return <p role="status" className="flex items-center gap-2 text-sm text-muted-foreground"><Loader2 className="size-4 animate-spin" />{t("agents.AiConnectionPoolConnector.loadingConnections")}</p>;
   if (connection && !editing) return <p role="alert">{t("agents.AiConnectionPoolConnector.noLongerAvailable")}</p>;
   const name = entry?.name ?? t("agents.AiConnectionPoolConnector.defaultPoolName");
@@ -168,7 +168,7 @@ function PoolConnector({ companyId, pluginKey, connection }: { companyId: string
         <section aria-labelledby="pool-used-by" className="space-y-3">
           <h2 id="pool-used-by" className="text-sm font-semibold">{t("agents.AiConnectionPoolConnector.usedBy")}</h2>
           {agentsQuery.isPending || agentsView.kind === "reconnecting" ? <p role="status" className="text-sm text-muted-foreground">{t("agents.AiConnectionPoolConnector.loadingAgents")}</p>
-            : agentsView.kind === "error" ? <QueryErrorState size="inline" error={agentsQuery.error} action="load agents" onRetry={agentsView.retry} retrying={agentsView.isFetching} />
+            : agentsView.kind === "error" ? <QueryErrorState size="inline" error={agentsQuery.error} action={t("errorActions.loadAgents")} onRetry={agentsView.retry} retrying={agentsView.isFetching} />
             : usingAgents.length ? <ul className="flex flex-wrap gap-x-6 gap-y-3">{usingAgents.map(agent => <li key={agent.id} className="min-w-0 max-w-full"><Link to={`/agents/${agent.id}`} className="inline-flex max-w-full rounded-sm hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"><AgentIdentity agent={agent} /></Link></li>)}</ul>
             : <p className="text-sm text-muted-foreground">{t("agents.AiConnectionPoolConnector.noAgentsYet")}</p>}
         </section>

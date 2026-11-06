@@ -1017,7 +1017,7 @@ export function useInstallTeamCatalogEntry({
       setPreviewError(null);
     },
     onError: (error) => {
-      setPreviewError(describeError(error, { action: "load the install preview" }).body);
+      setPreviewError(describeError(error, { action: t("errorActions.loadTheInstallPreview") }).body);
     },
   });
 
@@ -1035,7 +1035,7 @@ export function useInstallTeamCatalogEntry({
     },
     onError: (error) => {
       setPhase("error");
-      setApplyError(describeError(error, { action: "install the team" }).body);
+      setApplyError(describeError(error, { action: t("errorActions.installTheTeam") }).body);
     },
   });
 
@@ -1202,7 +1202,7 @@ export function TeamInstallerDialog({
       setPreviewError(null);
     },
     onError: (error) => {
-      setPreviewError(describeError(error, { action: "load the install preview" }).body);
+      setPreviewError(describeError(error, { action: t("errorActions.loadTheInstallPreview") }).body);
     },
   });
 
@@ -1219,7 +1219,7 @@ export function TeamInstallerDialog({
     },
     onError: (error) => {
       setPhase("error");
-      setApplyError(describeError(error, { action: "install the team" }).body);
+      setApplyError(describeError(error, { action: t("errorActions.installTheTeam") }).body);
     },
   });
 
@@ -2504,7 +2504,7 @@ export function TeamCatalog() {
             <div className="p-4">
               <QueryErrorState
                 error={catalogView.error}
-                action="load the team catalog"
+                action={t("errorActions.loadTheTeamCatalog")}
                 onRetry={catalogView.retry}
                 retrying={catalogView.isFetching}
               />

@@ -152,7 +152,7 @@ export function GatewaysList() {
       ) : gatewaysView.kind === "error" ? (
         <QueryErrorState
           error={gatewaysQuery.error}
-          action="load gateways"
+          action={t("errorActions.loadGateways")}
           onRetry={gatewaysView.retry}
           retrying={gatewaysView.isFetching}
         />

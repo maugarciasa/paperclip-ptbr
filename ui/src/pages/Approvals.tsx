@@ -56,7 +56,7 @@ export function Approvals() {
       navigate(`/approvals/${id}?resolved=approved`);
     },
     onError: (err) => {
-      setActionError(describeError(err, { action: "approve this request" }).body);
+      setActionError(describeError(err, { action: t("errorActions.approveThisRequest") }).body);
     },
   });
 
@@ -67,7 +67,7 @@ export function Approvals() {
       queryClient.invalidateQueries({ queryKey: queryKeys.approvals.list(selectedCompanyId!) });
     },
     onError: (err) => {
-      setActionError(describeError(err, { action: "reject this request" }).body);
+      setActionError(describeError(err, { action: t("errorActions.rejectThisRequest") }).body);
     },
   });
 
@@ -95,7 +95,7 @@ export function Approvals() {
       <QueryErrorState
         size="page"
         error={approvalsView.error}
-        action="load approvals"
+        action={t("errorActions.loadApprovals")}
         onRetry={approvalsView.retry}
         retrying={approvalsView.isFetching}
       />

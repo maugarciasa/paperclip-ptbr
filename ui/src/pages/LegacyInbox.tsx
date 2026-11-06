@@ -184,6 +184,7 @@ import {
   reconcileInboxOrderPin,
   type InboxOrderPin,
 } from "../lib/inboxOrderPin";
+import { t } from "@/i18n";
 
 const INBOX_HEARTBEAT_RUN_LIMIT = 200;
 const INBOX_ISSUE_LIST_LIMIT = 500;
@@ -1638,7 +1639,7 @@ export function Inbox() {
       navigate(`/approvals/${id}?resolved=approved`);
     },
     onError: (err) => {
-      setActionError(describeError(err, { action: "approve this request" }).body);
+      setActionError(describeError(err, { action: t("errorActions.approveThisRequest") }).body);
     },
   });
 
@@ -1649,7 +1650,7 @@ export function Inbox() {
       queryClient.invalidateQueries({ queryKey: queryKeys.approvals.list(selectedCompanyId!) });
     },
     onError: (err) => {
-      setActionError(describeError(err, { action: "reject this request" }).body);
+      setActionError(describeError(err, { action: t("errorActions.rejectThisRequest") }).body);
     },
   });
 
@@ -1664,7 +1665,7 @@ export function Inbox() {
       queryClient.invalidateQueries({ queryKey: queryKeys.companies.all });
     },
     onError: (err) => {
-      setActionError(describeError(err, { action: "approve the join request" }).body);
+      setActionError(describeError(err, { action: t("errorActions.approveTheJoinRequest") }).body);
     },
   });
 
@@ -1677,7 +1678,7 @@ export function Inbox() {
       queryClient.invalidateQueries({ queryKey: queryKeys.sidebarBadges(selectedCompanyId!) });
     },
     onError: (err) => {
-      setActionError(describeError(err, { action: "reject the join request" }).body);
+      setActionError(describeError(err, { action: t("errorActions.rejectTheJoinRequest") }).body);
     },
   });
 
@@ -1705,7 +1706,7 @@ export function Inbox() {
     onError: (error) => {
       pushToast({
         title: "Run retry failed",
-        body: describeError(error, { action: "retry the run" }).body,
+        body: describeError(error, { action: t("errorActions.retryTheRun") }).body,
         tone: "error",
       });
     },
@@ -1778,7 +1779,7 @@ export function Inbox() {
       return { companyId: selectedCompanyId, previousData };
     },
     onError: (err, id, context) => {
-      setActionError(describeError(err, { action: "archive the task" }).body);
+      setActionError(describeError(err, { action: t("errorActions.archiveTheTask") }).body);
       if (context?.companyId) clearLocalInboxArchive(context.companyId, id);
       setArchivingIssueIds((prev) => {
         const next = new Set(prev);
@@ -1819,7 +1820,7 @@ export function Inbox() {
       return { companyId: selectedCompanyId };
     },
     onError: (err, id, context) => {
-      setActionError(describeError(err, { action: "undo the inbox archive" }).body);
+      setActionError(describeError(err, { action: t("errorActions.undoTheInboxArchive") }).body);
       if (context?.companyId) {
         beginLocalInboxArchive(context.companyId, id);
         boundLocalInboxArchive(context.companyId, id);
@@ -2597,7 +2598,7 @@ export function Inbox() {
       )}
 
       {approvalsView.kind === "error" ? (
-        <p role="alert" className="text-sm text-destructive">{describeError(approvalsView.error, { action: "load approvals" }).body}</p>
+        <p role="alert" className="text-sm text-destructive">{describeError(approvalsView.error, { action: t("errorActions.loadApprovals") }).body}</p>
       ) : null}
       {actionError && <p role="alert" className="text-sm text-destructive">{actionError}</p>}
 

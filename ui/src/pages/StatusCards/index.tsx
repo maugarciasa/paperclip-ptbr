@@ -80,25 +80,25 @@ export function StatusCards() {
     mutationFn: (id: string) => statusCardsApi.refresh(id),
     onMutate: () => setActionError(null),
     onSuccess: () => invalidateLists(),
-    onError: (err) => setActionError(describeError(err, { action: "refresh the card" }).body),
+    onError: (err) => setActionError(describeError(err, { action: t("errorActions.refreshTheCard") }).body),
   });
   const recompileMutation = useMutation({
     mutationFn: (id: string) => statusCardsApi.recompile(id),
     onMutate: () => setActionError(null),
     onSuccess: () => invalidateLists(),
-    onError: (err) => setActionError(describeError(err, { action: "run the card" }).body),
+    onError: (err) => setActionError(describeError(err, { action: t("errorActions.runTheCard") }).body),
   });
   const archiveMutation = useMutation({
     mutationFn: (id: string) => statusCardsApi.patch(id, { archived: true }),
     onMutate: () => setActionError(null),
     onSuccess: () => invalidateLists(),
-    onError: (err) => setActionError(describeError(err, { action: "archive the card" }).body),
+    onError: (err) => setActionError(describeError(err, { action: t("errorActions.archiveTheCard") }).body),
   });
   const restoreMutation = useMutation({
     mutationFn: (id: string) => statusCardsApi.patch(id, { archived: false }),
     onMutate: () => setActionError(null),
     onSuccess: () => invalidateLists(),
-    onError: (err) => setActionError(describeError(err, { action: "restore the card" }).body),
+    onError: (err) => setActionError(describeError(err, { action: t("errorActions.restoreTheCard") }).body),
   });
 
   const openDetail = (id: string, tab: string = "summary") => {

@@ -11,7 +11,7 @@ import { Link } from "@/lib/router";
 import { cn } from "../lib/utils";
 import { Button } from "@/components/ui/button";
 import { createIssueDetailPath } from "../lib/issueDetailBreadcrumb";
-import { formatMonitorOffset } from "../lib/issue-monitor";
+import { formatMonitorOffset, isMonitorOffsetNow } from "../lib/issue-monitor";
 import { useRetryNowMutation } from "../hooks/useRetryNowMutation";
 import { IssueLinkQuicklook } from "./IssueLinkQuicklook";
 import { LockedIssueChip, isLockedIssueStub } from "./LockedIssueChip";
@@ -33,7 +33,7 @@ import {
   readRecoveryRetryLineage,
 } from "../lib/recovery-lineage";
 import { StatusGlyph } from "./StatusGlyph";
-import { useTranslation } from "@/i18n";
+import { t, useTranslation } from "@/i18n";
 
 function BlockerRecoveryIndicator({
   action,
@@ -86,7 +86,7 @@ function SuccessfulRunRetryNowControl({
     ? new Date(scheduledRetry.scheduledRetryAt).toISOString()
     : null;
   const relative = dueAtIso ? formatMonitorOffset(dueAtIso) : null;
-  const scheduleLabel = relative === "now"
+  const scheduleLabel = dueAtIso !== null && isMonitorOffsetNow(dueAtIso)
     ? t("issues.SuccessfulRunRetryNowControl.dueNow")
     : relative
       ? t("issues.SuccessfulRunRetryNowControl.scheduledRelative", { relative })
@@ -144,7 +144,8 @@ function SuccessfulRunRetryNowControl({
 const EMPTY_LIVE_IDS: ReadonlySet<string> = new Set<string>();
 
 function waitingTaskStatusLabel(status: string): string {
-  return status.replace(/_/g, " ").replace(/\b\w/g, (character) => character.toUpperCase());
+  const fallback = status.replace(/_/g, " ").replace(/\b\w/g, (character) => character.toUpperCase());
+  return t(`issues.waitingTaskStatus.${status}`, { defaultValue: fallback });
 }
 
 function WaitingChipLink({

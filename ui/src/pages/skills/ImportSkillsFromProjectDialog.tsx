@@ -689,7 +689,7 @@ function PickProjectStep({
           <QueryErrorState
             className="m-5"
             error={error}
-            action="load projects"
+            action={t("errorActions.loadProjects")}
             onRetry={onRetry}
             retrying={retrying}
           />
@@ -869,7 +869,7 @@ function ProjectSkillBrowser({
           <QueryErrorState
             className="m-6"
             error={browseQuery.error}
-            action="load the folder"
+            action={t("errorActions.loadTheFolder")}
             onRetry={browseView.retry}
             retrying={browseView.isFetching}
           />

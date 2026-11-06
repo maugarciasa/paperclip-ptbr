@@ -1,4 +1,4 @@
-import { useTranslation } from "@/i18n";
+import { t, useTranslation } from "@/i18n";
 import { useShowAgentCreatedTasks } from "../hooks/useShowAgentCreatedTasks";
 import { useCallback, useEffect, useMemo, useState, useRef } from "react";
 import { Link, useParams, useNavigate, useLocation, Navigate } from "@/lib/router";
@@ -237,7 +237,7 @@ function ProjectIssuesList({ projectId, companyId }: { projectId: string; compan
     invalidateKeys: [queryKeys.issues.listByProject(companyId, projectId), queryKeys.issues.list(companyId)],
   });
 
-  if (issuesView.kind === "error") return <QueryErrorState error={issuesView.error} action="load project tasks" onRetry={issuesView.retry} retrying={issuesView.isFetching} />;
+  if (issuesView.kind === "error") return <QueryErrorState error={issuesView.error} action={t("errorActions.loadProjectTasks")} onRetry={issuesView.retry} retrying={issuesView.isFetching} />;
 
   return (
     <IssuesList
@@ -311,7 +311,7 @@ function ProjectPluginOperationsList({
     ],
   });
 
-  if (issuesView.kind === "error") return <QueryErrorState error={issuesView.error} action="load project tasks" onRetry={issuesView.retry} retrying={issuesView.isFetching} />;
+  if (issuesView.kind === "error") return <QueryErrorState error={issuesView.error} action={t("errorActions.loadProjectTasks")} onRetry={issuesView.retry} retrying={issuesView.isFetching} />;
 
   return (
     <IssuesList
@@ -709,7 +709,7 @@ export function ProjectDetail() {
 
   if (isLoading || projectView.kind === "reconnecting") return <PageSkeleton variant="detail" />;
   if (projectView.kind === "error") {
-    return <QueryErrorState size="page" error={error} action="load this project" onRetry={projectView.retry} retrying={projectView.isFetching} />;
+    return <QueryErrorState size="page" error={error} action={t("errorActions.loadThisProject")} onRetry={projectView.retry} retrying={projectView.isFetching} />;
   }
   if (!project) return null;
   const showLeftProjectNotice =
@@ -903,7 +903,7 @@ export function ProjectDetail() {
           workspaceTabFailure ? (
             <QueryErrorState
               error={workspaceTabFailure.error}
-              action="load workspaces"
+              action={t("errorActions.loadWorkspaces")}
               onRetry={workspaceTabFailure.retry}
               retrying={workspaceTabFailure.isFetching}
             />

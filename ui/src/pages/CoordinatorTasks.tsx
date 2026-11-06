@@ -56,7 +56,7 @@ export function CoordinatorTasks() {
   const viewStorageKey = taskListViewStorageKey("coordinator", userId ?? "local-board");
   const [preference, setPreference] = useState(() => ({ key: viewStorageKey, view: loadTaskListView(viewStorageKey, undefined, "inbox") }));
   const savedView = preference.key === viewStorageKey ? preference.view : loadTaskListView(viewStorageKey, undefined, "inbox");
-  const explicitView = urlView === "needs_attention" ? "blocked" : taskListViews.find(option => option.value === urlView)?.value;
+  const explicitView = urlView === "needs_attention" ? "blocked" : taskListViews().find(option => option.value === urlView)?.value;
   const organizationScoped = [...ORGANIZATION_SCOPED_PARAMS, "workspaceId", "status", "sortField", "sortDir"].some(param => params.getAll(param).some(Boolean));
   const view: TaskListView = explicitView ?? (organizationScoped || normalizeTaskViewKey(urlView) ? "all" : savedView);
   useEffect(() => {

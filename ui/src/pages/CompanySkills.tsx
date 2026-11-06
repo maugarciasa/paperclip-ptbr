@@ -6,7 +6,7 @@ import { SkillSourceProvenance } from "../components/SkillSourceProvenance";
 import { AgentIdentity } from "@/components/AgentIdentity";
 import { AgentAvatar } from "@/components/AgentAvatar";
 import { useCallback, useEffect, useMemo, useRef, useState, type SVGProps } from "react";
-import { useTranslation } from "@/i18n";
+import { t, useTranslation } from "@/i18n";
 import { Link, useNavigate, useParams, useSearchParams } from "@/lib/router";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import type {
@@ -1325,7 +1325,7 @@ export function DiscoveryGrid({
           ) : null}
           {error ? (
             <div className="py-6">
-              <QueryErrorState error={error} action="load skills" onRetry={onRetry} retrying={retrying} />
+              <QueryErrorState error={error} action={t("errorActions.loadSkills")} onRetry={onRetry} retrying={retrying} />
             </div>
           ) : loading ? (
             <PageSkeleton variant="list" />
@@ -1932,7 +1932,7 @@ function CatalogDetailPane({
         {fileQuery.isLoading || fileView.kind === "reconnecting" ? (
           <PageSkeleton variant="detail" />
         ) : fileView.kind === "error" ? (
-          <QueryErrorState error={fileQuery.error} action="load the file" onRetry={fileView.retry} retrying={fileView.isFetching} />
+          <QueryErrorState error={fileQuery.error} action={t("errorActions.loadTheFile")} onRetry={fileView.retry} retrying={fileView.isFetching} />
         ) : !fileQuery.data ? (
           <div className="text-sm text-muted-foreground">Select a file to inspect.</div>
         ) : fileQuery.data.markdown ? (

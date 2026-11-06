@@ -110,7 +110,7 @@ export function AppNotConnected() {
       <QueryErrorState
         size="page"
         error={loadFailure.error}
-        action="load this app"
+        action={t("errorActions.loadThisApp")}
         onRetry={loadFailure.retry}
         retrying={loadFailure.isFetching}
       />

@@ -2090,7 +2090,7 @@ function StreamlinedIssuesList({
 
       {collectionLoading && !externalObjectFilterError && <PageSkeleton variant="issues-list" collectionHeading={viewState.groupBy !== "none" ? "group"
         : viewState.showDateGroupSeparators && issueDateSeparatorField(viewState) && rowPresentation === "task" ? "date" : null} />}
-      {error ? <QueryErrorState error={error} action="load tasks" onRetry={onRetry} retrying={retrying} /> : null}
+      {error ? <QueryErrorState error={error} action={t("errorActions.loadTasks")} onRetry={onRetry} retrying={retrying} /> : null}
       {externalObjectFilterError && (
         <div role="alert" className="flex items-center gap-2 text-sm text-destructive">
           <p>{t("issues.issuesList.errors.externalFilter", { error: describeError(externalObjectFilterError).body })}</p>
@@ -2107,7 +2107,7 @@ function StreamlinedIssuesList({
           {t("issues.issuesList.board.limitReached", { limit: ISSUE_BOARD_COLUMN_RESULT_LIMIT })}
         </p>
       )}
-      {hierarchy.error ? <div role="alert" className="flex items-center gap-2 text-sm text-destructive"><p>{describeError(hierarchy.error, { action: "load task hierarchy" }).body}</p><Button variant="outline" size="sm" onClick={hierarchy.refetch}>{t("issues.issuesList.errors.retryHierarchy")}</Button></div> : null}
+      {hierarchy.error ? <div role="alert" className="flex items-center gap-2 text-sm text-destructive"><p>{describeError(hierarchy.error, { action: t("errorActions.loadTaskHierarchy") }).body}</p><Button variant="outline" size="sm" onClick={hierarchy.refetch}>{t("issues.issuesList.errors.retryHierarchy")}</Button></div> : null}
       {!collectionLoading && !error && !externalObjectFilterError && visibleListRowCount === 0 && viewState.viewMode === "list" && (
         <EmptyState
           icon={CircleDot}

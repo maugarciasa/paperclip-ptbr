@@ -453,7 +453,7 @@ export function AuditFeed({
     } catch (error) {
       pushToast({
         title: "Export failed",
-        body: describeError(error, { action: "export the audit log" }).body,
+        body: describeError(error, { action: t("errorActions.exportTheAuditLog") }).body,
         tone: "error",
       });
     } finally {
@@ -591,7 +591,7 @@ export function AuditFeed({
       ) : feedView.kind === "error" ? (
         <QueryErrorState
           error={feedView.error}
-          action="load the audit log"
+          action={t("errorActions.loadTheAuditLog")}
           onRetry={feedView.retry}
           retrying={feedView.isFetching}
         />

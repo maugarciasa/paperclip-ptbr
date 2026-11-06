@@ -152,7 +152,7 @@ export function PluginSettings() {
         size="page"
         className="p-4"
         error={pluginQuery.error}
-        action="load this plugin"
+        action={t("errorActions.loadThisPlugin")}
         onRetry={pluginView.retry}
         retrying={pluginView.isFetching}
       />
@@ -644,7 +644,7 @@ function PluginLocalFoldersSettings({ pluginId, companyId, declarations }: Plugi
         <QueryErrorState
           size="panel"
           error={foldersQuery.error}
-          action="load local folder settings"
+          action={t("errorActions.loadLocalFolderSettings")}
           onRetry={foldersView.retry}
           retrying={foldersView.isFetching}
         />

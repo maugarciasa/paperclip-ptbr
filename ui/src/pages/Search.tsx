@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { useQuery } from "@tanstack/react-query";
-import { useTranslation } from "@/i18n";
+import { t, useTranslation } from "@/i18n";
 import { Search as SearchIcon, AlertTriangle, FileQuestion, Plus, X } from "lucide-react";
 import {
   COMPANY_SEARCH_DEFAULT_LIMIT,
@@ -132,7 +132,7 @@ function shapeError(error: unknown): { message: string; status?: number } {
   if (!error) return { message: "Unknown error" };
   const status = (error as { status?: number } | null)?.status;
   return {
-    message: describeError(error, { action: "run that search" }).body,
+    message: describeError(error, { action: t("errorActions.runThatSearch") }).body,
     status: typeof status === "number" ? status : undefined,
   };
 }

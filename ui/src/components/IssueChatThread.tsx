@@ -5296,7 +5296,7 @@ const IssueChatComposer = forwardRef<
             ? {
                 ...item,
                 status: "error",
-                error: describeError(err, { action: "upload the file" }).body,
+                error: describeError(err, { action: t("errorActions.uploadTheFile") }).body,
                 file,
               }
             : item,

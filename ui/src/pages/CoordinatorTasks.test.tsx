@@ -26,7 +26,7 @@ vi.mock("@/context/DialogContext", () => ({ useDialogActions: () => ({ openNewIs
 vi.mock("@/context/BreadcrumbContext", () => ({ useBreadcrumbs: () => ({ setBreadcrumbs: mocks.breadcrumbs }) }));
 vi.mock("@/components/TaskListToolbar", () => ({ TaskListToolbar: ({ filters, view, onViewChange, onLayoutChange }: { filters: { onChange: (value: { liveOnly?: boolean; priorities?: string[]; assignees?: string[]; statuses?: string[]; routineTasksOnly?: boolean }) => void }; view: TaskListView; onViewChange: (view: TaskListView) => void; onLayoutChange: (layout: "list" | "board") => void }) => <>
   <span data-selected-view>{view}</span>
-  {taskListViews.map(option => <button key={option.value} onClick={() => onViewChange(option.value)}>{option.label}</button>)}
+  {taskListViews().map(option => <button key={option.value} onClick={() => onViewChange(option.value)}>{option.label}</button>)}
   <button onClick={() => filters.onChange({ routineTasksOnly: true })}>Routine tasks</button>
   <button onClick={() => filters.onChange({ routineTasksOnly: false })}>Show other tasks</button>
   <button onClick={() => filters.onChange({ liveOnly: true })}>Live runs only</button>
@@ -73,7 +73,7 @@ describe("Coordinator tasks using the proposed table", () => {
     expect(host.querySelector("[data-selected-view]")?.textContent).toBe("inbox");
     expect([...host.querySelectorAll("[data-task-id]")].map(row => row.getAttribute("data-task-id"))).toEqual(["parent", "mine", "assigned"]);
   });
-  it.each(taskListViews)("remembers $label when leaving Tasks and returning without a view URL", async ({ value, label }) => {
+  it.each(taskListViews())("remembers $label when leaving Tasks and returning without a view URL", async ({ value, label }) => {
     await mount("/issues");
     flushSync(() => [...host.querySelectorAll("button")].find(button => button.textContent === label)!.click());
     await vi.waitFor(() => expect(localStorage.getItem(taskListViewStorageKey("coordinator", "person"))).toBe(value));

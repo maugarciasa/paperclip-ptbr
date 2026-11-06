@@ -122,7 +122,7 @@ export function ManagedAiConnectionDetails({
               <QueryErrorState
                 size="inline"
                 error={runs.error}
-                action="load active runs"
+                action={t("errorActions.loadActiveRuns")}
                 onRetry={runsView.retry}
                 retrying={runsView.isFetching}
               />

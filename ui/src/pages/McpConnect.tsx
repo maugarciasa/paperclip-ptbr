@@ -107,7 +107,7 @@ function McpConnectRequest({ id, device = false, agentPairingOnly = false, onEdi
       {!device && data?.redirectOrigin && data.redirectOrigin !== clientOrigin && <ClientOrigin key={data.redirectOrigin} origin={data.redirectOrigin} />}
       {device && <p className="text-sm">{t("apps.mcp.confirmMatch", { defaultValue: "Confirm this matches the code shown by your assistant:" })}{" "}<strong className="font-mono">{id.toUpperCase()}</strong></p>}
       {(requestView.kind === "loading" || requestView.kind === "reconnecting") && <p role="status" className="text-sm text-muted-foreground">{t("apps.mcp.loadingRequest", { defaultValue: "Loading connection request…" })}</p>}
-      {requestView.kind === "error" && <QueryErrorState error={requestView.error} action="load this connection request" onRetry={requestView.retry} retrying={requestView.isFetching} />}
+      {requestView.kind === "error" && <QueryErrorState error={requestView.error} action={t("errorActions.loadThisConnectionRequest")} onRetry={requestView.retry} retrying={requestView.isFetching} />}
       {requestView.kind === "error" && <p className="text-sm text-muted-foreground">{t("apps.mcp.startNewAssistant", { defaultValue: "Start a new connection from your assistant." })}</p>}
       {device && requestView.kind === "error" && <Button variant="outline" onClick={onEditCode}>{t("apps.mcp.enterDifferentCode", { defaultValue: "Enter a different code" })}</Button>}
       {data?.agentConnection && !device && <form className="space-y-3" onSubmit={event => { event.preventDefault(); pairDot.mutate(); }}>
@@ -123,8 +123,8 @@ function McpConnectRequest({ id, device = false, agentPairingOnly = false, onEdi
           {pairingPreview.authorizingPerson && <div><dt className="text-muted-foreground">Authorized by</dt><dd>{pairingPreview.authorizingPerson}</dd></div>}
           <div><dt className="text-muted-foreground">Access duration</dt><dd>{pairingPreview.accessDuration}</dd></div>
         </dl>}
-        {previewEnabled && preview.view.kind === "error" && <QueryErrorState size="inline" error={preview.error} action="check this pairing code" onRetry={preview.view.retry} retrying={preview.view.isFetching} />}
-        {pairDot.error && <p role="alert" className="text-sm text-destructive">{describeError(pairDot.error, { action: "connect Dot" }).body}</p>}
+        {previewEnabled && preview.view.kind === "error" && <QueryErrorState size="inline" error={preview.error} action={t("errorActions.checkThisPairingCode")} onRetry={preview.view.retry} retrying={preview.view.isFetching} />}
+        {pairDot.error && <p role="alert" className="text-sm text-destructive">{describeError(pairDot.error, { action: t("errorActions.connectDot") }).body}</p>}
         <div className="flex justify-end"><Button type="submit" disabled={!pairingPreview || !PAIRING_CODE_PATTERN.test(trimmedPairingCode) || pairDot.isPending}>{pairDot.isPending ? t("apps.connecting", { defaultValue: "Connecting…" }) : t("apps.mcp.allowAgentConnection", { defaultValue: "Allow agent connection" })}</Button></div>
       </form>}
       {data && <>
@@ -177,8 +177,8 @@ export function AssistantConnectionsPage() {
     <h1 className="text-xl font-semibold">{t("apps.mcp.assistantConnectionsTitle", { defaultValue: "Assistant connections" })}</h1>
     <p className="text-sm text-muted-foreground">{t("apps.mcp.revokeWarning", { defaultValue: "Revoking a connection stops its future tool calls. Work already delegated continues under your organization’s normal controls." })}</p>
     {(connectionsView.kind === "loading" || connectionsView.kind === "reconnecting") && <p role="status" className="text-sm text-muted-foreground">Loading connections…</p>}
-    {connectionsView.kind === "error" && <QueryErrorState error={connectionsView.error} action="load assistant connections" onRetry={connectionsView.retry} retrying={connectionsView.isFetching} />}
-    {revoke.error && <p role="alert" className="text-sm text-destructive">{describeError(revoke.error, { action: "revoke the connection" }).body}</p>}
+    {connectionsView.kind === "error" && <QueryErrorState error={connectionsView.error} action={t("errorActions.loadAssistantConnections")} onRetry={connectionsView.retry} retrying={connectionsView.isFetching} />}
+    {revoke.error && <p role="alert" className="text-sm text-destructive">{describeError(revoke.error, { action: t("errorActions.revokeTheConnection") }).body}</p>}
     {active?.length === 0 && <p className="text-sm">{t("apps.mcp.noAssistantConnections", { defaultValue: "No assistant connections." })}</p>}
     {active?.map((connection) => <Card key={connection.id} className="block space-y-2 p-4">
       <h2 className="font-medium"><Identity name={assistantConnectionDisplayName(connection)} avatarUrl={connection.user?.image} initials={deriveInitials(connection.user?.name ?? "You")} /></h2>

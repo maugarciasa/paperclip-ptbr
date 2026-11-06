@@ -413,7 +413,7 @@ function AccountIssueDocumentsSection({
     sourceId: `issue-documents:${documentSubject.id}`,
     targetKey: `${draftScope}:${draft?.key ?? ""}`,
     save: async () => undefined,
-    action: "save the document",
+    action: t("errorActions.saveTheDocument"),
   });
   const { markDirty, reset, run: runAutosave } = autosave;
   const autosaveState = autosave.status;
@@ -777,7 +777,7 @@ function AccountIssueDocumentsSection({
           return false;
         }
       }
-      setError(describeError(err, { action: "save the document" }).body);
+      setError(describeError(err, { action: t("errorActions.saveTheDocument") }).body);
       return false;
     };
 

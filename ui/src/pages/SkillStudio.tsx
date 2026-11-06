@@ -375,7 +375,7 @@ export function SkillStudio() {
       <QueryErrorState
         size="page"
         error={detailQuery.error}
-        action="load this skill"
+        action={t("errorActions.loadThisSkill")}
         onRetry={detailView.retry}
         retrying={detailView.isFetching}
       />

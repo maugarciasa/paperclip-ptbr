@@ -306,7 +306,7 @@ export function PasteConfigTab({ companyId }: { companyId: string }) {
         </span>
       </div>
 
-      {importMutation.error ? <QueryErrorState error={importMutation.error} action="check the config" /> : null}
+      {importMutation.error ? <QueryErrorState error={importMutation.error} action={t("errorActions.checkTheConfig")} /> : null}
 
       {preview ? (
         drafts.length === 0 ? (
@@ -368,7 +368,7 @@ export function PasteConfigTab({ companyId }: { companyId: string }) {
         )
       ) : null}
 
-      {connectMutation.error ? <QueryErrorState error={connectMutation.error} action="check the app" /> : null}
+      {connectMutation.error ? <QueryErrorState error={connectMutation.error} action={t("errorActions.checkTheApp")} /> : null}
       {connectResult ? (
         <CatalogReview
           result={connectResult}
@@ -386,7 +386,7 @@ export function PasteConfigTab({ companyId }: { companyId: string }) {
           onFinish={() => finishMutation.mutate()}
         />
       ) : null}
-      {finishMutation.error ? <QueryErrorState error={finishMutation.error} action="finish setup" /> : null}
+      {finishMutation.error ? <QueryErrorState error={finishMutation.error} action={t("errorActions.finishSetup")} /> : null}
     </div>
   );
 }

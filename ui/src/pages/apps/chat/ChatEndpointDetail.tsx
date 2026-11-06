@@ -458,7 +458,7 @@ function EmailAccess({ endpoint }: { endpoint: ChatEndpoint }) {
   if (agentsView.kind === "error" || connectionView.kind === "error") return (
     <QueryErrorState
       error={agentsView.kind === "error" ? agents.error : connection.error}
-      action={t("apps.chatDetail.couldNotLoadConnection", "load connection access")}
+      action={t("errorActions.loadConnectionAccess")}
       onRetry={() => { agentsView.retry(); connectionView.retry(); }}
       retrying={agents.isFetching || connection.isFetching}
     />
@@ -550,7 +550,7 @@ function Settings({
       )}
       <div className="space-y-2">
         <h3 className="text-sm font-semibold">{endpoint.provider === "slack" ? "Allowed Channels" : "Destinations"}</h3>
-        {resourcesView.kind === "error" ? <QueryErrorState size="inline" error={resourcesQuery.error} action={endpoint.provider === "slack" ? "load the channels" : "load the destinations"} onRetry={resourcesView.retry} retrying={resourcesView.isFetching} /> : resourcesQuery.isLoading || resourcesView.kind === "reconnecting" ? (
+        {resourcesView.kind === "error" ? <QueryErrorState size="inline" error={resourcesQuery.error} action={endpoint.provider === "slack" ? t("errorActions.loadTheChannels") : t("errorActions.loadTheDestinations")} onRetry={resourcesView.retry} retrying={resourcesView.isFetching} /> : resourcesQuery.isLoading || resourcesView.kind === "reconnecting" ? (
           <p className="text-sm text-muted-foreground">Loading destinations…</p>
         ) : destinationResources.length === 0 && endpoint.provider !== "slack" ? (
           <p className="rounded-lg border border-dashed border-border p-4 text-sm text-muted-foreground">
@@ -807,7 +807,7 @@ function Access({
         </div>
       )}
       <div className="space-y-2">
-        {linksQuery.isPending || linksView.kind === "reconnecting" ? <p role="status" className="text-sm text-muted-foreground">Loading people…</p> : linksView.kind === "error" ? <QueryErrorState size="inline" error={linksQuery.error} action="load people" onRetry={linksView.retry} retrying={linksView.isFetching} /> : links.length === 0 ? (
+        {linksQuery.isPending || linksView.kind === "reconnecting" ? <p role="status" className="text-sm text-muted-foreground">Loading people…</p> : linksView.kind === "error" ? <QueryErrorState size="inline" error={linksQuery.error} action={t("errorActions.loadPeople")} onRetry={linksView.retry} retrying={linksView.isFetching} /> : links.length === 0 ? (
           <p className="rounded-lg border border-dashed border-border p-4 text-sm text-muted-foreground">
             No linked accounts yet. Invite someone to connect.
           </p>
@@ -884,7 +884,7 @@ function Conversations({
   return (
     <section className="space-y-4">
       {query.isPending || view.kind === "reconnecting" ? <p role="status" className="text-sm text-muted-foreground">Loading conversations…</p> : view.kind === "error" ? (
-        <QueryErrorState error={query.error} action="load the conversations" onRetry={view.retry} retrying={view.isFetching} />
+        <QueryErrorState error={query.error} action={t("errorActions.loadTheConversations")} onRetry={view.retry} retrying={view.isFetching} />
       ) : <ChatConversationList rows={query.data ?? []} provider={provider} />}
     </section>
   );
@@ -1220,7 +1220,7 @@ function Activity({
             <div className="py-4">
               <QueryErrorState
                 error={query.error}
-                action="load the connection activity"
+                action={t("errorActions.loadTheConnectionActivity")}
                 onRetry={view.retry}
                 retrying={view.isFetching}
               />

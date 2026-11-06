@@ -498,7 +498,7 @@ export function Routines() {
         } catch (moveError) {
           pushToast({
             title: t("routines.list.folderCreatedMoveFailed"),
-            body: describeError(moveError, { action: "move the selected routines" }).body,
+            body: describeError(moveError, { action: t("errorActions.moveTheSelectedRoutines") }).body,
             tone: "error",
           });
           return;
@@ -511,7 +511,7 @@ export function Routines() {
     onError: (mutationError) => {
       pushToast({
         title: "Failed to save folder",
-        body: describeError(mutationError, { action: "save the folder" }).body,
+        body: describeError(mutationError, { action: t("errorActions.saveTheFolder") }).body,
         tone: "error",
       });
     },
@@ -527,7 +527,7 @@ export function Routines() {
     onError: (mutationError) => {
       pushToast({
         title: t("routines.list.folderSaveFailed"),
-        body: describeError(mutationError, { action: "update the folder" }).body,
+        body: describeError(mutationError, { action: t("errorActions.updateTheFolder") }).body,
         tone: "error",
       });
     },
@@ -546,7 +546,7 @@ export function Routines() {
     onError: (mutationError) => {
       pushToast({
         title: t("routines.list.folderDeleteFailed"),
-        body: describeError(mutationError, { action: "delete the folder" }).body,
+        body: describeError(mutationError, { action: t("errorActions.deleteTheFolder") }).body,
         tone: "error",
       });
     },
@@ -563,7 +563,7 @@ export function Routines() {
     onError: (mutationError) => {
       pushToast({
         title: t("routines.list.moveFailed"),
-        body: describeError(mutationError, { action: "move the routine" }).body,
+        body: describeError(mutationError, { action: t("errorActions.moveTheRoutine") }).body,
         tone: "error",
       });
     },
@@ -593,7 +593,7 @@ export function Routines() {
     onError: (mutationError) => {
       pushToast({
         title: t("routines.list.failedToUpdateRoutine"),
-        body: describeError(mutationError, { action: "update the routine" }).body,
+        body: describeError(mutationError, { action: t("errorActions.updateTheRoutine") }).body,
         tone: "error",
       });
     },
@@ -628,7 +628,7 @@ export function Routines() {
     onError: (mutationError) => {
       pushToast({
         title: t("routines.list.routineRunFailed"),
-        body: describeError(mutationError, { action: "start the routine run" }).body,
+        body: describeError(mutationError, { action: t("errorActions.startTheRoutineRun") }).body,
         tone: "error",
       });
     },
@@ -777,7 +777,7 @@ export function Routines() {
     } catch (moveError) {
       pushToast({
         title: t("routines.list.failedToMoveRoutines"),
-        body: describeError(moveError, { action: "move the selected routines" }).body,
+        body: describeError(moveError, { action: t("errorActions.moveTheSelectedRoutines") }).body,
         tone: "error",
       });
     }
@@ -1232,7 +1232,7 @@ export function Routines() {
               </Button>
               {createRoutine.isError ? ( // query-error-ok: mutation result, not a query
                 <p role="alert" className="text-sm text-destructive">
-                  {describeError(createRoutine.error, { action: "create the routine" }).body}
+                  {describeError(createRoutine.error, { action: t("errorActions.createTheRoutine") }).body}
                 </p>
               ) : null}
             </div>

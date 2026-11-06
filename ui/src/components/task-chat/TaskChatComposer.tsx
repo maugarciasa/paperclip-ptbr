@@ -746,7 +746,7 @@ export function TaskChatComposer({
             ? {
                 ...item,
                 status: "error",
-                error: describeError(err, { action: "upload the file" }).body,
+                error: describeError(err, { action: t("errorActions.uploadTheFile") }).body,
                 file,
               }
             : item,
@@ -802,7 +802,7 @@ export function TaskChatComposer({
             ? {
                 ...item,
                 status: "error",
-                error: describeError(err, { action: "upload the file" }).body,
+                error: describeError(err, { action: t("errorActions.uploadTheFile") }).body,
                 file,
               }
             : item,
@@ -905,7 +905,7 @@ export function TaskChatComposer({
       try {
         await creation.onSubmit(bodyRef.current, pendingMode, runSettings);
       } catch (error) {
-        setActionError(describeError(error, { action: "create the task" }).body);
+        setActionError(describeError(error, { action: t("errorActions.createTheTask") }).body);
       } finally {
         submittingRef.current = false;
         setSubmitting(false);
@@ -1186,7 +1186,7 @@ export function TaskChatComposer({
         if (taskKey) clearDraftSubmission(taskKey, submission.attemptId);
         if (mountedTaskKey.current === taskKey) {
           setUncertainSubmission(null);
-          setActionError(describeError(error, { action: "send this message" }).body);
+          setActionError(describeError(error, { action: t("errorActions.sendThisMessage") }).body);
         }
       }
       return failure;

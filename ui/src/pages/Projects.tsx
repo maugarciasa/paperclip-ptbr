@@ -134,7 +134,7 @@ export function Projects() {
       <QueryErrorState
         size="page"
         error={projectsView.error}
-        action="load projects"
+        action={t("errorActions.loadProjects")}
         onRetry={projectsView.retry}
         retrying={projectsView.isFetching}
       />

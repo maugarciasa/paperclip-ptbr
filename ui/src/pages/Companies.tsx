@@ -125,7 +125,7 @@ export function Companies() {
       <div className="min-h-6">
         {loading && <p className="text-sm text-muted-foreground">{t("companies.loading")}</p>}
         {error ? (
-          <QueryErrorState size="inline" error={error} action="load organizations" onRetry={() => void retryCompanies()} />
+          <QueryErrorState size="inline" error={error} action={t("errorActions.loadOrganizations")} onRetry={() => void retryCompanies()} />
         ) : null}
       </div>
 

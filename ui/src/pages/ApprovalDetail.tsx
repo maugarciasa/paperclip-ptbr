@@ -95,7 +95,7 @@ export function ApprovalDetail() {
       refresh();
       navigate(`/approvals/${approvalId}?resolved=approved`, { replace: true });
     },
-    onError: (err) => setError(describeError(err, { action: "approve this request" }).body),
+    onError: (err) => setError(describeError(err, { action: t("errorActions.approveThisRequest") }).body),
   });
 
   const rejectMutation = useMutation({
@@ -104,7 +104,7 @@ export function ApprovalDetail() {
       setError(null);
       refresh();
     },
-    onError: (err) => setError(describeError(err, { action: "reject this request" }).body),
+    onError: (err) => setError(describeError(err, { action: t("errorActions.rejectThisRequest") }).body),
   });
 
   const revisionMutation = useMutation({
@@ -113,7 +113,7 @@ export function ApprovalDetail() {
       setError(null);
       refresh();
     },
-    onError: (err) => setError(describeError(err, { action: "request a revision" }).body),
+    onError: (err) => setError(describeError(err, { action: t("errorActions.requestARevision") }).body),
   });
 
   const resubmitMutation = useMutation({
@@ -122,7 +122,7 @@ export function ApprovalDetail() {
       setError(null);
       refresh();
     },
-    onError: (err) => setError(describeError(err, { action: "resubmit this request" }).body),
+    onError: (err) => setError(describeError(err, { action: t("errorActions.resubmitThisRequest") }).body),
   });
 
   const addCommentMutation = useMutation({

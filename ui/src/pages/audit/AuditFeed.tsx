@@ -549,7 +549,7 @@ export function AuditFeed({
     } catch (error) {
       pushToast({
         title: "Export failed",
-        body: describeError(error, { action: "export the audit log" }).body,
+        body: describeError(error, { action: t("errorActions.exportTheAuditLog") }).body,
         tone: "error",
       });
     } finally {

@@ -3,7 +3,7 @@ import { useTranslation } from "@/i18n";
 import { Link } from "@/lib/router";
 import { Button } from "@/components/ui/button";
 import { cn, formatDateTime } from "@/lib/utils";
-import { formatMonitorOffset } from "@/lib/issue-monitor";
+import { formatMonitorOffset, isMonitorOffsetNow } from "@/lib/issue-monitor";
 import { formatRetryReason } from "@/lib/runRetryState";
 import type { IssueScheduledRetry } from "@paperclipai/shared";
 import { useRetryNowMutation, type RetryNowError } from "../hooks/useRetryNowMutation";
@@ -63,7 +63,7 @@ export function IssueScheduledRetryCard({
   const badgeLabel = continuation ? t("issues.IssueScheduledRetryCard.continuationScheduled") : t("issues.IssueScheduledRetryCard.retryScheduled");
   const titleAction = continuation ? t("issues.IssueScheduledRetryCard.automaticContinuation") : t("issues.IssueScheduledRetryCard.automaticRetry");
   let titleSuffix: string;
-  if (relative === "now") {
+  if (dueAtIso && isMonitorOffsetNow(dueAtIso)) {
     titleSuffix = t("issues.IssueScheduledRetryCard.dueNow");
   } else if (relative) {
     titleSuffix = relative;

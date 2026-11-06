@@ -1966,7 +1966,7 @@ export function Secrets() {
               <div className="py-4">
                 <QueryErrorState
                   error={secretsView.kind === "error" ? secretsQuery.error : userDefinitionsQuery.error}
-                  action="load secrets"
+                  action={t("errorActions.loadSecrets")}
                   onRetry={() => {
                     secretsView.retry();
                     userDefinitionsView.retry();
@@ -3570,7 +3570,7 @@ export function ProviderVaultsTab({
   if (error) {
     return (
       <div className="py-4">
-        <QueryErrorState error={error} action="load provider vaults" onRetry={onRetry} retrying={retrying} />
+        <QueryErrorState error={error} action={t("errorActions.loadProviderVaults")} onRetry={onRetry} retrying={retrying} />
       </div>
     );
   }

@@ -70,7 +70,7 @@ export function CreateStatusCardDialog({
       ]);
       close();
     },
-    onError: (err) => setError(describeError(err, { action: "create the card" }).body),
+    onError: (err) => setError(describeError(err, { action: t("errorActions.createTheCard") }).body),
   });
 
   return (

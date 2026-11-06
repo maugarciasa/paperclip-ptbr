@@ -322,7 +322,7 @@ export function GitHubChatSetup() {
         <QueryErrorState
           size="inline"
           error={setupReadFailure.error}
-          action="check GitHub setup"
+          action={t("errorActions.checkGitHubSetup")}
           onRetry={setupReadFailure.retry}
           retrying={setupReadFailure.isFetching}
         />

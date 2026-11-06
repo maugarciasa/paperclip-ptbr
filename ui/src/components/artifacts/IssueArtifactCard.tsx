@@ -188,7 +188,7 @@ export function IssueArtifactFile(props: IssueArtifactFileProps) {
           {tooLarge
             ? t("artifacts.IssueArtifactCard.csvTooLarge")
             : dataView.kind === "error"
-              ? <QueryErrorState size="inline" error={dataView.error} action="load the CSV preview" onRetry={dataView.retry} retrying={dataView.isFetching} />
+              ? <QueryErrorState size="inline" error={dataView.error} action={t("errorActions.loadTheCSVPreview")} onRetry={dataView.retry} retrying={dataView.isFetching} />
               : t("artifacts.IssueArtifactCard.csvUnavailable")}
         </div>
       )}

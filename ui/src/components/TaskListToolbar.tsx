@@ -6,11 +6,11 @@ import { ToolbarSearch } from "./ToolbarSearch";
 import { FlyoutHeader, FlyoutOptions } from "./ui/flyout";
 import { DropdownMenu, DropdownMenuContent, DropdownMenuLabel, DropdownMenuRadioGroup, DropdownMenuRadioItem, DropdownMenuTrigger } from "./ui/dropdown-menu";
 import { Tooltip, TooltipContent, TooltipTrigger } from "./ui/tooltip";
-import { taskListViews as views, type TaskListView } from "@/lib/task-list-views";
+import { taskListViews, type TaskListView } from "@/lib/task-list-views";
 import { useTranslation } from "@/i18n";
 
 /** Canonical proposed task toolbar; review under Components / Toolbars / Tasks. */
-export function TaskListToolbar({ view, onViewChange, viewOptions = views, query, onQueryChange, searchRef, layout, onLayoutChange, allExpanded, onToggleExpanded, onNewTask, filters }: {
+export function TaskListToolbar({ view, onViewChange, viewOptions = taskListViews(), query, onQueryChange, searchRef, layout, onLayoutChange, allExpanded, onToggleExpanded, onNewTask, filters }: {
   view: TaskListView;
   onViewChange: (view: TaskListView) => void;
   viewOptions?: readonly { value: TaskListView; label: string }[];

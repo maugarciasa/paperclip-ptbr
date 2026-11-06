@@ -287,7 +287,7 @@ export function AiProviderSetup({
   ) : undefined;
   const cancel = () => reconnect || initialProvider ? onCancel() : setStep("provider");
   if (!reconnect && (accounts.isPending || accountsView.kind === "reconnecting")) return <p role="status">{t("agents.AiProviderSetup.loadingPermissions")}</p>;
-  if (!reconnect && accountsView.kind === "error") return <QueryErrorState error={accounts.error} action="load connection permissions" onRetry={accountsView.retry} retrying={accountsView.isFetching} />;
+  if (!reconnect && accountsView.kind === "error") return <QueryErrorState error={accounts.error} action={t("errorActions.loadConnectionPermissions")} onRetry={accountsView.retry} retrying={accountsView.isFetching} />;
   return (
     <div className="mx-auto w-full max-w-2xl space-y-6" onSubmit={(event) => event.stopPropagation()}>
       <div className="space-y-2">
@@ -297,7 +297,7 @@ export function AiProviderSetup({
             : reconnect ? t("agents.AiProviderSetup.reconnectTitle", { label }) : t("agents.AiProviderSetup.connectTitle", { label })}
         </h2>
       </div>
-      {agentsView.kind === "error" && <QueryErrorState size="inline" error={agents.error} action="load agents" onRetry={agentsView.retry} retrying={agentsView.isFetching} />}
+      {agentsView.kind === "error" && <QueryErrorState size="inline" error={agents.error} action={t("errorActions.loadAgents")} onRetry={agentsView.retry} retrying={agentsView.isFetching} />}
       {step === "provider" ? (
         <>
           {advancedOnly ? choices(true) : <>

@@ -106,7 +106,7 @@ export function AuthPage() {
         size="panel"
         className="p-6"
         error={bootError}
-        action="check sign-in"
+        action={t("errorActions.checkSignIn")}
         onRetry={() => {
           void healthQuery.refetch();
           void sessionQuery.refetch();

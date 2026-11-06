@@ -2,8 +2,8 @@ import { type ReactNode } from "react";
 import { t } from "@/i18n";
 import { ArrowUpDown, Check, Layers, ListFilter } from "lucide-react";
 import {
-  ATTENTION_GROUP_BY_OPTIONS,
-  ATTENTION_SORT_OPTIONS,
+  attentionGroupByOptions,
+  attentionSortOptions,
   buildAttentionFilterOptions,
   countActiveAttentionFilters,
   defaultAttentionFilterState,
@@ -103,7 +103,7 @@ export function DecisionsToolbar({
         </PopoverTrigger>
         <PopoverContent align="end" className="w-40 p-2">
           <div className="space-y-0.5">
-            {ATTENTION_GROUP_BY_OPTIONS.map(([value, label]) => (
+            {attentionGroupByOptions().map(([value, label]) => (
               <button
                 key={value}
                 type="button"
@@ -136,7 +136,7 @@ export function DecisionsToolbar({
         </PopoverTrigger>
         <PopoverContent align="end" className="w-44 p-2">
           <div className="space-y-0.5">
-            {ATTENTION_SORT_OPTIONS.map(([value, label]) => (
+            {attentionSortOptions().map(([value, label]) => (
               <button
                 key={value}
                 type="button"

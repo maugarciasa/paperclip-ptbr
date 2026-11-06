@@ -327,7 +327,7 @@ export function Dashboard() {
       <QueryErrorState
         size="page"
         error={dashboardView.error}
-        action="load the dashboard"
+        action={t("errorActions.loadTheDashboard")}
         onRetry={dashboardView.retry}
         retrying={dashboardView.isFetching}
       />

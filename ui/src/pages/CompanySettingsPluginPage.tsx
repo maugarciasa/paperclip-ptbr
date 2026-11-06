@@ -62,7 +62,7 @@ export function CompanySettingsPluginPage() {
 
   // Only a real failure reaches here; an outage keeps `isLoading` true above.
   if (errorMessage) {
-    return <QueryErrorState error={error} action="load plugin extensions" onRetry={retry} className="max-w-xl" />;
+    return <QueryErrorState error={error} action={t("errorActions.loadPluginExtensions")} onRetry={retry} className="max-w-xl" />;
   }
 
   if (pageSlots.length > 1) {

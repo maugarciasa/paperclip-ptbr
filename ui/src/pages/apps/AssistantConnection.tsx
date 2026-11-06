@@ -61,7 +61,7 @@ export function AssistantConnectionCard({ onNavigate }: { onNavigate: (href: str
     </div>
     {(connections.isPending || connections.view.kind === "reconnecting") && <p className="border-t border-border px-4 py-3 text-xs text-muted-foreground">{t("apps.assistantConnection.checkingStatus")}</p>}
     {connections.view.kind === "error" && <div className="border-t border-border px-4 py-3">
-      <QueryErrorState error={connections.error} action="load your connection status" onRetry={connections.view.retry} retrying={connections.view.isFetching} />
+      <QueryErrorState error={connections.error} action={t("errorActions.loadYourConnectionStatus")} onRetry={connections.view.retry} retrying={connections.view.isFetching} />
     </div>}
     {connections.loaded && active.length > 0 && <div className="flex flex-wrap items-center gap-2 border-t border-border px-4 py-3 text-sm">
       {active.map(row => <Identity key={row.id} name={assistantConnectionDisplayName(row)} avatarUrl={row.user?.image} initials={deriveInitials(row.user?.name ?? "You")} size="sm" />)}
@@ -123,7 +123,7 @@ export function AssistantConnection({ initialAssistant = "codex" }: { initialAss
     {(setup.isPending || setupView.kind === "reconnecting") && <p className="text-sm text-muted-foreground">{t("apps.assistantConnection.loadingSetup")}</p>}
     {setupView.kind === "error" && (setupView.errorKind === "auth" || setupView.errorKind === "not_found"
       ? <div role="alert" className="space-y-3"><p className="text-sm text-destructive">{setupUnavailableCopy(setupView.errorKind)}</p><Button variant="outline" disabled={setupView.isFetching} onClick={setupView.retry}>Try again</Button></div>
-      : <QueryErrorState error={setup.error} action="load assistant setup" onRetry={setupView.retry} retrying={setupView.isFetching} />)}
+      : <QueryErrorState error={setup.error} action={t("errorActions.loadAssistantSetup")} onRetry={setupView.retry} retrying={setupView.isFetching} />)}
     {setup.data && !setup.data.enabled && <section className="space-y-3 rounded-lg border border-border bg-muted/30 p-4">
       <h2 className="text-sm font-semibold">{t("apps.assistantConnection.enableTitle")}</h2>
       <p className="text-sm text-muted-foreground">{t("apps.assistantConnection.enableDescription")}</p>
@@ -152,7 +152,7 @@ export function AssistantConnection({ initialAssistant = "codex" }: { initialAss
       <h2 id="connected-assistants" className="text-sm font-semibold">{t("apps.assistantConnection.connectedAssistantsTitle")}</h2>
       {(connections.isPending || connections.view.kind === "reconnecting") && <p className="text-sm text-muted-foreground">{t("apps.assistantConnection.loadingConnections")}</p>}
       {revoke.error && <p role="alert" className="text-sm text-destructive">Couldn’t revoke this connection. Try again. <button type="button" className="underline" onClick={() => void connections.refetch()}>Refresh</button></p>}
-      {connections.view.kind === "error" && <QueryErrorState error={connections.error} action="load your connections" onRetry={connections.view.retry} retrying={connections.view.isFetching} />}
+      {connections.view.kind === "error" && <QueryErrorState error={connections.error} action={t("errorActions.loadYourConnections")} onRetry={connections.view.retry} retrying={connections.view.isFetching} />}
       {connections.loaded && connections.rows.length === 0 && <p className="text-sm text-muted-foreground">{t("apps.assistantConnection.noAssistants", { name: selectedCompany.name })}</p>}
       <div className="divide-y divide-border">{connections.rows.map(row => <div key={row.id} className="flex flex-wrap items-center justify-between gap-3 py-3">
         <div className="min-w-0 flex-1 space-y-1"><Identity name={assistantConnectionDisplayName(row)} avatarUrl={row.user?.image} initials={deriveInitials(row.user?.name ?? "You")} className="font-medium" /><p className="text-xs text-muted-foreground">{`Connected as you · ${row.scopes.includes("paperclip:write") ? "Read and write" : "Read only"}${row.scopes.includes("paperclip:configure") ? " · Configure agents, projects and skills" : ""}`}</p></div>

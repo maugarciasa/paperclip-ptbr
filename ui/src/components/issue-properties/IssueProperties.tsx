@@ -59,6 +59,8 @@ import {
   formatMonitorEtaLabel,
   formatMonitorOffset,
   useMonitorCountdown,
+  isMonitorOffsetNow,
+  monitorEtaState,
 } from "../../lib/issue-monitor";
 import { extractProviderIdWithFallback } from "../../lib/model-utils";
 import { formatRetryReason } from "../../lib/runRetryState";
@@ -1338,8 +1340,8 @@ export function IssueProperties({
   const canCheckMonitorNow = canCheckIssueMonitorNow(issue, monitorServiceName);
   const monitorNow = useMonitorCountdown(monitorPaused ? null : monitorNextCheckAt);
   const monitorRelative = monitorNextCheckAt ? formatMonitorEta(monitorNextCheckAt, monitorNow) : null;
-  const monitorIsDueNow = monitorRelative === "due now";
-  const monitorIsOverdue = Boolean(monitorRelative?.startsWith("overdue by "));
+  const monitorIsDueNow = monitorNextCheckAt ? monitorEtaState(monitorNextCheckAt, monitorNow) === "due-now" : false;
+  const monitorIsOverdue = monitorNextCheckAt ? monitorEtaState(monitorNextCheckAt, monitorNow) === "overdue" : false;
   const monitorPrimary = monitorNextCheckAt
     ? monitorPaused ? t("issues.issueProperties.automaticChecksPaused") : formatMonitorEtaLabel(monitorNextCheckAt, monitorNow)
     : monitorState?.status === "cleared"
@@ -1448,7 +1450,7 @@ export function IssueProperties({
   const scheduledRetryRelativeLabel = (() => {
     if (!scheduledRetryRelative) return t("issues.issueProperties.retryPendingSchedule");
     const action = scheduledRetryIsContinuation ? t("issues.issueProperties.retryActionContinuation") : t("issues.issueProperties.retryActionRetry");
-    if (scheduledRetryRelative === "now") return t("issues.issueProperties.retryDueNow", { action });
+    if (scheduledRetryDueAtIso && isMonitorOffsetNow(scheduledRetryDueAtIso)) return t("issues.issueProperties.retryDueNow", { action });
     return t("issues.issueProperties.retryDueIn", { action, relative: scheduledRetryRelative });
   })();
   const scheduledRetryRetryNowSuccess = retryNow.isSuccess

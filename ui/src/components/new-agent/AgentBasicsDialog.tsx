@@ -273,7 +273,7 @@ export function AgentBasicsDialog({
                   <QueryErrorState
                     size="inline"
                     error={adaptersView.error}
-                    action="load the adapter list"
+                    action={t("errorActions.loadTheAdapterList")}
                     onRetry={adaptersView.retry}
                     retrying={adaptersView.isFetching}
                   />

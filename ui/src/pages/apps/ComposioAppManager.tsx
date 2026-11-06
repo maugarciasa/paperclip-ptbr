@@ -53,7 +53,7 @@ function ComposioAccountObservations({ app, connection, onClose }: { app: Aggreg
   }
   return <>
     {error ? <p role="alert" className="text-sm text-destructive">{error}</p> : null}
-    {accountsView.kind === "error" ? <QueryErrorState error={accountsQuery.error} action="load Composio accounts" onRetry={accountsView.retry} retrying={accountsView.isFetching} /> : null}
+    {accountsView.kind === "error" ? <QueryErrorState error={accountsQuery.error} action={t("errorActions.loadComposioAccounts")} onRetry={accountsView.retry} retrying={accountsView.isFetching} /> : null}
     {accountsQuery.isLoading || accountsView.kind === "reconnecting" ? <p role="status" className="text-sm text-muted-foreground">{t("apps.ComposioAccountObservations.loadingAccounts")}</p> : accounts.length === 0 ? <p className="text-sm text-muted-foreground">{t("apps.ComposioAccountObservations.noAccounts", { name: app.name })}</p> : <div className="divide-y divide-border">
       {accounts.map(({ account, snapshot }) => <div key={`${snapshot.toolkit}:${account.id}`} className="py-3">
         <p className="truncate text-sm font-medium">{account.alias || t("apps.ComposioAccountObservations.accountFallback", { name: app.name })}</p>

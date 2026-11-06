@@ -219,7 +219,7 @@ export function AgentTasksPanel({
         <div className="py-4">
           <QueryErrorState
             error={tasksQuery.error}
-            action="load this agent's tasks"
+            action={t("errorActions.loadThisAgentsTasks")}
             onRetry={tasksView.retry}
             retrying={tasksView.isFetching}
           />
@@ -316,7 +316,7 @@ export function AgentArtifactsPanel({ companyId, agentId }: { companyId: string;
       <div className="py-4">
         <QueryErrorState
           error={artifactsQuery.error}
-          action="load this agent's artifacts"
+          action={t("errorActions.loadThisAgentsArtifacts")}
           onRetry={artifactsView.retry}
           retrying={artifactsView.isFetching}
         />

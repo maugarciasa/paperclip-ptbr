@@ -926,7 +926,7 @@ export function Browse({ renderAccountDetails = (connection) => connection.conne
       {loadFailure ? (
         <QueryErrorState
           error={loadFailure.error}
-          action="load every connector"
+          action={t("errorActions.loadEveryConnector")}
           onRetry={() => {
             loadFailure.retry();
             void galleryQuery.refetch();

@@ -13,8 +13,8 @@ import {
   lowTrustBoundaryHasScope,
   setSingleLowTrustBoundaryTarget,
   summarizeLowTrustBoundaryTarget,
-  TRUST_PRESET_DESCRIPTIONS,
-  TRUST_PRESET_LABELS,
+  trustPresetDescriptions,
+  trustPresetLabels,
   type LowTrustBoundaryTarget,
 } from "../lib/trust-policy-ui";
 import { cn } from "../lib/utils";
@@ -265,10 +265,10 @@ export function TrustPresetSection({
                   )}
                 >
                   <span className="flex items-center justify-between gap-2">
-                    <span className="text-sm font-semibold text-foreground">{TRUST_PRESET_LABELS[value]}</span>
+                    <span className="text-sm font-semibold text-foreground">{trustPresetLabels()[value]}</span>
                     {selected ? <Check className="size-4 text-foreground" aria-hidden /> : null}
                   </span>
-                  <span className="text-sm leading-5 text-muted-foreground">{TRUST_PRESET_DESCRIPTIONS[value]}</span>
+                  <span className="text-sm leading-5 text-muted-foreground">{trustPresetDescriptions()[value]}</span>
                 </button>
               );
             })}
@@ -297,11 +297,11 @@ export function TrustPresetSection({
             onChange={(event) => handlePresetChange(event.target.value)}
             disabled={disabled}
           >
-            <option value="standard">{TRUST_PRESET_LABELS.standard}</option>
-            <option value="low_trust_review">{TRUST_PRESET_LABELS.low_trust_review}</option>
+            <option value="standard">{trustPresetLabels().standard}</option>
+            <option value="low_trust_review">{trustPresetLabels().low_trust_review}</option>
           </select>
         </Field>
-        <p className="text-xs text-muted-foreground">{TRUST_PRESET_DESCRIPTIONS[preset]}</p>
+        <p className="text-xs text-muted-foreground">{trustPresetDescriptions()[preset]}</p>
 
         {containment}
 

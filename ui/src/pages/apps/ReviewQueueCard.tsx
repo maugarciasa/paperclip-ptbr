@@ -56,7 +56,7 @@ export function ReviewQueueCard({
 
   if (!selectedCompanyId) return null;
   if (query.isLoading || view.kind === "reconnecting") return null;
-  if (view.kind === "error") return <QueryErrorState error={query.error} action="load connection reviews" onRetry={view.retry} retrying={view.isFetching} />;
+  if (view.kind === "error") return <QueryErrorState error={query.error} action={t("errorActions.loadConnectionReviews")} onRetry={view.retry} retrying={view.isFetching} />;
 
   if (items.length === 0) {
     if (emptyState === "hidden") return null;

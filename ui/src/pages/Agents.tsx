@@ -341,7 +341,7 @@ export function Agents({ initialView = "list" }: { initialView?: AgentsView } = 
       <QueryErrorState
         size="page"
         error={agentsView.error}
-        action="load agents"
+        action={t("errorActions.loadAgents")}
         onRetry={agentsView.retry}
         retrying={agentsView.isFetching}
       />

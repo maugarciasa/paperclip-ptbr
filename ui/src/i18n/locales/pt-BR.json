@@ -5203,6 +5203,30 @@
     "connect": "Conectar",
     "connected": "Conectado",
     "connecting": "Conectando…",
+    "connectionIdentity": {
+      "audience": {
+        "allMembers": "Todos os membros da Empresa",
+        "selected_one": "{{count}} membro selecionado",
+        "selected_other": "{{count}} membros selecionados"
+      },
+      "grantAccount": {
+        "connectedAccount": "Conta conectada",
+        "dedicatedAccount": "Conta dedicada",
+        "sharedCredential": "Credencial compartilhada"
+      },
+      "grantStatus": {
+        "connected": "Conectado",
+        "expired": "Expirado",
+        "needsAttention": "Precisa de atenção",
+        "notConnected": "Não conectado",
+        "revoked": "Revogado"
+      },
+      "type": {
+        "dedicatedAgent": "Agente dedicado",
+        "organization": "Empresa",
+        "personal": "Pessoal"
+      }
+    },
     "connections": {
       "actionConnect": "Conectar",
       "actionPermissions": "Permissões",
@@ -5408,6 +5432,39 @@
       "resolveAfter": "Resolver a entrega depois de conferir no AgentMail",
       "sendIntent": "Intenção de envio de e-mail",
       "to": "Para: {{list}}"
+    },
+    "gatewayHelpers": {
+      "allowedTools": {
+        "count_one": "{{count}} ferramenta",
+        "count_other": "{{count}} ferramentas",
+        "none": "Nenhuma ferramenta permitida",
+        "profileUnavailable": "Perfil indisponível"
+      },
+      "attention": {
+        "signInExpired": "Login expirado — reconecte para restaurar o acesso."
+      },
+      "owner": {
+        "agent": "Agente {{id}}",
+        "board": "Board"
+      },
+      "scope": {
+        "agent": "Agente · {{value}}",
+        "organization": "Empresa",
+        "project": "Projeto · {{value}}"
+      },
+      "tokenStatus": {
+        "active": "Ativo",
+        "expired": "Expirado",
+        "expiring": "Expirando",
+        "revoked": "Revogado"
+      }
+    },
+    "gatewayTabs": {
+      "activity": "Atividade",
+      "advanced": "Avançado",
+      "apps": "Apps e ferramentas",
+      "overview": "Visão geral",
+      "tokens": "Tokens"
     },
     "gatewayUrl": "URL do gateway",
     "gatewaysTitle": "Gateways",
@@ -6411,6 +6468,100 @@
       "selectOption": "Selecione uma opção"
     },
     "error": "Erro",
+    "errors": {
+      "codes": {
+        "TIMEOUT": {
+          "body": "A resposta demorou demais. Tente novamente em instantes.",
+          "title": "Tempo da solicitação esgotado"
+        },
+        "WORKER_UNAVAILABLE": {
+          "body": "Este Plugin está reiniciando. Tente novamente em instantes.",
+          "title": "Plugin indisponível"
+        },
+        "interaction_audience_denied": {
+          "body": "Você não está entre as pessoas que podem resolver este card.",
+          "title": "Você não pode responder a este card"
+        },
+        "interaction_forbidden": {
+          "body": "Você não tem permissão para responder a este card.",
+          "title": "Você não pode responder a este card"
+        },
+        "interaction_settled": {
+          "body": "Esta solicitação não está mais aguardando uma decisão.",
+          "title": "Já resolvido"
+        },
+        "interaction_submit_failed": {
+          "body": "Não foi possível enviar. Tente novamente.",
+          "title": "Não foi possível enviar"
+        },
+        "tenant_app_starting": {
+          "body": "O Paperclip está iniciando. Tente novamente em alguns segundos.",
+          "title": "O Paperclip está iniciando"
+        },
+        "tenant_app_unavailable": {
+          "body": "O Paperclip está reiniciando ou atualizando. Tente novamente em instantes.",
+          "title": "Reconectando ao Paperclip"
+        }
+      },
+      "couldNot": "Não foi possível {{action}}",
+      "kinds": {
+        "aborted": {
+          "body": "A solicitação foi cancelada.",
+          "title": "Cancelado"
+        },
+        "auth": {
+          "body": "Sua sessão foi encerrada. Entre novamente para continuar.",
+          "title": "Sessão encerrada"
+        },
+        "conflict": {
+          "body": "Isto mudou desde que você carregou. Atualize a página e tente novamente.",
+          "title": "Desatualizado"
+        },
+        "forbidden": {
+          "body": "Você não tem permissão para fazer isso.",
+          "title": "Não permitido"
+        },
+        "invalid": {
+          "body": "Alguns detalhes não são válidos. Revise-os e tente novamente.",
+          "title": "Confira os dados"
+        },
+        "not_found": {
+          "body": "Este item não existe ou foi movido.",
+          "title": "Não encontrado"
+        },
+        "transient": {
+          "body": "O Paperclip está temporariamente indisponível. Tente novamente em instantes.",
+          "title": "Conexão interrompida"
+        },
+        "unknown": {
+          "body": "Ocorreu um erro inesperado. Tente novamente.",
+          "title": "Algo deu errado"
+        }
+      }
+    },
+    "fileKind": {
+      "archive": "Compactado",
+      "audio": "Áudio",
+      "code": "Código",
+      "css": "CSS",
+      "csv": "CSV",
+      "doc": "Documento",
+      "file": "Arquivo",
+      "html": "HTML",
+      "json": "JSON",
+      "log": "Log",
+      "markdown": "Markdown",
+      "patch": "Patch",
+      "pdf": "PDF",
+      "sheet": "Planilha",
+      "sql": "SQL",
+      "text": "Texto",
+      "tsv": "TSV",
+      "video": "Vídeo",
+      "xml": "XML",
+      "yaml": "YAML",
+      "zip": "ZIP"
+    },
     "filePreviewModeToggle": {
       "raw": "Bruto",
       "rendered": "Renderizado"
@@ -6610,6 +6761,30 @@
     "sort": "Ordenar",
     "status": "Status",
     "submit": "Enviar",
+    "time": {
+      "daysAgo_one": "há {{count}} dia",
+      "daysAgo_other": "há {{count}} dias",
+      "daysHoursShort": "{{days}}d {{hours}}h",
+      "daysShort": "{{count}}d",
+      "hoursAgo": "há {{count}} h",
+      "hoursMinutesShort": "{{hours}}h {{minutes}}min",
+      "hoursShort": "{{count}}h",
+      "hours_one": "{{count}} hora",
+      "hours_other": "{{count}} horas",
+      "justNow": "agora mesmo",
+      "minutesAgo": "há {{count}} min",
+      "minutesShort": "{{count}}min",
+      "minutes_one": "{{count}} minuto",
+      "minutes_other": "{{count}} minutos",
+      "monthsAgo_one": "há {{count}} mês",
+      "monthsAgo_other": "há {{count}} meses",
+      "secondsShort": "{{count}}s",
+      "seconds_one": "{{count}} segundo",
+      "seconds_other": "{{count}} segundos",
+      "underMinute": "menos de 1 minuto",
+      "weeksAgo_one": "há {{count}} semana",
+      "weeksAgo_other": "há {{count}} semanas"
+    },
     "type": "Tipo",
     "unknown": "Desconhecido",
     "update": "Atualizar",
@@ -7483,6 +7658,126 @@
       "templateRolledBackTitle": "Modelo revertido"
     }
   },
+  "errorActions": {
+    "approveTheJoinRequest": "aprovar a solicitação de entrada",
+    "approveThisRequest": "aprovar esta solicitação",
+    "archiveTheCard": "arquivar o cartão",
+    "archiveTheTask": "arquivar a tarefa",
+    "checkGitHubSetup": "verificar a configuração do GitHub",
+    "checkSignIn": "verificar o login",
+    "checkTheApp": "verificar o app",
+    "checkTheConfig": "verificar a configuração",
+    "checkTheMonitor": "verificar o monitor",
+    "checkThisPairingCode": "verificar este código de pareamento",
+    "connectDot": "conectar o Dot",
+    "copyToTheClipboard": "copiar para a área de transferência",
+    "createTheCard": "criar o cartão",
+    "createTheRoutine": "criar a rotina",
+    "createTheTask": "criar a tarefa",
+    "deleteTheFolder": "excluir a pasta",
+    "deleteTheRawTrace": "excluir o trace bruto",
+    "exportTheAuditLog": "exportar o log de auditoria",
+    "finishSetup": "concluir a configuração",
+    "installTheTeam": "instalar o time",
+    "loadAccess": "carregar o acesso",
+    "loadActiveRuns": "carregar as execuções ativas",
+    "loadAdapterModels": "carregar os modelos do Adapter",
+    "loadAgentSetupData": "carregar os dados de configuração do agente",
+    "loadAgents": "carregar os agentes",
+    "loadApprovals": "carregar as aprovações",
+    "loadAssistantConnections": "carregar as conexões do assistente",
+    "loadAssistantSetup": "carregar a configuração do assistente",
+    "loadAttachmentDetails": "carregar os detalhes do anexo",
+    "loadBrowserSettings": "carregar as configurações do navegador",
+    "loadComposioAccounts": "carregar as contas do Composio",
+    "loadConnectionAccess": "carregar o acesso da conexão",
+    "loadConnectionPermissions": "carregar as permissões da conexão",
+    "loadConnectionReviews": "carregar as revisões da conexão",
+    "loadConnections": "carregar as conexões",
+    "loadDecisionSettings": "carregar as configurações de decisão",
+    "loadEveryConnector": "carregar todos os conectores",
+    "loadGatewayActivity": "carregar a atividade do gateway",
+    "loadGateways": "carregar os gateways",
+    "loadLocalFolderSettings": "carregar as configurações da pasta local",
+    "loadNewTools": "carregar as novas ferramentas",
+    "loadOrganizations": "carregar as empresas",
+    "loadPeople": "carregar as pessoas",
+    "loadPluginExtensions": "carregar as extensões do Plugin",
+    "loadProfiles": "carregar os perfis",
+    "loadProjectTasks": "carregar as tarefas do projeto",
+    "loadProjects": "carregar os projetos",
+    "loadProviderApps": "carregar os apps de {{provider}}",
+    "loadProviderVaults": "carregar os cofres dos provedores",
+    "loadRevisions": "carregar as revisões",
+    "loadRoutineActivity": "carregar a atividade da rotina",
+    "loadSavedAccess": "carregar o acesso salvo",
+    "loadSecrets": "carregar os segredos",
+    "loadSkillSources": "carregar as fontes de Skills",
+    "loadSkills": "carregar as Skills",
+    "loadTaskHierarchy": "carregar a hierarquia de tarefas",
+    "loadTasks": "carregar as tarefas",
+    "loadTheAdapterList": "carregar a lista de Adapters",
+    "loadTheAuditLog": "carregar o log de auditoria",
+    "loadTheBlockedTab": "carregar a aba Bloqueados",
+    "loadTheCSVPreview": "carregar a prévia do CSV",
+    "loadTheChannels": "carregar os canais",
+    "loadTheConnection": "carregar a conexão",
+    "loadTheConnectionActivity": "carregar a atividade da conexão",
+    "loadTheConnector": "carregar o conector",
+    "loadTheConversations": "carregar as conversas",
+    "loadTheDashboard": "carregar o painel",
+    "loadTheDestinations": "carregar os destinos",
+    "loadTheFile": "carregar o arquivo",
+    "loadTheFolder": "carregar a pasta",
+    "loadTheGateway": "carregar o gateway",
+    "loadTheInstallPreview": "carregar a prévia da instalação",
+    "loadTheProfile": "carregar o perfil",
+    "loadTheRunnerInspection": "carregar a inspeção do runner",
+    "loadTheTeamCatalog": "carregar o catálogo de times",
+    "loadTheToolCatalog": "carregar o catálogo de ferramentas",
+    "loadThisAgent": "carregar este agente",
+    "loadThisAgentsArtifacts": "carregar os artefatos deste agente",
+    "loadThisAgentsTasks": "carregar as tarefas deste agente",
+    "loadThisApp": "carregar este app",
+    "loadThisConnectionRequest": "carregar esta solicitação de conexão",
+    "loadThisEndpoint": "carregar este endpoint",
+    "loadThisPlugin": "carregar este Plugin",
+    "loadThisProject": "carregar este projeto",
+    "loadThisSkill": "carregar esta Skill",
+    "loadThisTask": "carregar esta tarefa",
+    "loadWorkspaces": "carregar os Workspaces",
+    "loadYourComposioAccounts": "carregar suas contas do Composio",
+    "loadYourConnectionStatus": "carregar o status da sua conexão",
+    "loadYourConnections": "carregar suas conexões",
+    "loadYourProfile": "carregar seu perfil",
+    "moveTheRoutine": "mover a rotina",
+    "moveTheSelectedRoutines": "mover as rotinas selecionadas",
+    "openThisWorkspace": "abrir este Workspace",
+    "postTheComment": "publicar o comentário",
+    "prepareSignIn": "preparar o login",
+    "probeTheConnection": "testar a conexão",
+    "refreshTheCard": "atualizar o cartão",
+    "rejectTheJoinRequest": "rejeitar a solicitação de entrada",
+    "rejectThisRequest": "rejeitar esta solicitação",
+    "requestARevision": "solicitar uma revisão",
+    "restoreTheCard": "restaurar o cartão",
+    "resubmitThisRequest": "reenviar esta solicitação",
+    "retryTheRun": "tentar a execução novamente",
+    "revokeTheConnection": "revogar a conexão",
+    "runThatSearch": "executar essa busca",
+    "runTheCard": "executar o cartão",
+    "save": "salvar",
+    "saveTheDocument": "salvar o documento",
+    "saveTheFolder": "salvar a pasta",
+    "saveTheSettings": "salvar as configurações",
+    "sendThisMessage": "enviar esta mensagem",
+    "startTheRoutineRun": "iniciar a execução da rotina",
+    "undoTheInboxArchive": "desfazer o arquivamento da caixa de entrada",
+    "updateTheFolder": "atualizar a pasta",
+    "updateTheRoutine": "atualizar a rotina",
+    "updateTheTask": "atualizar a tarefa",
+    "uploadTheFile": "enviar o arquivo"
+  },
   "goals": {
     "detail": {
       "defaultGoal": "Meta",
@@ -7643,6 +7938,78 @@
       "sortHistory": "Ordenar histórico de decisões",
       "stalledText": "Esta tarefa continua em revisão, sem revisor ativo nem continuação. Devolva-a ao trabalho, solicite mudanças ou marque a tarefa como concluída.",
       "unnamedProject": "Projeto sem nome"
+    },
+    "attention": {
+      "dateBucket": {
+        "earlier": "Mais antigos",
+        "thisWeek": "Esta semana",
+        "today": "Hoje",
+        "yesterday": "Ontem"
+      },
+      "dateRange": {
+        "all": "Todos",
+        "last7Days": "Últimos 7 dias",
+        "thisMonth": "Este mês",
+        "today": "Hoje",
+        "yesterday": "Ontem"
+      },
+      "decideBy": {
+        "notSet": "Não definido",
+        "thisWeek": "Esta semana",
+        "today": "Hoje",
+        "whenever": "Quando possível"
+      },
+      "desk": {
+        "decideNow": "Decidir agora",
+        "earlier": "Mais antigos",
+        "newToday": "Novos hoje"
+      },
+      "detail": {
+        "blockedBy": "Bloqueado por {{identifier}}",
+        "blockedByTitle": "Bloqueado por {{id}}{{title}}",
+        "budgetUsed": "{{percent}}% do orçamento usado (${{observed}} / ${{limit}})",
+        "itemsToVerdict_one": "{{count}} item para avaliar",
+        "itemsToVerdict_other": "{{count}} itens para avaliar",
+        "optionCount_one": "{{count}} opção",
+        "optionCount_other": "{{count}} opções",
+        "questionCount_one": "{{count}} pergunta",
+        "questionCount_other": "{{count}} perguntas",
+        "suggestedTaskCount_one": "{{count}} tarefa sugerida",
+        "suggestedTaskCount_other": "{{count}} tarefas sugeridas"
+      },
+      "group": {
+        "noProject": "Sem projeto"
+      },
+      "groupBy": {
+        "date": "Data",
+        "none": "Nenhum",
+        "project": "Projeto",
+        "severity": "Severidade",
+        "type": "Tipo"
+      },
+      "severity": {
+        "critical": "Crítica",
+        "high": "Alta",
+        "low": "Baixa",
+        "medium": "Média"
+      },
+      "sort": {
+        "newest": "Mais recentes primeiro",
+        "oldest": "Mais antigos primeiro"
+      },
+      "source": {
+        "agentErrorAlert": "Erro do agente",
+        "approval": "Aprovação",
+        "blockerAttention": "Dependência bloqueada",
+        "budgetAlert": "Orçamento",
+        "decision": "Decisão",
+        "failedRun": "Execução com falha",
+        "issueThreadInteraction": "Decisão solicitada",
+        "joinRequest": "Solicitação de entrada",
+        "productivityReview": "Tarefa",
+        "recoveryAction": "Recuperação",
+        "review": "Revisão"
+      }
     },
     "decisionCard": {
       "aNewIssue": "uma nova issue",
@@ -7985,6 +8352,9 @@
       "selectAgents": "Selecionar agentes",
       "selectedCount_one": "{{count}} agente selecionado",
       "selectedCount_other": "{{count}} agentes selecionados"
+    },
+    "interactionResolutionError": {
+      "retry": "{{reason}} Tente novamente."
     },
     "joinRequestQueue": {
       "approve": "Aprovar",
@@ -11340,6 +11710,14 @@
       "description": "Esta execução não tem classificação de progresso salva.",
       "label": "Sem dados de progresso"
     },
+    "monitor": {
+      "dueNow": "vence agora",
+      "inDuration": "em {{duration}}",
+      "offsetAgo": "há {{duration}}",
+      "offsetNow": "agora",
+      "overdueBy": "atrasado em {{duration}}",
+      "today": "Hoje, {{time}}"
+    },
     "myIssues": {
       "breadcrumb": "Minhas tarefas",
       "empty": {
@@ -11460,6 +11838,17 @@
       "loading": "Carregando tarefas…",
       "noTasks": "Nenhuma tarefa ainda."
     },
+    "recovery": {
+      "attemptLabel": "Tentativa {{attempt}} de {{maxAttempts}}",
+      "chip": {
+        "escalated": "Recuperação escalada",
+        "inProgress": "Recuperação em andamento",
+        "inProgressAttempt": "Recuperação em andamento · {{attempt}}/{{maxAttempts}}",
+        "needed": "Recuperação necessária",
+        "observeOnly": "Observando execução ativa",
+        "workspaceNeeded": "Recuperação do workspace necessária"
+      }
+    },
     "requestConfirmationTargetLabel": {
       "attachment": "Anexo",
       "plan": "Plano"
@@ -11470,6 +11859,12 @@
     "retryPendingLivenessCopy": {
       "description": "O Paperclip agendou uma nova tentativa automática que ainda não começou.",
       "label": "Nova tentativa pendente"
+    },
+    "reviewPolicyBadge": {
+      "humanOnlyDescription": "Somente uma pessoa pode aprovar esta revisão. Agentes não podem dar o veredito.",
+      "humanOnlyLabel": "Somente humano",
+      "notCreatorDescription": "Qualquer pessoa, exceto quem pediu a revisão, pode aprová-la.",
+      "notCreatorLabel": "Qualquer outra pessoa"
     },
     "runOutputSilenceCopyByLevel": {
       "critical": "Silêncio crítico",
@@ -11484,6 +11879,16 @@
     },
     "secretProposalStatusClasses": {
       "failed": "FALHOU"
+    },
+    "sourceResolvedFold": {
+      "cleanup": {
+        "failed": "falhou",
+        "noProcessMetadata": "sem metadados de processo",
+        "notRunning": "não está em execução",
+        "skippedNonLocalAdapter": "ignorado (adapter não local)",
+        "terminated": "encerrado",
+        "terminationSentStillRunning": "encerramento enviado (ainda em execução)"
+      }
     },
     "statusLabel": {
       "accepted": "Aceito",
@@ -11515,6 +11920,23 @@
       "unavailable": "Indisponível",
       "waitingToStart": "Aguardando início"
     },
+    "taskListColumns": {
+      "assignee": "Responsável",
+      "createdBy": "Criado por",
+      "lastUpdated": "Última atualização",
+      "parentTask": "Tarefa pai",
+      "project": "Projeto",
+      "tags": "Tags",
+      "task": "Tarefa",
+      "taskId": "ID da tarefa",
+      "worktree": "Worktree"
+    },
+    "taskListViews": {
+      "all": "Todas as tarefas",
+      "blocked": "Precisa de atenção",
+      "inbox": "Caixa de entrada",
+      "unread": "Não lidas"
+    },
     "toolActionStatusClasses": {
       "awaitingApproval": "Aguardando aprovação",
       "cancelled": "Cancelado",
@@ -11543,6 +11965,15 @@
       "approve": "Aprovado",
       "defer": "Adiado",
       "reject": "Rejeitado"
+    },
+    "waitingTaskStatus": {
+      "backlog": "Backlog",
+      "blocked": "Bloqueado",
+      "cancelled": "Cancelado",
+      "done": "Concluído",
+      "in_progress": "Em andamento",
+      "in_review": "Em revisão",
+      "todo": "A fazer"
     },
     "watchdogDecisionErrorMessage": {
       "fallback": "O Paperclip não conseguiu registrar a decisão do watchdog.",
@@ -13897,6 +14328,23 @@
       "results": "Resultados da busca",
       "searchingEverywhere": " · buscando em tudo, não apenas em {{folderPath}}"
     },
+    "secretDelivery": {
+      "consumerType": {
+        "agentApi": "API do agente",
+        "pluginWorker": "Worker de plugin",
+        "toolConnection": "Conexão de ferramenta"
+      },
+      "modeDescription": {
+        "api": "Buscado sob demanda pela API do agente vinculada à execução. Nunca é gravado no ambiente.",
+        "config": "Fornecido pela configuração do adapter.",
+        "env": "Injetado como variável de ambiente no início da execução."
+      },
+      "modeLabel": {
+        "api": "Acesso via API",
+        "config": "Configuração",
+        "env": "Variável de ambiente"
+      }
+    },
     "selectOrg": "Selecione uma empresa para gerenciar segredos.",
     "table": {
       "actions": "Ações",
@@ -14816,7 +15264,29 @@
       "uploadHintNoCompany": "Selecione uma empresa para enviar um avatar ao armazenamento do Paperclip.",
       "uploadPhoto": "Enviar foto"
     },
-    "selectOrgToViewPage": "Selecione uma empresa para ver esta página."
+    "selectOrgToViewPage": "Selecione uma empresa para ver esta página.",
+    "trust": {
+      "boundary": {
+        "count_one": "{{count}} limite",
+        "count_other": "{{count}} limites",
+        "issue": "Issue {{id}}",
+        "none": "Nenhum limite selecionado",
+        "project": "Projeto {{id}}",
+        "rootIssue": "Issue raiz {{id}}"
+      },
+      "preset": {
+        "lowTrustReview": "Revisão de baixa confiança",
+        "standard": "Padrão"
+      },
+      "presetDescription": {
+        "lowTrustReview": "Contido para entradas hostis ou não confiáveis. API restrita do Paperclip, saída em quarentena. Use para revisão de PR e triagem de conteúdo externo.",
+        "standard": "Colaboração visível para a Empresa. Este é o padrão para o trabalho normal."
+      },
+      "source": {
+        "lowTrust": "Origem de baixa confiança",
+        "promoted": "Promovido de baixa confiança"
+      }
+    }
   },
   "sidePanel": {
     "TaskAttachmentPanel": {
@@ -16954,6 +17424,83 @@
       "copied": "Copiado!",
       "copyFailed": "Falha ao copiar",
       "copyTitle": "Clique para copiar o nome do worktree"
+    },
+    "accessState": {
+      "actions": {
+        "openWorkspace": "Abrir workspace",
+        "provisioning": "Provisionando",
+        "repairInProgress": "Reparo em andamento",
+        "repairWorkspace": "Reparar workspace",
+        "startWorkspace": "Iniciar workspace",
+        "starting": "Iniciando workspace",
+        "validating": "Validando",
+        "viewProvisioningLog": "Ver log do provisionamento",
+        "viewRepairLog": "Ver log do reparo"
+      },
+      "cause": {
+        "lastRecordedPhase": "Última fase registrada: {{phase}}."
+      },
+      "degraded": {
+        "fallbackCause": "O workspace está no ar, mas o clone não passou no contrato de prontidão.",
+        "repairHint": "Um reparo limitado substitui o banco isolado.",
+        "title": "Workspace degradado",
+        "unhealthyCause": "O runtime está no ar, mas não informou um banco de dados utilizável, então o Paperclip não o publicará como pronto.",
+        "validatingHint": "O Paperclip ainda está confirmando o clone."
+      },
+      "handoffReason": {
+        "handoffNotConfigured": "Esta instância não tem handoff de login de workspace configurado, então abrir o board usa as credenciais locais do snapshot.",
+        "noBoardIdentity": "Sua sessão não tem um usuário clonado para entrar, então abrir o board usa as credenciais locais do snapshot.",
+        "runtimeNotRunning": "Nenhum serviço de runtime saudável está publicando uma URL para este workspace ainda.",
+        "runtimeUrlUnusable": "A linha de runtime está publicando uma URL que o Paperclip não consegue abrir.",
+        "workspaceNotReady": "O banco de dados clonado ainda não está pronto para aceitar login."
+      },
+      "notRunning": {
+        "description": "Inicie o runtime do workspace para publicar o board.",
+        "title": "Workspace não está em execução"
+      },
+      "provisionFailed": {
+        "description": "O clone não terminou, então este workspace ainda não tem banco de dados utilizável.",
+        "descriptionWithPhase": "O clone falhou durante {{phase}}. O reparo substitui somente o banco isolado.",
+        "noticeDescription": "Uma tentativa anterior de clone falhou, mas o workspace depois ficou utilizável.",
+        "noticeDescriptionWithPhase": "A tentativa anterior de clone falhou durante {{phase}}. O workspace depois ficou utilizável.",
+        "title": "Falha no provisionamento do banco de dados"
+      },
+      "provisioning": {
+        "description": "Restaurando o clone do banco isolado deste workspace. Isso roda uma vez antes da primeira inicialização.",
+        "title": "Provisionando banco de dados"
+      },
+      "readinessFailure": {
+        "authHandoffNotConfigured": "O workspace foi iniciado sem chave de handoff de login.",
+        "cloneDataMissing": "O clone não restaurou nenhum registro de Empresa ou de issue.",
+        "cloneDataUnreadable": "Não foi possível ler as tabelas de produto clonadas.",
+        "clonedIdentityUnreadable": "Não foi possível ler as tabelas de identidade clonadas.",
+        "clonedMembershipMissing": "Nenhum usuário clonado tem vínculo ativo com a Empresa.",
+        "databaseUnreachable": "O banco isolado não está respondendo.",
+        "seedManifestUnreadable": "O manifesto do seed não pode ser lido, então a restauração não é confiável."
+      },
+      "ready": {
+        "description": "Abrir o workspace faz seu login no board clonado sem senha.",
+        "snapshotDescription": "Abrir o board vai pedir as credenciais capturadas neste snapshot.",
+        "snapshotTitle": "Pronto — login local do snapshot",
+        "title": "Pronto"
+      },
+      "repairFailed": {
+        "description": "O reparo parou antes de o workspace ficar utilizável. O backup de antes do reparo foi mantido.",
+        "descriptionWithPhase": "O reparo parou durante {{phase}}. O backup de antes do reparo foi mantido.",
+        "title": "Falha no reparo"
+      },
+      "repairing": {
+        "description": "Somente o banco isolado é substituído; a worktree do git e os seus arquivos são preservados.",
+        "descriptionWithPhase": "Somente o banco isolado é substituído; a worktree do git e os seus arquivos são preservados. Fase atual: {{phase}}.",
+        "title": "Reparando o banco de dados do workspace"
+      },
+      "starting": {
+        "description": "O Paperclip está iniciando o runtime do workspace e aguardando a URL do board.",
+        "title": "Workspace está iniciando"
+      },
+      "validating": {
+        "title": "Validando clone"
+      }
     },
     "actions": {
       "inspectCloseReadiness": "inspecionar prontidão para fechamento do workspace",

@@ -106,7 +106,7 @@ export function SkillSources() {
     </header>
     <SkillsPageNavigation activeView="sources" />
     {(view.kind === 'loading' || view.kind === 'reconnecting') && <p role="status" className="text-sm text-muted-foreground">{t('skills.sources.loading', { defaultValue: 'Loading sources…' })}</p>}
-    {view.kind === 'error' && <QueryErrorState error={query.error} action="load skill sources" onRetry={view.retry} retrying={view.isFetching} />}
+    {view.kind === 'error' && <QueryErrorState error={query.error} action={t("errorActions.loadSkillSources")} onRetry={view.retry} retrying={view.isFetching} />}
     {query.data?.length === 0 && availableProjects.length === 0 && <div className="flex flex-col items-start gap-3 py-8"><p className="text-sm text-muted-foreground">{t('skills.sources.noRepositories', { company: selectedCompany?.name ?? 'this company', defaultValue: `No repositories added yet. Import your skills to make them available in ${selectedCompany?.name ?? 'this company'}.` })}</p><Button variant="outline" onClick={() => navigate('/skills/sources/new')}>{t('skills.actions.importGithub', { defaultValue: 'Import from GitHub' })}</Button></div>}
     {projectsView.kind === 'error' && <p role="alert" className="text-sm text-destructive">{describeError(projectRepositories.error).body} <Button variant="ghost" size="sm" onClick={() => void projectRepositories.refetch()}>{t('skills.sources.tryAgain', { defaultValue: 'Try again' })}</Button></p>}
     {adopt.error && <p role="alert" className="text-sm text-destructive">{describeError(adopt.error).body}</p>}

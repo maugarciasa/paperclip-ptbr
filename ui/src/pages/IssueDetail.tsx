@@ -5199,7 +5199,7 @@ export function TaskDetailSurface({ conversation, tasksTab }: { tasksTab?: TaskS
       // A comment that is not known to be saved stays in the composer and
       // resends with the same request ID; its notice replaces this toast.
       if (classifySendFailure(err) === "pending") return;
-      const { title, body } = describeError(err, { action: "post the comment" });
+      const { title, body } = describeError(err, { action: t("errorActions.postTheComment") });
       pushToast({ title, body, tone: "error" });
     },
     onFinished: (_variables, context) => {
@@ -5625,7 +5625,7 @@ export function TaskDetailSurface({ conversation, tasksTab }: { tasksTab?: TaskS
       // A comment that is not known to be saved stays in the composer and
       // resends with the same request ID; its notice replaces this toast.
       if (classifySendFailure(err) === "pending") return;
-      const { title, body } = describeError(err, { action: "post the comment" });
+      const { title, body } = describeError(err, { action: t("errorActions.postTheComment") });
       pushToast({ title, body, tone: "error" });
     },
     onSettled: (_result, _error, variables) => {
@@ -7385,7 +7385,7 @@ export function TaskDetailSurface({ conversation, tasksTab }: { tasksTab?: TaskS
         <QueryErrorState
           size="page"
           error={pageError}
-          action="load this task"
+          action={t("errorActions.loadThisTask")}
           onRetry={coreIssueQuery.error ? coreIssueView.retry : issueView.retry}
           retrying={issueView.isFetching || coreIssueView.isFetching}
         />
@@ -8065,7 +8065,7 @@ export function TaskDetailSurface({ conversation, tasksTab }: { tasksTab?: TaskS
         onCancelMonitor={() => cancelIssueMonitor.mutateAsync()}
         issue={issue}
         workProducts={workProducts}
-        checkError={checkIssueMonitorNow.error ? describeError(checkIssueMonitorNow.error, { action: "check the monitor" }).body : null}
+        checkError={checkIssueMonitorNow.error ? describeError(checkIssueMonitorNow.error, { action: t("errorActions.checkTheMonitor") }).body : null}
         onCheckNow={() => checkIssueMonitorNow.mutate()}
         checkingNow={checkIssueMonitorNow.isPending}
       />
@@ -8644,7 +8644,7 @@ export function TaskDetailSurface({ conversation, tasksTab }: { tasksTab?: TaskS
                       <IssueMonitorComposerStrip
                         issue={issue}
                         workProducts={workProducts}
-                        checkError={checkIssueMonitorNow.error ? describeError(checkIssueMonitorNow.error, { action: "check the monitor" }).body : null}
+                        checkError={checkIssueMonitorNow.error ? describeError(checkIssueMonitorNow.error, { action: t("errorActions.checkTheMonitor") }).body : null}
                         onCheckNow={() => checkIssueMonitorNow.mutate()}
                         checkingNow={checkIssueMonitorNow.isPending}
                       />

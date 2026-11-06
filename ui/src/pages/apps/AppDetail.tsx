@@ -90,7 +90,7 @@ export function AppDetail(props: { renderActions?: (connection: ToolConnection) 
   if (connection.isPending || view.kind === "reconnecting") return <p role="status">{t("apps.AppDetail.loadingConnection")}</p>;
   if (view.kind === "error" && view.errorKind === "not_found") return <AppNotFound />;
   if (view.kind === "error") {
-    return <QueryErrorState size="page" error={connection.error} action="load the connection" onRetry={view.retry} retrying={view.isFetching} />;
+    return <QueryErrorState size="page" error={connection.error} action={t("errorActions.loadTheConnection")} onRetry={view.retry} retrying={view.isFetching} />;
   }
   const pluginKey = connection.data && aiConnectionRouterPluginKey(connection.data);
   // Keyed so page state, such as a failed refresh's recovery link, never carries over to another connection.
@@ -552,7 +552,7 @@ function StandardAppDetail({ renderActions, renderAgentSettings, renderConnectio
   }
   if (connectionView.kind === "error" && connectionView.errorKind === "not_found") return <AppNotFound />;
   if (connectionView.kind === "error") {
-    return <AppReadError size="page" action="load the connection" failure={connectionView} />;
+    return <AppReadError size="page" action={t("errorActions.loadTheConnection")} failure={connectionView} />;
   }
   if (!connection) return <AppNotFound />;
 

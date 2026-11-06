@@ -5,7 +5,7 @@ import { CSS } from "@dnd-kit/utilities";
 import { ArrowDown, ArrowUp, Ellipsis } from "lucide-react";
 import { Button } from "./ui/button";
 import { DropdownMenu, DropdownMenuCheckboxItem, DropdownMenuContent, DropdownMenuItem, DropdownMenuLabel, DropdownMenuTrigger } from "./ui/dropdown-menu";
-import { allTaskListColumns, defaultTaskListColumns, reorderTaskListColumns, taskListColumnStart, taskListColumns, type TaskListColumnId, type TaskListSort } from "../lib/task-list";
+import { allTaskListColumns, defaultTaskListColumns, reorderTaskListColumns, taskListColumnLabels, taskListColumnStart, taskListColumns, type TaskListColumnId, type TaskListSort } from "../lib/task-list";
 import { CellMarquee } from "./CellMarquee";
 import { FlyoutAppearanceProvider, FlyoutHeader, FlyoutOptions } from "./ui/flyout";
 import { useHorizontalScrollEdges } from "@/hooks/useHorizontalScrollEdges";
@@ -139,7 +139,7 @@ export function TaskListColumnHeader({ sort, onSortChange, onColumnOrderChange }
       <SortableContext items={[...columns]} strategy={horizontalListSortingStrategy}>
         <div role="row" data-slot="task-list-column-header" className="task-list-column-header">
           {!columns.includes("task") ? <span role="columnheader" aria-label={t("issues.TaskListColumnHeader.hierarchyLabel")} /> : null}
-          {columns.map(id => <SortableColumnHeader key={id} id={id} label={taskListColumns.find(column => column.id === id)!.label} start={taskListColumnStart(columns, id)} sort={sort} onSortChange={onSortChange} onColumnOrderChange={onColumnOrderChange} helpId={helpId} />)}
+          {columns.map(id => <SortableColumnHeader key={id} id={id} label={taskListColumnLabels()[id]} start={taskListColumnStart(columns, id)} sort={sort} onSortChange={onSortChange} onColumnOrderChange={onColumnOrderChange} helpId={helpId} />)}
         </div>
       </SortableContext>
     </DndContext>
@@ -172,7 +172,7 @@ export function TaskListColumnSettings({ visibleColumns, onVisibleColumnsChange,
               onSelect={event => event.preventDefault()}
               onCheckedChange={checked => onVisibleColumnsChange(order.filter(column => column === id ? checked === true : visibleColumns.includes(column)))}
             >
-              {taskListColumns.find(column => column.id === id)!.label}
+              {taskListColumnLabels()[id]}
             </DropdownMenuCheckboxItem>
           ))}
           <DropdownMenuItem className="task-list-options-reset" onSelect={event => { event.preventDefault(); onColumnOrderChange?.(allTaskListColumns); onVisibleColumnsChange(defaultTaskListColumns); onResetDefaults?.(); }}>{t("issues.TaskListColumnSettings.resetDefaults")}</DropdownMenuItem>

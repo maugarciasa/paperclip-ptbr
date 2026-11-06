@@ -107,7 +107,7 @@ function CredentialSettings({
           <QueryErrorState
             size="inline"
             error={profiles.error}
-            action="load profiles"
+            action={t("errorActions.loadProfiles")}
             onRetry={profilesView.retry}
             retrying={profilesView.isFetching}
           />
@@ -116,7 +116,7 @@ function CredentialSettings({
       {savedView.kind === "error" ? (
         <QueryErrorState
           error={saved.error}
-          action="load browser settings"
+          action={t("errorActions.loadBrowserSettings")}
           onRetry={savedView.retry}
           retrying={savedView.isFetching}
         />

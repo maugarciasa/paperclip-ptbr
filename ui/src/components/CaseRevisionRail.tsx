@@ -212,7 +212,7 @@ export function CaseRevisionRail({
         <QueryErrorState
           size="inline"
           error={revisionsQuery.error}
-          action="load revisions"
+          action={t("errorActions.loadRevisions")}
           onRetry={revisionsView.retry}
           retrying={revisionsView.isFetching}
         />

@@ -92,7 +92,7 @@ export function CatalogDialog({ connection, onClose }: { connection: ToolConnect
         ) : catalogView.kind === "error" ? (
           <QueryErrorState
             error={catalog.error}
-            action="load the tool catalog"
+            action={t("errorActions.loadTheToolCatalog")}
             onRetry={catalogView.retry}
             retrying={catalogView.isFetching}
           />
@@ -540,7 +540,7 @@ export function AddConnectionDialog({
             ) : probe.error ? (
               <QueryErrorState
                 error={probe.error}
-                action="probe the connection"
+                action={t("errorActions.probeTheConnection")}
                 onRetry={() => draft && probe.mutate(draft.id)}
               />
             ) : probeResult ? (
