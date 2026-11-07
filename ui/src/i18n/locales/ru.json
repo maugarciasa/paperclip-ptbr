@@ -4467,6 +4467,14 @@
         "point2": "biller credit systems",
         "point3": "errors surfaced directly"
       }
+    },
+    "billingType": {
+      "meteredApi": "Metered API",
+      "subscriptionIncluded": "Subscription",
+      "subscriptionOverage": "Subscription overage",
+      "credits": "Credits",
+      "fixed": "Fixed",
+      "unknown": "Unknown"
     }
   },
   "dashboard": {
@@ -8611,6 +8619,14 @@
         "observeOnly": "Observing active run",
         "escalated": "Recovery escalated",
         "workspaceNeeded": "Workspace recovery needed"
+      },
+      "lineage": {
+        "attemptRunningNow": "attempt running now",
+        "retryMissedOffset": "retry missed {{offset}}",
+        "retryMissed": "retry missed",
+        "nextTryNow": "next try now",
+        "nextTryOffset": "next try {{offset}}",
+        "retriesUsedUp": "retries used up"
       }
     },
     "reviewPolicyBadge": {
@@ -8654,6 +8670,34 @@
       "unread": "Unread",
       "blocked": "Needs attention",
       "all": "All tasks"
+    },
+    "chatRun": {
+      "workedFor": "Worked for {{duration}}",
+      "finishedWork": "Finished work",
+      "failedAfter": "Failed after {{duration}}",
+      "failed": "Run failed",
+      "timedOutAfter": "Timed out after {{duration}}",
+      "timedOut": "Run timed out",
+      "interruptedAfter": "Interrupted by board after {{duration}}",
+      "interrupted": "Interrupted by board",
+      "pausedAfter": "Paused by board after {{duration}}",
+      "paused": "Paused by board",
+      "cancelledAfter": "Cancelled after {{duration}}",
+      "cancelled": "Run cancelled",
+      "queued": "Queued",
+      "working": "Working..."
+    },
+    "taskChatTurn": {
+      "continuedAfterSteering": "Continued after steering · ",
+      "workedFor": "Worked for {{duration}}",
+      "stoppedFor": "Stopped after {{duration}}",
+      "worked": "Worked",
+      "stopped": "Stopped"
+    },
+    "reviewPolicyValue": {
+      "anyone": "anyone",
+      "notCreator": "anyone else",
+      "humanOnly": "human only"
     }
   },
   "nav": {
@@ -17889,5 +17933,19 @@
     "updateTheTask": "update the task",
     "save": "save",
     "loadProviderApps": "load {{provider}} apps"
+  },
+  "resourceMemberships": {
+    "toast": {
+      "errorTitle": {
+        "star": "Couldn't star {{name}}.",
+        "unstar": "Couldn't unstar {{name}}.",
+        "leave": "Couldn't leave {{name}}.",
+        "join": "Couldn't join {{name}}."
+      },
+      "tryAgain": "Try again."
+    },
+    "errors": {
+      "selectOrganization": "Select an organization first."
+    }
   }
 }

@@ -52,11 +52,16 @@ function badgeFor(policy: IssueReviewPolicy): IssueReviewPolicyBadge | null {
 }
 
 /** Mid-sentence wording for activity lines and field-change receipts. */
-const VALUE_LABELS: Record<IssueReviewPolicy, string> = {
-  anyone: "anyone",
-  not_creator: "anyone else",
-  human_only: "human only",
-};
+function policyValueLabel(policy: IssueReviewPolicy): string {
+  switch (policy) {
+    case "not_creator":
+      return t("issues.reviewPolicyValue.notCreator");
+    case "human_only":
+      return t("issues.reviewPolicyValue.humanOnly");
+    default:
+      return t("issues.reviewPolicyValue.anyone");
+  }
+}
 
 /**
  * The badge for a policy, or `null` when there is nothing to show — which is the
@@ -74,10 +79,12 @@ export function issueReviewPolicyBadge(
  * cleared column must read "anyone" rather than "none".
  */
 export function formatReviewPolicyValue(value: unknown): string {
-  if (value === null || value === undefined) return VALUE_LABELS.anyone;
-  if (typeof value !== "string") return VALUE_LABELS.anyone;
+  if (value === null || value === undefined) return policyValueLabel("anyone");
+  if (typeof value !== "string") return policyValueLabel("anyone");
   // Forward-compatible: a policy this build does not know reads as itself.
-  return VALUE_LABELS[value as IssueReviewPolicy] ?? value.replace(/_/g, " ");
+  return (ISSUE_REVIEW_POLICIES as readonly string[]).includes(value)
+    ? policyValueLabel(value as IssueReviewPolicy)
+    : value.replace(/_/g, " ");
 }
 
 /**

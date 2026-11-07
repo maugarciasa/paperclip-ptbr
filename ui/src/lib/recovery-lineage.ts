@@ -233,15 +233,23 @@ export function formatRecoveryLineageSummary(lineage: RecoveryRetryLineage): str
   if (attempt) parts.push(attempt);
   const offset = formatRecoveryRetryOffset(lineage);
   if (lineage.liveRunId) {
-    parts.push("attempt running now");
+    parts.push(t("issues.recovery.lineage.attemptRunningNow"));
   } else if (lineage.retryExpired) {
     // Never "next try 5m ago": a due time in the past is a missed attempt, and phrasing it as
     // an upcoming one is exactly the false healthy state this helper exists to prevent.
-    parts.push(offset ? `retry missed ${offset}` : "retry missed");
+    parts.push(
+      offset
+        ? t("issues.recovery.lineage.retryMissedOffset", { offset })
+        : t("issues.recovery.lineage.retryMissed"),
+    );
   } else if (offset) {
-    parts.push(lineage.nextRetryAt && isMonitorOffsetNow(lineage.nextRetryAt) ? "next try now" : `next try ${offset}`);
+    parts.push(
+      lineage.nextRetryAt && isMonitorOffsetNow(lineage.nextRetryAt)
+        ? t("issues.recovery.lineage.nextTryNow")
+        : t("issues.recovery.lineage.nextTryOffset", { offset }),
+    );
   } else if (lineage.exhausted) {
-    parts.push("retries used up");
+    parts.push(t("issues.recovery.lineage.retriesUsedUp"));
   }
   return parts.length > 0 ? parts.join(" · ") : null;
 }

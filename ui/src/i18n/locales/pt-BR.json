@@ -7201,7 +7201,15 @@
     "tokensShort": "{{tokens}} tok",
     "unattributed": "Não atribuído",
     "userCostsLoadError": "Não foi possível carregar os custos por usuário. Tente novamente em instantes.",
-    "userCostsRefreshError": "Não foi possível atualizar os custos por usuário. Mostrando os últimos dados carregados."
+    "userCostsRefreshError": "Não foi possível atualizar os custos por usuário. Mostrando os últimos dados carregados.",
+    "billingType": {
+      "meteredApi": "API por uso",
+      "subscriptionIncluded": "Assinatura",
+      "subscriptionOverage": "Excedente da assinatura",
+      "credits": "Créditos",
+      "fixed": "Fixo",
+      "unknown": "Desconhecido"
+    }
   },
   "dashboard": {
     "ActivityCharts": {
@@ -11847,6 +11855,14 @@
         "needed": "Recuperação necessária",
         "observeOnly": "Observando execução ativa",
         "workspaceNeeded": "Recuperação do workspace necessária"
+      },
+      "lineage": {
+        "attemptRunningNow": "tentativa em execução agora",
+        "retryMissedOffset": "nova tentativa perdida {{offset}}",
+        "retryMissed": "nova tentativa perdida",
+        "nextTryNow": "próxima tentativa agora",
+        "nextTryOffset": "próxima tentativa {{offset}}",
+        "retriesUsedUp": "tentativas esgotadas"
       }
     },
     "requestConfirmationTargetLabel": {
@@ -11985,6 +12001,34 @@
       "failed": "Falhou",
       "forReview": "Para revisão",
       "inProgress": "Em andamento"
+    },
+    "chatRun": {
+      "workedFor": "Trabalhou por {{duration}}",
+      "finishedWork": "Trabalho concluído",
+      "failedAfter": "Falhou após {{duration}}",
+      "failed": "Execução falhou",
+      "timedOutAfter": "Tempo esgotado após {{duration}}",
+      "timedOut": "Execução excedeu o tempo limite",
+      "interruptedAfter": "Interrompida pelo Board após {{duration}}",
+      "interrupted": "Interrompida pelo Board",
+      "pausedAfter": "Pausada pelo Board após {{duration}}",
+      "paused": "Pausada pelo Board",
+      "cancelledAfter": "Cancelada após {{duration}}",
+      "cancelled": "Execução cancelada",
+      "queued": "Na fila",
+      "working": "Trabalhando..."
+    },
+    "taskChatTurn": {
+      "continuedAfterSteering": "Continuou após redirecionamento · ",
+      "workedFor": "Trabalhou por {{duration}}",
+      "stoppedFor": "Parou após {{duration}}",
+      "worked": "Trabalhou",
+      "stopped": "Parou"
+    },
+    "reviewPolicyValue": {
+      "anyone": "qualquer pessoa",
+      "notCreator": "qualquer outra pessoa",
+      "humanOnly": "somente humanos"
     }
   },
   "nav": {
@@ -17889,5 +17933,19 @@
     "summaryDescription": "O sumarizador monitora a atividade dos workspaces, serviços ativos e necessidades de acompanhamento em todos os projetos.",
     "summaryTitle": "Resumo do workspace",
     "title": "Workspaces"
+  },
+  "resourceMemberships": {
+    "toast": {
+      "errorTitle": {
+        "star": "Não foi possível favoritar {{name}}.",
+        "unstar": "Não foi possível desfavoritar {{name}}.",
+        "leave": "Não foi possível sair de {{name}}.",
+        "join": "Não foi possível entrar em {{name}}."
+      },
+      "tryAgain": "Tente novamente."
+    },
+    "errors": {
+      "selectOrganization": "Selecione uma empresa primeiro."
+    }
   }
 }

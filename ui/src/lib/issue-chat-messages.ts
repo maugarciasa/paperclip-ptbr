@@ -812,24 +812,26 @@ function runDurationLabel(run: {
   const stopReason = typeof run.resultJson?.stopReason === "string" ? run.resultJson.stopReason : null;
   switch (run.status) {
     case "succeeded":
-      return durationText ? `Worked for ${durationText}` : "Finished work";
+      return durationText ? t("issues.chatRun.workedFor", { duration: durationText }) : t("issues.chatRun.finishedWork");
     case "failed":
     case "error":
-      return durationText ? `Failed after ${durationText}` : "Run failed";
+      return durationText ? t("issues.chatRun.failedAfter", { duration: durationText }) : t("issues.chatRun.failed");
     case "timed_out":
-      return durationText ? `Timed out after ${durationText}` : "Run timed out";
+      return durationText ? t("issues.chatRun.timedOutAfter", { duration: durationText }) : t("issues.chatRun.timedOut");
     case "cancelled":
       if (isOperatorInterruptedRun(run.resultJson, run.errorCode)) {
-        return durationText ? `Interrupted by board after ${durationText}` : "Interrupted by board";
+        return durationText
+          ? t("issues.chatRun.interruptedAfter", { duration: durationText })
+          : t("issues.chatRun.interrupted");
       }
       if (stopReason === "paused") {
-        return durationText ? `Paused by board after ${durationText}` : "Paused by board";
+        return durationText ? t("issues.chatRun.pausedAfter", { duration: durationText }) : t("issues.chatRun.paused");
       }
-      return durationText ? `Cancelled after ${durationText}` : "Run cancelled";
+      return durationText ? t("issues.chatRun.cancelledAfter", { duration: durationText }) : t("issues.chatRun.cancelled");
     case "queued":
-      return "Queued";
+      return t("issues.chatRun.queued");
     case "running":
-      return "Working...";
+      return t("issues.chatRun.working");
     default:
       return formatStatusLabel(run.status);
   }

@@ -141,12 +141,12 @@ export function providerDisplayName(provider: string): string {
 
 export function billingTypeDisplayName(billingType: BillingType): string {
   const map: Record<BillingType, string> = {
-    metered_api: "Metered API",
-    subscription_included: "Subscription",
-    subscription_overage: "Subscription overage",
-    credits: "Credits",
-    fixed: "Fixed",
-    unknown: "Unknown",
+    metered_api: t("costs.billingType.meteredApi"),
+    subscription_included: t("costs.billingType.subscriptionIncluded"),
+    subscription_overage: t("costs.billingType.subscriptionOverage"),
+    credits: t("costs.billingType.credits"),
+    fixed: t("costs.billingType.fixed"),
+    unknown: t("costs.billingType.unknown"),
   };
   return map[billingType];
 }

@@ -7201,7 +7201,15 @@
     "tokensShort": "{{tokens}} tok",
     "unattributed": "Unattributed",
     "userCostsLoadError": "User costs could not be loaded. Please try again shortly.",
-    "userCostsRefreshError": "User costs could not be refreshed. Showing the last loaded data."
+    "userCostsRefreshError": "User costs could not be refreshed. Showing the last loaded data.",
+    "billingType": {
+      "meteredApi": "Metered API",
+      "subscriptionIncluded": "Subscription",
+      "subscriptionOverage": "Subscription overage",
+      "credits": "Credits",
+      "fixed": "Fixed",
+      "unknown": "Unknown"
+    }
   },
   "dashboard": {
     "ActivityCharts": {
@@ -11847,6 +11855,14 @@
         "needed": "Recovery needed",
         "observeOnly": "Observing active run",
         "workspaceNeeded": "Workspace recovery needed"
+      },
+      "lineage": {
+        "attemptRunningNow": "attempt running now",
+        "retryMissedOffset": "retry missed {{offset}}",
+        "retryMissed": "retry missed",
+        "nextTryNow": "next try now",
+        "nextTryOffset": "next try {{offset}}",
+        "retriesUsedUp": "retries used up"
       }
     },
     "requestConfirmationTargetLabel": {
@@ -11985,6 +12001,34 @@
       "failed": "Failed",
       "forReview": "For review",
       "inProgress": "In progress"
+    },
+    "chatRun": {
+      "workedFor": "Worked for {{duration}}",
+      "finishedWork": "Finished work",
+      "failedAfter": "Failed after {{duration}}",
+      "failed": "Run failed",
+      "timedOutAfter": "Timed out after {{duration}}",
+      "timedOut": "Run timed out",
+      "interruptedAfter": "Interrupted by board after {{duration}}",
+      "interrupted": "Interrupted by board",
+      "pausedAfter": "Paused by board after {{duration}}",
+      "paused": "Paused by board",
+      "cancelledAfter": "Cancelled after {{duration}}",
+      "cancelled": "Run cancelled",
+      "queued": "Queued",
+      "working": "Working..."
+    },
+    "taskChatTurn": {
+      "continuedAfterSteering": "Continued after steering · ",
+      "workedFor": "Worked for {{duration}}",
+      "stoppedFor": "Stopped after {{duration}}",
+      "worked": "Worked",
+      "stopped": "Stopped"
+    },
+    "reviewPolicyValue": {
+      "anyone": "anyone",
+      "notCreator": "anyone else",
+      "humanOnly": "human only"
     }
   },
   "nav": {
@@ -17889,5 +17933,19 @@
     "summaryDescription": "Summarizer tracks workspace activity, live services, and follow-up needs across projects.",
     "summaryTitle": "Workspace summary",
     "title": "Workspaces"
+  },
+  "resourceMemberships": {
+    "toast": {
+      "errorTitle": {
+        "star": "Couldn't star {{name}}.",
+        "unstar": "Couldn't unstar {{name}}.",
+        "leave": "Couldn't leave {{name}}.",
+        "join": "Couldn't join {{name}}."
+      },
+      "tryAgain": "Try again."
+    },
+    "errors": {
+      "selectOrganization": "Select an organization first."
+    }
   }
 }

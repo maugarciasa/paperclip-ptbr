@@ -1,6 +1,7 @@
 import { useRef, type ReactNode } from "react";
 import type { ExecutionProjection } from "@paperclipai/shared";
 import { useSecondTick } from "@/hooks/useSecondTick";
+import { t } from "@/i18n";
 import { cn } from "@/lib/utils";
 import type {
   TaskChatItem,
@@ -100,7 +101,7 @@ function RunnerTurnStatus({
       aria-live="polite"
       aria-atomic="true"
     >
-      {continuedAfterSteering ? <span data-conversation-meta="">Continued after steering · </span> : null}
+      {continuedAfterSteering ? <span data-conversation-meta="">{t("issues.taskChatTurn.continuedAfterSteering")}</span> : null}
       {label}<span data-conversation-meta="">{suffix}</span>
     </span>
   );
