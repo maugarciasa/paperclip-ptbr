@@ -287,7 +287,7 @@ function ConnectFlowPreview({
         : phase === "ready"
         ? { label: signInLabel, icon: "none" as const, disabled: false }
         : phase === "waiting"
-          ? { label: t("apps.ConnectFlowPreview.waitingCode"), icon: "spinner" as const, disabled: true }
+          ? { label: selectedId === "codex_local" ? "Waiting for auth…" : t("apps.ConnectFlowPreview.waitingCode"), icon: "spinner" as const, disabled: true }
           : phase === "connecting"
             ? { label: t("apps.ConnectFlowPreview.connecting"), icon: "spinner" as const, disabled: true }
             : { label: t("apps.ConnectFlowPreview.next"), icon: "arrow" as const, disabled: true };

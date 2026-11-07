@@ -1,4 +1,5 @@
-import { lazy, Suspense, useRef, useState, type ReactNode, type SetStateAction } from "react";
+import { lazy, Suspense, useEffect, useMemo, useRef, useState, type ReactNode, type SetStateAction } from "react";
+import { createPortal } from "react-dom";
 import { useQuery, useQueryClient } from "@tanstack/react-query";
 import { Check, Filter, Pencil, X } from "lucide-react";
 import type { Agent } from "@paperclipai/shared";
@@ -10,6 +11,7 @@ import { getAdapterLabel } from "@/adapters/adapter-display-registry";
 import { useTranslation } from "@/i18n";
 import { agentConnection, agentDefaultModel, bulkAgentDisabledReason, bulkAgentHarness, bulkConnectionName } from "@/lib/bulk-agent-settings";
 import { pendingAgentSetupDisplayAdapter } from "@/lib/agent-setup-choice";
+import { AgentStatusBadge } from "@/components/StatusBadge";
 import { Button } from "@/components/ui/button";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
@@ -18,8 +20,10 @@ import { cn } from "@/lib/utils";
 const AgentBulkSettingsSheet = lazy(() => import("./AgentBulkSettingsSheet").then(m => ({ default: m.AgentBulkSettingsSheet })));
 
 /** Shared by both roster layouts. Mount with a company key to isolate selection. */
-export function AgentBulkRoster({ companyId, agents, visibleAgents, renderAgent }: {
+export function AgentBulkRoster({ companyId, agents, visibleAgents, renderAgent, renderChat, renderStatus }: {
   companyId: string; agents: Agent[]; visibleAgents: Agent[]; renderAgent: (agent: Agent) => ReactNode;
+  renderChat?: (agent: Agent) => ReactNode;
+  renderStatus?: (agent: Agent) => ReactNode;
 }) {
   const { t } = useTranslation();
   const client = useQueryClient();
@@ -38,12 +42,16 @@ export function AgentBulkRoster({ companyId, agents, visibleAgents, renderAgent 
   const accounts = useQuery({ queryKey: ["ai-connections", companyId], queryFn: () => aiConnectionsApi.list(companyId) });
   const visible = visibleAgents.filter(a => filter === "all" || bulkAgentHarness(a) === filter);
   const selectable = visible.filter(a => !bulkAgentDisabledReason(a));
-  const selectedAgents = agents.filter(a => selected.includes(a.id) && !bulkAgentDisabledReason(a));
+  const selectedAgents = useMemo(() => agents.filter(a => selected.includes(a.id) && !bulkAgentDisabledReason(a)), [agents, selected]);
+  const [lastSelection, setLastSelection] = useState<Agent[]>([]);
+  useEffect(() => { if (selectedAgents.length) setLastSelection(selectedAgents); }, [selectedAgents]);
+  // Retain the card contents while it drops out, so its width does not collapse mid-animation.
+  const actionAgents = selectedAgents.length ? selectedAgents : lastSelection;
   const harnesses = [...new Set(agents.map(bulkAgentHarness))].sort((a, b) => getAdapterLabel(a).localeCompare(getAdapterLabel(b)));
-  const groups = [...new Set(selectedAgents.map(bulkAgentHarness))];
+  const groups = [...new Set(actionAgents.map(bulkAgentHarness))];
   const all = selectable.length > 0 && selectable.every(a => selected.includes(a.id));
   const some = selectable.some(a => selected.includes(a.id));
-  const hidden = selectedAgents.filter(a => !visible.includes(a)).length;
+  const hidden = actionAgents.filter(a => !visible.includes(a)).length;
   const toggleAll = () => changeSelection(all ? selected.filter(id => !selectable.some(a => a.id === id)) : [...new Set([...selected, ...selectable.map(a => a.id)])]);
 
   async function openEditor(harness: string) {
@@ -70,7 +78,7 @@ export function AgentBulkRoster({ companyId, agents, visibleAgents, renderAgent 
   }
 
   return <div className="space-y-4">
-    <div className="flex flex-wrap items-center justify-between gap-3">
+    <div data-canonical-toolbar="agent-filters" role="toolbar" aria-label="Agent filters" className="flex flex-wrap items-center justify-between gap-3">
       <Popover>
         <PopoverTrigger asChild>
           <Button variant="ghost" size="icon" aria-label={t("agents.roster.filterAgents")} title={filter === "all" ? t("common.filter") : t("agents.roster.filterWithAdapter", { adapter: getAdapterLabel(filter) })}
@@ -95,28 +103,31 @@ export function AgentBulkRoster({ companyId, agents, visibleAgents, renderAgent 
       </Popover>
       <span className="text-xs text-muted-foreground">{visible.length === 1 ? t("agents.roster.agentCount", { count: visible.length }) : t("agents.roster.agentsCount", { count: visible.length })}</span>
     </div>
-    {selectedAgents.length > 0 && <div role="region" aria-label={t("agents.roster.bulkActionsAriaLabel")} className="sticky top-0 z-10 flex flex-wrap items-center gap-3 rounded-md border bg-muted p-3">
-      <span className="text-sm font-medium">{t("agents.roster.selectedCount", { count: selectedAgents.length })}</span>
+    {createPortal(<div role="region" aria-label={t("agents.roster.bulkActionsAriaLabel")} aria-hidden={selectedAgents.length === 0} inert={selectedAgents.length === 0}
+      data-state={selectedAgents.length > 0 ? "open" : "closed"} className="agent-selection-bar flex flex-wrap items-center gap-3 rounded-lg border bg-background p-3">
+      <span className="text-sm font-medium">{actionAgents.length} selected</span>
       {hidden > 0 && <span className="text-xs text-muted-foreground">{t("agents.roster.hiddenByFilters", { count: hidden })}</span>}
       {groups.length > 1 && <span className="text-xs text-muted-foreground">{t("agents.roster.chooseHarnessToEdit")}</span>}
       <div className="flex flex-1 flex-wrap items-center justify-end gap-2">{groups.map(h => <Button key={h} size="sm" variant="outline" disabled={opening} onClick={() => void openEditor(h)}>
-        <Pencil className="size-3.5" aria-hidden />{groups.length === 1 ? t("agents.roster.editConnectionAndModel") : t("agents.roster.editHarnessGroup", { count: selectedAgents.filter(a => bulkAgentHarness(a) === h).length, harness: getAdapterLabel(h) })}
+        <Pencil className="size-3.5" aria-hidden />{groups.length === 1 ? "Edit connection & model" : `Edit ${actionAgents.filter(a => bulkAgentHarness(a) === h).length} ${getAdapterLabel(h)}`}
       </Button>)}<Button size="icon-sm" variant="ghost" aria-label={t("agents.roster.clearSelection")} onClick={() => changeSelection([])}><X className="size-4" /></Button></div>
-    </div>}
+    </div>, document.body)}
     {opening && <p role="status" className="text-sm text-muted-foreground">{t("agents.roster.loadingCurrentAgentSettings")}</p>}
     {openError && <p role="alert" className="text-sm text-destructive">{openError}</p>}
     {notice && <p role="status" className="flex items-center gap-2 text-sm"><Check className="size-4" aria-hidden />{notice}</p>}
     {accounts.error && <p className="text-xs text-destructive">{t("agents.roster.connectionNamesLoadFailed")} <Button variant="link" size="sm" onClick={() => void accounts.refetch()}>{t("common.retry")}</Button></p>}
-    <div className="overflow-x-auto"><table aria-label={t("agents.roster.agentRosterAriaLabel")} className="w-full text-left text-sm">
+    <div className="overflow-x-auto"><table aria-label={t("agents.roster.agentRosterAriaLabel")} className="agent-roster w-full text-left text-sm">
       <thead className="text-xs text-muted-foreground [&_th]:px-3 [&_th]:py-3 [&_th]:font-normal"><tr>
         <th className="w-10"><Checkbox aria-label={t("agents.roster.selectAllVisibleEditableAgents")} checked={all ? true : some ? "indeterminate" : false} disabled={!selectable.length} onCheckedChange={toggleAll} /></th>
-        <th>{t("agents.roster.agentColumn")}</th><th>{t("agents.roster.harnessColumn")}</th><th>{t("agents.roster.connectionColumn")}</th><th>{t("agents.roster.defaultModelColumn")}</th>
+        <th scope="col">Agent</th>{renderChat && <th scope="col"><span className="sr-only">Chat</span></th>}<th scope="col">Status</th><th scope="col">Harness</th><th scope="col">Connection</th><th scope="col">Default model</th>
       </tr></thead>
       <tbody>{visible.map(agent => {
         const pendingSetup = pendingAgentSetupDisplayAdapter(agent);
-        return <tr key={agent.id} data-state={selected.includes(agent.id) ? "selected" : undefined} className="border-t border-border data-[state=selected]:bg-accent/30 [&_td]:px-3">
+        return <tr key={agent.id} data-state={selected.includes(agent.id) ? "selected" : undefined} className="group/agent-row border-t border-border data-[state=selected]:bg-accent/30 hover:bg-accent/50 focus-within:bg-accent/50 [&_td]:px-3 [&_td]:align-middle">
         <td title={bulkAgentDisabledReason(agent)}><Checkbox aria-label={t("agents.roster.selectAgentAriaLabel", { name: agent.name })} checked={selectedAgents.some(a => a.id === agent.id)} disabled={!!bulkAgentDisabledReason(agent)} onCheckedChange={value => changeSelection(value ? [...new Set([...selected, agent.id])] : selected.filter(id => id !== agent.id))} /></td>
         <td className="min-w-64 p-0">{renderAgent(agent)}</td>
+        {renderChat && <td>{renderChat(agent)}</td>}
+        <td>{renderStatus ? renderStatus(agent) : <AgentStatusBadge status={agent.status} />}</td>
         <td className="whitespace-nowrap text-xs">{getAdapterLabel(pendingSetup ?? bulkAgentHarness(agent))}</td>
         <td className="text-xs">{pendingSetup ? t("agents.roster.notConfigured") : ["http", "process"].includes(agent.adapterType) ? t("agents.roster.managedExternally") : bulkConnectionName(agentConnection(agent), accounts.data)}</td>
         <td className="font-mono text-xs">{pendingSetup ? t("agents.roster.notAvailableYet") : agentDefaultModel(agent) ?? t("agents.roster.harnessDefault")}</td>

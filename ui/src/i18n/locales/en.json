@@ -10973,7 +10973,12 @@
       "takingLonger": "Taking longer than usual…",
       "taskStatus": "Task status",
       "tryingAgain": "Trying again in {{time}}…",
-      "workspaceFailure": "Couldn’t prepare the task folders. {{message}}"
+      "workspaceFailure": "Couldn’t prepare the task folders. {{message}}",
+      "recovery": {
+        "checkingPreviousRun": "Checking that the previous attempt stopped",
+        "savingPreviousFiles": "Saving files from the previous attempt",
+        "finishingRecovery": "Finishing recovery of saved work"
+      }
     },
     "executionParticipantPicker": {
       "approvers": "Approvers",
@@ -11950,7 +11955,7 @@
     "taskListViews": {
       "all": "All tasks",
       "blocked": "Needs attention",
-      "inbox": "Inbox",
+      "inbox": "Mine",
       "unread": "Unread"
     },
     "toolActionStatusClasses": {

@@ -21,7 +21,7 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Link } from "@/lib/router";
-import { CoordinatorWorkspaceSetting } from "@/components/CoordinatorWorkspaceSetting";
+import { ClassicWorkspaceSetting } from "@/components/ClassicWorkspaceSetting";
 import { describeError } from "@/api/errors";
 
 type WorktreeRunExecutionDisplayState =
@@ -186,7 +186,7 @@ export function InstanceExperimentalSettings() {
   if (experimentalQuery.isLoading || experimentalView.kind === "reconnecting") {
     return (
       <div className="max-w-6xl space-y-6">
-        <CoordinatorWorkspaceSetting key="personal-workspace" />
+        <ClassicWorkspaceSetting key="personal-workspace" />
         <div className="text-sm text-muted-foreground">{t("settings.instanceExperimental.loading")}</div>
       </div>
     );
@@ -194,7 +194,7 @@ export function InstanceExperimentalSettings() {
 
   if (experimentalView.kind === "error") {
     return (
-<div className="max-w-6xl space-y-6"><CoordinatorWorkspaceSetting key="personal-workspace" />      <QueryErrorState
+<div className="max-w-6xl space-y-6"><ClassicWorkspaceSetting key="personal-workspace" />      <QueryErrorState
         size="page"
         error={experimentalQuery.error}
         action={t("settings.instanceExperimental.loadAction")}
@@ -276,7 +276,7 @@ export function InstanceExperimentalSettings() {
         </p>
       </div>
 
-      <CoordinatorWorkspaceSetting key="personal-workspace" />
+      <ClassicWorkspaceSetting key="personal-workspace" />
 
       <div
         role="alert"
@@ -310,33 +310,9 @@ export function InstanceExperimentalSettings() {
         </div>
 
         <ExperimentalToggleCard
-          title={t("settings.instanceExperimental.agentChat.title")}
-          description={t("settings.instanceExperimental.agentChat.description")}
-          footnote={t("settings.instanceExperimental.agentChat.footnote")}
-          checked={experimentalQuery.data?.enableAgentChat ?? false}
-          onCheckedChange={(checked) => toggleMutation.mutate({ enableAgentChat: checked })}
-          disabled={toggleMutation.isPending}
-          settingKey="enableAgentChat"
-          managed={managedKeys.enableAgentChat}
-          ariaLabel={t("settings.instanceExperimental.agentChat.ariaLabel")}
-        />
-
-        <ExperimentalToggleCard
-          title={t("settings.instanceExperimental.artifactsV1.title")}
-          description={t("settings.instanceExperimental.artifactsV1.description")}
-          footnote={t("settings.instanceExperimental.artifactsV1.footnote")}
-          checked={experimentalQuery.data?.enableArtifactsV1 ?? false}
-          onCheckedChange={(checked) => toggleMutation.mutate({ enableArtifactsV1: checked })}
-          disabled={toggleMutation.isPending}
-          settingKey="enableArtifactsV1"
-          managed={managedKeys.enableArtifactsV1}
-          ariaLabel={t("settings.instanceExperimental.artifactsV1.ariaLabel")}
-        />
-
-        <ExperimentalToggleCard
           title={t("settings.instanceExperimental.assistantConnections.title")}
-          description={t("settings.instanceExperimental.assistantConnections.description")}
-          footnote={<>{t("settings.instanceExperimental.assistantConnections.footnoteText")}{experimentalQuery.data?.enablePublicMcp && <> <Link className="underline" to="/apps/assistant-connection">{t("settings.instanceExperimental.assistantConnections.setUpLink")}</Link></>}</>}
+          description="Connect Codex, Claude, and other assistants to your Paperclip organization. People sign in, select an organization once, and approve access to review work, delegate tasks, and add feedback."
+          footnote={<>Requires an authenticated instance with a configured public URL. Takes effect immediately. Turning this off blocks assistant calls and event delivery; work already delegated continues.{experimentalQuery.data?.enablePublicMcp && <> <Link className="underline" to="/apps/assistant-connection">Set up an assistant connection</Link></>}</>}
           checked={experimentalQuery.data?.enablePublicMcp === true}
           onCheckedChange={(checked) => toggleMutation.mutate({ enablePublicMcp: checked })}
           disabled={toggleMutation.isPending}
@@ -393,8 +369,8 @@ export function InstanceExperimentalSettings() {
 
         <ExperimentalToggleCard
           title={t("settings.instanceExperimental.combinedInboxTasks.title")}
-          description={t("settings.instanceExperimental.combinedInboxTasks.description")}
-          footnote={t("settings.instanceExperimental.combinedInboxTasks.footnote")}
+          description="In the Classic workspace, fold Inbox into Tasks. One Tasks row carries the unread badge, and a Views menu reaches every personal and organization task view."
+          footnote="Coordinator always includes personal views in Tasks. For Classic, turning this off restores its separate Inbox. No data changes."
           checked={experimentalQuery.data?.enableCombinedInboxTasks ?? false}
           onCheckedChange={(checked) => toggleMutation.mutate({ enableCombinedInboxTasks: checked })}
           disabled={toggleMutation.isPending}
@@ -415,6 +391,18 @@ export function InstanceExperimentalSettings() {
             ariaLabel={t("settings.instanceExperimental.conferenceRoomChat.ariaLabel")}
           />
         ) : null}
+
+        <ExperimentalToggleCard
+          title="Command/Ctrl+Enter to Submit"
+          description="Restore the previous keyboard shortcut for task replies and new tasks: Command/Ctrl+Enter submits, and Enter adds a new line."
+          footnote="Off by default: Enter submits, and Shift+Enter adds a new line."
+          checked={experimentalQuery.data?.enableLegacyComposerSubmit === true}
+          onCheckedChange={(checked) => toggleMutation.mutate({ enableLegacyComposerSubmit: checked })}
+          disabled={toggleMutation.isPending}
+          settingKey="enableLegacyComposerSubmit"
+          managed={managedKeys.enableLegacyComposerSubmit}
+          ariaLabel="Toggle Command/Ctrl+Enter to submit"
+        />
 
         <ExperimentalToggleCard
           title={t("settings.instanceExperimental.decisions.title")}
@@ -505,6 +493,18 @@ export function InstanceExperimentalSettings() {
           settingKey="enableGitHubReviewBots"
           managed={managedKeys.enableGitHubReviewBots}
           ariaLabel={t("settings.instanceExperimental.githubReviewBots.ariaLabel")}
+        />
+
+        <ExperimentalToggleCard
+          title="Google Workspace connector (Paperclip)"
+          description="Show the built-in Google Workspace connector for Gmail, Drive, and Calendar while Google verification is pending."
+          footnote="Off by default. While off, Google apps are offered through Composio and Arcade instead, and the built-in connector cannot be set up or run."
+          checked={experimentalQuery.data?.enableGoogleWorkspaceConnector === true}
+          onCheckedChange={(checked) => toggleMutation.mutate({ enableGoogleWorkspaceConnector: checked })}
+          disabled={toggleMutation.isPending}
+          settingKey="enableGoogleWorkspaceConnector"
+          managed={managedKeys.enableGoogleWorkspaceConnector}
+          ariaLabel="Toggle Paperclip Google Workspace connector experimental setting"
         />
 
         <ExperimentalToggleCard

@@ -9,7 +9,6 @@ import {
   Users,
   MessageCircle,
   Inbox,
-  Bell,
 } from "lucide-react";
 import { useCompany } from "../context/CompanyContext";
 import { useDialogActions } from "../context/DialogContext";
@@ -62,7 +61,7 @@ export function MobileBottomNav({ visible }: MobileBottomNavProps) {
     () => coordinatorWorkspaceEnabled ? [
       { type: "link", to: "/chats", label: t("nav.mobileBottomNav.chat"), icon: MessageCircle },
       { type: "link", to: "/issues", label: t("nav.mobileBottomNav.tasks"), icon: CircleCheck },
-      { type: "link", to: "/decisions", label: t("nav.mobileBottomNav.needsYou"), icon: Bell, badge: attentionCount },
+      { type: "link", to: "/decisions", label: "Inbox", icon: Inbox, badge: attentionCount },
       { type: "action", label: t("nav.mobileBottomNav.newTaskLower"), icon: SquarePen, onClick: () => openNewIssue() },
     ] : !agentChatEnabled && !combinedInboxTasksEnabled ? [
       { type: "link", to: "/dashboard", label: t("nav.mobileBottomNav.home"), icon: House },

@@ -9,6 +9,7 @@ import { t as translate, useTranslation } from "@/i18n";
 import { StatusIcon } from "../StatusIcon";
 import { Identity } from "../Identity";
 import { HighlightedText, type HighlightedTextProps } from "./HighlightedText";
+import { taskStatusIconProps } from "@/lib/task-status-presentation";
 
 type SnippetStyle = {
   Icon: ComponentType<SVGProps<SVGSVGElement>>;
@@ -181,7 +182,7 @@ function SearchResultRowImpl({
       data-result-type="issue"
     >
       <div className="mt-1 shrink-0">
-        <StatusIcon status={issue.status} displayStatus={issue.displayStatus} externalConversationState={issue.externalConversationState} />
+        <StatusIcon {...taskStatusIconProps(issue)} />
       </div>
       <div className="min-w-0 flex-1">
         <div className="flex min-w-0 flex-wrap items-baseline gap-x-2.5 gap-y-1">

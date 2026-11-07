@@ -425,7 +425,7 @@ export function AuditTab({ companyId }: { companyId: string }) {
         description={t("tools.audit.header.description")}
       />
 
-      <div className="flex flex-wrap items-center gap-2">
+      <div data-canonical-toolbar="tool-audit" role="toolbar" aria-label="Tool audit filters" className="flex flex-wrap items-center gap-2">
         <Select value={app} onValueChange={setApp}>
           <SelectTrigger className="w-40">
             <SelectValue placeholder={t("tools.audit.filters.app")} />

@@ -399,7 +399,7 @@ export function Timeline({ embedded = false }: { embedded?: boolean } = {}) {
   const summary = data ? timelineSummary(data, visibleWindow ?? dataWindow(data)) : null;
 
   const rangeControls = (
-    <label className="flex min-w-0 flex-wrap items-center gap-2 text-xs text-muted-foreground">
+    <label data-canonical-toolbar="timeline-range" className="flex min-w-0 flex-wrap items-center gap-2 text-xs text-muted-foreground">
       Range
       <Segmented
         value={rangePreset}
@@ -441,7 +441,7 @@ export function Timeline({ embedded = false }: { embedded?: boolean } = {}) {
   const toolbar = (
     <div className="flex flex-wrap items-start gap-3">
       {summary && <TimelineSummaryStats summary={summary} />}
-      <div className="ml-auto flex items-center gap-1 pt-3" aria-label={t("timeline.zoomControls", { defaultValue: "Timeline zoom controls" })}>
+      <div data-canonical-toolbar="timeline-zoom" role="toolbar" className="ml-auto flex items-center gap-1 pt-3" aria-label={t("timeline.zoomControls", { defaultValue: "Timeline zoom controls" })}>
         <Button
           type="button"
           variant="outline"

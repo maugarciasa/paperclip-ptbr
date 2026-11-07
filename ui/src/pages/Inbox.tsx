@@ -197,6 +197,7 @@ import {
   taskDateGroupSeparator,
   type TaskDateGroup,
 } from "../lib/task-date-groups";
+import { taskStatusIconProps } from "@/lib/task-status-presentation";
 
 const INBOX_HEARTBEAT_RUN_LIMIT = 200;
 const INBOX_ISSUE_LIST_LIMIT = 100;
@@ -411,6 +412,7 @@ export function FailedRunInboxRow({
           approval: t("inbox.inbox.failedRun.waiting.approval"), reconnect: t("inbox.inbox.failedRun.waiting.reconnect"), assign_agent: t("inbox.inbox.failedRun.waiting.assignAgent"), choose_model: t("inbox.inbox.failedRun.waiting.chooseModel"),
           resume: t("inbox.inbox.failedRun.waiting.resume"), budget: t("inbox.inbox.failedRun.waiting.budget"),
           project_access: t("inbox.inbox.failedRun.waiting.projectAccess"),
+          confirm_owner_stop: "Confirm the previous server stopped",
         }[interruption.userAction ?? "resume"]) : runFailureMessage(run);
   const retryAvailable = !interruption || interruption.canRetry;
   const showUnreadSlot = unreadState !== null;
@@ -3007,7 +3009,7 @@ function StreamlinedInbox({
                     && blockerAttention?.state === "covered"
                   );
                   const rowStatusIcon = (
-                    <StatusIcon status={issue.status} displayStatus={issue.displayStatus} externalConversationState={issue.externalConversationState} blockerAttention={blockerAttention} size="md" />
+                    <StatusIcon {...taskStatusIconProps(issue)} blockerAttention={blockerAttention} size="md" />
                   );
                   return (
                     <IssueRow
@@ -3107,10 +3109,11 @@ function StreamlinedInbox({
                             <ChevronRight className={cn("h-3.5 w-3.5 transition-transform", isExpanded && "rotate-90")} />
                           </button>
                         ) : (
-                          <StatusIcon status={issue.status} displayStatus={issue.displayStatus} externalConversationState={issue.externalConversationState} blockerAttention={blockerAttention} size="md" />
+                          <StatusIcon {...taskStatusIconProps(issue)} blockerAttention={blockerAttention} size="md" />
                         )
                       ) : undefined}
                       unreadState={isUnread ? "visible" : isFading ? "fading" : "hidden"}
+                      showUnreadIndicator={false}
                       onMarkRead={() => markReadMutation.mutate(issue.id)}
                       onArchive={allowArchive ? () => archiveIssueMutation.mutate(issue.id) : undefined}
                       archiveDisabled={isArchiving}

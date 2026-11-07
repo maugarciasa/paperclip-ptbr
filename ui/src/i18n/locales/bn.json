@@ -5917,7 +5917,12 @@
       "taskStatus": "Task status",
       "tryingAgain": "Trying again in {{time}}…",
       "workspaceFailure": "Couldn’t prepare the task folders. {{message}}",
-      "attemptFailed": "Couldn’t finish this attempt. Your message is saved."
+      "attemptFailed": "Couldn’t finish this attempt. Your message is saved.",
+      "recovery": {
+        "checkingPreviousRun": "Checking that the previous attempt stopped",
+        "savingPreviousFiles": "Saving files from the previous attempt",
+        "finishingRecovery": "Finishing recovery of saved work"
+      }
     },
     "outputRow": {
       "detailsUnavailable": "File details unavailable",

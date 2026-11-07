@@ -14,6 +14,7 @@ import { formatDate } from "../lib/utils";
 import { ListTodo } from "lucide-react";
 import { useStreamlinedUiEnabled } from "../hooks/useStreamlinedUiEnabled";
 import { useTranslation } from "@/i18n";
+import { taskStatusIconProps } from "@/lib/task-status-presentation";
 
 export function MyIssues() {
   const { t } = useTranslation();
@@ -81,7 +82,7 @@ export function MyIssues() {
               title={issue.title}
               to={`/issues/${issue.identifier ?? issue.id}`}
               leading={
-                <StatusIcon status={issue.status} displayStatus={issue.displayStatus} externalConversationState={issue.externalConversationState} blockerAttention={issue.blockerAttention} />
+                <StatusIcon {...taskStatusIconProps(issue)} />
               }
               trailing={
                 <span className="text-xs text-muted-foreground">

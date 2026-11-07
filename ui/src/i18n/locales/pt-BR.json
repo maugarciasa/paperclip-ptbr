@@ -10973,7 +10973,12 @@
       "takingLonger": "Demorando mais que o normal…",
       "taskStatus": "Status da tarefa",
       "tryingAgain": "Tentando novamente em {{time}}…",
-      "workspaceFailure": "Não foi possível preparar as pastas da tarefa. {{message}}"
+      "workspaceFailure": "Não foi possível preparar as pastas da tarefa. {{message}}",
+      "recovery": {
+        "checkingPreviousRun": "Verificando se a tentativa anterior parou",
+        "savingPreviousFiles": "Salvando os arquivos da tentativa anterior",
+        "finishingRecovery": "Concluindo a recuperação do trabalho salvo"
+      }
     },
     "executionParticipantPicker": {
       "approvers": "Aprovadores",
@@ -11950,7 +11955,7 @@
     "taskListViews": {
       "all": "Todas as tarefas",
       "blocked": "Precisa de atenção",
-      "inbox": "Caixa de entrada",
+      "inbox": "Minhas",
       "unread": "Não lidas"
     },
     "toolActionStatusClasses": {

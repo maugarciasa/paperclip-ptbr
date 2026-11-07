@@ -1,3 +1,4 @@
+import { useAuthorizationWindow } from "@/hooks/useAuthorizationWindow";
 import { useEffect, useRef, useState } from "react";
 import { useQuery, useQueryClient } from "@tanstack/react-query";
 import { QueryErrorState, useQueryView } from "@/components/QueryView";
@@ -218,12 +219,14 @@ export function GitHubChatSetup() {
     bot?.setup?.github?.ownerLogin,
     bot?.setup?.github?.appName,
   ]);
+  const authorization = useAuthorizationWindow();
   async function run(action: () => Promise<void>) {
     setBusy(true);
     setError("");
     try {
       await action();
     } catch (error) {
+      authorization.cancel();
       setError(
         describeError(error).body,
       );
@@ -297,6 +300,7 @@ export function GitHubChatSetup() {
   if (connected) return null;
   return (
     <div className="mx-auto w-full max-w-3xl space-y-6 px-4 py-6 sm:px-6">
+      {authorization.fallback}
       {!identityOnly && (
         <SetupWizardNavigation
           labels={reconnect ? [t("apps.GitHubChatSetup.reconnectStep")] : [t("apps.GitHubChatSetup.chooseAgent"), t("apps.GitHubChatSetup.connectStep")]}
@@ -507,8 +511,9 @@ export function GitHubChatSetup() {
                       await refresh();
                     }
                   } else {
+                    authorization.reserve();
                     const result = await githubChatApi.startIdentity(bot.id);
-                    window.location.assign(result.authorizationUrl);
+                    await authorization.open(result.authorizationUrl);
                   }
                 },
                 existingIdentityMethod && !legacyAccount,
@@ -524,7 +529,7 @@ export function GitHubChatSetup() {
           {state.installationUrl && (
             <a
               className="inline-flex items-center gap-1 text-sm underline"
-              href={state.installationUrl}
+              href={state.installationUrl} target="_blank" rel="noopener noreferrer"
             >
               {t("apps.GitHubChatSetup.continueInstall")}
               <ExternalLink className="size-3" />
@@ -538,6 +543,7 @@ export function GitHubChatSetup() {
             {t("apps.GitHubChatSetup.cloudDescription")}
           </p>
           {footer(t("apps.GitHubChatSetup.connectCloud"), async () => {
+            authorization.reserve();
             const result = await toolsApi.startCloudConnectorEnrollment(
               selectedCompanyId!,
               undefined,
@@ -545,7 +551,7 @@ export function GitHubChatSetup() {
             );
             if (!result.verificationUrl)
               throw new Error(t("apps.GitHubChatSetup.cloudEnrollmentError"));
-            window.location.assign(result.verificationUrl);
+            await authorization.open(result.verificationUrl);
           })}
         </>
       ) : state?.state === "recovery" ? (
