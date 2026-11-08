@@ -650,7 +650,11 @@
       "terminalInstruction": "Run this in a terminal on that machine and finish signing in in your browser. We’ll check automatically when you return.",
       "copySignInCommand": "Copy sign-in command",
       "startSignInAgain": "Start sign-in again",
-      "checkAgain": "Check again"
+      "checkAgain": "Check again",
+      "signInExpired": "Cette connexion a expiré",
+      "signInDidNotFinish": "La connexion ne s'est pas terminée",
+      "retryNotice": "Réessayez de vous connecter pour obtenir un nouveau code. Votre configuration est enregistrée.",
+      "retryButton": "Réessayer la connexion"
     }
   },
   "search": {

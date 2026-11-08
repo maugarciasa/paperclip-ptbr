@@ -650,7 +650,11 @@
       "terminalInstruction": "Run this in a terminal on that machine and finish signing in in your browser. We’ll check automatically when you return.",
       "copySignInCommand": "Copy sign-in command",
       "startSignInAgain": "Start sign-in again",
-      "checkAgain": "Check again"
+      "checkAgain": "Check again",
+      "signInExpired": "このサインインの有効期限が切れました",
+      "signInDidNotFinish": "サインインが完了しませんでした",
+      "retryNotice": "再試行して新しいコードを取得してください。設定は保存されています。",
+      "retryButton": "サインインを再試行"
     }
   },
   "search": {

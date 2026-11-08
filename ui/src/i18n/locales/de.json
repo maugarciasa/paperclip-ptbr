@@ -650,7 +650,11 @@
       "terminalInstruction": "Run this in a terminal on that machine and finish signing in in your browser. We’ll check automatically when you return.",
       "copySignInCommand": "Copy sign-in command",
       "startSignInAgain": "Start sign-in again",
-      "checkAgain": "Check again"
+      "checkAgain": "Check again",
+      "signInExpired": "Diese Anmeldung ist abgelaufen",
+      "signInDidNotFinish": "Die Anmeldung wurde nicht abgeschlossen",
+      "retryNotice": "Wiederholen Sie die Anmeldung, um einen neuen Code zu erhalten. Ihr Setup ist gespeichert.",
+      "retryButton": "Anmeldung wiederholen"
     }
   },
   "search": {

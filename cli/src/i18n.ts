@@ -106,10 +106,19 @@ export const messages: Record<Locale, Record<string, string>> = {
     "onboard.nextCommands": "Next commands",
 
     // Commands: Doctor
-    "doctor.title": "Paperclip System Health Check",
+    "doctor.title": "paperclip doctor",
     "doctor.checking": "Checking environment and services...",
-    "doctor.allPassed": "All health checks passed successfully!",
+    "doctor.allPassed": "All checks passed!",
     "doctor.issuesFound": "Some issues were detected:",
+    "doctor.passed": "passed",
+    "doctor.warnings": "warnings",
+    "doctor.failed": "failed",
+    "doctor.summary": "Summary",
+    "doctor.checksFailed": "Some checks failed. Fix the issues above and re-run doctor.",
+    "doctor.passedWithWarnings": "All critical checks passed with some warnings.",
+    "doctor.repairConfirm": "Repair \"{{name}}\"?",
+    "doctor.repaired": "Repaired: {{name}}",
+    "doctor.repairFailed": "Repair failed: {{error}}",
 
     // Commands: Service
     "service.starting": "Starting Paperclip service...",
@@ -202,10 +211,19 @@ export const messages: Record<Locale, Record<string, string>> = {
     "onboard.nextCommands": "Próximos comandos",
 
     // Commands: Doctor
-    "doctor.title": "Diagnóstico do Sistema Paperclip",
+    "doctor.title": "paperclip doctor",
     "doctor.checking": "Verificando ambiente e serviços...",
-    "doctor.allPassed": "Todas as verificações de saúde foram aprovadas com sucesso!",
+    "doctor.allPassed": "Todas as verificações foram aprovadas!",
     "doctor.issuesFound": "Alguns problemas foram identificados:",
+    "doctor.passed": "aprovadas",
+    "doctor.warnings": "avisos",
+    "doctor.failed": "falhas",
+    "doctor.summary": "Resumo",
+    "doctor.checksFailed": "Algumas verificações falharam. Corrija os problemas acima e execute o doctor novamente.",
+    "doctor.passedWithWarnings": "Todas as verificações críticas foram aprovadas com alguns avisos.",
+    "doctor.repairConfirm": "Reparar \"{{name}}\"?",
+    "doctor.repaired": "Reparado com sucesso: {{name}}",
+    "doctor.repairFailed": "Falha no reparo: {{error}}",
 
     // Commands: Service
     "service.starting": "Iniciando o serviço do Paperclip...",

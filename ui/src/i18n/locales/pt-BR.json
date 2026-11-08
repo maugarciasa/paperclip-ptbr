@@ -12301,7 +12301,11 @@
       "submitCode": "Enviar código",
       "terminalInstruction": "Execute isto em um terminal dessa máquina e conclua o login no seu navegador. Vamos verificar automaticamente quando você voltar.",
       "thenComeBackEnter": "e depois volte e informe o código de autorização",
-      "thenReturnHere": "e depois volte aqui"
+      "thenReturnHere": "e depois volte aqui",
+      "signInExpired": "Esta tentativa de login expirou",
+      "signInDidNotFinish": "O login não foi concluído",
+      "retryNotice": "Tente entrar novamente para obter um código novo. Suas configurações foram salvas.",
+      "retryButton": "Tentar entrar novamente"
     },
     "OnboardingChat": {
       "discussMessage": "Quero discutir o plano antes de você começar.",

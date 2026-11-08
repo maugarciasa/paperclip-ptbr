@@ -650,7 +650,11 @@
       "terminalInstruction": "Run this in a terminal on that machine and finish signing in in your browser. We’ll check automatically when you return.",
       "copySignInCommand": "Copy sign-in command",
       "startSignInAgain": "Start sign-in again",
-      "checkAgain": "Check again"
+      "checkAgain": "Check again",
+      "signInExpired": "此登入已過期",
+      "signInDidNotFinish": "登入未完成",
+      "retryNotice": "重試登入以獲取新代碼。您的設定已儲存。",
+      "retryButton": "重試登入"
     }
   },
   "search": {

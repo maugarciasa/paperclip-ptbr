@@ -12301,7 +12301,11 @@
       "submitCode": "Submit code",
       "terminalInstruction": "Run this in a terminal on that machine and finish signing in in your browser. We’ll check automatically when you return.",
       "thenComeBackEnter": "then come back and enter authorization code",
-      "thenReturnHere": "then return here"
+      "thenReturnHere": "then return here",
+      "signInExpired": "This sign-in expired",
+      "signInDidNotFinish": "Sign-in didn’t finish",
+      "retryNotice": "Retry sign-in to get a fresh code. Your setup is saved.",
+      "retryButton": "Retry sign-in"
     },
     "OnboardingChat": {
       "discussMessage": "I want to discuss the plan before you get started.",
