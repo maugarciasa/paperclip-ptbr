@@ -289,8 +289,7 @@ export function PluginSettings() {
                 <div className="rounded-md border border-border/60 bg-muted/20 px-4 py-3 text-sm">
                   <p className="font-medium text-foreground">{t("settings.plugins.configureFromEnvironments", { defaultValue: "Configure this plugin from Settings → Environments." })}</p>
                   <p className="mt-1 text-muted-foreground">
-                    {driverLabel || "This plugin"} registers environment runtime settings there so the execution target
-                    stays instance-scoped while secret bindings still resolve through the selected organization context.
+                    {t("plugins.PluginSettings.pluginRegistersEnvironmentRuntime", { plugin: driverLabel || t("plugins.PluginSettings.thisPlugin") })}
                   </p>
                   <div className="mt-3">
                     <Link to="/company/settings/instance/environments">
@@ -300,7 +299,7 @@ export function PluginSettings() {
                 </div>
               ) : !hasLocalFolders ? (
                 <p className="text-sm text-muted-foreground">
-                  This plugin does not require any settings.
+                  {t("plugins.PluginSettings.thisPluginDoesNot")}
                 </p>
               ) : null}
             </section>
@@ -614,6 +613,7 @@ interface PluginLocalFoldersSettingsProps {
 }
 
 function PluginLocalFoldersSettings({ pluginId, companyId, declarations }: PluginLocalFoldersSettingsProps) {
+  const { t } = useTranslation();
   const foldersQuery = useQuery({
     queryKey: companyId
       ? queryKeys.plugins.localFolders(pluginId, companyId)
@@ -629,7 +629,7 @@ function PluginLocalFoldersSettings({ pluginId, companyId, declarations }: Plugi
   if (!companyId) {
     return (
       <div className="rounded-md border border-border/60 bg-muted/20 px-4 py-3 text-sm text-muted-foreground">
-        Select an organization to configure this plugin's local folders.
+        {t("plugins.PluginSettings.selectAnOrganizationTo")}
       </div>
     );
   }
@@ -676,6 +676,7 @@ interface PluginLocalFolderRowProps {
 }
 
 function PluginLocalFolderRow({ pluginId, companyId, declaration, status }: PluginLocalFolderRowProps) {
+  const { t } = useTranslation();
   const queryClient = useQueryClient();
   const serverPath = status?.path ?? "";
   const [pathValue, setPathValue] = useState(serverPath);
@@ -794,7 +795,7 @@ function PluginLocalFolderRow({ pluginId, companyId, declaration, status }: Plug
             ) : (
               <Save className="h-3.5 w-3.5" />
             )}
-            Save
+            {t("plugins.PluginSettings.save")}
           </Button>
         </div>
       </div>
@@ -846,6 +847,7 @@ function FolderRequirements({
   status?: PluginLocalFolderStatus;
   declaration: PluginLocalFolderDeclaration;
 }) {
+  const { t } = useTranslation();
   const requiredDirectories = status?.requiredDirectories ?? declaration.requiredDirectories ?? [];
   const requiredFiles = status?.requiredFiles ?? declaration.requiredFiles ?? [];
   const missingDirectories = status?.missingDirectories ?? requiredDirectories;
@@ -894,6 +896,7 @@ function RequirementList({
   missingLabel: string;
   inspectionUnavailable?: boolean;
 }) {
+  const { t } = useTranslation();
   return (
     <div className="space-y-2 rounded-md border border-border/60 px-3 py-2">
       <div className="flex items-center justify-between gap-2">
@@ -974,6 +977,7 @@ interface PluginConfigFormProps {
  * re-renders on field changes, not the entire page.
  */
 function PluginConfigForm({ pluginId, companyId, schema, initialValues, isLoading, pluginStatus, supportsConfigTest }: PluginConfigFormProps) {
+  const { t } = useTranslation();
   const queryClient = useQueryClient();
 
   // Form values: start with saved values, fall back to schema defaults
@@ -1083,7 +1087,7 @@ function PluginConfigForm({ pluginId, companyId, schema, initialValues, isLoadin
     return (
       <div className="flex items-center gap-2 text-sm text-muted-foreground py-4">
         <Loader2 className="h-4 w-4 animate-spin" />
-        Loading configuration...
+        {t("plugins.PluginSettings.loadingConfiguration")}
       </div>
     );
   }
@@ -1133,7 +1137,7 @@ function PluginConfigForm({ pluginId, companyId, schema, initialValues, isLoadin
           {saveMutation.isPending ? (
             <>
               <Loader2 className="h-3.5 w-3.5 animate-spin" />
-              Saving...
+              {t("plugins.PluginSettings.saving")}
             </>
           ) : (
             "Save Configuration"
@@ -1149,7 +1153,7 @@ function PluginConfigForm({ pluginId, companyId, schema, initialValues, isLoadin
             {testMutation.isPending ? (
               <>
                 <Loader2 className="h-3.5 w-3.5 animate-spin" />
-                Testing...
+                {t("plugins.PluginSettings.testing")}
               </>
             ) : (
               "Test Configuration"

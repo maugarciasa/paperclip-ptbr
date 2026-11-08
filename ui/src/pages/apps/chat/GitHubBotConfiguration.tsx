@@ -175,6 +175,7 @@ function GitHubPassingScore({
   onChange: (value: GitHubReviewPolicy["ratingThreshold"]) => void;
   onValidityChange?: (valid: boolean) => void;
 }) {
+  const { t } = useTranslation();
   const id = useId();
   const [localText, setLocalText] = useState(String(value ?? 5));
   const text = controlledText ?? localText;
@@ -241,6 +242,7 @@ export function GitHubPolicyEditor({
   onChange: (policy: GitHubReviewPolicy) => void;
   onValidityChange?: (valid: boolean) => void;
 }) {
+  const { t } = useTranslation();
   const id = useId();
   const automaticMode = useRef<"linked_authors" | "allowed_authors">(
     "linked_authors",
@@ -297,8 +299,7 @@ export function GitHubPolicyEditor({
           onChange={(value) => set("instructions", value)}
         />
         <p className="text-xs text-muted-foreground">
-          Included in every GitHub task. Type / to select a skill for the agent
-          to use.
+          {t("apps.GitHubBotConfiguration.includedInEveryGithub")}
         </p>
         <GitHubSettingsDisclosure title={t("apps.githubBotConfig.eventSpecificInstructionsTitle", "Event-specific instructions")}>
           <div className="grid gap-3 pt-3">
@@ -470,8 +471,7 @@ export function GitHubPolicyEditor({
                 </div>
               </GitHubSettingsDisclosure>
               <p className="text-xs text-muted-foreground">
-                Reviews requested by @mention bypass these scheduling filters.
-                Repository access and ignored files still apply.
+                {t("apps.GitHubBotConfiguration.reviewsRequestedByMention")}
               </p>
             </GitHubSettingsDisclosure>
           </div>
@@ -551,8 +551,7 @@ export function GitHubPolicyEditor({
         </GitHubSettingsDisclosure>
         <GitHubSettingsDisclosure title={t("apps.githubBotConfig.approvalsAndChangeRequestsTitle", "Approvals and change requests")}>
           <p className="text-xs text-muted-foreground">
-            Optional formal decisions on GitHub. Scores, comments, and checks
-            still work when these are off.
+            {t("apps.GitHubBotConfiguration.optionalFormalDecisionsOn")}
           </p>
           <div>
             <GitHubToggle
@@ -775,8 +774,7 @@ export function GitHubAccessEditor({
       <div className="space-y-1">
         <h2 className="text-base font-semibold">{t("apps.githubBotConfig.people", "People")}</h2>
         <p className="text-sm text-muted-foreground">
-          Choose who can mention this bot and whose activity can start work
-          automatically.
+          {t("apps.GitHubBotConfiguration.chooseWhoCanMention")}
         </p>
       </div>
       <section className="space-y-2" aria-label={t("apps.GitHubBotConfiguration.companyMembers")}>
@@ -866,9 +864,7 @@ export function GitHubAccessEditor({
           </Button>
         </div>
         <p className="text-xs text-muted-foreground">
-          Allow specific GitHub users with a member as their sponsor. They
-          receive restricted access, without company membership or the sponsor’s
-          personal credentials.
+          {t("apps.GitHubBotConfiguration.allowSpecificGithubUsers")}
         </p>
         {peopleRows(guests)}
         {guests.length > 0 && (
@@ -929,9 +925,7 @@ export function GitHubAccessEditor({
             </>
           )}
           <p className="text-xs text-muted-foreground">
-            The member accountable for automatically created Paperclip tasks.
-            GitHub authors remain recorded separately. This grants no access to
-            the member’s personal credentials.
+            {t("apps.GitHubBotConfiguration.theMemberAccountableFor")}
           </p>
         </div>
       </GitHubSettingsDisclosure>

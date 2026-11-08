@@ -1,5 +1,15 @@
 {
   "agents": {
+    "AgentBulkRoster": {
+      "countSelected": "{{count}} selected",
+      "agentFilters": "Agent filters",
+      "defaultModel": "Default model",
+      "connection": "Connection",
+      "harness": "Harness",
+      "status": "Status",
+      "agent": "Agent",
+      "chat": "Chat"
+    },
     "AgentConfigForm": {
       "promptTemplateReplay": "Prompt template is replayed on every heartbeat. Keep it compact and dynamic to avoid recurring token cost and cache churn.",
       "kubernetesSandbox": "Kubernetes sandbox",
@@ -3049,6 +3059,29 @@
     }
   },
   "apps": {
+    "OwnSlackAppSetup": {
+      "selectTheWorkspaceWhere": "Select the workspace where you want to install your bot.",
+      "yourAppConfigurationTokens": "Your App Configuration Tokens",
+      "inSlackAppSettings": "In Slack app settings, find",
+      "andPasteItBelow": "and paste it below.",
+      "generateToken": "Generate Token",
+      "accessToken": "Access Token",
+      "isCreated": "is created.",
+      "andChoose": "and choose",
+      "copyThe": "Copy the"
+    },
+    "AssistantConnection": {
+      "creatingTasksAndAdding": "Creating tasks and adding comments may start agent work using the organization’s configured execution budget.",
+      "couldnTRevokeThis": "Couldn’t revoke this connection. Try again.",
+      "reviewAccessThenClick": ", review access, then click",
+      "inviteYourAssistant": "Invite your assistant",
+      "connectOrganization": "Connect organization",
+      "revokeName": "Revoke {{name}}",
+      "tryAgain": "Try again",
+      "refresh": "Refresh",
+      "choose": "Choose",
+      "revoke": "Revoke"
+    },
     "GitHubConnectionRecovery": {
       "restoreLead": "Restore",
       "restoreBody": "using its saved credentials. Paperclip will check the App and its installation, then repair event delivery.",
@@ -3135,7 +3168,13 @@
       "addExternalContributor": "Add external contributor",
       "responsibleMember": "Responsible member:",
       "cancel": "Cancel",
-      "addContributor": "Add contributor"
+      "addContributor": "Add contributor",
+      "theMemberAccountableFor": "The member accountable for automatically created Paperclip tasks. GitHub authors remain recorded separately. This grants no access to the member’s personal credentials.",
+      "allowSpecificGithubUsers": "Allow specific GitHub users with a member as their sponsor. They receive restricted access, without company membership or the sponsor’s personal credentials.",
+      "reviewsRequestedByMention": "Reviews requested by @mention bypass these scheduling filters. Repository access and ignored files still apply.",
+      "optionalFormalDecisionsOn": "Optional formal decisions on GitHub. Scores, comments, and checks still work when these are off.",
+      "chooseWhoCanMention": "Choose who can mention this bot and whose activity can start work automatically.",
+      "includedInEveryGithub": "Included in every GitHub task. Type / to select a skill for the agent to use."
     },
     "AccessStepContent": {
       "agentAlways": "That agent always uses this account, regardless of who starts the run.",
@@ -4037,7 +4076,12 @@
       "webhookSecretCopied": "Webhook secret copied",
       "webhookSecretCopyFailed": "Couldn’t copy — select it manually",
       "webhookUrl": "Paperclip webhook URL",
-      "whichAgentPrompt": "Which agent do you want to chat with?"
+      "whichAgentPrompt": "Which agent do you want to chat with?",
+      "certificatesSecretsClientSecrets": "Certificates & secrets · Client secrets",
+      "oauthPermissions": "OAuth & Permissions",
+      "closeParenComma": "),",
+      "closeParenDot": ").",
+      "readWrite": "Read & write"
     },
     "ChatExecutionDefaults": {
       "accessNote": "Project and workspace access is checked for each task. A shared folder must also be allowed by the agent’s execution policy.",
@@ -6662,6 +6706,14 @@
     "title": "Audit"
   },
   "auth": {
+    "BoardClaim": {
+      "thisWillPromoteYour": "This will promote your user to instance admin and migrate organization ownership access from local trusted mode.",
+      "signInOrCreate": "Sign in or create an account, then return to this page to claim Board ownership.",
+      "thisInstanceIsNow": "This instance is now linked to your authenticated user.",
+      "boardOwnershipClaimed": "Board ownership claimed",
+      "claimBoardOwnership": "Claim Board ownership",
+      "signInRequired": "Sign in required"
+    },
     "CliAuth": {
       "cliAccessApproved": "CLI access approved",
       "thePaperclipCliCan": "The Paperclip CLI can now finish authentication on the requesting machine.",
@@ -9196,6 +9248,14 @@
     "working": "Working..."
   },
   "issues": {
+    "TaskChatProtocolCard": {
+      "binaryFileTextDiff": "Binary file; text diff is unavailable.",
+      "thisPatchIsToo": "This patch is too large to show here.",
+      "moreFilesChanged_other": "{{count}} more files changed. This change set is too large to list them here.",
+      "moreFilesChanged_one": "{{count}} more file changed. This change set is too large to list them here.",
+      "proposedAPlan": "Proposed a plan ·",
+      "binary": "binary"
+    },
     "IssueWorkspaceCard": {
       "openFileByPath": "Open file by path…",
       "browseFiles": "Browse files…",
@@ -11260,7 +11320,17 @@
       "filesChanged_other": "{{count}} files changed",
       "stepCount": "Step {{current}} / {{total}}",
       "stepOf": "Step {{current}} of {{total}}",
-      "turnPlan": "Turn plan"
+      "turnPlan": "Turn plan",
+      "completedOfTotalSteps": "{{completed}} of {{total}} steps done",
+      "earlierStepsDone_other": "{{count}} earlier steps done",
+      "earlierStepsDone_one": "{{count}} earlier step done",
+      "earlierSteps_other": "{{count}} earlier steps",
+      "earlierSteps_one": "{{count}} earlier step",
+      "moreSteps_other": "+{{count}} more steps",
+      "moreSteps_one": "+{{count}} more step",
+      "planProgress": "Plan progress",
+      "agentPlan": "Agent plan",
+      "showFewer": "Show fewer"
     },
     "TaskDecisionRecord": {
       "dismissed": "Dismissed",
@@ -13315,6 +13385,26 @@
     "title": "Org Chart"
   },
   "plugins": {
+    "PluginSettings": {
+      "pluginRegistersEnvironmentRuntime": "{{plugin}} registers environment runtime settings there so the execution target stays instance-scoped while secret bindings still resolve through the selected organization context.",
+      "selectAnOrganizationTo": "Select an organization to configure this plugin's local folders.",
+      "thisPluginDoesNot": "This plugin does not require any settings.",
+      "loadingConfiguration": "Loading configuration...",
+      "thisPlugin": "This plugin",
+      "testing": "Testing...",
+      "saving": "Saving...",
+      "save": "Save"
+    },
+    "PluginManager": {
+      "thePluginRuntimeAnd": "The plugin runtime and API surface are still changing. Expect breaking changes while this feature settles.",
+      "installAPluginTo": "Install a plugin to extend functionality.",
+      "viewFullError": "View full error",
+      "installPlugin": "Install Plugin",
+      "whatErrored": "What errored",
+      "enable": "Enable",
+      "close": "Close",
+      "v": "· v"
+    },
     "actions": {
       "configure": "Configure",
       "disable": "Disable",
@@ -13946,6 +14036,13 @@
     }
   },
   "routines": {
+    "RoutineDetail": {
+      "backToOverview": "Back to overview",
+      "skipToSection": "Skip to section",
+      "cancelEditing": "Cancel editing",
+      "editRoutine": "Edit routine",
+      "history": "History"
+    },
     "Routines": {
       "routinesCount_one": "{{count}} routine",
       "routinesCount_other": "{{count}} routines",
@@ -15712,6 +15809,15 @@
     }
   },
   "settings": {
+    "ClassicWorkspaceSetting": {
+      "useThePreviousWorkspace": "Use the previous workspace instead of the standard Coordinator workspace. This changes your interface across companies on this instance.",
+      "offByDefaultTurn": "Off by default. Turn it off to return to Coordinator. Your work and your teammates’ settings stay the same.",
+      "thisLocalInstanceUses": "This local instance uses the shared Local Board identity.",
+      "loadingYourPreference": "Loading your preference…",
+      "savingYourWorkspace": "Saving your workspace…",
+      "classicWorkspace": "Classic workspace",
+      "retry": "Retry"
+    },
     "InstanceExperimentalSettings": {
       "thisIsAnIsolated": "This is an isolated git-worktree preview instance. Turn this on to let the scheduler execute runs here. Only tasks created after enabling will run automatically — copied/pre-existing tasks stay parked. Toggling off and on resets the cutoff.",
       "toggleItOffAnd": "Toggle it off and back on to arm execution for tasks created here.",

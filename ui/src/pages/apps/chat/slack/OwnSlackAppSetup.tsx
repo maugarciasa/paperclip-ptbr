@@ -25,6 +25,7 @@ export function OwnSlackAppSetup({ endpoint, stage, disabled, saveDetails, onSav
   onContinue: () => void;
   onSaveExit: () => void;
 }) {
+  const { t } = useTranslation();
   const [configurationToken, setConfigurationToken] = useState("");
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -147,9 +148,9 @@ export function OwnSlackAppSetup({ endpoint, stage, disabled, saveDetails, onSav
         </Button>
         <div id="slack-configuration-token-help" className="space-y-3 pb-3 text-sm">
           <ol className="list-decimal space-y-2 pl-5">
-            <li>In Slack app settings, find <strong>Your App Configuration Tokens</strong> and choose <strong>Generate Token</strong>.</li>
-            <li>Select the workspace where you want to install your bot.</li>
-            <li>Copy the <strong>Access Token</strong> and paste it below.</li>
+            <li>{t("apps.OwnSlackAppSetup.inSlackAppSettings")} <strong>{t("apps.OwnSlackAppSetup.yourAppConfigurationTokens")}</strong> {t("apps.OwnSlackAppSetup.andChoose")} <strong>{t("apps.OwnSlackAppSetup.generateToken")}</strong>.</li>
+            <li>{t("apps.OwnSlackAppSetup.selectTheWorkspaceWhere")}</li>
+            <li>{t("apps.OwnSlackAppSetup.copyThe")} <strong>{t("apps.OwnSlackAppSetup.accessToken")}</strong> {t("apps.OwnSlackAppSetup.andPasteItBelow")}</li>
           </ol>
           <p className="text-muted-foreground">{t("apps.ownSlackSetup.tokenHelpDescription", "Paperclip uses this token to create your app")}</p>
         </div>
@@ -161,7 +162,7 @@ export function OwnSlackAppSetup({ endpoint, stage, disabled, saveDetails, onSav
     </>}
     {creating && <p role="status" className="flex items-center gap-2 text-sm text-muted-foreground"><Loader2 className="size-4 animate-spin" /> {t("apps.ownSlackSetup.creatingSlackAppNotice", "Creating your Slack app. You can return to this saved setup.")}</p>}
     {created && <p className="text-sm">
-      <strong>{endpoint.setup?.slackApp?.appName ?? "Your Slack app"}</strong> is created.
+      <strong>{endpoint.setup?.slackApp?.appName ?? "Your Slack app"}</strong> {t("apps.OwnSlackAppSetup.isCreated")}
       {stage === "credentials" && " Approve installation with your Slack account. Paperclip will link it to your signed-in Paperclip account and send you a welcome DM."}
     </p>}
     {stage === "credentials" && registration?.status === "credentials_saved" && <div className="space-y-2">

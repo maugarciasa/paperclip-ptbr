@@ -77,9 +77,9 @@ export function BoardClaimPage() {
     return (
       <div className="mx-auto max-w-xl py-10">
         <Card className="block p-6">
-          <h1 className="text-lg font-semibold">Board ownership claimed</h1>
+          <h1 className="text-lg font-semibold">{t("auth.BoardClaim.boardOwnershipClaimed")}</h1>
           <p className="mt-2 text-sm text-muted-foreground">
-            This instance is now linked to your authenticated user.
+            {t("auth.BoardClaim.thisInstanceIsNow")}
           </p>
           <Button asChild className="mt-4">
             <Link to="/">Open board</Link>
@@ -93,9 +93,9 @@ export function BoardClaimPage() {
     return (
       <div className="mx-auto max-w-xl py-10">
         <Card className="block p-6">
-          <h1 className="text-lg font-semibold">Sign in required</h1>
+          <h1 className="text-lg font-semibold">{t("auth.BoardClaim.signInRequired")}</h1>
           <p className="mt-2 text-sm text-muted-foreground">
-            Sign in or create an account, then return to this page to claim Board ownership.
+            {t("auth.BoardClaim.signInOrCreate")}
           </p>
           <Button asChild className="mt-4">
             <Link to={`/auth?next=${encodeURIComponent(currentPath)}`}>Sign in / Create account</Link>
@@ -108,9 +108,9 @@ export function BoardClaimPage() {
   return (
     <div className="mx-auto max-w-xl py-10">
       <Card className="block p-6">
-        <h1 className="text-xl font-semibold">Claim Board ownership</h1>
+        <h1 className="text-xl font-semibold">{t("auth.BoardClaim.claimBoardOwnership")}</h1>
         <p className="mt-2 text-sm text-muted-foreground">
-          This will promote your user to instance admin and migrate organization ownership access from local trusted mode.
+          {t("auth.BoardClaim.thisWillPromoteYour")}
         </p>
 
         {claimMutation.isError && ( // query-error-ok: mutation result

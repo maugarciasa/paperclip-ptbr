@@ -272,6 +272,7 @@ function PlanSteps({ steps }: { steps: TaskChatProtocolStep[] }) {
  * the turn keeps only a one-line record.
  */
 function PlanProposalCard({ item }: { item: TaskChatProviderActivityItem }) {
+  const { t } = useTranslation();
   if (item.status === "running") {
     return <TaskChatPlanPreviewCard source={{ kind: "live", activity: item }} testId="task-chat-plan-proposal" />;
   }
@@ -282,7 +283,7 @@ function PlanProposalCard({ item }: { item: TaskChatProviderActivityItem }) {
     <details className="group" data-testid="task-chat-plan-proposal">
       <summary className="flex cursor-pointer list-none items-center gap-2 rounded-sm px-1 py-1 text-sm text-muted-foreground transition-colors hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring">
         <FileText aria-hidden className="h-3.5 w-3.5 shrink-0" />
-        <span className="min-w-0 truncate">Proposed a plan · <span className="text-foreground">{title}</span></span>
+        <span className="min-w-0 truncate">{t("issues.TaskChatProtocolCard.proposedAPlan")} <span className="text-foreground">{title}</span></span>
       </summary>
       {item.output ? (
         <div className="mt-1 rounded-md border border-border bg-muted/25 px-4 py-3 text-sm" data-testid="task-chat-plan-proposal-body">
@@ -427,6 +428,7 @@ function WorkspaceChangeFileRow({
   open: boolean;
   onToggle: () => void;
 }) {
+  const { t } = useTranslation();
   const parsed = useMemo(
     () => (file.diff ? parseUnifiedDiffLines(file.diff) : null),
     [file.diff],
@@ -461,13 +463,13 @@ function WorkspaceChangeFileRow({
             {OPERATION_LABEL[file.operation] ?? file.operation.replaceAll("_", " ")}
           </span>
         ) : file.binary ? (
-          <span className="shrink-0 text-(length:--text-micro) text-muted-foreground">binary</span>
+          <span className="shrink-0 text-(length:--text-micro) text-muted-foreground">{t("issues.TaskChatProtocolCard.binary")}</span>
         ) : null}
         <TaskChatDiffCounts added={file.additions} removed={file.deletions} />
       </button>
       {open ? (
         file.binary ? (
-          <p className="ml-7 mt-1 text-xs text-muted-foreground">Binary file; text diff is unavailable.</p>
+          <p className="ml-7 mt-1 text-xs text-muted-foreground">{t("issues.TaskChatProtocolCard.binaryFileTextDiff")}</p>
         ) : parsed?.lines.length ? (
           <TaskChatDiffView
             className="ml-7 mt-1"
@@ -475,7 +477,7 @@ function WorkspaceChangeFileRow({
             truncated={parsed.truncated || file.diffTruncated === true}
           />
         ) : (
-          <p className="ml-7 mt-1 text-xs text-muted-foreground">This patch is too large to show here.</p>
+          <p className="ml-7 mt-1 text-xs text-muted-foreground">{t("issues.TaskChatProtocolCard.thisPatchIsToo")}</p>
         )
       ) : null}
     </div>
@@ -551,8 +553,7 @@ function WorkspaceChangeCard({ item }: { item: TaskChatWorkspaceChangeItem }) {
       ) : null}
       {fileCount > item.files.length ? (
         <p className="mt-1 px-2 text-xs text-muted-foreground" data-testid="task-chat-workspace-change-omitted">
-          {fileCount - item.files.length} more {fileCount - item.files.length === 1 ? "file" : "files"} changed.
-          This change set is too large to list them here.
+          {t("issues.TaskChatProtocolCard.moreFilesChanged", { count: fileCount - item.files.length })}
         </p>
       ) : null}
     </CardShell>

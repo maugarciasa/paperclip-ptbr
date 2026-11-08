@@ -47,6 +47,7 @@ export function useAssistantConnections(poll = false) {
 
 /** Inbound assistant access belongs beside the existing outbound connectors. */
 export function AssistantConnectionCard({ onNavigate }: { onNavigate: (href: string) => void }) {
+  const { t } = useTranslation();
   const connections = useAssistantConnections();
   const active = connections.rows;
   const action = !connections.loaded ? t("apps.assistantConnection.openAction") : active.length ? t("apps.assistantConnection.manageAction") : t("apps.assistantConnection.setUpAction");
@@ -71,6 +72,7 @@ export function AssistantConnectionCard({ onNavigate }: { onNavigate: (href: str
 
 /** Only copy user-visible, non-secret setup values. Never execute them here. */
 function CopyValue({ value, label }: { value: string; label: string }) {
+  const { t } = useTranslation();
   const [copied, setCopied] = useState(false);
   const [error, setError] = useState(false);
   useEffect(() => { setCopied(false); setError(false); }, [value]);
@@ -122,7 +124,7 @@ export function AssistantConnection({ initialAssistant = "codex" }: { initialAss
     </header>
     {(setup.isPending || setupView.kind === "reconnecting") && <p className="text-sm text-muted-foreground">{t("apps.assistantConnection.loadingSetup")}</p>}
     {setupView.kind === "error" && (setupView.errorKind === "auth" || setupView.errorKind === "not_found"
-      ? <div role="alert" className="space-y-3"><p className="text-sm text-destructive">{setupUnavailableCopy(setupView.errorKind)}</p><Button variant="outline" disabled={setupView.isFetching} onClick={setupView.retry}>Try again</Button></div>
+      ? <div role="alert" className="space-y-3"><p className="text-sm text-destructive">{setupUnavailableCopy(setupView.errorKind)}</p><Button variant="outline" disabled={setupView.isFetching} onClick={setupView.retry}>{t("apps.AssistantConnection.tryAgain")}</Button></div>
       : <QueryErrorState error={setup.error} action={t("errorActions.loadAssistantSetup")} onRetry={setupView.retry} retrying={setupView.isFetching} />)}
     {setup.data && !setup.data.enabled && <section className="space-y-3 rounded-lg border border-border bg-muted/30 p-4">
       <h2 className="text-sm font-semibold">{t("apps.assistantConnection.enableTitle")}</h2>
@@ -130,10 +132,10 @@ export function AssistantConnection({ initialAssistant = "codex" }: { initialAss
       <Button variant="outline" asChild><Link to="/company/settings/instance/experimental">{t("apps.assistantConnection.openExperimental")}</Link></Button>
     </section>}
     {setup.data?.enabled && <>
-      <section className="space-y-4" aria-label="Invite your assistant">
+      <section className="space-y-4" aria-label={t("apps.AssistantConnection.inviteYourAssistant")}>
         <p className="text-sm text-muted-foreground">{t("apps.assistantConnection.invitationText")}</p>
         <div className="flex justify-end">
-          <AgentSetupPrompt prompt={invitation} label="Copy invitation" title="Invite your assistant" description="Paste this invitation into your assistant. It will help set up the connection and ask you to approve access in Paperclip." side="bottom" align="end" />
+          <AgentSetupPrompt prompt={invitation} label="Copy invitation" title={t("apps.AssistantConnection.inviteYourAssistant")} description="Paste this invitation into your assistant. It will help set up the connection and ask you to approve access in Paperclip." side="bottom" align="end" />
         </div>
       </section>
       <details className="space-y-4 text-sm">
@@ -142,8 +144,8 @@ export function AssistantConnection({ initialAssistant = "codex" }: { initialAss
         <section className="space-y-4" aria-label={`Set up ${assistants[assistant]}`}>
           {mcpSetupSteps(serverUrl, assistant).map((step, index) => <div key={`${assistant}-${index}`} className="space-y-2"><p className="text-sm text-muted-foreground">{step.text}</p>{step.code && <CopyValue value={step.code} label={`${assistants[assistant]} setup step ${index + 1}`} />}</div>)}
           {assistant !== "browser" && <p className="text-sm text-muted-foreground">{mcpAuthorizationHandoffInstructions}</p>}
-          <p className="text-sm">Choose <strong>{selectedCompany.name}</strong>, review access, then click <strong>Connect organization</strong>.</p>
-          <p className="text-xs text-muted-foreground">Creating tasks and adding comments may start agent work using the organization’s configured execution budget.</p>
+          <p className="text-sm">{t("apps.AssistantConnection.choose")} <strong>{selectedCompany.name}</strong>{t("apps.AssistantConnection.reviewAccessThenClick")} <strong>{t("apps.AssistantConnection.connectOrganization")}</strong>.</p>
+          <p className="text-xs text-muted-foreground">{t("apps.AssistantConnection.creatingTasksAndAdding")}</p>
         </section>
         <CopyValue value={serverUrl} label="MCP server URL" />
       </details>
@@ -151,12 +153,12 @@ export function AssistantConnection({ initialAssistant = "codex" }: { initialAss
     <section className="space-y-3" aria-labelledby="connected-assistants">
       <h2 id="connected-assistants" className="text-sm font-semibold">{t("apps.assistantConnection.connectedAssistantsTitle")}</h2>
       {(connections.isPending || connections.view.kind === "reconnecting") && <p className="text-sm text-muted-foreground">{t("apps.assistantConnection.loadingConnections")}</p>}
-      {revoke.error && <p role="alert" className="text-sm text-destructive">Couldn’t revoke this connection. Try again. <button type="button" className="underline" onClick={() => void connections.refetch()}>Refresh</button></p>}
+      {revoke.error && <p role="alert" className="text-sm text-destructive">{t("apps.AssistantConnection.couldnTRevokeThis")} <button type="button" className="underline" onClick={() => void connections.refetch()}>{t("apps.AssistantConnection.refresh")}</button></p>}
       {connections.view.kind === "error" && <QueryErrorState error={connections.error} action={t("errorActions.loadYourConnections")} onRetry={connections.view.retry} retrying={connections.view.isFetching} />}
       {connections.loaded && connections.rows.length === 0 && <p className="text-sm text-muted-foreground">{t("apps.assistantConnection.noAssistants", { name: selectedCompany.name })}</p>}
       <div className="divide-y divide-border">{connections.rows.map(row => <div key={row.id} className="flex flex-wrap items-center justify-between gap-3 py-3">
         <div className="min-w-0 flex-1 space-y-1"><Identity name={assistantConnectionDisplayName(row)} avatarUrl={row.user?.image} initials={deriveInitials(row.user?.name ?? "You")} className="font-medium" /><p className="text-xs text-muted-foreground">{`Connected as you · ${row.scopes.includes("paperclip:write") ? "Read and write" : "Read only"}${row.scopes.includes("paperclip:configure") ? " · Configure agents, projects and skills" : ""}`}</p></div>
-        <Button variant="outline" size="sm" disabled={revoke.isPending} onClick={() => revoke.mutate(row.id)} aria-label={`Revoke ${assistantConnectionDisplayName(row)}`}>Revoke</Button>
+        <Button variant="outline" size="sm" disabled={revoke.isPending} onClick={() => revoke.mutate(row.id)} aria-label={t("apps.AssistantConnection.revokeName", { name: assistantConnectionDisplayName(row) })}>{t("apps.AssistantConnection.revoke")}</Button>
       </div>)}</div>
     </section>
     <footer className="flex items-center justify-between gap-3 border-t border-border pt-4"><Button variant="ghost" asChild><Link to="/apps">{t("apps.assistantConnection.backToConnections")}</Link></Button><a className="inline-flex items-center gap-1 text-xs text-muted-foreground underline" href={assistant === "opencode" ? "https://opencode.ai/docs/mcp-servers/" : assistant === "claude" ? "https://code.claude.com/docs/en/mcp" : "https://developers.openai.com/codex/mcp"} target="_blank" rel="noreferrer">{t("apps.assistantConnection.setupDocs")} <ExternalLink className="size-3" /></a></footer>

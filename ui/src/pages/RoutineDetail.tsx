@@ -800,7 +800,7 @@ export function RoutineDetail() {
         href="#routine-section"
         className="sr-only focus:not-sr-only focus:absolute focus:left-2 focus:top-2 focus:z-20 focus:rounded focus:bg-background focus:px-3 focus:py-1.5 focus:text-sm"
       >
-        Skip to section
+        {t("routines.RoutineDetail.skipToSection")}
       </a>
 
       {/* The global shell owns routine navigation. This surface keeps one
@@ -864,7 +864,7 @@ export function RoutineDetail() {
                 size="sm"
                 onClick={() => navigate(routineDetailHref(routine.id))}
               >
-                Back to overview
+                {t("routines.RoutineDetail.backToOverview")}
               </Button>
             ) : (
               <Button
@@ -873,7 +873,7 @@ export function RoutineDetail() {
                 onClick={() => navigate(routineDetailHref(routine.id, "history"))}
               >
                 <History className="h-3.5 w-3.5" />
-                History
+                {t("routines.RoutineDetail.history")}
               </Button>
             )}
             {section === "overview" ? (
@@ -887,12 +887,12 @@ export function RoutineDetail() {
                   }}
                 >
                   <X className="h-3.5 w-3.5" />
-                  Cancel editing
+                  {t("routines.RoutineDetail.cancelEditing")}
                 </Button>
               ) : (
                 <Button variant="outline" size="sm" onClick={() => setOverviewEditing(true)}>
                   <Pencil className="h-3.5 w-3.5" />
-                  Edit routine
+                  {t("routines.RoutineDetail.editRoutine")}
                 </Button>
               )
             ) : null}

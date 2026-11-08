@@ -218,7 +218,7 @@ export function PluginManager() {
           <DialogTrigger asChild>
             <Button size="sm" className="gap-2">
               <Plus className="h-4 w-4" />
-              Install Plugin
+              {t("plugins.PluginManager.installPlugin")}
             </Button>
           </DialogTrigger>
           <DialogContent>
@@ -258,7 +258,7 @@ export function PluginManager() {
           <div className="space-y-1 text-sm">
             <p className="font-medium text-foreground">{t("plugins.alpha.title", { defaultValue: "Plugins are alpha." })}</p>
             <p className="text-muted-foreground">
-              The plugin runtime and API surface are still changing. Expect breaking changes while this feature settles.
+              {t("plugins.PluginManager.thePluginRuntimeAnd")}
             </p>
           </div>
         </div>
@@ -341,7 +341,7 @@ export function PluginManager() {
                               disabled={enableMutation.isPending}
                               onClick={() => enableMutation.mutate(installedPlugin.id)}
                             >
-                              Enable
+                              {t("plugins.PluginManager.enable")}
                             </Button>
                           )}
                           <Button variant="outline" size="sm" asChild>
@@ -386,7 +386,7 @@ export function PluginManager() {
               <Puzzle className="h-10 w-10 text-muted-foreground mb-4" />
               <p className="text-sm font-medium">{t("plugins.installed.emptyTitle", { defaultValue: "No plugins installed" })}</p>
               <p className="text-xs text-muted-foreground mt-1">
-                Install a plugin to extend functionality.
+                {t("plugins.PluginManager.installAPluginTo")}
               </p>
             </CardContent>
           </Card>
@@ -421,7 +421,7 @@ export function PluginManager() {
                     </div>
                     <div>
                       <p className="text-xs text-muted-foreground mt-0.5 truncate" title={plugin.packageName}>
-                        {plugin.packageName} · v{plugin.manifestJson.version ?? plugin.version}
+                        {plugin.packageName} {t("plugins.PluginManager.v")}{plugin.manifestJson.version ?? plugin.version}
                       </p>
                     </div>
                     <p className="text-sm text-muted-foreground truncate mt-0.5" title={plugin.manifestJson.description}>
@@ -448,7 +448,7 @@ export function PluginManager() {
                             className="border-red-500/30 bg-background/60 text-red-700 hover:bg-red-500/10 hover:text-red-800 dark:text-red-200 dark:hover:text-red-100"
                             onClick={() => setErrorDetailsPlugin(plugin)}
                           >
-                            View full error
+                            {t("plugins.PluginManager.viewFullError")}
                           </Button>
                         </div>
                       </div>
@@ -565,7 +565,7 @@ export function PluginManager() {
                 <AlertTriangle className="mt-0.5 h-4 w-4 shrink-0 text-red-700 dark:text-red-300" />
                 <div className="space-y-1 text-sm">
                   <p className="font-medium text-red-700 dark:text-red-300">
-                    What errored
+                    {t("plugins.PluginManager.whatErrored")}
                   </p>
                   <p className="text-red-700/90 dark:text-red-200/90 break-words">
                     {errorDetailsPlugin ? getPluginErrorSummary(errorDetailsPlugin) : t("plugins.errorDialog.noSummary", { defaultValue: "No error summary available." })}
@@ -582,7 +582,7 @@ export function PluginManager() {
           </div>
           <DialogFooter>
             <Button variant="outline" onClick={() => setErrorDetailsPlugin(null)}>
-              Close
+              {t("plugins.PluginManager.close")}
             </Button>
           </DialogFooter>
         </DialogContent>

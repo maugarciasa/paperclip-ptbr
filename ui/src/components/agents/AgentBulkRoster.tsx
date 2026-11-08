@@ -78,7 +78,7 @@ export function AgentBulkRoster({ companyId, agents, visibleAgents, renderAgent,
   }
 
   return <div className="space-y-4">
-    <div data-canonical-toolbar="agent-filters" role="toolbar" aria-label="Agent filters" className="flex flex-wrap items-center justify-between gap-3">
+    <div data-canonical-toolbar="agent-filters" role="toolbar" aria-label={t("agents.AgentBulkRoster.agentFilters")} className="flex flex-wrap items-center justify-between gap-3">
       <Popover>
         <PopoverTrigger asChild>
           <Button variant="ghost" size="icon" aria-label={t("agents.roster.filterAgents")} title={filter === "all" ? t("common.filter") : t("agents.roster.filterWithAdapter", { adapter: getAdapterLabel(filter) })}
@@ -105,7 +105,7 @@ export function AgentBulkRoster({ companyId, agents, visibleAgents, renderAgent,
     </div>
     {createPortal(<div role="region" aria-label={t("agents.roster.bulkActionsAriaLabel")} aria-hidden={selectedAgents.length === 0} inert={selectedAgents.length === 0}
       data-state={selectedAgents.length > 0 ? "open" : "closed"} className="agent-selection-bar flex flex-wrap items-center gap-3 rounded-lg border bg-background p-3">
-      <span className="text-sm font-medium">{actionAgents.length} selected</span>
+      <span className="text-sm font-medium">{t("agents.AgentBulkRoster.countSelected", { count: actionAgents.length })}</span>
       {hidden > 0 && <span className="text-xs text-muted-foreground">{t("agents.roster.hiddenByFilters", { count: hidden })}</span>}
       {groups.length > 1 && <span className="text-xs text-muted-foreground">{t("agents.roster.chooseHarnessToEdit")}</span>}
       <div className="flex flex-1 flex-wrap items-center justify-end gap-2">{groups.map(h => <Button key={h} size="sm" variant="outline" disabled={opening} onClick={() => void openEditor(h)}>
@@ -119,7 +119,7 @@ export function AgentBulkRoster({ companyId, agents, visibleAgents, renderAgent,
     <div className="overflow-x-auto"><table aria-label={t("agents.roster.agentRosterAriaLabel")} className="agent-roster w-full text-left text-sm">
       <thead className="text-xs text-muted-foreground [&_th]:px-3 [&_th]:py-3 [&_th]:font-normal"><tr>
         <th className="w-10"><Checkbox aria-label={t("agents.roster.selectAllVisibleEditableAgents")} checked={all ? true : some ? "indeterminate" : false} disabled={!selectable.length} onCheckedChange={toggleAll} /></th>
-        <th scope="col">Agent</th>{renderChat && <th scope="col"><span className="sr-only">Chat</span></th>}<th scope="col">Status</th><th scope="col">Harness</th><th scope="col">Connection</th><th scope="col">Default model</th>
+        <th scope="col">{t("agents.AgentBulkRoster.agent")}</th>{renderChat && <th scope="col"><span className="sr-only">{t("agents.AgentBulkRoster.chat")}</span></th>}<th scope="col">{t("agents.AgentBulkRoster.status")}</th><th scope="col">{t("agents.AgentBulkRoster.harness")}</th><th scope="col">{t("agents.AgentBulkRoster.connection")}</th><th scope="col">{t("agents.AgentBulkRoster.defaultModel")}</th>
       </tr></thead>
       <tbody>{visible.map(agent => {
         const pendingSetup = pendingAgentSetupDisplayAdapter(agent);

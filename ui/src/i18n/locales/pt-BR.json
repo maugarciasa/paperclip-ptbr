@@ -1,5 +1,15 @@
 {
   "agents": {
+    "AgentBulkRoster": {
+      "countSelected": "{{count}} selecionados",
+      "agentFilters": "Filtros de agentes",
+      "defaultModel": "Modelo padrão",
+      "connection": "Conexão",
+      "harness": "Harness",
+      "status": "Status",
+      "agent": "Agente",
+      "chat": "Chat"
+    },
     "AgentConfigForm": {
       "promptTemplateReplay": "O template do prompt é reenviado a cada heartbeat. Mantenha-o compacto e dinâmico para evitar custo recorrente de tokens e churn de cache.",
       "kubernetesSandbox": "sandbox Kubernetes",
@@ -3049,6 +3059,29 @@
     }
   },
   "apps": {
+    "OwnSlackAppSetup": {
+      "selectTheWorkspaceWhere": "Selecione o workspace em que você quer instalar o bot.",
+      "yourAppConfigurationTokens": "Your App Configuration Tokens",
+      "inSlackAppSettings": "Nas configurações do app do Slack, encontre",
+      "andPasteItBelow": "e cole abaixo.",
+      "generateToken": "Generate Token",
+      "accessToken": "Access Token",
+      "isCreated": "foi criado.",
+      "andChoose": "e escolha",
+      "copyThe": "Copie o"
+    },
+    "AssistantConnection": {
+      "creatingTasksAndAdding": "Criar tarefas e adicionar comentários pode iniciar trabalho de agentes usando o orçamento de execução configurado da empresa.",
+      "couldnTRevokeThis": "Não foi possível revogar esta conexão. Tente novamente.",
+      "reviewAccessThenClick": ", revise o acesso e clique em",
+      "inviteYourAssistant": "Convide seu assistente",
+      "connectOrganization": "Connect organization",
+      "revokeName": "Revogar {{name}}",
+      "tryAgain": "Tentar novamente",
+      "refresh": "Atualizar",
+      "choose": "Escolha",
+      "revoke": "Revogar"
+    },
     "GitHubConnectionRecovery": {
       "restoreLead": "Restaure",
       "restoreBody": "usando as credenciais salvas. O Paperclip vai verificar o App e a instalação e depois reparar a entrega de eventos.",
@@ -3135,7 +3168,13 @@
       "addExternalContributor": "Adicionar colaborador externo",
       "responsibleMember": "Membro responsável:",
       "cancel": "Cancelar",
-      "addContributor": "Adicionar colaborador"
+      "addContributor": "Adicionar colaborador",
+      "theMemberAccountableFor": "O membro responsável pelas tarefas do Paperclip criadas automaticamente. Os autores do GitHub continuam registrados separadamente. Isto não concede acesso às credenciais pessoais do membro.",
+      "allowSpecificGithubUsers": "Permita usuários específicos do GitHub com um membro como patrocinador. Eles recebem acesso restrito, sem vínculo com a empresa nem as credenciais pessoais do patrocinador.",
+      "reviewsRequestedByMention": "Revisões solicitadas por @menção ignoram estes filtros de agendamento. O acesso ao repositório e os arquivos ignorados continuam valendo.",
+      "optionalFormalDecisionsOn": "Decisões formais opcionais no GitHub. Notas, comentários e verificações continuam funcionando com isto desativado.",
+      "chooseWhoCanMention": "Escolha quem pode mencionar este bot e cuja atividade pode iniciar trabalho automaticamente.",
+      "includedInEveryGithub": "Incluído em toda tarefa do GitHub. Digite / para selecionar uma skill para o agente usar."
     },
     "AccessStepContent": {
       "agentAlways": "Esse agente sempre usa esta conta, não importa quem inicie a execução.",
@@ -4037,7 +4076,12 @@
       "webhookSecretCopied": "Segredo do webhook copiado",
       "webhookSecretCopyFailed": "Não foi possível copiar — selecione manualmente",
       "webhookUrl": "URL de webhook do Paperclip",
-      "whichAgentPrompt": "Com qual agente você quer conversar?"
+      "whichAgentPrompt": "Com qual agente você quer conversar?",
+      "certificatesSecretsClientSecrets": "Certificates & secrets · Client secrets",
+      "oauthPermissions": "OAuth & Permissions",
+      "closeParenComma": "),",
+      "closeParenDot": ").",
+      "readWrite": "Read & write"
     },
     "ChatExecutionDefaults": {
       "accessNote": "O acesso ao projeto e ao workspace é verificado em cada tarefa. Uma pasta compartilhada também precisa ser permitida pela política de execução do agente.",
@@ -6662,6 +6706,14 @@
     "title": "Auditoria"
   },
   "auth": {
+    "BoardClaim": {
+      "thisWillPromoteYour": "Isso promoverá seu usuário a administrador da instância e migrará o acesso de propriedade da empresa do modo local confiável.",
+      "signInOrCreate": "Entre ou crie uma conta e depois volte a esta página para reivindicar a propriedade do Board.",
+      "thisInstanceIsNow": "Esta instância agora está vinculada ao seu usuário autenticado.",
+      "boardOwnershipClaimed": "Propriedade do Board reivindicada",
+      "claimBoardOwnership": "Reivindicar propriedade do Board",
+      "signInRequired": "Login necessário"
+    },
     "CliAuth": {
       "cliAccessApproved": "Acesso à CLI aprovado",
       "thePaperclipCliCan": "A CLI do Paperclip agora pode concluir a autenticação na máquina solicitante.",
@@ -9196,6 +9248,14 @@
     "working": "Processando..."
   },
   "issues": {
+    "TaskChatProtocolCard": {
+      "binaryFileTextDiff": "Arquivo binário; o diff de texto não está disponível.",
+      "thisPatchIsToo": "Este patch é grande demais para exibir aqui.",
+      "moreFilesChanged_other": "Mais {{count}} arquivos alterados. O conjunto de alterações é grande demais para listar todos aqui.",
+      "moreFilesChanged_one": "Mais {{count}} arquivo alterado. O conjunto de alterações é grande demais para listar todos aqui.",
+      "proposedAPlan": "Plano proposto ·",
+      "binary": "binário"
+    },
     "IssueWorkspaceCard": {
       "openFileByPath": "Abrir arquivo pelo caminho…",
       "browseFiles": "Procurar arquivos…",
@@ -11260,7 +11320,17 @@
       "filesChanged_other": "{{count}} arquivos alterados",
       "stepCount": "Passo {{current}} / {{total}}",
       "stepOf": "Passo {{current}} de {{total}}",
-      "turnPlan": "Plano do turno"
+      "turnPlan": "Plano do turno",
+      "completedOfTotalSteps": "{{completed}} de {{total}} passos concluídos",
+      "earlierStepsDone_other": "{{count}} passos anteriores concluídos",
+      "earlierStepsDone_one": "{{count}} passo anterior concluído",
+      "earlierSteps_other": "{{count}} passos anteriores",
+      "earlierSteps_one": "{{count}} passo anterior",
+      "moreSteps_other": "+{{count}} passos",
+      "moreSteps_one": "+{{count}} passo",
+      "planProgress": "Progresso do plano",
+      "agentPlan": "Plano do agente",
+      "showFewer": "Mostrar menos"
     },
     "TaskDecisionRecord": {
       "dismissed": "Descartada",
@@ -13315,6 +13385,26 @@
     "title": "Organograma"
   },
   "plugins": {
+    "PluginSettings": {
+      "pluginRegistersEnvironmentRuntime": "{{plugin}} registra ali as configurações de runtime do ambiente, para que o destino de execução continue no escopo da instância enquanto os vínculos de segredos ainda são resolvidos pelo contexto da empresa selecionada.",
+      "selectAnOrganizationTo": "Selecione uma empresa para configurar as pastas locais deste plugin.",
+      "thisPluginDoesNot": "Este plugin não exige nenhuma configuração.",
+      "loadingConfiguration": "Carregando configuração...",
+      "thisPlugin": "Este plugin",
+      "testing": "Testando...",
+      "saving": "Salvando...",
+      "save": "Salvar"
+    },
+    "PluginManager": {
+      "thePluginRuntimeAnd": "O runtime e a superfície de API de plugins ainda estão mudando. Espere mudanças incompatíveis até este recurso se estabilizar.",
+      "installAPluginTo": "Instale um plugin para ampliar as funcionalidades.",
+      "viewFullError": "Ver erro completo",
+      "installPlugin": "Instalar plugin",
+      "whatErrored": "O que falhou",
+      "enable": "Ativar",
+      "close": "Fechar",
+      "v": "· v"
+    },
     "actions": {
       "configure": "Configurar",
       "disable": "Desativar",
@@ -13946,6 +14036,13 @@
     }
   },
   "routines": {
+    "RoutineDetail": {
+      "backToOverview": "Voltar à visão geral",
+      "skipToSection": "Ir para a seção",
+      "cancelEditing": "Cancelar edição",
+      "editRoutine": "Editar rotina",
+      "history": "Histórico"
+    },
     "Routines": {
       "routinesCount_one": "{{count}} rotina",
       "routinesCount_other": "{{count}} rotinas",
@@ -15712,6 +15809,15 @@
     }
   },
   "settings": {
+    "ClassicWorkspaceSetting": {
+      "useThePreviousWorkspace": "Use o workspace anterior em vez do workspace padrão do Coordinator. Isso muda sua interface em todas as empresas desta instância.",
+      "offByDefaultTurn": "Desativado por padrão. Desative para voltar ao Coordinator. Seu trabalho e as configurações dos colegas continuam iguais.",
+      "thisLocalInstanceUses": "Esta instância local usa a identidade compartilhada do Local Board.",
+      "loadingYourPreference": "Carregando sua preferência…",
+      "savingYourWorkspace": "Salvando seu workspace…",
+      "classicWorkspace": "Workspace clássico",
+      "retry": "Tentar novamente"
+    },
     "InstanceExperimentalSettings": {
       "thisIsAnIsolated": "Esta é uma instância de prévia isolada em git worktree. Ative para o agendador executar execuções aqui. Só as tarefas criadas depois da ativação rodam automaticamente; tarefas copiadas ou preexistentes ficam paradas. Desativar e ativar de novo redefine o limite.",
       "toggleItOffAnd": "Desative e ative de novo para liberar a execução das tarefas criadas aqui.",
