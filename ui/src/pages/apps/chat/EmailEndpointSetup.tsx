@@ -360,15 +360,15 @@ function EmailEndpointSetupForm({ companyId }: { companyId: string }) {
       {restrictedInbox && <div className="space-y-2 text-sm">
         <p className="text-muted-foreground">That key only connects {restrictedInbox}. Choose a saved account key or enter one to create a new address.</p>
         <Button type="button" variant="link" size="sm" className="h-auto p-0" disabled={busy || !(selectedCredentialId || apiKey.trim())}
-          onClick={() => { setAllowInboxKey(true); setRestrictedInbox(""); connect.reset(); }}>Use the existing inbox instead</Button>
+          onClick={() => { setAllowInboxKey(true); setRestrictedInbox(""); connect.reset(); }}>{t("apps.emailSetup.useExistingInboxInstead", "Use the existing inbox instead")}</Button>
       </div>}
       {lowTrust && !scoped && <div role="alert" className="space-y-2 text-sm">
-        <p>This agent needs a work boundary before it can receive email.</p>
-        <Button type="button" variant="outline" size="sm" onClick={openTrust}>Configure work boundary</Button>
+        <p>{t("apps.emailSetup.boundaryNotice", "This agent needs a work boundary before it can receive email.")}</p>
+        <Button type="button" variant="outline" size="sm" onClick={openTrust}>{t("apps.emailSetup.configureBoundary", "Configure work boundary")}</Button>
       </div>}
       {setupError}
       <div className="flex items-center justify-between gap-3 border-t border-border pt-5">
-        <Button type="button" variant="ghost" disabled={busy} onClick={cancel}>Cancel</Button>
+        <Button type="button" variant="ghost" disabled={busy} onClick={cancel}>{t("common.cancel", "Cancel")}</Button>
         <Button disabled={!canContinue}>{connect.isPending ? "Connecting…" : "Continue"}<ArrowRight className="size-4" /></Button>
       </div>
     </form>}
@@ -378,7 +378,7 @@ function EmailEndpointSetupForm({ companyId }: { companyId: string }) {
         {pendingAddress ? <>
           <p className="text-sm font-medium">{pendingAddress}</p>
           <p className="text-sm text-muted-foreground">This address was created in AgentMail. Finish connecting it to {chosen?.name}{scopedKey ? "." : ", or choose a different address. The original inbox will stay in AgentMail."}</p>
-          {!scopedKey && <Button type="button" variant="link" size="sm" className="h-auto p-0" disabled={busy} onClick={chooseAnotherAddress}>Choose a different address</Button>}
+          {!scopedKey && <Button type="button" variant="link" size="sm" className="h-auto p-0" disabled={busy} onClick={chooseAnotherAddress}>{t("apps.emailSetup.chooseDifferent", "Choose a different address")}</Button>}
         </> : addressMode === "new" ? <>
           <div className="flex items-center gap-2">
             <Input id="email-name" className="min-w-0" value={username} maxLength={64} autoComplete="off" spellCheck={false} disabled={busy}
@@ -400,14 +400,14 @@ function EmailEndpointSetupForm({ companyId }: { companyId: string }) {
           })}
         </select>}
         {scopedKey && !pendingAddress && <Button type="button" variant="link" size="sm" className="h-auto p-0" disabled={busy}
-          onClick={() => { setAllowInboxKey(false); setStep(0); }}>Choose a key for a new address</Button>}
+          onClick={() => { setAllowInboxKey(false); setStep(0); }}>{t("apps.emailSetup.chooseKeyNew", "Choose a key for a new address")}</Button>}
         {addressError && <p id="email-address-error" role="alert" className="text-sm text-destructive">{addressError}</p>}
         {checkingNewAddress && !addressError && <p id="email-address-status" role="status" className="text-sm text-muted-foreground">
           {addressCheck.checking ? "Checking address…" : addressCheck.error ? `Could not check this address. ${addressCheck.error}`
             : addressCheck.result?.status === "unknown" ? "AgentMail confirms availability when you create the address." : null}
         </p>}
         {suggestions.length > 0 && <div className="flex flex-wrap items-center gap-x-3 gap-y-1 text-sm" aria-label="Suggested email addresses">
-          <span className="text-muted-foreground">Try:</span>
+          <span className="text-muted-foreground">{t("apps.emailSetup.tryLabel", "Try:")}</span>
           {suggestions.map(name => <Button key={name} type="button" variant="link" size="sm" className="h-auto p-0" disabled={busy}
             onClick={() => { setUsername(name); setup.reset(); }}>{name}@{domain}</Button>)}
         </div>}
@@ -418,8 +418,8 @@ function EmailEndpointSetupForm({ companyId }: { companyId: string }) {
       </div>
       <Card className="py-4">
         <CardHeader className="px-4">
-          <h2 className="text-sm font-medium">How it Works</h2>
-          <CardDescription>Incoming email creates tasks for {chosen?.name}. Replies stay in the same task.</CardDescription>
+          <h2 className="text-sm font-medium">{t("apps.emailSetup.howItWorks", "How it Works")}</h2>
+          <CardDescription>{t("apps.emailSetup.howItWorksDescription", { name: chosen?.name, defaultValue: `Incoming email creates tasks for ${chosen?.name}. Replies stay in the same task.` })}</CardDescription>
         </CardHeader>
       </Card>
       <details className="space-y-4">
@@ -429,15 +429,15 @@ function EmailEndpointSetupForm({ companyId }: { companyId: string }) {
             <a className="text-sm underline" href="https://docs.agentmail.to/custom-domains" target="_blank" rel="noreferrer">{t("apps.emailSetup.setupCustomDomain", "Set up a custom domain ↗")}</a>
           </div>}
           <div className="space-y-2">
-            <Label htmlFor="email-mode">Receiving</Label>
+            <Label htmlFor="email-mode">{t("apps.emailSetup.receiving", "Receiving")}</Label>
             <select id="email-mode" value={mode} disabled={busy} className={selectClass} onChange={event => setMode(event.target.value as typeof mode)}>
-              <option value="websocket">Live connection</option><option value="webhook">Webhook</option>
+              <option value="websocket">{t("apps.emailSetup.liveConnection", "Live connection")}</option><option value="webhook">{t("apps.emailSetup.webhook", "Webhook")}</option>
             </select>
           </div>
           <EmailSafetyNotice />
           <div className="space-y-2 text-sm">
             <p>{lowTrust && scoped ? "Low-trust review configured" : "Manage which tasks and tools this agent can access."}</p>
-            <Button type="button" variant="outline" size="sm" onClick={openTrust}>Review trust settings</Button>
+            <Button type="button" variant="outline" size="sm" onClick={openTrust}>{t("apps.emailSetup.reviewTrust", "Review trust settings")}</Button>
           </div>
         </div>
       </details>
@@ -454,7 +454,7 @@ function EmailEndpointSetupForm({ companyId }: { companyId: string }) {
       <div className="space-y-2"><p className="flex items-center gap-2 font-medium"><Check className="size-4" />{setup.data?.address}</p>
         <p className="text-sm text-muted-foreground">{chosen?.name} can now receive email at this address.</p></div>
       <div className="flex items-center justify-between gap-3 border-t border-border pt-5">
-        <Button variant="ghost" onClick={leave}>Email settings</Button><Button onClick={() => navigate("/apps")}>Done</Button>
+        <Button variant="ghost" onClick={leave}>{t("apps.emailSetup.emailSettings", "Email settings")}</Button><Button onClick={() => navigate("/apps")}>{t("common.done", "Done")}</Button>
       </div>
     </div>}
       <Dialog open={trustOpen} onOpenChange={setTrustOpen}>

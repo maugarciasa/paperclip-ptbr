@@ -62,11 +62,11 @@ export function myValueTone(state: MyValueState): string {
 export function myValueLabel(state: MyValueState): string {
   switch (state) {
     case "set":
-      return "Value set";
+      return t("secrets.userDefinitions.valueSet", "Value set");
     case "not_set":
-      return "Not set";
+      return t("secrets.userDefinitions.notSet", "Not set");
     case "inactive":
-      return "Disabled";
+      return t("secrets.userSecrets.disabled", "Disabled");
   }
 }
 
@@ -77,5 +77,9 @@ export function myValueLabel(state: MyValueState): string {
 export function coverageSummaryLabel(summary: UserSecretCoverageSummary | undefined): string {
   if (!summary) return "—";
   const total = summary.configuredCount + summary.missingCount + summary.inactiveCount;
-  return `${summary.configuredCount} of ${total} set`;
+  return t("secrets.userDefinitions.configuredOfTotalSet", {
+    configured: summary.configuredCount,
+    total,
+    defaultValue: `${summary.configuredCount} of ${total} set`,
+  });
 }

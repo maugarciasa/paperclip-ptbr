@@ -5155,7 +5155,25 @@
       "tabReviews": "Revisões",
       "tabSettings": "Configurações",
       "taskDefaults": "Padrões de tarefa",
-      "telegramGroupCommand": "Comando de grupo do Telegram"
+      "telegramGroupCommand": "Comando de grupo do Telegram",
+      "copyNumberAria": "Copiar número dedicado",
+      "invitePeople": "Convidar pessoas",
+      "inviteTitle": "Convidar pessoas para conversar com {{name}}",
+      "inviteDesc": "Compartilhe estas instruções com alguém no seu workspace do Slack.",
+      "inviteExpiry": "O link de confirmação é pessoal e expira após 15 minutos.",
+      "linkedAccountsNotice": "Pessoas com contas vinculadas utilizam suas próprias permissões do Paperclip.",
+      "manageMembers": "Gerenciar membros",
+      "shareOnlyNotice": "Compartilhe apenas com esta pessoa. Ela deve entrar e confirmar sua própria conta.",
+      "loadingPeople": "Carregando pessoas…",
+      "loadingConversations": "Carregando conversas…",
+      "connectionActivity": "Atividade da conexão",
+      "lastReportedHealth": "Último status de saúde relatado:",
+      "connectionHealthAndControls": "Saúde da conexão e controles",
+      "callbackUrlsNeedAttention": "URLs de retorno necessitam de atenção",
+      "slackCallbackHealth": "Saúde do retorno do Slack",
+      "recentActivity": "Atividade recente",
+      "retryCalls": "Repetir chamadas",
+      "removeConnectionTitle": "Remover esta conexão?"
     },
     "chatEndpoints": "Endpoints de chat",
     "chatSetup": {
@@ -14485,7 +14503,16 @@
       "notSet": "Não definido",
       "setValue": "Definir valor",
       "valueCleared": "Valor limpo",
-      "valueSet": "Valor definido"
+      "valueSet": "Valor definido",
+      "toastValueUpdated": "Valor atualizado",
+      "toastValueSaved": "Valor salvo",
+      "dialogDescriptionPrefix": "Este valor pertence apenas a você. Ele é usado quando você é o usuário responsável por uma execução que necessita de ",
+      "externalReferenceLabel": "Referência externa",
+      "externalReferencePlaceholder": "referência do provedor ou ARN",
+      "externalReferenceHelp": "Aponta para sua própria credencial no provedor configurado. O Paperclip armazena a referência, não o valor.",
+      "yourValueLabel": "Seu valor",
+      "yourValuePlaceholder": "Cole seu token ou credencial",
+      "yourValueHelp": "Armazenado criptografado. Nunca é exibido para ninguém, incluindo administradores."
     },
     "vault": {
       "comingSoon": "Em breve",
@@ -16100,6 +16127,26 @@
       "importWarningCount_other": "{{count}} avisos de importação",
       "needsSetup": "Configuração necessária: {{error}}",
       "notIncludedReferenced": "Não incluído; referenciado por {{path}}."
+    },
+    "importProject": {
+      "loadingProjects": "Carregando projetos…",
+      "noProjectsYet": "Esta organização ainda não possui projetos.",
+      "noProjectsMatch": "Nenhum projeto corresponde a \"{{filter}}\".",
+      "browseFolders": "Navegar pelas pastas do projeto",
+      "browseFoldersDesc": "Abra qualquer pasta e adicione diretórios ou arquivos SKILL.md individuais.",
+      "discoveredSkills": "Habilidades descobertas",
+      "folderEmpty": "Esta pasta está vazia.",
+      "first250Entries": "Exibindo as primeiras 250 entradas.",
+      "noSkillsFound": "Nenhuma habilidade encontrada",
+      "noSkillsFoundPrefix": "Nenhuma das pastas conhecidas de habilidades nos workspaces deste projeto contém um",
+      "noSkillsFoundSearched": "Pesquisamos em {{folders}} e em outras {{count}} pastas de agentes.",
+      "chooseDiscoveredOrBrowse": "Escolha habilidades descobertas ou navegue por qualquer pasta do workspace.",
+      "browseFoldersShort": "Navegar por pastas",
+      "noFilesCopied": "Nenhum arquivo foi copiado.",
+      "noFilesCopiedDesc": "Essas habilidades referenciam os arquivos no workspace do projeto — editá-las no Skill Studio salva diretamente nesses arquivos.",
+      "countImported": "importadas",
+      "countUpdated": "atualizadas",
+      "countSkipped": "ignoradas"
     }
   },
   "statusCards": {
@@ -16963,7 +17010,26 @@
         "toolSingular": "ferramenta",
         "unassignedNote": "Atribua-o a agentes antes que ele altere o acesso deles.",
         "whatItAllows": "O que permite",
-        "whoHasIt": "Quem possui"
+        "whoHasIt": "Quem possui",
+        "noDescription": "Nenhuma descrição ainda.",
+        "loadingNewTools": "Carregando novas ferramentas...",
+        "noNewTools": "Não há novas ferramentas aguardando revisão.",
+        "submitReview": "Enviar revisão",
+        "allowsZeroTools": "Este perfil permite 0 ferramentas. Agentes com apenas este perfil não poderão usar ferramentas de apps.",
+        "reconnect": "Reconectar",
+        "notAssignedYet": "Não atribuído ainda",
+        "assignBeforeChanges": "Atribua este perfil antes que ele altere os acessos.",
+        "remove": "Remover",
+        "editTitle": "Editar perfil",
+        "editDesc": "Atualize o nome e a descrição do perfil.",
+        "name": "Nome",
+        "description": "Descrição",
+        "duplicateTitle": "Duplicar perfil",
+        "duplicateDesc": "A cópia começa não atribuída, a menos que você opte por copiar também as atribuições.",
+        "alsoCopyAssignments": "Também copiar as atribuições?",
+        "removeAssignmentTitle": "Remover atribuição",
+        "removeCompanyAssignmentDesc": "Remover o padrão da organização altera o acesso de todos os agentes que dependem dele.",
+        "removeTargetAssignmentDesc": "Remover este perfil de {{label}}."
       },
       "dialogs": {
         "archiveBody": "Este perfil deixará de ser aplicado a {{count}} {{agentWord}}. Você poderá restaurá-lo mais tarde.",
@@ -17130,7 +17196,7 @@
         },
         "toasts": {
           "bindFailed": "Não foi possível vincular perfil",
-          "bindingRemoved": "Vínculo removido",
+          "bindingRemoved": "Atribuição removida",
           "createFailed": "Não foi possível criar o perfil",
           "entryAddFailed": "Não foi possível adicionar entrada",
           "entryAdded": "Entrada adicionada",
@@ -17141,7 +17207,15 @@
           "profileCreated": "Perfil criado",
           "profileUpdated": "Perfil atualizado",
           "unbindFailed": "Não foi possível remover vínculo",
-          "updateFailed": "Não foi possível atualizar o perfil"
+          "updateFailed": "Não foi possível atualizar o perfil",
+          "profileDuplicated": "Perfil duplicado",
+          "profileDuplicatedBody": "A cópia ainda não está atribuída a ninguém.",
+          "duplicateFailed": "Não foi possível duplicar",
+          "profileDeleted": "Perfil excluído",
+          "deleteFailed": "Não foi possível excluir",
+          "newToolsReviewed": "Novas ferramentas revisadas",
+          "reviewFailed": "Não foi possível enviar a revisão",
+          "loadingProfile": "Carregando perfil..."
         }
       },
       "wizard": {

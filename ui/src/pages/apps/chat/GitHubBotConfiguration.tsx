@@ -773,7 +773,7 @@ export function GitHubAccessEditor({
   return (
     <section className="space-y-6" aria-label="People">
       <div className="space-y-1">
-        <h2 className="text-base font-semibold">People</h2>
+        <h2 className="text-base font-semibold">{t("apps.githubBotConfig.people", "People")}</h2>
         <p className="text-sm text-muted-foreground">
           Choose who can mention this bot and whose activity can start work
           automatically.
@@ -781,7 +781,7 @@ export function GitHubAccessEditor({
       </div>
       <section className="space-y-2" aria-label="Company members">
         <div className="flex flex-wrap items-center justify-between gap-2">
-          <h3 className="text-sm font-semibold">Company members</h3>
+          <h3 className="text-sm font-semibold">{t("apps.githubBotConfig.companyMembers", "Company members")}</h3>
           <Button
             variant="outline"
             size="sm"
@@ -852,7 +852,7 @@ export function GitHubAccessEditor({
         aria-label="External contributors"
       >
         <div className="flex flex-wrap items-center justify-between gap-2">
-          <h3 className="text-sm font-semibold">External contributors</h3>
+          <h3 className="text-sm font-semibold">{t("apps.githubBotConfig.externalContributors", "External contributors")}</h3>
           <Button
             variant="outline"
             size="sm"

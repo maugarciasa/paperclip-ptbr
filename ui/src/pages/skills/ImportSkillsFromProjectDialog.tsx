@@ -684,7 +684,7 @@ function PickProjectStep({
       </div>
       <div className="min-h-0 flex-1 overflow-y-auto">
         {loading ? (
-          <div className="p-6 text-center text-sm text-muted-foreground">Loading projects…</div>
+          <div className="p-6 text-center text-sm text-muted-foreground">{t("skills.importProject.loadingProjects", "Loading projects…")}</div>
         ) : error ? (
           <QueryErrorState
             className="m-5"
@@ -694,9 +694,9 @@ function PickProjectStep({
             retrying={retrying}
           />
         ) : totalProjects === 0 ? (
-          <EmptyState icon={Layers} message="This organization has no projects yet." />
+          <EmptyState icon={Layers} message={t("skills.importProject.noProjectsYet", "This organization has no projects yet.")} />
         ) : projects.length === 0 ? (
-          <EmptyState icon={Search} message={`No projects match "${filter}".`} />
+          <EmptyState icon={Search} message={t("skills.importProject.noProjectsMatch", { filter, defaultValue: `No projects match "${filter}".` })} />
         ) : (
           <ul className="divide-y divide-border/60" data-testid="project-list">
             {projects.map((project) => {
@@ -825,11 +825,11 @@ function ProjectSkillBrowser({
       <div className="shrink-0 border-b border-border/60 px-5 py-3">
         <div className="flex flex-wrap items-center justify-between gap-3">
           <div>
-            <p className="text-sm font-medium">Browse project folders</p>
-            <p className="mt-0.5 text-xs text-muted-foreground">Open any folder and add directories or individual SKILL.md files.</p>
+            <p className="text-sm font-medium">{t("skills.importProject.browseFolders", "Browse project folders")}</p>
+            <p className="mt-0.5 text-xs text-muted-foreground">{t("skills.importProject.browseFoldersDesc", "Open any folder and add directories or individual SKILL.md files.")}</p>
           </div>
           <Button variant="outline" size="sm" onClick={onBack}>
-            <ArrowLeft className="mr-1 h-3.5 w-3.5" /> Discovered skills
+            <ArrowLeft className="mr-1 h-3.5 w-3.5" /> {t("skills.importProject.discoveredSkills", "Discovered skills")}
           </Button>
         </div>
         {workspaces.length > 1 && (
@@ -907,10 +907,10 @@ function ProjectSkillBrowser({
             })}
           </ul>
         ) : (
-          <div className="p-8 text-center text-sm text-muted-foreground">This folder is empty.</div>
+          <div className="p-8 text-center text-sm text-muted-foreground">{t("skills.importProject.folderEmpty", "This folder is empty.")}</div>
         )}
         {result?.truncated && (
-          <p className="border-t border-border/60 px-5 py-2 text-xs text-muted-foreground">Showing the first 250 entries.</p>
+          <p className="border-t border-border/60 px-5 py-2 text-xs text-muted-foreground">{t("skills.importProject.first250Entries", "Showing the first 250 entries.")}</p>
         )}
       </div>
     </div>
@@ -1006,13 +1006,14 @@ function SelectStep({
           <div className="mx-auto mb-4 w-fit bg-muted/50 p-4">
             <FolderSearch className="h-10 w-10 text-muted-foreground/50" />
           </div>
-          <p className="text-base font-semibold">No skills found</p>
+          <p className="text-base font-semibold">{t("skills.importProject.noSkillsFound", "No skills found")}</p>
           <p className="mt-1.5 text-sm text-muted-foreground">
-            None of the well-known skill folders in this project's workspaces contain a{" "}
-            <code className="rounded bg-muted px-1 py-0.5 text-xs">SKILL.md</code>. We searched{" "}
-            {HIGHLIGHTED_SCAN_FOLDERS.join(", ")} and {APPROX_TOTAL_SCAN_FOLDERS -
-              HIGHLIGHTED_SCAN_FOLDERS.length}{" "}
-            other agent-harness folders.
+            {t("skills.importProject.noSkillsFoundPrefix", "None of the well-known skill folders in this project's workspaces contain a")}{" "}
+            <code className="rounded bg-muted px-1 py-0.5 text-xs">SKILL.md</code>. {t("skills.importProject.noSkillsFoundSearched", {
+              folders: HIGHLIGHTED_SCAN_FOLDERS.join(", "),
+              count: APPROX_TOTAL_SCAN_FOLDERS - HIGHLIGHTED_SCAN_FOLDERS.length,
+              defaultValue: `We searched ${HIGHLIGHTED_SCAN_FOLDERS.join(", ")} and ${APPROX_TOTAL_SCAN_FOLDERS - HIGHLIGHTED_SCAN_FOLDERS.length} other agent-harness folders.`
+            })}
           </p>
           <Button
             variant="outline"
@@ -1021,7 +1022,7 @@ function SelectStep({
             onClick={() => onBrowseOpenChange(true)}
             data-testid="browse-project-folders-empty"
           >
-            <FolderOpen className="mr-1.5 h-3.5 w-3.5" /> Browse project folders
+            <FolderOpen className="mr-1.5 h-3.5 w-3.5" /> {t("skills.importProject.browseFolders", "Browse project folders")}
           </Button>
           {onImportFromPath && (
             <p className="mt-3 text-sm text-muted-foreground">
@@ -1044,9 +1045,9 @@ function SelectStep({
   return (
     <div className="flex min-h-0 flex-1 flex-col" data-testid="candidate-list">
       <div className="flex shrink-0 items-center justify-between gap-3 border-b border-border/60 px-5 py-2.5">
-        <p className="text-xs text-muted-foreground">Choose discovered skills, or browse any workspace folder.</p>
+        <p className="text-xs text-muted-foreground">{t("skills.importProject.chooseDiscoveredOrBrowse", "Choose discovered skills, or browse any workspace folder.")}</p>
         <Button variant="outline" size="sm" onClick={() => onBrowseOpenChange(true)} data-testid="browse-project-folders">
-          <FolderOpen className="mr-1.5 h-3.5 w-3.5" /> Browse folders
+          <FolderOpen className="mr-1.5 h-3.5 w-3.5" /> {t("skills.importProject.browseFoldersShort", "Browse folders")}
         </Button>
       </div>
       <div className="shrink-0 border-b border-border/60 px-5 py-2.5">
@@ -1199,17 +1200,15 @@ function ResultStep({ result }: ResultStepProps) {
         <div className="flex items-start gap-3 rounded-md border border-emerald-500/30 bg-emerald-500/5 p-3">
           <Link2 className="mt-0.5 h-4 w-4 shrink-0 text-emerald-600 dark:text-emerald-400" />
           <div className="text-xs leading-relaxed text-muted-foreground">
-            <span className="font-medium text-foreground">No files were copied.</span> These skills
-            reference the files in the project workspace — editing them in Skill Studio saves
-            directly back to those files.
+            <span className="font-medium text-foreground">{t("skills.importProject.noFilesCopied", "No files were copied.")}</span> {t("skills.importProject.noFilesCopiedDesc", "These skills reference the files in the project workspace — editing them in Skill Studio saves directly back to those files.")}
           </div>
         </div>
         <div className="mt-3 flex flex-wrap items-center gap-3 text-xs text-muted-foreground">
           <span className="text-emerald-600 dark:text-emerald-400">
-            ✓ {result.imported.length} imported
+            ✓ {result.imported.length} {t("skills.importProject.countImported", "imported")}
           </span>
-          {result.updated.length > 0 && <span>↻ {result.updated.length} updated</span>}
-          {result.skipped.length > 0 && <span>⊘ {result.skipped.length} skipped</span>}
+          {result.updated.length > 0 && <span>↻ {result.updated.length} {t("skills.importProject.countUpdated", "updated")}</span>}
+          {result.skipped.length > 0 && <span>⊘ {result.skipped.length} {t("skills.importProject.countSkipped", "skipped")}</span>}
         </div>
       </div>
       <div className="min-h-0 flex-1 overflow-y-auto">

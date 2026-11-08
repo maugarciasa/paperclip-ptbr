@@ -112,7 +112,7 @@ export function ProfileDetail({
     mutationFn: (input: Parameters<typeof toolsApi.updateProfile>[1]) => toolsApi.updateProfile(profileId, input),
     onSuccess: () => {
       invalidate();
-      pushToast({ title: "Profile updated", tone: "success" });
+      pushToast({ title: t("tools.profiles.tab.toasts.profileUpdated", "Profile updated"), tone: "success" });
     },
     onError: (error: unknown) => pushToast({ title: "Could not update profile", body: errorBody(error), tone: "error" }),
   });
@@ -121,7 +121,7 @@ export function ProfileDetail({
     mutationFn: (input: { name: string; includeAssignments: boolean }) => toolsApi.duplicateProfile(profileId, input),
     onSuccess: (copy) => {
       invalidate();
-      pushToast({ title: "Profile duplicated", body: "The copy is not assigned to anyone yet.", tone: "success" });
+      pushToast({ title: t("tools.profiles.tab.toasts.profileDuplicated", "Profile duplicated"), body: t("tools.profiles.tab.toasts.profileDuplicatedBody", "The copy is not assigned to anyone yet."), tone: "success" });
       navigate(`/apps/advanced/profiles/${copy.id}?created=1`);
     },
     onError: (error: unknown) => pushToast({ title: "Could not duplicate", body: errorBody(error), tone: "error" }),
@@ -131,7 +131,7 @@ export function ProfileDetail({
     mutationFn: () => toolsApi.deleteProfile(profileId),
     onSuccess: () => {
       invalidate();
-      pushToast({ title: "Profile deleted", tone: "success" });
+      pushToast({ title: t("tools.profiles.tab.toasts.profileDeleted", "Profile deleted"), tone: "success" });
       navigate("/apps/advanced/profiles");
     },
     onError: (error: unknown) => pushToast({ title: "Could not delete", body: errorBody(error), tone: "error" }),
@@ -143,7 +143,7 @@ export function ProfileDetail({
     onSuccess: () => {
       setAssignmentToRemove(null);
       invalidate();
-      pushToast({ title: "Assignment removed", tone: "success" });
+      pushToast({ title: t("tools.profiles.tab.toasts.bindingRemoved", "Assignment removed"), tone: "success" });
     },
     onError: (error: unknown) => pushToast({ title: "Could not remove assignment", body: errorBody(error), tone: "error" }),
   });
@@ -161,12 +161,12 @@ export function ProfileDetail({
       setSearchParams({});
       queryClient.invalidateQueries({ queryKey: queryKeys.tools.profiles(companyId) });
       queryClient.invalidateQueries({ queryKey: queryKeys.tools.profileNewTools(profileId) });
-      pushToast({ title: "New tools reviewed", tone: "success" });
+      pushToast({ title: t("tools.profiles.tab.toasts.newToolsReviewed", "New tools reviewed"), tone: "success" });
     },
     onError: (error: unknown) => pushToast({ title: "Could not submit review", body: errorBody(error), tone: "error" }),
   });
 
-  if (data.profiles.isLoading || profilesView.kind === "reconnecting") return <LoadingState label="Loading profile..." />;
+  if (data.profiles.isLoading || profilesView.kind === "reconnecting") return <LoadingState label={t("tools.profiles.tab.toasts.loadingProfile", "Loading profile...")} />;
   if (profilesView.kind === "error") {
     return (
       <QueryErrorState
@@ -181,8 +181,8 @@ export function ProfileDetail({
   if (!profile) {
     return (
       <div className="space-y-4">
-        <ToolsPageHeader title="Profile not found" description="This access profile may have been deleted." />
-        <Button variant="outline" onClick={() => navigate("/apps/advanced/profiles")}>Back to profiles</Button>
+        <ToolsPageHeader title={t("tools.profiles.detail.notFoundTitle", "Profile not found")} description={t("tools.profiles.detail.notFoundDesc", "This access profile may have been deleted.")} />
+        <Button variant="outline" onClick={() => navigate("/apps/advanced/profiles")}>{t("tools.profiles.detail.backToProfiles", "Back to profiles")}</Button>
       </div>
     );
   }
@@ -199,23 +199,23 @@ export function ProfileDetail({
           <div className="flex flex-wrap gap-2">
             <Button variant="outline" disabled={archived} onClick={() => setDialog("edit")}>
               <Pencil className="mr-1.5 h-4 w-4" />
-              Edit
+              {t("tools.profiles.index.edit", "Edit")}
             </Button>
             <Button variant="outline" disabled={archived} onClick={() => setDialog("duplicate")}>
               <Copy className="mr-1.5 h-4 w-4" />
-              Duplicate
+              {t("tools.profiles.index.duplicate", "Duplicate")}
             </Button>
             {archived ? (
               <Button variant="outline" onClick={() => setDialog("restore")}>
                 <ArchiveRestore className="mr-1.5 h-4 w-4" />
-                Restore
+                {t("tools.profiles.index.restore", "Restore")}
               </Button>
             ) : (
-              <Button variant="outline" onClick={() => setDialog("archive")}>Archive</Button>
+              <Button variant="outline" onClick={() => setDialog("archive")}>{t("tools.profiles.index.archive", "Archive")}</Button>
             )}
             <Button variant="outline" className="text-destructive hover:text-destructive" onClick={() => setDialog("delete")}>
               <Trash2 className="mr-1.5 h-4 w-4" />
-              Delete
+              {t("tools.profiles.index.delete", "Delete")}
             </Button>
           </div>
         }
@@ -223,24 +223,24 @@ export function ProfileDetail({
 
       <div className="flex flex-wrap items-center gap-3 text-sm">
         <Badge variant={archived ? "outline" : "default"}>{STATUS_LABEL[profile.status]}</Badge>
-        <span className="text-muted-foreground">Updated <RelativeTime value={profile.updatedAt} /></span>
+        <span className="text-muted-foreground">{t("tools.profiles.index.thUpdated", "Updated")} <RelativeTime value={profile.updatedAt} /></span>
         <span className="text-muted-foreground">{allowsLabel(profile.summary)}</span>
       </div>
 
       {created ? (
         <div className="flex items-center justify-between gap-3 rounded-lg border border-primary/30 bg-primary/5 px-4 py-3">
           <div>
-            <p className="text-sm font-medium text-foreground">Profile saved</p>
+            <p className="text-sm font-medium text-foreground">{t("tools.profiles.detail.profileSaved", "Profile saved")}</p>
             <p className="text-sm text-muted-foreground">
-              {unassigned ? "Assign it to agents before it changes their access." : "Assignments are active now."}
+              {unassigned ? t("tools.profiles.detail.unassignedNote", "Assign it to agents before it changes their access.") : t("tools.profiles.detail.assignedActiveNote", "Assignments are active now.")}
             </p>
           </div>
           <div className="flex gap-2">
             <Button size="sm" onClick={() => navigate(`/apps/advanced/profiles/${profile.id}/edit?step=3`)}>
-              Assign
+              {t("tools.profiles.detail.assign", "Assign")}
             </Button>
             <Button size="sm" variant="ghost" onClick={() => setSearchParams({})}>
-              Dismiss
+              {t("tools.profiles.detail.dismiss", "Dismiss")}
             </Button>
           </div>
         </div>
@@ -248,7 +248,7 @@ export function ProfileDetail({
 
       {archived ? (
         <div className="rounded-lg border border-amber-300 bg-amber-50 px-4 py-3 text-sm text-amber-950">
-          This profile is archived. It does not apply to agents until it is restored.
+          {t("tools.profiles.detail.archivedNotice", "This profile is archived. It does not apply to agents until it is restored.")}
         </div>
       ) : null}
 
@@ -263,9 +263,9 @@ export function ProfileDetail({
 
       <section className="space-y-3">
         <div className="flex items-center justify-between gap-3">
-          <h2 className="text-base font-semibold text-foreground">What it allows</h2>
+          <h2 className="text-base font-semibold text-foreground">{t("tools.profiles.detail.whatItAllows", "What it allows")}</h2>
           <Button variant="outline" size="sm" disabled={archived} onClick={() => navigate(`/apps/advanced/profiles/${profile.id}/edit?step=2`)}>
-            Edit tools
+            {t("tools.profiles.detail.editTools", "Edit tools")}
           </Button>
         </div>
         <AllowList rows={allowRows} total={profile.summary.totalToolCount} />
@@ -273,9 +273,9 @@ export function ProfileDetail({
 
       <section className="space-y-3">
         <div className="flex items-center justify-between gap-3">
-          <h2 className="text-base font-semibold text-foreground">Who has it</h2>
+          <h2 className="text-base font-semibold text-foreground">{t("tools.profiles.detail.whoHasIt", "Who has it")}</h2>
           <Button variant="outline" size="sm" disabled={archived} onClick={() => navigate(`/apps/advanced/profiles/${profile.id}/edit?step=3`)}>
-            Assign
+            {t("tools.profiles.detail.assign", "Assign")}
           </Button>
         </div>
         <Assignments
@@ -298,7 +298,7 @@ export function ProfileDetail({
 
       <Button variant="link" className="h-auto px-0" onClick={() => navigate("/apps/advanced/profiles?check=1")}>
         <ShieldCheck className="mr-1.5 h-4 w-4" />
-        Check what an agent can actually do
+        {t("tools.profiles.detail.checkAgentAccess", "Check what an agent can actually do")}
       </Button>
 
       <ProfileDialogs
@@ -357,11 +357,11 @@ function NewToolsReviewBanner({
     <div className="flex flex-wrap items-center justify-between gap-3 rounded-lg border border-amber-300 bg-amber-50 px-4 py-3 text-sm text-amber-950">
       <div>
         <p className="font-medium">
-          {loading ? "New tools need review" : `${appLabel} added ${count} new ${count === 1 ? "tool" : "tools"} since your last review`}
+          {loading ? t("tools.profiles.detail.newToolsNeedReview", "New tools need review") : t("tools.profiles.detail.newToolsAdded", { appLabel, count, toolWord: count === 1 ? t("tools.profiles.detail.toolSingular", "tool") : t("tools.profiles.detail.toolPlural", "tools") })}
         </p>
-        <p className="text-amber-900/80">Choose which ones this profile should allow.</p>
+        <p className="text-amber-900/80">{t("tools.profiles.detail.chooseWhichAllow", "Choose which ones this profile should allow.")}</p>
       </div>
-      <Button size="sm" onClick={onReview}>Review</Button>
+      <Button size="sm" onClick={onReview}>{t("tools.profiles.detail.review", "Review")}</Button>
     </div>
   );
 }
@@ -396,18 +396,18 @@ function NewToolsReviewDialog({
     <Dialog open={open} onOpenChange={(next) => !next && onClose()}>
       <DialogContent className="max-w-2xl">
         <DialogHeader>
-          <DialogTitle>Review new tools</DialogTitle>
+          <DialogTitle>{t("tools.profiles.detail.reviewNewToolsTitle", "Review new tools")}</DialogTitle>
           <DialogDescription>
-            Allow the tools this profile should use. Keep the rest blocked.
+            {t("tools.profiles.detail.reviewNewToolsDesc", "Allow the tools this profile should use. Keep the rest blocked.")}
           </DialogDescription>
         </DialogHeader>
         {loading ? (
-          <LoadingState label="Loading new tools..." />
+          <LoadingState label={t("tools.profiles.detail.loadingNewTools", "Loading new tools...")} />
         ) : error ? (
           <QueryErrorState error={error} action={t("errorActions.loadNewTools")} onRetry={onRetry} retrying={retrying} />
         ) : tools.length === 0 ? (
           <div className="rounded-lg border border-dashed border-border px-4 py-6 text-sm text-muted-foreground">
-            There are no new tools waiting for review.
+            {t("tools.profiles.detail.noNewTools", "There are no new tools waiting for review.")}
           </div>
         ) : (
           <div className="max-h-(--sz-52vh) divide-y divide-border overflow-y-auto rounded-lg border border-border">
@@ -435,7 +435,7 @@ function NewToolsReviewDialog({
                       checked={(decisions[tool.catalogEntryId] ?? "keep_blocked") === "allow"}
                       onChange={() => onDecision(tool.catalogEntryId, "allow")}
                     />
-                    Allow
+                    {t("tools.profiles.wizardTools.allow", "Allow")}
                   </label>
                   <label className="inline-flex items-center gap-1.5 text-sm">
                     <input
@@ -444,7 +444,7 @@ function NewToolsReviewDialog({
                       checked={(decisions[tool.catalogEntryId] ?? "keep_blocked") === "keep_blocked"}
                       onChange={() => onDecision(tool.catalogEntryId, "keep_blocked")}
                     />
-                    Keep blocked
+                    {t("tools.profiles.wizardTools.block", "Keep blocked")}
                   </label>
                 </div>
               </div>
@@ -452,9 +452,9 @@ function NewToolsReviewDialog({
           </div>
         )}
         <DialogFooter>
-          <Button variant="ghost" onClick={onClose}>Cancel</Button>
+          <Button variant="ghost" onClick={onClose}>{t("common.cancel", "Cancel")}</Button>
           <Button disabled={pending || loading || tools.length === 0} onClick={onSubmit}>
-            Submit review
+            {t("tools.profiles.detail.submitReview", "Submit review")}
           </Button>
         </DialogFooter>
       </DialogContent>
@@ -466,7 +466,7 @@ function AllowList({ rows, total }: { rows: AllowRow[]; total: number }) {
   if (rows.length === 0) {
     return (
       <div className="rounded-lg border border-amber-300 bg-amber-50 px-4 py-3 text-sm text-amber-950">
-        This profile allows 0 tools. Agents with only this profile will not be able to use app tools.
+        {t("tools.profiles.detail.allowsZeroTools", "This profile allows 0 tools. Agents with only this profile will not be able to use app tools.")}
       </div>
     );
   }
@@ -475,10 +475,10 @@ function AllowList({ rows, total }: { rows: AllowRow[]; total: number }) {
       <table className="w-full text-sm">
         <thead>
           <tr className="border-b border-border bg-muted/40 text-left text-xs font-medium text-muted-foreground">
-            <th className="px-3 py-2 font-medium">Tool</th>
-            <th className="px-3 py-2 font-medium">App</th>
-            <th className="px-3 py-2 font-medium">Capabilities</th>
-            <th className="px-3 py-2 font-medium">Source</th>
+            <th className="px-3 py-2 font-medium">{t("tools.profiles.tab.allowList.thTool", "Tool")}</th>
+            <th className="px-3 py-2 font-medium">{t("tools.profiles.tab.allowList.thApplication", "App")}</th>
+            <th className="px-3 py-2 font-medium">{t("tools.profiles.tab.allowList.thCapabilities", "Capabilities")}</th>
+            <th className="px-3 py-2 font-medium">{t("tools.profiles.tab.allowList.thSource", "Source")}</th>
           </tr>
         </thead>
         <tbody>
@@ -490,7 +490,7 @@ function AllowList({ rows, total }: { rows: AllowRow[]; total: number }) {
                   {row.degraded ? (
                     <a className="mt-0.5 inline-flex items-center gap-1 text-xs font-medium text-primary hover:underline" href={`/apps/${row.connectionId}`}>
                       <PlugZap className="h-3 w-3" />
-                      Reconnect
+                      {t("tools.profiles.detail.reconnect", "Reconnect")}
                     </a>
                   ) : null}
                 </div>
@@ -545,8 +545,8 @@ function Assignments({
   if (profile.bindings.length === 0) {
     return (
       <div className="rounded-lg border border-dashed border-border px-4 py-5">
-        <p className="text-sm font-medium text-foreground">Not assigned yet</p>
-        <p className="text-sm text-muted-foreground">Assign this profile before it changes access.</p>
+        <p className="text-sm font-medium text-foreground">{t("tools.profiles.detail.notAssignedYet", "Not assigned yet")}</p>
+        <p className="text-sm text-muted-foreground">{t("tools.profiles.detail.assignBeforeChanges", "Assign this profile before it changes access.")}</p>
       </div>
     );
   }
@@ -565,7 +565,7 @@ function Assignments({
           </div>
           <Button variant="ghost" size="sm" disabled={archived} onClick={() => onRemove(binding)}>
             <UserMinus className="mr-1.5 h-4 w-4" />
-            Remove
+            {t("tools.profiles.detail.remove", "Remove")}
           </Button>
         </div>
       ))}
@@ -655,8 +655,8 @@ function ProfileDialogs({
       <Dialog open={open} onOpenChange={(next) => !next && onClose()}>
         <DialogContent>
           <DialogHeader>
-            <DialogTitle>Edit profile</DialogTitle>
-            <DialogDescription>Update the profile name and description.</DialogDescription>
+            <DialogTitle>{t("tools.profiles.detail.editTitle", "Edit profile")}</DialogTitle>
+            <DialogDescription>{t("tools.profiles.detail.editDesc", "Update the profile name and description.")}</DialogDescription>
           </DialogHeader>
           <div className="space-y-3">
             <div className="space-y-1.5">
@@ -679,9 +679,9 @@ function ProfileDialogs({
             ) : null}
           </div>
           <DialogFooter>
-            <Button variant="ghost" onClick={onClose}>Cancel</Button>
+            <Button variant="ghost" onClick={onClose}>{t("common.cancel", "Cancel")}</Button>
             <Button disabled={!name.trim() || duplicateName || pending} onClick={() => onUpdate({ name: name.trim(), description: description.trim() || null, profileKey: profileKey.trim() })}>
-              Save
+              {t("common.save", "Save")}
             </Button>
           </DialogFooter>
         </DialogContent>
@@ -694,8 +694,8 @@ function ProfileDialogs({
       <Dialog open={open} onOpenChange={(next) => !next && onClose()}>
         <DialogContent>
           <DialogHeader>
-            <DialogTitle>Duplicate profile</DialogTitle>
-            <DialogDescription>The copy starts unassigned unless you choose to copy assignments too.</DialogDescription>
+            <DialogTitle>{t("tools.profiles.detail.duplicateTitle", "Duplicate profile")}</DialogTitle>
+            <DialogDescription>{t("tools.profiles.detail.duplicateDesc", "The copy starts unassigned unless you choose to copy assignments too.")}</DialogDescription>
           </DialogHeader>
           <div className="space-y-3">
             <div className="space-y-1.5">
@@ -705,13 +705,13 @@ function ProfileDialogs({
             </div>
             <label className="flex items-center gap-2 text-sm">
               <input type="checkbox" checked={copyAssignments} onChange={(e) => setCopyAssignments(e.target.checked)} />
-              Also copy assignments?
+              {t("tools.profiles.detail.alsoCopyAssignments", "Also copy assignments?")}
             </label>
           </div>
           <DialogFooter>
-            <Button variant="ghost" onClick={onClose}>Cancel</Button>
+            <Button variant="ghost" onClick={onClose}>{t("common.cancel", "Cancel")}</Button>
             <Button disabled={!copyName.trim() || duplicateCopyName || pending} onClick={() => onDuplicate({ name: copyName.trim(), includeAssignments: copyAssignments })}>
-              Duplicate
+              {t("tools.profiles.index.duplicate", "Duplicate")}
             </Button>
           </DialogFooter>
         </DialogContent>
@@ -749,16 +749,16 @@ function RemoveAssignmentDialog({
     <Dialog open={Boolean(binding)} onOpenChange={(next) => !next && onClose()}>
       <DialogContent>
         <DialogHeader>
-          <DialogTitle>Remove assignment</DialogTitle>
+          <DialogTitle>{t("tools.profiles.detail.removeAssignmentTitle", "Remove assignment")}</DialogTitle>
           <DialogDescription>
             {binding?.targetType === "company"
-              ? "Removing the organization default changes access for every agent that relies on it."
-              : `Remove this profile from ${label}.`}
+              ? t("tools.profiles.detail.removeCompanyAssignmentDesc", "Removing the organization default changes access for every agent that relies on it.")
+              : t("tools.profiles.detail.removeTargetAssignmentDesc", { label, defaultValue: `Remove this profile from ${label}.` })}
           </DialogDescription>
         </DialogHeader>
         <DialogFooter>
-          <Button variant="ghost" onClick={onClose}>Cancel</Button>
-          <Button disabled={pending} onClick={onConfirm}>Remove</Button>
+          <Button variant="ghost" onClick={onClose}>{t("common.cancel", "Cancel")}</Button>
+          <Button disabled={pending} onClick={onConfirm}>{t("tools.profiles.detail.remove", "Remove")}</Button>
         </DialogFooter>
       </DialogContent>
     </Dialog>

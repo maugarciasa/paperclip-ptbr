@@ -5155,7 +5155,25 @@
       "tabReviews": "Reviews",
       "tabSettings": "Settings",
       "taskDefaults": "Task defaults",
-      "telegramGroupCommand": "Telegram group command"
+      "telegramGroupCommand": "Telegram group command",
+      "copyNumberAria": "Copy dedicated number",
+      "invitePeople": "Invite people",
+      "inviteTitle": "Invite people to talk to {{name}}",
+      "inviteDesc": "Share these instructions with someone in your Slack workspace.",
+      "inviteExpiry": "The confirmation link is personal and expires after 15 minutes.",
+      "linkedAccountsNotice": "People with linked accounts use their own Paperclip permissions.",
+      "manageMembers": "Manage members",
+      "shareOnlyNotice": "Share only with this person. They must sign in and confirm their own account.",
+      "loadingPeople": "Loading people…",
+      "loadingConversations": "Loading conversations…",
+      "connectionActivity": "Connection activity",
+      "lastReportedHealth": "Last reported health:",
+      "connectionHealthAndControls": "Connection health and controls",
+      "callbackUrlsNeedAttention": "Callback URLs need attention",
+      "slackCallbackHealth": "Slack callback health",
+      "recentActivity": "Recent activity",
+      "retryCalls": "Retry calls",
+      "removeConnectionTitle": "Remove this connection?"
     },
     "chatEndpoints": "Chat endpoints",
     "chatSetup": {
@@ -14485,7 +14503,16 @@
       "notSet": "Not set",
       "setValue": "Set value",
       "valueCleared": "Value cleared",
-      "valueSet": "Value set"
+      "valueSet": "Value set",
+      "toastValueUpdated": "Value updated",
+      "toastValueSaved": "Value saved",
+      "dialogDescriptionPrefix": "This value is yours only. It is used when you are the user responsible for a run that needs ",
+      "externalReferenceLabel": "External reference",
+      "externalReferencePlaceholder": "provider reference or ARN",
+      "externalReferenceHelp": "Points at your own credential in the configured provider. Paperclip stores the reference, not the value.",
+      "yourValueLabel": "Your value",
+      "yourValuePlaceholder": "Paste your token or credential",
+      "yourValueHelp": "Stored encrypted. Never shown back to anyone, including admins."
     },
     "vault": {
       "comingSoon": "Coming soon",
@@ -16100,6 +16127,26 @@
       "importWarningCount_other": "{{count}} import warnings",
       "needsSetup": "Needs setup: {{error}}",
       "notIncludedReferenced": "Not included; referenced by {{path}}."
+    },
+    "importProject": {
+      "loadingProjects": "Loading projects…",
+      "noProjectsYet": "This organization has no projects yet.",
+      "noProjectsMatch": "No projects match \"{{filter}}\".",
+      "browseFolders": "Browse project folders",
+      "browseFoldersDesc": "Open any folder and add directories or individual SKILL.md files.",
+      "discoveredSkills": "Discovered skills",
+      "folderEmpty": "This folder is empty.",
+      "first250Entries": "Showing the first 250 entries.",
+      "noSkillsFound": "No skills found",
+      "noSkillsFoundPrefix": "None of the well-known skill folders in this project's workspaces contain a",
+      "noSkillsFoundSearched": "We searched {{folders}} and {{count}} other agent-harness folders.",
+      "chooseDiscoveredOrBrowse": "Choose discovered skills, or browse any workspace folder.",
+      "browseFoldersShort": "Browse folders",
+      "noFilesCopied": "No files were copied.",
+      "noFilesCopiedDesc": "These skills reference the files in the project workspace — editing them in Skill Studio saves directly back to those files.",
+      "countImported": "imported",
+      "countUpdated": "updated",
+      "countSkipped": "skipped"
     }
   },
   "statusCards": {
@@ -16963,7 +17010,26 @@
         "toolSingular": "tool",
         "unassignedNote": "Assign it to agents before it changes their access.",
         "whatItAllows": "What it allows",
-        "whoHasIt": "Who has it"
+        "whoHasIt": "Who has it",
+        "noDescription": "No description yet.",
+        "loadingNewTools": "Loading new tools...",
+        "noNewTools": "There are no new tools waiting for review.",
+        "submitReview": "Submit review",
+        "allowsZeroTools": "This profile allows 0 tools. Agents with only this profile will not be able to use app tools.",
+        "reconnect": "Reconnect",
+        "notAssignedYet": "Not assigned yet",
+        "assignBeforeChanges": "Assign this profile before it changes access.",
+        "remove": "Remove",
+        "editTitle": "Edit profile",
+        "editDesc": "Update the profile name and description.",
+        "name": "Name",
+        "description": "Description",
+        "duplicateTitle": "Duplicate profile",
+        "duplicateDesc": "The copy starts unassigned unless you choose to copy assignments too.",
+        "alsoCopyAssignments": "Also copy assignments?",
+        "removeAssignmentTitle": "Remove assignment",
+        "removeCompanyAssignmentDesc": "Removing the organization default changes access for every agent that relies on it.",
+        "removeTargetAssignmentDesc": "Remove this profile from {{label}}."
       },
       "dialogs": {
         "archiveBody": "This profile stops applying to {{count}} {{agentWord}}. You can restore it later.",
@@ -17130,7 +17196,7 @@
         },
         "toasts": {
           "bindFailed": "Could not bind profile",
-          "bindingRemoved": "Binding removed",
+          "bindingRemoved": "Assignment removed",
           "createFailed": "Could not create profile",
           "entryAddFailed": "Could not add entry",
           "entryAdded": "Entry added",
@@ -17141,7 +17207,15 @@
           "profileCreated": "Profile created",
           "profileUpdated": "Profile updated",
           "unbindFailed": "Could not remove binding",
-          "updateFailed": "Could not update profile"
+          "updateFailed": "Could not update profile",
+          "profileDuplicated": "Profile duplicated",
+          "profileDuplicatedBody": "The copy is not assigned to anyone yet.",
+          "duplicateFailed": "Could not duplicate",
+          "profileDeleted": "Profile deleted",
+          "deleteFailed": "Could not delete",
+          "newToolsReviewed": "New tools reviewed",
+          "reviewFailed": "Could not submit review",
+          "loadingProfile": "Loading profile..."
         }
       },
       "wizard": {
