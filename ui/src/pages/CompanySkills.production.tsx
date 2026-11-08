@@ -2570,12 +2570,14 @@ function SkillList({
 
 type SkillDetailTab = "overview" | "files" | "versions" | "agents";
 
-const SKILL_DETAIL_TABS: Array<{ value: SkillDetailTab; label: string; icon: typeof FileText }> = [
-  { value: "overview", label: "Overview", icon: FileText },
-  { value: "files", label: "Files", icon: FolderOpen },
-  { value: "versions", label: "Versions", icon: History },
-  { value: "agents", label: "Agents", icon: Users },
-];
+function skillDetailTabs(): Array<{ value: SkillDetailTab; label: string; icon: typeof FileText }> {
+  return [
+  { value: "overview", label: t("skills.CompanySkills.tabOverview"), icon: FileText },
+  { value: "files", label: t("skills.CompanySkills.filesLabel"), icon: FolderOpen },
+  { value: "versions", label: t("skills.CompanySkills.tabVersions"), icon: History },
+  { value: "agents", label: t("skills.CompanySkills.agentsLabel"), icon: Users },
+  ]
+}
 
 function currentVersionSelection(detail: CompanySkillDetail | null | undefined) {
   const selected = detail?.usedByAgents.find((agent) => agent.versionId)?.versionId;
@@ -3428,7 +3430,7 @@ export function SkillDetailPage({
             {/* Underlined tab strip: the bottom padding keeps the active-tab
                 underline inside the horizontal-scroll clip box (PAP-10907). */}
             <TabsList variant="line" className="mb-5 w-full max-w-full justify-start overflow-x-auto border-b border-border p-0 pb-1.5 [scrollbar-width:none]">
-              {SKILL_DETAIL_TABS.map((tab) => {
+              {skillDetailTabs().map((tab) => {
                 const Icon = tab.icon;
                 return (
                   <TabsTrigger key={tab.value} value={tab.value} className="px-3">
