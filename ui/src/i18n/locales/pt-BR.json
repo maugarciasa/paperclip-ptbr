@@ -8318,6 +8318,30 @@
     }
   },
   "inbox": {
+    "LegacyInbox": {
+      "markAsRead": "Marcar como lida",
+      "failedRun": "Execução com falha",
+      "dismiss": "Dispensar",
+      "requestedBy": "solicitado por",
+      "updated": "atualizado",
+      "approve": "Aprovar",
+      "reject": "Rejeitar",
+      "requested": "solicitado",
+      "fromIp": "do IP",
+      "adapterLabel": "adaptador:",
+      "group": "Agrupar",
+      "sort": "Ordenar",
+      "cancel": "Cancelar",
+      "markAllRead": "Marcar tudo como lido",
+      "earlier": "Anteriores",
+      "alerts": "Alertas",
+      "budgetAt": "Orçamento em",
+      "utilizationMonth": "de utilização neste mês",
+      "subTasks_one": "({{count}} subtarefa)",
+      "subTasks_other": "({{count}} subtarefas)",
+      "agentErrors_one": "{{count}} agente com erros",
+      "agentErrors_other": "{{count}} agentes com erros"
+    },
     "AttentionQueueRow": {
       "anAgent": "um agente",
       "approvalApproved": "Aprovação concluída",

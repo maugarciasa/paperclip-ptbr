@@ -8318,6 +8318,30 @@
     }
   },
   "inbox": {
+    "LegacyInbox": {
+      "markAsRead": "Mark as read",
+      "failedRun": "Failed run",
+      "dismiss": "Dismiss",
+      "requestedBy": "requested by",
+      "updated": "updated",
+      "approve": "Approve",
+      "reject": "Reject",
+      "requested": "requested",
+      "fromIp": "from IP",
+      "adapterLabel": "adapter:",
+      "group": "Group",
+      "sort": "Sort",
+      "cancel": "Cancel",
+      "markAllRead": "Mark all as read",
+      "earlier": "Earlier",
+      "alerts": "Alerts",
+      "budgetAt": "Budget at",
+      "utilizationMonth": "utilization this month",
+      "subTasks_one": "({{count}} sub-task)",
+      "subTasks_other": "({{count}} sub-tasks)",
+      "agentErrors_one": "{{count}} agent has errors",
+      "agentErrors_other": "{{count}} agents have errors"
+    },
     "AttentionQueueRow": {
       "anAgent": "an agent",
       "approvalApproved": "Approval approved",
