@@ -3841,7 +3841,7 @@ function SkillPane({
                     <CopyText
                       text={detail.sourcePath}
                       copiedLabel={t("skills.CompanySkills.copiedPath")}
-                      ariaLabel="Copy source path"
+                      ariaLabel={t("skills.CompanySkills.copySourcePath")}
                       title={t("skills.CompanySkills.copySourcePath")}
                       className="inline-flex h-7 w-7 shrink-0 items-center justify-center rounded-sm border border-border text-muted-foreground transition-colors hover:bg-accent hover:text-foreground"
                     >
@@ -4863,7 +4863,7 @@ export function CompanySkills() {
         queryClient.invalidateQueries({ queryKey: queryKeys.companySkills.list(selectedCompanyId!) }),
         queryClient.invalidateQueries({ queryKey: queryKeys.folders.list(selectedCompanyId!, "skill") }),
       ]);
-      pushToast({ tone: "success", title: "Skills moved", body: `${ids.length} skill${ids.length === 1 ? "" : "s"} filed.` });
+      pushToast({ tone: "success", title: t("skills.CompanySkills.skillsMoved"), body: `${ids.length} skill${ids.length === 1 ? "" : "s"} filed.` });
     } catch (moveError) {
       pushToast({
         tone: "error",
@@ -5043,7 +5043,7 @@ export function CompanySkills() {
         }
         await attachAgentsMutation.mutateAsync({ agentId, desiredSkills: currentEntries });
       }
-      pushToast({ tone: "success", title: "Agents updated", body: `${nextAgentIds.length} agent(s) attached.` });
+      pushToast({ tone: "success", title: t("skills.CompanySkills.agentsUpdated"), body: `${nextAgentIds.length} agent(s) attached.` });
     } catch (error) {
       pushToast({ tone: "error", title: t("skills.CompanySkills.updateFailed"), body: describeError(error).body });
     }
@@ -5229,7 +5229,7 @@ export function CompanySkills() {
                   onClick={() => deleteSkill.mutate()}
                   disabled={deleteSkill.isPending || !deleteTargetSkillId}
                 >
-                  {deleteSkill.isPending ? t("skills.CompanySkills.removing") : "Remove skill"}
+                  {deleteSkill.isPending ? t("skills.CompanySkills.removing") : t("skills.CompanySkills.removeSkill")}
                 </Button>
               </>
             )}
