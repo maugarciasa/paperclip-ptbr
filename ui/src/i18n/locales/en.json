@@ -501,7 +501,10 @@
       "reconnect": "Reconnect",
       "revokeDescription": "New runs using this account will be blocked. Existing runs may retain credentials already issued to them. No other account will be selected automatically.",
       "revokeIdentity": "Revoke identity",
-      "subscription": "Subscription"
+      "subscription": "Subscription",
+      "defaultForProvider": "Default for {{provider}}",
+      "yourProviderDefault": "Your {{provider}} default",
+      "setDefaultForProvider": "Set as default for {{provider}}"
     },
     "AiConnectionAccountDetails": {
       "access": "Access",
@@ -945,7 +948,7 @@
       "readTaskAttachmentsHint": "Let Dot read files attached to its current assigned task. File contents are sent to OpenAI. Does not require workspace command access; off by default.",
       "repositoryDefault": "Repository default",
       "runnerLifecycle": "Runner lifecycle",
-      "runnerLifecycleHint": "Turn by turn suspends after each run. Warm keeps the same provider process available between governed runs.",
+      "runnerLifecycleHint": "Automatic keeps Codex and OpenCode warm on this computer for 5 minutes after a run, so a follow-up starts faster, and runs other harnesses turn by turn. Turn by turn suspends after each run. Warm keeps the same provider process available between governed runs.",
       "savedCodexModeRecovery": "This saved Codex mode cannot start or recover a Paperclip Runner run. Select Automatic (isolated) to remediate it.",
       "sessionSpendCeiling": "Session spend ceiling (USD)",
       "sessionSpendCeilingHint": "Optional per-agent hard ceiling. Leave 1.00 to use a conservative default.",
@@ -967,7 +970,8 @@
       "warmSession": "Warm session",
       "workOnCurrentBranch": "Work on current branch",
       "workspaceFilesAndCommands": "Workspace files and commands",
-      "workspaceFilesAndCommandsHint": "Let Dot read and write its assigned workspace and publish files. Requires a local Runner. Commands are available only on Linux with bubblewrap; they cannot read your home directory or use injected credentials."
+      "workspaceFilesAndCommandsHint": "Let Dot read and write its assigned workspace and publish files. Requires a local Runner. Commands are available only on Linux with bubblewrap; they cannot read your home directory or use injected credentials.",
+      "automatic": "Automatic"
     },
     "ConfigureBuiltInAgentModal": {
       "advanced": "Advanced",
@@ -1552,7 +1556,7 @@
       "inspectingRecovery": "Inspecting recovery…",
       "leasePolicyLabel": "lease policy",
       "noRecoveryAction": "No recorded recovery action for this run.",
-      "notInspectedStatus": "Source not inspected: this record exceeds the inspection limit. Service attention is required.",
+      "notInspectedStatus": "Source not inspected: this record exceeds the inspection limit.",
       "observedAt": "Observed {{date}}",
       "readOnlyNote": "This read-only observation checks recorded identity. It does not confirm provider termination, local files, or successful preservation.",
       "recordedFailureLabel": "Recorded failure:",
@@ -8117,7 +8121,8 @@
       "title": "Delete {{name}}?",
       "workspaceNoLongerOnRecord": "Workspace no longer on record",
       "workspacesHardBlockNotice": "Close these workspaces to let Paperclip destroy their sandboxes, then retry the delete.",
-      "workspacesSoftBlockNotice": "Deleting destroys these sandboxes; the workspaces stay open."
+      "workspacesSoftBlockNotice": "Deleting destroys these sandboxes; the workspaces stay open.",
+      "blockRetainOnFailure": "Cannot delete this environment while it keeps a failed run's workspace copy (a stopped sandbox kept for file recovery). Deleting the environment with consent destroys that sandbox and the files only it holds."
     },
     "editor": {
       "addVariable": "Add variable",
@@ -13702,8 +13707,6 @@
       "whatToInclude": "What to include",
       "exportWord": "export",
       "organizationFallback": "Organization",
-      "exporting_one": "Exporting {{selected}} of {{total}} file",
-      "exporting_other": "Exporting {{selected}} of {{total}} files",
       "historyOptIn": "Task and routine history is opt-in because it can be large.",
       "updatingPreview": "Updating export preview…",
       "largeHistoryNote": "Large task histories can take a minute. You can untick Tasks or cancel this update.",
@@ -14204,8 +14207,6 @@
       "concurrency": "Concurrency",
       "catchUp": "Catch-up",
       "triggerSetupAfter": "After creation, Paperclip takes you straight to trigger setup. Draft routines stay paused until you add a default agent.",
-      "routinesCount_one": "{{count}} routine",
-      "routinesCount_other": "{{count}} routines",
       "newRoutineInFolder": "New routine in this folder"
     },
     "AgentInstructions": {
@@ -17077,11 +17078,7 @@
       "view": "View",
       "code": "Code",
       "compare": "Compare",
-      "versionFiles_one": "{{count}} file",
-      "versionFiles_other": "{{count}} files",
       "viewDiff": "View diff",
-      "attachedAgents_one": "{{count}} agent attached",
-      "attachedAgents_other": "{{count}} agents attached",
       "noAgentsUsing": "No agents are using this skill yet. Use “Add to agent” to attach it.",
       "andMore": "and {{count}} more",
       "checkForUpdates": "Check for updates",
@@ -19596,11 +19593,12 @@
       "forExampleTheOld": "For example: the old server process exited and was not restarted.",
       "cancel": "Cancel",
       "inspectingTheRecordedFile": "Inspecting the recorded file source…",
-      "fileRecoveryHasNot": "File recovery has not finished. The saved source remains protected; service assistance is needed.",
-      "theRecordedSourceIs": "The recorded source is unavailable or has changed. Inspect recovery before continuing.",
+      "fileRecoveryHasNot": "File recovery has not finished. The saved files remain protected and are not applied.",
+      "theRecordedSourceIs": "This file recovery was replaced. Check its status to show the task’s current recovery.",
       "taskAccessCouldNot": "Task access could not be checked. Refresh before requesting file recovery.",
       "checkingFileRecoveryAccess": "Checking file recovery access…",
-      "aBoardMemberWith": "A board member with task access can request file recovery."
+      "aBoardMemberWith": "A board member with task access can request file recovery.",
+      "doesNotApplyUnverified": "Paperclip does not apply files it can’t verify."
     },
     "WorkspaceAccessCard": {
       "noteCredentials": "Signs in with the snapshot-local credentials captured when this clone was made.",

@@ -113,6 +113,9 @@ function environmentDeleteBlockMessage(
     return t("environments.delete.blockPendingCleanup");
   }
   if (impact.reusableSandboxLeaseCount > 0) {
+    if (impact.reusableSandboxLeaseHolders.some(holder => holder.leasePolicy === "retain_on_failure")) {
+      return t("environments.delete.blockRetainOnFailure");
+    }
     return t("environments.delete.blockReusableLease");
   }
   return null;
@@ -1960,6 +1963,8 @@ export function CompanyEnvironments({ mode = "list" }: CompanyEnvironmentsProps)
   }
   // One row per workspace holding blocking sandbox leases (several leases can
   // share a workspace). A lease whose workspace FK was nulled groups alone.
+  const retainedFailureSourceCount = (deleteBlastRadius?.reusableSandboxLeaseHolders ?? [])
+    .filter(holder => holder.leasePolicy === "retain_on_failure").length;
   const reusableLeaseHolderGroups = (() => {
     const groups = new Map<
       string,
@@ -2581,6 +2586,9 @@ export function CompanyEnvironments({ mode = "list" }: CompanyEnvironmentsProps)
                               ? (deleteBlastRadius.reusableSandboxLeaseCount === 1
                                   ? t("environments.delete.reusableLeaseSoftBlock_one")
                                   : t("environments.delete.reusableLeaseSoftBlock_other", { count: deleteBlastRadius.reusableSandboxLeaseCount }))
+                              : null,
+                            reusableLeaseOnlyBlock && retainedFailureSourceCount > 0
+                              ? `${retainedFailureSourceCount === 1 ? "1 of them is" : `${retainedFailureSourceCount} of them are`} a failed run's workspace copy kept for file recovery; destroying it loses the files only it holds.`
                               : null,
                             agentsUsingEnvironment.length > 0
                               ? (agentsUsingEnvironment.length === 1

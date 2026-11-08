@@ -68,17 +68,20 @@ describe("R1–R6 grading on fixture timelines", () => {
     expect(grade.signature).toBe("R1:rested_not_done:A1:K1");
   });
 
-  it("passes R3 when one Retry starts a run that completes the task", () => {
+  it("fails R3 when the task needed a Retry, even one that completed it, and names a second click", () => {
     const samples = [
       sample(60_000, "blocked", [run("r1", "failed", 1_000, 30_000)], { interruption: { state: "failed", canRetry: true, retryWait: false, workspaceFailure: null, observedRunId: "r1", userAction: null } }),
       sample(80_000, "in_progress", [run("r1", "failed", 1_000, 30_000), run("r2", "running", 75_000, null, { retryOfRunId: "r1" })]),
       sample(140_000, "done", [run("r1", "failed", 1_000, 30_000), run("r2", "succeeded", 75_000, 130_000)]),
     ];
     const retried = record(samples, { retry: { at: T0 + 74_000, observedRunId: "r1", httpStatus: 200, accepted: true, error: null }, restAt: T0 + 140_000 });
-    expect(gradeR3(retried)).toMatchObject({ verdict: "pass" });
+    expect(gradeR3(retried)).toEqual({ verdict: "fail", detail: "retry_needed (failed)" });
     const grade = gradeTask(retried, [fault], workloadDefinitions.A1.budgetMs, oracle());
     expect(grade.rules.R1.verdict).toBe("n/a");
-    expect(grade.pass).toBe(true);
+    expect(grade.pass).toBe(false);
+    const twice = record(samples, { retry: { at: T0 + 74_000, observedRunId: "r1", httpStatus: 200, accepted: true, error: null },
+      priorRetries: [{ at: T0 + 50_000, observedRunId: "r0", httpStatus: 200, accepted: true, error: null }], restAt: T0 + 140_000 });
+    expect(gradeR3(twice).detail).toBe("retry_needed_2_clicks (failed)");
   });
 
   it("fails R3 for a dead Retry (accepted but no new run)", () => {
@@ -127,6 +130,27 @@ describe("R1–R6 grading on fixture timelines", () => {
     expect(gradeR4(record(afterSuccess)).detail).toMatch(/comment_consumed_twice: c1 by r1,r2/);
   });
 
+  // s9401/t72: the message's run was claimed just before the first run ended,
+  // then cancelled as stale before dispatch; a later run delivered the message.
+  it("passes R4 for a stale continuation cancelled before dispatch whose message a later run delivered once", () => {
+    const samples = [sample(90_000, "done", [
+      run("r1", "succeeded", 1_000, 40_000),
+      run("r2", "cancelled", 30_000, 40_060, { startedAt: iso(39_960), wakeCommentIds: ["c1"],
+        errorCode: "continuation_task_ownership_changed" }),
+      run("r3", "succeeded", 45_000, 80_000, { wakeCommentIds: ["c1"] }),
+    ])];
+    expect(gradeR4(record(samples))).toMatchObject({ verdict: "pass" });
+    // A poll that saw both running (claiming marks running before dispatch)
+    // does not change that.
+    const polled = [sample(39_990, "in_progress", [run("r1", "running", 1_000), run("r2", "running", 30_000, null, { startedAt: iso(39_960) })]),
+      ...samples];
+    expect(gradeR4(record(polled))).toMatchObject({ verdict: "pass" });
+    // Any other cancelled run that overlapped still executed.
+    const executed = [sample(90_000, "done", [run("r1", "succeeded", 1_000, 40_000),
+      run("r2", "cancelled", 30_000, 40_060, { startedAt: iso(39_960), errorCode: "cancelled" })])];
+    expect(gradeR4(record(executed)).detail).toMatch(/concurrent_runs/);
+  });
+
   it("fails R5 on a silent stall longer than three minutes after ready, but not during outages or named waits", () => {
     const idle = (at: number, extra: Partial<TaskSample> = {}) => sample(at, "in_progress", [run("r1", "failed", 1_000, 30_000)], extra);
     const stalled = [idle(60_000), idle(60_000 + STALL_LIMIT_MS / 2), idle(60_000 + STALL_LIMIT_MS + 5_000)];
@@ -168,6 +192,29 @@ describe("R1–R6 grading on fixture timelines", () => {
 });
 
 describe("T-oracles", () => {
+  it("grades M1 delegation: two done subtasks, part 1 delegated, and a summary of both", () => {
+    const agents = { self: { id: "self", name: "Chaos codex" }, other: { id: "other", name: "Chaos claude" } };
+    const child = (n: number, assigneeAgentId: string, status = "done") =>
+      ({ id: `c${n}`, status, assigneeAgentId, documents: { part: `PART${n}-abcd1234\nIdempotency keys.` } });
+    const artifacts: OracleArtifacts = { issueStatus: "done", agentComments: [], files: {}, commands: {}, workspacePath: null,
+      documents: { summary: "PART1-abcd1234\nPART2-abcd1234" }, children: [child(1, "other"), child(2, "self")] };
+    expect(workloadDefinitions.M1.grade("abcd1234", artifacts, agents).verdict).toBe("pass");
+    expect(workloadDefinitions.M1.description("abcd1234", agents)).toContain("assigned to Chaos claude");
+    const undelegated = { ...artifacts, children: [child(1, "self"), child(2, "self")] };
+    expect(workloadDefinitions.M1.grade("abcd1234", undelegated, agents).checks.find(check => check.name === "part1_delegated")?.ok).toBe(false);
+    const pending = { ...artifacts, children: [child(1, "other", "in_progress"), child(2, "self")] };
+    expect(workloadDefinitions.M1.grade("abcd1234", pending, agents).verdict).toBe("fail");
+    expect(workloadDefinitions.M1.grade("abcd1234", { ...artifacts, children: [child(1, "other")] }, agents).verdict).toBe("fail");
+    const both = { ...artifacts, children: [{ ...child(1, "other"), documents: { part: "PART1-abcd1234\nPART2-abcd1234" } },
+      { ...child(2, "self"), documents: { part: "nothing" } }] };
+    expect(workloadDefinitions.M1.grade("abcd1234", both, agents).checks.find(check => check.name === "parts_in_distinct_subtasks")?.ok).toBe(false);
+    const wrongPart2 = { ...artifacts, children: [child(1, "other"), child(2, "other")] };
+    expect(workloadDefinitions.M1.grade("abcd1234", wrongPart2, agents).checks.find(check => check.name === "part2_kept")?.ok).toBe(false);
+    const single = { self: agents.self, other: agents.self };
+    expect(workloadDefinitions.M1.grade("abcd1234", { ...artifacts, children: [child(1, "self"), child(2, "self")] }, single)
+      .checks.find(check => check.name === "two_agents")?.ok).toBe(false);
+  });
+
   it("grades A1 and C1 markers", () => {
     expect(workloadDefinitions.A1.grade("abcd1234", passingBrief).verdict).toBe("pass");
     expect(workloadDefinitions.C1.grade("abcd1234", passingBrief).checks.find(check => check.name.includes("followup"))?.ok).toBe(false);

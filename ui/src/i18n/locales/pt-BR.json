@@ -501,7 +501,10 @@
       "reconnect": "Reconectar",
       "revokeDescription": "Novas execuções que usam esta conta serão bloqueadas. Execuções existentes podem manter as credenciais já emitidas para elas. Nenhuma outra conta será selecionada automaticamente.",
       "revokeIdentity": "Revogar identidade",
-      "subscription": "Assinatura"
+      "subscription": "Assinatura",
+      "defaultForProvider": "Padrão para {{provider}}",
+      "yourProviderDefault": "Seu padrão de {{provider}}",
+      "setDefaultForProvider": "Definir como padrão para {{provider}}"
     },
     "AiConnectionAccountDetails": {
       "access": "Acesso",
@@ -945,7 +948,7 @@
       "readTaskAttachmentsHint": "Permite que o Dot leia os arquivos anexados à tarefa atribuída no momento. O conteúdo dos arquivos é enviado à OpenAI. Não exige acesso a comandos do workspace; desativado por padrão.",
       "repositoryDefault": "Padrão do repositório",
       "runnerLifecycle": "Ciclo de vida do Runner",
-      "runnerLifecycleHint": "Turno a turno suspende após cada execução. Sessão aquecida mantém o mesmo processo do provedor disponível entre as execuções governadas.",
+      "runnerLifecycleHint": "Automático mantém Codex e OpenCode aquecidos neste computador por 5 minutos após uma execução, para que um acompanhamento comece mais rápido, e executa os demais harnesses turno a turno. Turno a turno suspende após cada execução. Sessão aquecida mantém o mesmo processo do provedor disponível entre as execuções governadas.",
       "savedCodexModeRecovery": "Este modo salvo do Codex não pode iniciar nem recuperar uma execução do Paperclip Runner. Selecione Automatic (isolated) para corrigir.",
       "sessionSpendCeiling": "Teto de gasto por sessão (USD)",
       "sessionSpendCeilingHint": "Teto rígido opcional por agente. Deixe 1.00 para usar um padrão conservador.",
@@ -967,7 +970,8 @@
       "warmSession": "Sessão aquecida",
       "workOnCurrentBranch": "Trabalhar na branch atual",
       "workspaceFilesAndCommands": "Arquivos e comandos do workspace",
-      "workspaceFilesAndCommandsHint": "Permite que o Dot leia e grave no workspace atribuído e publique arquivos. Exige um Runner local. Os comandos estão disponíveis apenas no Linux com bubblewrap; não podem ler seu diretório pessoal nem usar credenciais injetadas."
+      "workspaceFilesAndCommandsHint": "Permite que o Dot leia e grave no workspace atribuído e publique arquivos. Exige um Runner local. Os comandos estão disponíveis apenas no Linux com bubblewrap; não podem ler seu diretório pessoal nem usar credenciais injetadas.",
+      "automatic": "Automático"
     },
     "ConfigureBuiltInAgentModal": {
       "advanced": "Avançado",
@@ -1552,7 +1556,7 @@
       "inspectingRecovery": "Inspecionando a recuperação…",
       "leasePolicyLabel": "política de lease",
       "noRecoveryAction": "Nenhuma ação de recuperação registrada para esta execução.",
-      "notInspectedStatus": "Origem não inspecionada: este registro excede o limite de inspeção. É necessária atenção do serviço.",
+      "notInspectedStatus": "Origem não inspecionada: este registro excede o limite de inspeção.",
       "observedAt": "Observado em {{date}}",
       "readOnlyNote": "Esta observação somente leitura verifica a identidade registrada. Ela não confirma o encerramento pelo provedor, os arquivos locais nem a preservação bem-sucedida.",
       "recordedFailureLabel": "Falha registrada:",
@@ -8117,7 +8121,8 @@
       "title": "Excluir {{name}}?",
       "workspaceNoLongerOnRecord": "Workspace não consta mais nos registros",
       "workspacesHardBlockNotice": "Feche estes workspaces para permitir que o Paperclip destrua seus sandboxes e tente excluir novamente.",
-      "workspacesSoftBlockNotice": "A exclusão destrói estes sandboxes; os workspaces permanecem abertos."
+      "workspacesSoftBlockNotice": "A exclusão destrói estes sandboxes; os workspaces permanecem abertos.",
+      "blockRetainOnFailure": "Não é possível excluir este ambiente enquanto ele mantém a cópia do workspace de uma execução que falhou (um sandbox parado, mantido para recuperação de arquivos). Excluir o ambiente com consentimento destrói esse sandbox e os arquivos que só ele guarda."
     },
     "editor": {
       "addVariable": "Adicionar variável",
@@ -13702,8 +13707,6 @@
       "whatToInclude": "O que incluir",
       "exportWord": "exportação",
       "organizationFallback": "Organização",
-      "exporting_one": "Exportando {{selected}} de {{total}} arquivo",
-      "exporting_other": "Exportando {{selected}} de {{total}} arquivos",
       "historyOptIn": "O histórico de tarefas e rotinas é opcional porque pode ser grande.",
       "updatingPreview": "Atualizando a pré-visualização da exportação…",
       "largeHistoryNote": "Históricos grandes de tarefas podem levar um minuto. Você pode desmarcar Tarefas ou cancelar esta atualização.",
@@ -14204,8 +14207,6 @@
       "concurrency": "Concorrência",
       "catchUp": "Recuperação",
       "triggerSetupAfter": "Após a criação, o Paperclip leva você direto à configuração de gatilhos. Rotinas em rascunho ficam pausadas até você adicionar um agente padrão.",
-      "routinesCount_one": "{{count}} rotina",
-      "routinesCount_other": "{{count}} rotinas",
       "newRoutineInFolder": "Nova rotina nesta pasta"
     },
     "AgentInstructions": {
@@ -17077,11 +17078,7 @@
       "view": "Ver",
       "code": "Código",
       "compare": "Comparar",
-      "versionFiles_one": "{{count}} arquivo",
-      "versionFiles_other": "{{count}} arquivos",
       "viewDiff": "Ver diferenças",
-      "attachedAgents_one": "{{count}} agente vinculado",
-      "attachedAgents_other": "{{count}} agentes vinculados",
       "noAgentsUsing": "Nenhum agente está usando esta skill ainda. Use “Adicionar ao agente” para vinculá-la.",
       "andMore": "e mais {{count}}",
       "checkForUpdates": "Verificar atualizações",
@@ -19596,11 +19593,12 @@
       "forExampleTheOld": "Por exemplo: o processo do servidor antigo foi encerrado e não foi reiniciado.",
       "cancel": "Cancelar",
       "inspectingTheRecordedFile": "Inspecionando a origem de arquivos registrada…",
-      "fileRecoveryHasNot": "A recuperação de arquivos não terminou. A origem salva continua protegida; é preciso de ajuda do serviço.",
-      "theRecordedSourceIs": "A origem registrada não está disponível ou mudou. Inspecione a recuperação antes de continuar.",
+      "fileRecoveryHasNot": "A recuperação de arquivos não terminou. Os arquivos salvos continuam protegidos e não foram aplicados.",
+      "theRecordedSourceIs": "Esta recuperação de arquivos foi substituída. Confira o status para ver a recuperação atual da tarefa.",
       "taskAccessCouldNot": "Não foi possível verificar o acesso à tarefa. Atualize antes de pedir a recuperação de arquivos.",
       "checkingFileRecoveryAccess": "Verificando o acesso à recuperação de arquivos…",
-      "aBoardMemberWith": "Um membro do quadro com acesso à tarefa pode pedir a recuperação de arquivos."
+      "aBoardMemberWith": "Um membro do quadro com acesso à tarefa pode pedir a recuperação de arquivos.",
+      "doesNotApplyUnverified": "O Paperclip não aplica arquivos que não consegue verificar."
     },
     "WorkspaceAccessCard": {
       "noteCredentials": "Entra com as credenciais locais do snapshot capturadas quando este clone foi criado.",
