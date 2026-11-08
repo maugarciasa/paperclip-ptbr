@@ -1,3 +1,4 @@
+import { useTranslation } from "@/i18n";
 import { useRef, useState } from "react";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import type { IssueRecoveryAction } from "@paperclipai/shared";
@@ -76,6 +77,7 @@ function retainedOwnerStopToken(action: IssueRecoveryAction): string | null {
 function PreviousServerStopConfirmation({ action, ownerToken, issueId, companyId, className }: {
   action: IssueRecoveryAction; ownerToken: string; issueId: string; companyId: string; className?: string;
 }) {
+  const { t } = useTranslation();
   const runId = action.evidence.runId as string;
   const client = useQueryClient();
   const [open, setOpen] = useState(false);
@@ -101,14 +103,14 @@ function PreviousServerStopConfirmation({ action, ownerToken, issueId, companyId
       ? <p className="text-xs text-muted-foreground">{accessView.kind === "loading" || accessView.kind === "reconnecting"
         ? "Checking access…" : "A company owner or administrator can confirm that the previous server stopped."}</p>
       : !open ? <Button variant="outline" size="sm" className="self-start" onClick={() => setOpen(true)}>
-        Confirm the previous server stopped</Button>
+        {t("workspaces.WorkspaceExportRecovery.confirmThePreviousServer")}</Button>
       : <form className="flex flex-col gap-2" onSubmit={event => { event.preventDefault(); if (ready && !confirm.isPending) confirm.mutate(); }}>
         <label htmlFor={`previous-server-stop-${action.id}`} className="text-xs text-muted-foreground">
-          How did you confirm that the previous server and its file copy stopped?</label>
+          {t("workspaces.WorkspaceExportRecovery.howDidYouConfirm")}</label>
         <Textarea id={`previous-server-stop-${action.id}`} value={evidence} onChange={event => setEvidence(event.target.value)}
-          placeholder="For example: the old server process exited and was not restarted." maxLength={12000} rows={3} />
+          placeholder={t("workspaces.WorkspaceExportRecovery.forExampleTheOld")} maxLength={12000} rows={3} />
         <div className="flex items-center justify-between gap-2">
-          <Button type="button" variant="ghost" size="sm" disabled={confirm.isPending} onClick={() => setOpen(false)}>Cancel</Button>
+          <Button type="button" variant="ghost" size="sm" disabled={confirm.isPending} onClick={() => setOpen(false)}>{t("workspaces.WorkspaceExportRecovery.cancel")}</Button>
           <Button type="submit" size="sm" disabled={!ready || confirm.isPending}>
             {confirm.isPending ? "Confirming…" : "Confirm and resume"}</Button>
         </div>
@@ -123,6 +125,7 @@ type RecoveryInput = { actionId: string; runId: string };
 function RetainedFilesRecovery({ action, issueId, companyId, className }: {
   action: IssueRecoveryAction; issueId: string; companyId: string; className?: string;
 }) {
+  const { t } = useTranslation();
   const runId = action.evidence.runId as string;
   const owner = useDraftOwner();
   const readOwner = useDraftOwnerReader();
@@ -245,15 +248,15 @@ function RetainedFilesRecovery({ action, issueId, companyId, className }: {
         disabled={request.isPending || check.isPending} onClick={() => check.mutate()}>
         {check.isPending ? "Checking file recovery…" : "Check file recovery status"}
       </Button> : null}
-      {sourceView.kind === "loading" || sourceView.kind === "reconnecting" ? <p className="text-xs text-muted-foreground">Inspecting the recorded file source…</p> : null}
+      {sourceView.kind === "loading" || sourceView.kind === "reconnecting" ? <p className="text-xs text-muted-foreground">{t("workspaces.WorkspaceExportRecovery.inspectingTheRecordedFile")}</p> : null}
       {sourceView.kind === "error" || checkError || notice ? <p role="alert" className="text-sm text-destructive">
         {notice ?? (checkError instanceof Error ? checkError.message : "File recovery could not be inspected. Check its status again.")}
       </p> : null}
       {current && recovery.status === "blocked" && (serverAcknowledged || recovery.retryable !== true)
-        ? <p role="alert">File recovery has not finished. The saved source remains protected; service assistance is needed.</p> : null}
-      {sourceReady && !current ? <p role="alert">The recorded source is unavailable or has changed. Inspect recovery before continuing.</p> : null}
-    </> : accessView.kind === "error" ? <p role="alert" className="text-sm text-destructive">Task access could not be checked. Refresh before requesting file recovery.</p>
-      : accessView.kind === "loading" || accessView.kind === "reconnecting" || !owner ? <p role="status" className="text-xs text-muted-foreground">Checking file recovery access…</p>
-        : <p className="text-xs text-muted-foreground">A board member with task access can request file recovery.</p>}
+        ? <p role="alert">{t("workspaces.WorkspaceExportRecovery.fileRecoveryHasNot")}</p> : null}
+      {sourceReady && !current ? <p role="alert">{t("workspaces.WorkspaceExportRecovery.theRecordedSourceIs")}</p> : null}
+    </> : accessView.kind === "error" ? <p role="alert" className="text-sm text-destructive">{t("workspaces.WorkspaceExportRecovery.taskAccessCouldNot")}</p>
+      : accessView.kind === "loading" || accessView.kind === "reconnecting" || !owner ? <p role="status" className="text-xs text-muted-foreground">{t("workspaces.WorkspaceExportRecovery.checkingFileRecoveryAccess")}</p>
+        : <p className="text-xs text-muted-foreground">{t("workspaces.WorkspaceExportRecovery.aBoardMemberWith")}</p>}
   </div>;
 }

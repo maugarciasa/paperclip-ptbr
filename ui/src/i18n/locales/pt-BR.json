@@ -19219,6 +19219,18 @@
     "touched": "Modificadas"
   },
   "workspaces": {
+    "WorkspaceExportRecovery": {
+      "confirmThePreviousServer": "Confirme que o servidor anterior parou",
+      "howDidYouConfirm": "Como você confirmou que o servidor anterior e a cópia de arquivos dele pararam?",
+      "forExampleTheOld": "Por exemplo: o processo do servidor antigo foi encerrado e não foi reiniciado.",
+      "cancel": "Cancelar",
+      "inspectingTheRecordedFile": "Inspecionando a origem de arquivos registrada…",
+      "fileRecoveryHasNot": "A recuperação de arquivos não terminou. A origem salva continua protegida; é preciso de ajuda do serviço.",
+      "theRecordedSourceIs": "A origem registrada não está disponível ou mudou. Inspecione a recuperação antes de continuar.",
+      "taskAccessCouldNot": "Não foi possível verificar o acesso à tarefa. Atualize antes de pedir a recuperação de arquivos.",
+      "checkingFileRecoveryAccess": "Verificando o acesso à recuperação de arquivos…",
+      "aBoardMemberWith": "Um membro do quadro com acesso à tarefa pode pedir a recuperação de arquivos."
+    },
     "WorkspaceAccessCard": {
       "noteCredentials": "Entra com as credenciais locais do snapshot capturadas quando este clone foi criado.",
       "noteHandoff": "Usa um login de uso único por transferência — não é preciso senha.",

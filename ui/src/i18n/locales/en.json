@@ -19219,6 +19219,18 @@
     "touched": "Touched"
   },
   "workspaces": {
+    "WorkspaceExportRecovery": {
+      "confirmThePreviousServer": "Confirm the previous server stopped",
+      "howDidYouConfirm": "How did you confirm that the previous server and its file copy stopped?",
+      "forExampleTheOld": "For example: the old server process exited and was not restarted.",
+      "cancel": "Cancel",
+      "inspectingTheRecordedFile": "Inspecting the recorded file source…",
+      "fileRecoveryHasNot": "File recovery has not finished. The saved source remains protected; service assistance is needed.",
+      "theRecordedSourceIs": "The recorded source is unavailable or has changed. Inspect recovery before continuing.",
+      "taskAccessCouldNot": "Task access could not be checked. Refresh before requesting file recovery.",
+      "checkingFileRecoveryAccess": "Checking file recovery access…",
+      "aBoardMemberWith": "A board member with task access can request file recovery."
+    },
     "WorkspaceAccessCard": {
       "noteCredentials": "Signs in with the snapshot-local credentials captured when this clone was made.",
       "noteHandoff": "Uses a single-use login handoff — no password needed.",
