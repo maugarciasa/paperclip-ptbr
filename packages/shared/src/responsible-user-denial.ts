@@ -61,9 +61,41 @@ export function responsibleUserLabel(userName: string | null | undefined): strin
  */
 export function describeResponsibleUserDenial(
   code: ResponsibleUserDenialCode,
-  options: { userName?: string | null } = {},
+  options: { userName?: string | null; locale?: "en" | "pt-BR" } = {},
 ): ResponsibleUserDenialCopy {
   const who = responsibleUserLabel(options.userName);
+  const locale = options.locale ?? "en";
+
+  if (locale === "pt-BR") {
+    const whoPt = options.userName?.trim() || "o usuário responsável";
+    if (code === "RESPONSIBLE_USER_UNAVAILABLE") {
+      return {
+        code,
+        tone: "unavailable",
+        title: "Usuário responsável indisponível",
+        description:
+          `Esta execução atua em nome de ${whoPt}, mas essa conta foi removida ou ` +
+          `desativada, portanto suas permissões não podem mais ser avaliadas. As permissões ` +
+          `próprias do agente não são suficientes por si só — toda ação ainda requer um ` +
+          `usuário responsável ativo.`,
+        recommendedAction:
+          `Marque o trabalho como bloqueado e reatribua um usuário responsável (ou reative a ` +
+          `conta) antes que o agente continue.`,
+      };
+    }
+
+    return {
+      code,
+      tone: "unauthorized",
+      title: "Usuário responsável não autorizado",
+      description:
+        `Esta ação foi negada porque ${whoPt} — o usuário em cujo nome esta execução atua — ` +
+        `não tem permissão para executá-la. O agente pode ter a permissão, mas uma execução ` +
+        `nunca pode exceder as permissões do usuário em nome de quem atua, portanto a ação está bloqueada.`,
+      recommendedAction:
+        `Conceda a ${whoPt} a permissão necessária ou peça a alguém autorizado que execute esta ação.`,
+    };
+  }
 
   if (code === "RESPONSIBLE_USER_UNAVAILABLE") {
     return {

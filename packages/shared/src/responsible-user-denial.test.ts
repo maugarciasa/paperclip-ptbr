@@ -77,4 +77,19 @@ describe("describeResponsibleUserDenial", () => {
       expect(blob).not.toContain("impersonate");
     }
   });
+
+  it("supports pt-BR locale", () => {
+    const unauthorized = describeResponsibleUserDenial("RESPONSIBLE_USER_UNAUTHORIZED", {
+      userName: "Ada Lovelace",
+      locale: "pt-BR",
+    });
+    expect(unauthorized.title).toBe("Usuário responsável não autorizado");
+    expect(unauthorized.description).toContain("Ada Lovelace");
+
+    const unavailable = describeResponsibleUserDenial("RESPONSIBLE_USER_UNAVAILABLE", {
+      locale: "pt-BR",
+    });
+    expect(unavailable.title).toBe("Usuário responsável indisponível");
+    expect(unavailable.description).toContain("o usuário responsável");
+  });
 });
