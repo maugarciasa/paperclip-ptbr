@@ -16511,6 +16511,31 @@
     }
   },
   "skills": {
+    "ImportSkillsFromProjectDialog": {
+      "closeImportDialog": "Fechar diálogo de importação",
+      "selectAll": "Selecionar tudo",
+      "deselectAll": "Desmarcar tudo",
+      "cancel": "Cancelar",
+      "done": "Concluir",
+      "workspacesCount_one": "{{count}} workspace",
+      "workspacesCount_other": "{{count}} workspaces",
+      "remoteOnly": "Projeto somente remoto — não há workspaces locais para buscar skills.",
+      "scanningProject": "Buscando skills em {{name}}…",
+      "lookingWellKnown": "Procurando nas pastas de skills conhecidas de cada workspace.",
+      "projectWorkspace": "Workspace do projeto",
+      "openParentFolder": "Abrir pasta pai",
+      "loadingFolder": "Carregando pasta…",
+      "tryAgain": "Tentar novamente",
+      "nonStandardFolders": "Para skills em pastas fora do padrão, use",
+      "importFromPath": "Importar de caminho ou URL",
+      "noSkillsMatch": "Nenhuma skill corresponde a “{{filter}}”.",
+      "otherWorkspaces": "Outros workspaces",
+      "importAs": "Importar como",
+      "slugHint": "Use um slug em minúsculas e seguro para URL.",
+      "importedCount": "Importadas · {{count}}",
+      "skippedCount": "Ignoradas · {{count}}",
+      "warningsCount": "Avisos · {{count}}"
+    },
     "CompanySkills": {
       "newFolder": "Nova pasta",
       "browseCatalog": "Explorar catálogo",

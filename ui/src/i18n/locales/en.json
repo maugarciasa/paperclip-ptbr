@@ -16511,6 +16511,31 @@
     }
   },
   "skills": {
+    "ImportSkillsFromProjectDialog": {
+      "closeImportDialog": "Close import dialog",
+      "selectAll": "Select all",
+      "deselectAll": "Deselect all",
+      "cancel": "Cancel",
+      "done": "Done",
+      "workspacesCount_one": "{{count}} workspace",
+      "workspacesCount_other": "{{count}} workspaces",
+      "remoteOnly": "Remote-only project — no locally scannable workspaces to import from.",
+      "scanningProject": "Scanning {{name}} for skills…",
+      "lookingWellKnown": "Looking in well-known skill folders across each workspace.",
+      "projectWorkspace": "Project workspace",
+      "openParentFolder": "Open parent folder",
+      "loadingFolder": "Loading folder…",
+      "tryAgain": "Try again",
+      "nonStandardFolders": "For skills in non-standard folders, use",
+      "importFromPath": "Import from path or URL",
+      "noSkillsMatch": "No skills match “{{filter}}”.",
+      "otherWorkspaces": "Other Workspaces",
+      "importAs": "Import as",
+      "slugHint": "Use a lowercase URL-safe slug.",
+      "importedCount": "Imported · {{count}}",
+      "skippedCount": "Skipped · {{count}}",
+      "warningsCount": "Warnings · {{count}}"
+    },
     "CompanySkills": {
       "newFolder": "New folder",
       "browseCatalog": "Browse catalog",
