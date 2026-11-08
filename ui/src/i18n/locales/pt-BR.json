@@ -170,6 +170,8 @@
     },
     "AgentConversationSidebar": {
       "addChat": "Adicionar chat",
+      "chatContacts": "Contatos de chat",
+      "searchChats": "Buscar chats",
       "agentsCount_one": "{{count}} agente",
       "agentsCount_other": "{{count}} agentes",
       "browseAll": "Ver todos os agentes",
@@ -18327,7 +18329,7 @@
         "allow": "Permitir",
         "appConnectionsSoonSubtitle": "Os perfis estarão disponíveis assim que as conexões de apps estiverem prontas. Enquanto isso, explore as integrações planejadas.",
         "appConnectionsSoonTitle": "Conexões de apps em breve",
-        "block": "Bloquear",
+        "block": "Manter bloqueado",
         "browseAppConnections": "Explorar conexões de apps",
         "clearSearch": "Limpar busca",
         "includesLaterTools": "inclui ferramentas que {{name}} adicionar mais tarde",

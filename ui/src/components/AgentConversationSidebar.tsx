@@ -49,11 +49,11 @@ export function AgentConversationSidebar({ agents, existingChatAgentIds, availab
     searchRef.current?.focus();
   }
   return <aside aria-labelledby={headingId} className="flex h-full min-h-0 flex-col border-r border-border bg-background">
-    <h2 id={headingId} className="sr-only">{t("agents.AgentConversationSidebar.chat")} contacts</h2>
+    <h2 id={headingId} className="sr-only">{t("agents.AgentConversationSidebar.chatContacts")}</h2>
     <div className="flex shrink-0 items-center gap-2 px-3 pb-3 pt-5">
       <div className="relative min-w-0 flex-1">
         <Search aria-hidden="true" className="pointer-events-none absolute left-3 top-1/2 size-3.5 -translate-y-1/2 text-muted-foreground" />
-        <Input ref={searchRef} aria-label="Search chats" placeholder="Search chats" value={search} onChange={event => setSearch(event.target.value)}
+        <Input ref={searchRef} aria-label={t("agents.AgentConversationSidebar.searchChats")} placeholder={t("agents.AgentConversationSidebar.searchChats")} value={search} onChange={event => setSearch(event.target.value)}
           onKeyDown={event => { if (event.key === "Escape") { event.stopPropagation(); setSearch(""); } }}
           className="h-9 pl-8 pr-8 text-xs md:text-xs" />
         {search && <Button variant="ghost" size="icon-xs" aria-label={t("agents.AgentConversationSidebar.clearSearch")} className="absolute right-1 top-1/2 -translate-y-1/2" onClick={focusSearch}><X className="size-3" /></Button>}

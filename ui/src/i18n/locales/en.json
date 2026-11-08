@@ -170,6 +170,8 @@
     },
     "AgentConversationSidebar": {
       "addChat": "Add chat",
+      "chatContacts": "Chat contacts",
+      "searchChats": "Search chats",
       "agentsCount_one": "{{count}} agent",
       "agentsCount_other": "{{count}} agents",
       "browseAll": "Browse all agents",
@@ -18327,7 +18329,7 @@
         "allow": "Allow",
         "appConnectionsSoonSubtitle": "Profiles will be available once app connections are ready. Browse the planned integrations in the meantime.",
         "appConnectionsSoonTitle": "App connections are coming soon",
-        "block": "Block",
+        "block": "Keep blocked",
         "browseAppConnections": "Browse app connections",
         "clearSearch": "Clear search",
         "includesLaterTools": "includes tools {{name}} adds later",
