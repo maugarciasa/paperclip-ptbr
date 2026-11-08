@@ -13786,6 +13786,8 @@
   },
   "routines": {
     "Routines": {
+      "routinesCount_one": "{{count}} routine",
+      "routinesCount_other": "{{count}} routines",
       "pageTitle": "Routines",
       "pageSubtitle": "Recurring work definitions that materialize into auditable execution tasks.",
       "createRoutine": "Create routine",

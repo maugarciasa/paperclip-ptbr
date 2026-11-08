@@ -13786,6 +13786,8 @@
   },
   "routines": {
     "Routines": {
+      "routinesCount_one": "{{count}} rotina",
+      "routinesCount_other": "{{count}} rotinas",
       "pageTitle": "Rotinas",
       "pageSubtitle": "Definições de trabalho recorrente que viram tarefas de execução auditáveis.",
       "createRoutine": "Criar rotina",
