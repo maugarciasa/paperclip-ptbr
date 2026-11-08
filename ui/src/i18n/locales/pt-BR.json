@@ -13785,6 +13785,27 @@
     }
   },
   "routines": {
+    "Routines": {
+      "pageTitle": "Rotinas",
+      "pageSubtitle": "Definições de trabalho recorrente que viram tarefas de execução auditáveis.",
+      "createRoutine": "Criar rotina",
+      "newRoutine": "Nova rotina",
+      "draftDefinition": "Defina primeiro o trabalho recorrente. Projeto e agente padrão são opcionais para rotinas em rascunho.",
+      "cancel": "Cancelar",
+      "forLabel": "Para",
+      "responsible": "Responsável",
+      "inWord": "em",
+      "projectLabel": "Projeto",
+      "filedIn": "arquivada em",
+      "advancedDelivery": "Configurações avançadas de entrega",
+      "keepPolicySecondary": "Mantenha os controles de política em segundo plano em relação à definição do trabalho.",
+      "concurrency": "Concorrência",
+      "catchUp": "Recuperação",
+      "triggerSetupAfter": "Após a criação, o Paperclip leva você direto à configuração de gatilhos. Rotinas em rascunho ficam pausadas até você adicionar um agente padrão.",
+      "routinesCount_one": "{{count}} rotina",
+      "routinesCount_other": "{{count}} rotinas",
+      "newRoutineInFolder": "Nova rotina nesta pasta"
+    },
     "AgentInstructions": {
       "copyLabel": "Copiar para o seu agente",
       "description": "Dê ao seu agente tudo o que ele precisa para conectar este webhook: a URL, a chave de autenticação e as instruções passo a passo.",
