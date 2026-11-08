@@ -74,7 +74,7 @@ function GitHubHelp({
       <TooltipTrigger asChild>
         <button
           type="button"
-          aria-label={`About ${label}`}
+          aria-label={t("apps.GitHubBotConfiguration.aboutLabel", { label })}
           className="inline-flex shrink-0 items-center text-muted-foreground hover:text-foreground"
           onClick={() => setOpen(true)}
         >
@@ -210,8 +210,8 @@ function GitHubPassingScore({
       {!valid && <p id={`${id}-error`} role="alert" className="text-xs text-destructive">{t("apps.githubBotConfig.scoreRangeError", "Enter a whole number from 1 to 5.")}</p>}
       <p id={`${id}-help`} className="text-xs text-muted-foreground">
         {value === null
-          ? "Publishes a neutral check without a score requirement. GitHub can accept neutral checks for merging."
-          : "Paperclip passes the check when a complete review of the latest commit meets this score. Lower scores fail. This does not approve the PR."}
+          ? t("apps.GitHubBotConfiguration.publishesANeutralCheckWithoutA")
+          : t("apps.GitHubBotConfiguration.paperclipPassesTheCheckWhenA")}
       </p>
       <p className="text-xs text-muted-foreground">
         {t("apps.GitHubBotConfiguration.blockMergingRequire")} <strong>{t("apps.GitHubBotConfiguration.paperclipReviewCheck")}</strong> {t("apps.GitHubBotConfiguration.checkFromApp")}{" "}
@@ -292,10 +292,10 @@ export function GitHubPolicyEditor({
         </h2>
         <MarkdownEditor
           readOnly={readOnly}
-          ariaLabel="Agent instructions"
+          ariaLabel={t("apps.GitHubBotConfiguration.agentInstructions")}
           contentClassName="min-h-32"
           value={policy.instructions}
-          placeholder="What should this agent do on GitHub?"
+          placeholder={t("apps.GitHubBotConfiguration.whatShouldThisAgentDoOn")}
           onChange={(value) => set("instructions", value)}
         />
         <p className="text-xs text-muted-foreground">
@@ -322,7 +322,7 @@ export function GitHubPolicyEditor({
             <MarkdownEditor
               key={prompt}
               readOnly={readOnly}
-              ariaLabel={`${prompt === "issue_opened" ? "New issue" : eventLabels[prompt]} instructions`}
+              ariaLabel={`${prompt === "issue_opened" ? t("apps.GitHubBotConfiguration.newIssue") : eventLabels[prompt]} instructions`}
               contentClassName="min-h-32"
               value={
                 prompt === "issue_opened"
@@ -362,15 +362,15 @@ export function GitHubPolicyEditor({
               {t("apps.GitHubBotConfiguration.authorizedMention")}{" "}
               {accessHref && (
                 <Link className="underline underline-offset-4" to={accessHref}>
-                  Manage people in Access
+                  {t("apps.GitHubBotConfiguration.managePeopleInAccess")}
                 </Link>
               )}
             </p>
           </div>
         </div>
         <GitHubToggle
-          label="Run automatically"
-          description="Start work without a mention when an allowed person creates an issue or updates a pull request."
+          label={t("apps.GitHubBotConfiguration.runAutomatically")}
+          description={t("apps.GitHubBotConfiguration.startWorkWithoutAMentionWhen")}
           checked={policy.invocation !== "mentions_only"}
           onChange={(enabled) =>
             set("invocation", enabled ? (rememberedAutomaticMode ?? automaticMode.current) : "mentions_only")
@@ -417,13 +417,13 @@ export function GitHubPolicyEditor({
             <GitHubSettingsDisclosure title={t("apps.githubBotConfig.automaticReviewFiltersTitle", "Automatic review filters")}>
               <div>
                 <GitHubToggle
-                  label="Include draft PRs"
+                  label={t("apps.GitHubBotConfiguration.includeDraftPrs")}
                   checked={policy.reviewDrafts}
                   onChange={(value) => set("reviewDrafts", value)}
                 />
                 <GitHubToggle
-                  label="Include bot authors"
-                  description="The account also needs a sponsor and external-contributor automatic runs enabled in Access."
+                  label={t("apps.GitHubBotConfiguration.includeBotAuthors")}
+                  description={t("apps.GitHubBotConfiguration.theAccountAlsoNeedsASponsor")}
                   checked={policy.reviewBotAuthors}
                   onChange={(value) => set("reviewBotAuthors", value)}
                 />
@@ -489,12 +489,12 @@ export function GitHubPolicyEditor({
         </h2>
         <div className="grid gap-x-8 sm:grid-cols-2">
           <GitHubToggle
-            label="Post a review summary"
+            label={t("apps.GitHubBotConfiguration.postAReviewSummary")}
             checked={policy.publishSummary}
             onChange={(value) => set("publishSummary", value)}
           />
           <GitHubToggle
-            label="Post inline findings"
+            label={t("apps.GitHubBotConfiguration.postInlineFindings")}
             checked={policy.publishInline}
             onChange={(value) => set("publishInline", value)}
           />
@@ -555,13 +555,13 @@ export function GitHubPolicyEditor({
           </p>
           <div>
             <GitHubToggle
-              label="Allow approvals"
+              label={t("apps.GitHubBotConfiguration.allowApprovals")}
               help="Lets the agent submit an Approve review on GitHub after a complete assessment. The agent must explicitly choose it; a 5/5 score or passing check does not approve the PR. Off still allows scores, comments, and checks."
               checked={policy.allowApprove}
               onChange={(value) => set("allowApprove", value)}
             />
             <GitHubToggle
-              label="Allow request changes"
+              label={t("apps.GitHubBotConfiguration.allowRequestChanges")}
               help="Lets the agent submit a Request changes review on GitHub after a complete assessment. This is a formal review decision and may prevent merging under your repository rules. Off still allows findings, comments, and a failing check."
               checked={policy.allowRequestChanges}
               onChange={(value) => set("allowRequestChanges", value)}
@@ -750,7 +750,7 @@ export function GitHubAccessEditor({
                 <DropdownMenuContent align="end">
                   {removable && (
                     <DropdownMenuItem onClick={() => removePerson(person)}>
-                      Remove access
+                      {t("apps.GitHubBotConfiguration.removeAccess")}
                     </DropdownMenuItem>
                   )}
                   {identity && (
@@ -758,7 +758,7 @@ export function GitHubAccessEditor({
                       disabled={busy}
                       onClick={() => void unlink(identity.principalId)}
                     >
-                      Unlink GitHub account
+                      {t("apps.GitHubBotConfiguration.unlinkGithubAccount")}
                     </DropdownMenuItem>
                   )}
                 </DropdownMenuContent>
@@ -794,11 +794,11 @@ export function GitHubAccessEditor({
           </Button>
         </div>
         <GitHubToggle
-          label="Allow mentions from all linked members"
+          label={t("apps.GitHubBotConfiguration.allowMentionsFromAllLinkedMembers")}
           description={
             configuration.memberAccess === "all_linked"
-              ? `Includes members from ${company?.name ?? "this company"} who link their GitHub account later.`
-              : "Only members you enable below can mention this bot."
+              ? t("apps.GitHubBotConfiguration.includesMembersFrom", { company: company?.name ?? t("apps.GitHubBotConfiguration.thisCompany") })
+              : t("apps.GitHubBotConfiguration.onlyMembersYouEnableBelowCan")
           }
           checked={configuration.memberAccess === "all_linked"}
           onChange={(enabled) =>
@@ -827,7 +827,7 @@ export function GitHubAccessEditor({
                 className="underline underline-offset-4"
                 to={`/apps/chat/${endpointId}/settings`}
               >
-                Settings
+                {t("apps.GitHubBotConfiguration.settings")}
               </Link>
               .
             </>
@@ -838,7 +838,7 @@ export function GitHubAccessEditor({
                 className="underline underline-offset-4"
                 to={`/apps/chat/${endpointId}/settings`}
               >
-                Settings
+                {t("apps.GitHubBotConfiguration.settings")}
               </Link>
               {t("apps.GitHubBotConfiguration.autoRunsTail")}
             </>
@@ -869,11 +869,11 @@ export function GitHubAccessEditor({
         {peopleRows(guests)}
         {guests.length > 0 && (
           <GitHubToggle
-            label="Allow automatic runs for external contributors"
+            label={t("apps.GitHubBotConfiguration.allowAutomaticRunsForExternalContributors")}
             description={
               automatic
-                ? "Authorized contributors can trigger the events and author filters configured in Settings."
-                : "Turn on automatic runs in Settings first. Mentions remain available."
+                ? t("apps.GitHubBotConfiguration.authorizedContributorsCanTriggerTheEvents")
+                : t("apps.GitHubBotConfiguration.turnOnAutomaticRunsInSettings")
             }
             checked={guestsAutomatic}
             disabled={!automatic}
@@ -955,13 +955,13 @@ export function GitHubAccessEditor({
           <DialogHeader>
             <DialogTitle>
               {dialog === "member"
-                ? "Link a company member"
-                : "Add external contributor"}
+                ? t("apps.GitHubBotConfiguration.linkACompanyMember")
+                : t("apps.GitHubBotConfiguration.addExternalContributor")}
             </DialogTitle>
             <DialogDescription>
               {dialog === "member"
-                ? "Each member confirms their own GitHub identity. Share this link with an existing company member, or link your own account."
-                : "Allow a GitHub user to mention this bot. A company member must sponsor their restricted access."}
+                ? t("apps.GitHubBotConfiguration.eachMemberConfirmsTheirOwnGithub")
+                : t("apps.GitHubBotConfiguration.allowAGithubUserToMention")}
             </DialogDescription>
           </DialogHeader>
           {dialog === "member" ? (
@@ -988,7 +988,7 @@ export function GitHubAccessEditor({
                 to={`/apps/chat/connect?provider=github&resume=${endpointId}&stage=identity`}
                 className="text-sm underline underline-offset-4"
               >
-                Link your account
+                {t("apps.GitHubBotConfiguration.linkYourAccount")}
               </Link>
               {error && (
                 <p role="alert" className="text-sm text-destructive">

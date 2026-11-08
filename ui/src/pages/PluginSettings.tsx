@@ -131,7 +131,7 @@ export function PluginSettings() {
       { label: selectedCompany?.name ?? t("settings.company.organizationFallback", { defaultValue: "Organization" }), href: "/dashboard" },
       { label: t("settings.breadcrumb", { defaultValue: "Settings" }), href: "/company/settings" },
       { label: t("settings.plugins.breadcrumb", { defaultValue: "Plugins" }), href: "/company/settings/instance/plugins" },
-      { label: plugin?.manifestJson?.displayName ?? plugin?.packageName ?? "Plugin Details" },
+      { label: plugin?.manifestJson?.displayName ?? plugin?.packageName ?? t("plugins.PluginSettings.pluginDetails") },
     ]);
   }, [selectedCompany?.name, setBreadcrumbs, companyPrefix, plugin]);
 
@@ -140,7 +140,7 @@ export function PluginSettings() {
   }, [pluginId]);
 
   if (pluginView.kind === "loading" || pluginView.kind === "reconnecting") {
-    return <QueryPlaceholder size="page" label="Loading plugin details" className="p-4" />;
+    return <QueryPlaceholder size="page" label={t("plugins.PluginSettings.loadingPluginDetails")} className="p-4" />;
   }
 
   // A failed load must not bounce the operator back to the plugin list: a
@@ -170,7 +170,7 @@ export function PluginSettings() {
       : plugin.status === "error"
         ? "destructive"
         : "secondary";
-  const pluginDescription = plugin.manifestJson.description || "No description provided.";
+  const pluginDescription = plugin.manifestJson.description || t("plugins.PluginSettings.noDescriptionProvided");
   const pluginCapabilities = plugin.manifestJson.capabilities ?? [];
   const environmentDrivers = plugin.manifestJson.environmentDrivers ?? [];
   const localFolderDeclarations = plugin.manifestJson.localFolders ?? [];
@@ -313,10 +313,10 @@ export function PluginSettings() {
                 <CardHeader>
                   <CardTitle className="text-base flex items-center gap-1.5">
                     <Cpu className="h-4 w-4" />
-                    Runtime Dashboard
+                    {t("plugins.PluginSettings.runtimeDashboard")}
                   </CardTitle>
                   <CardDescription>
-                    Worker process, scheduled jobs, and webhook deliveries
+                    {t("plugins.PluginSettings.workerProcessScheduledJobsAndWebhook")}
                   </CardDescription>
                 </CardHeader>
                 <CardContent className="space-y-6">
@@ -457,9 +457,9 @@ export function PluginSettings() {
                   <CardHeader>
                     <CardTitle className="text-base flex items-center gap-1.5">
                       <ActivitySquare className="h-4 w-4" />
-                      Recent Logs
+                      {t("plugins.PluginSettings.recentLogs")}
                     </CardTitle>
-                    <CardDescription>Last {recentLogs.length} log entries</CardDescription>
+                    <CardDescription>{t("plugins.PluginSettings.last")} {recentLogs.length} log entries</CardDescription>
                   </CardHeader>
                   <CardContent>
                     <div className="max-h-64 space-y-1 overflow-y-auto font-mono text-xs">
@@ -577,7 +577,7 @@ export function PluginSettings() {
                 <CardHeader>
                   <CardTitle className="text-base flex items-center gap-1.5">
                     <ShieldAlert className="h-4 w-4" />
-                    Permissions
+                    {t("plugins.PluginSettings.permissions")}
                   </CardTitle>
                 </CardHeader>
                 <CardContent>
@@ -650,7 +650,7 @@ function PluginLocalFoldersSettings({ pluginId, companyId, declarations }: Plugi
         />
       ) : null}
       {foldersView.kind === "loading" || foldersView.kind === "reconnecting" ? (
-        <QueryPlaceholder size="panel" label="Loading local folders" className="py-3" />
+        <QueryPlaceholder size="panel" label={t("plugins.PluginSettings.loadingLocalFolders")} className="py-3" />
       ) : (
         <div className="space-y-3">
           {declarations.map((declaration) => (
@@ -699,8 +699,8 @@ function PluginLocalFolderRow({ pluginId, companyId, declaration, status }: Plug
       setMessage({
         type: nextStatus.healthy ? "success" : "error",
         text: nextStatus.healthy
-          ? "Local folder saved."
-          : "Local folder saved, but validation still needs attention.",
+          ? t("plugins.PluginSettings.localFolderSaved")
+          : t("plugins.PluginSettings.localFolderSavedButValidationStill"),
       });
       queryClient.invalidateQueries({ queryKey: queryKeys.plugins.localFolders(pluginId, companyId) });
     },
@@ -715,11 +715,11 @@ function PluginLocalFolderRow({ pluginId, companyId, declaration, status }: Plug
 
   const handleSave = useCallback(() => {
     if (!trimmedPath) {
-      setMessage({ type: "error", text: "Local folder path is required." });
+      setMessage({ type: "error", text: t("plugins.PluginSettings.localFolderPathIsRequired") });
       return;
     }
     if (!isLikelyAbsolutePath(trimmedPath)) {
-      setMessage({ type: "error", text: "Local folder must be a full absolute path." });
+      setMessage({ type: "error", text: t("plugins.PluginSettings.localFolderMustBeAFull") });
       return;
     }
     setMessage(null);
@@ -736,7 +736,7 @@ function PluginLocalFolderRow({ pluginId, companyId, declaration, status }: Plug
               {declaration.folderKey}
             </Badge>
             <Badge variant={status?.healthy ? "default" : "secondary"}>
-              {status?.healthy ? "Healthy" : "Needs attention"}
+              {status?.healthy ? "Healthy" : t("plugins.PluginSettings.needsAttention")}
             </Badge>
           </div>
           {declaration.description ? (
@@ -746,7 +746,7 @@ function PluginLocalFolderRow({ pluginId, companyId, declaration, status }: Plug
           ) : null}
         </div>
         <Badge variant={access === "readWrite" ? "default" : "outline"}>
-          {access === "readWrite" ? "Read/write" : "Read only"}
+          {access === "readWrite" ? "Read/write" : t("plugins.PluginSettings.readOnly")}
         </Badge>
       </div>
 
@@ -1018,11 +1018,11 @@ function PluginConfigForm({ pluginId, companyId, schema, initialValues, isLoadin
   // Save mutation
   const saveMutation = useMutation({
     mutationFn: (configJson: Record<string, unknown>) => {
-      if (!companyId) throw new Error("Select an organization before saving plugin configuration.");
+      if (!companyId) throw new Error(t("plugins.PluginSettings.selectAnOrganizationBeforeSavingPlugin"));
       return pluginsApi.saveConfig(pluginId, companyId, configJson);
     },
     onSuccess: () => {
-      setSaveMessage({ type: "success", text: "Configuration saved." });
+      setSaveMessage({ type: "success", text: t("plugins.PluginSettings.configurationSaved") });
       setTestResult(null);
       if (companyId) {
         queryClient.invalidateQueries({ queryKey: queryKeys.plugins.config(pluginId, companyId) });
@@ -1038,14 +1038,14 @@ function PluginConfigForm({ pluginId, companyId, schema, initialValues, isLoadin
   // Test configuration mutation
   const testMutation = useMutation({
     mutationFn: (configJson: Record<string, unknown>) => {
-      if (!companyId) throw new Error("Select an organization before testing plugin configuration.");
+      if (!companyId) throw new Error(t("plugins.PluginSettings.selectAnOrganizationBeforeTestingPlugin"));
       return pluginsApi.testConfig(pluginId, companyId, configJson);
     },
     onSuccess: (result) => {
       if (result.valid) {
-        setTestResult({ type: "success", text: "Configuration test passed." });
+        setTestResult({ type: "success", text: t("plugins.PluginSettings.configurationTestPassed") });
       } else {
-        setTestResult({ type: "error", text: result.message || "Configuration test failed." });
+        setTestResult({ type: "error", text: result.message || t("plugins.PluginSettings.configurationTestFailed") });
       }
     },
     onError: (err: Error) => {
@@ -1140,7 +1140,7 @@ function PluginConfigForm({ pluginId, companyId, schema, initialValues, isLoadin
               {t("plugins.PluginSettings.saving")}
             </>
           ) : (
-            "Save Configuration"
+            t("plugins.PluginSettings.saveConfiguration")
           )}
         </Button>
         {pluginStatus === "ready" && supportsConfigTest && (
@@ -1156,7 +1156,7 @@ function PluginConfigForm({ pluginId, companyId, schema, initialValues, isLoadin
                 {t("plugins.PluginSettings.testing")}
               </>
             ) : (
-              "Test Configuration"
+              t("plugins.PluginSettings.testConfiguration")
             )}
           </Button>
         )}

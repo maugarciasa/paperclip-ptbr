@@ -16,7 +16,7 @@ import { Button } from "@/components/ui/button";
 import { useToast } from "@/context/ToastContext";
 import { queryKeys } from "@/lib/queryKeys";
 import { copyTextToClipboard } from "@/lib/clipboard";
-import { useTranslation } from "@/i18n";
+import { t, useTranslation } from "@/i18n";
 import { LoadingState, RelativeTime, ToolsPageHeader } from "./shared";
 import { describeError } from "@/api/errors";
 
@@ -70,11 +70,11 @@ function latestTokenActivity(gateway: ToolMcpGatewayWithTokens) {
 }
 
 function formatOwner(gateway: ToolMcpGatewayWithTokens, agentNames: Map<string, string>) {
-  if (gateway.agentId) return agentNames.get(gateway.agentId) ?? `Agent ${shortId(gateway.agentId)}`;
+  if (gateway.agentId) return agentNames.get(gateway.agentId) ?? t("tools.GatewaysTab.agentId", { id: shortId(gateway.agentId) });
   if (gateway.createdByAgentId) {
-    return agentNames.get(gateway.createdByAgentId) ?? `Agent ${shortId(gateway.createdByAgentId)}`;
+    return agentNames.get(gateway.createdByAgentId) ?? t("tools.GatewaysTab.agentId", { id: shortId(gateway.createdByAgentId) });
   }
-  if (gateway.createdByUserId) return `Board user ${shortId(gateway.createdByUserId)}`;
+  if (gateway.createdByUserId) return t("tools.GatewaysTab.boardUserId", { id: shortId(gateway.createdByUserId) });
   return "Board";
 }
 
@@ -85,16 +85,16 @@ function formatScope(
 ) {
   if (gateway.contextScopeType !== "none" && gateway.contextScopeId) {
     if (gateway.contextScopeType === "project") {
-      return `Project ${projectNames.get(gateway.contextScopeId) ?? shortId(gateway.contextScopeId)}`;
+      return t("tools.GatewaysTab.projectName", { name: projectNames.get(gateway.contextScopeId) ?? shortId(gateway.contextScopeId) });
     }
     if (gateway.contextScopeType === "agent") {
-      return `Agent ${agentNames.get(gateway.contextScopeId) ?? shortId(gateway.contextScopeId)}`;
+      return t("tools.GatewaysTab.agentId", { id: agentNames.get(gateway.contextScopeId) ?? shortId(gateway.contextScopeId) });
     }
     return `${gateway.contextScopeType} ${shortId(gateway.contextScopeId)}`;
   }
-  if (gateway.projectId) return `Project ${projectNames.get(gateway.projectId) ?? shortId(gateway.projectId)}`;
-  if (gateway.issueId) return `Issue ${shortId(gateway.issueId)}`;
-  if (gateway.agentId) return `Agent ${agentNames.get(gateway.agentId) ?? shortId(gateway.agentId)}`;
+  if (gateway.projectId) return t("tools.GatewaysTab.projectName", { name: projectNames.get(gateway.projectId) ?? shortId(gateway.projectId) });
+  if (gateway.issueId) return t("tools.GatewaysTab.issueId", { id: shortId(gateway.issueId) });
+  if (gateway.agentId) return t("tools.GatewaysTab.agentId", { id: agentNames.get(gateway.agentId) ?? shortId(gateway.agentId) });
   return "Company";
 }
 
@@ -104,7 +104,7 @@ function formatAllowedTools(profile: ToolProfileWithDetails | undefined) {
   if (profile.summary.accessMode === "all_except") {
     return `${pluralize(Math.max(profile.summary.totalToolCount - profile.summary.excludedToolCount, 0), "tool")} allowed`;
   }
-  return allowed === 0 ? "No tools allowed" : `${pluralize(allowed, "tool")} allowed`;
+  return allowed === 0 ? t("tools.GatewaysTab.noToolsAllowed") : `${pluralize(allowed, "tool")} allowed`;
 }
 
 function formatSnippetConfig(config: Record<string, unknown>) {
@@ -297,7 +297,7 @@ export function GatewaysTab({ companyId }: { companyId: string }) {
     createTokenMutation.mutate(gatewayId);
   }
 
-  if (gatewaysQuery.isLoading || gatewaysView.kind === "reconnecting") return <LoadingState label="Loading gateways..." />;
+  if (gatewaysQuery.isLoading || gatewaysView.kind === "reconnecting") return <LoadingState label={t("tools.GatewaysTab.loadingGateways")} />;
   if (gatewaysView.kind === "error") {
     return (
       <QueryErrorState
@@ -347,7 +347,7 @@ export function GatewaysTab({ companyId }: { companyId: string }) {
                 className="w-full rounded-md border border-input bg-background px-3 py-2 text-sm"
                 value={createDraft.name}
                 onChange={(event) => setCreateDraft((current) => ({ ...current, name: event.target.value }))}
-                placeholder="Engineering laptops"
+                placeholder={t("tools.GatewaysTab.engineeringLaptops")}
                 required
               />
             </label>
@@ -468,7 +468,7 @@ export function GatewaysTab({ companyId }: { companyId: string }) {
                       {t("tools.gateways.allowedTools", { defaultValue: "Allowed tools" })}
                     </dt>
                     <dd className="mt-0.5 text-foreground">
-                      {profile ? `${formatAllowedTools(profile)} via ${profile.name}` : `Profile ${shortId(gateway.profileId)}`}
+                      {profile ? `${formatAllowedTools(profile)} via ${profile.name}` : t("tools.GatewaysTab.profileId", { id: shortId(gateway.profileId) })}
                     </dd>
                   </div>
                   <div>
@@ -514,7 +514,7 @@ export function GatewaysTab({ companyId }: { companyId: string }) {
                               [gateway.id]: { ...tokenDraft, clientLabel: event.target.value },
                             }))
                           }
-                          placeholder="Cursor on work laptop"
+                          placeholder={t("tools.GatewaysTab.cursorOnWorkLaptop")}
                           required
                         />
                       </label>
@@ -533,7 +533,7 @@ export function GatewaysTab({ companyId }: { companyId: string }) {
                               [gateway.id]: { ...tokenDraft, ownerNote: event.target.value },
                             }))
                           }
-                          placeholder="Who owns this token and why it exists"
+                          placeholder={t("tools.GatewaysTab.whoOwnsThisTokenAndWhy")}
                           required
                         />
                       </label>
@@ -601,7 +601,7 @@ export function GatewaysTab({ companyId }: { companyId: string }) {
                       <div className="font-medium text-foreground">
                         {t("tools.gateways.newTokenTitle", {
                           name: createdToken.name,
-                          defaultValue: `New token for ${createdToken.name}`,
+                          defaultValue: t("tools.GatewaysTab.newTokenFor", { name: createdToken.name }),
                         })}
                       </div>
                       <Button type="button" variant="outline" size="sm" onClick={() => void copyText(createdToken.token, "Gateway bearer token")}>
@@ -662,7 +662,7 @@ export function GatewaysTab({ companyId }: { companyId: string }) {
                                       size="sm"
                                       className="h-7 px-2 text-xs text-destructive hover:text-destructive"
                                       onClick={() => setConfirmingRevokeTokenId(token.id)}
-                                      aria-label={`Revoke ${token.name}`}
+                                      aria-label={t("tools.GatewaysTab.revokeToken", { name: token.name })}
                                     >
                                       <RotateCcw className="mr-1 h-3.5 w-3.5" />
                                       {t("tools.gateways.revoke", { defaultValue: "Revoke" })}

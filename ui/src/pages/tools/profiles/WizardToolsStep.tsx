@@ -77,7 +77,7 @@ export function WizardToolsStep(props: WizardToolsStepProps) {
       .filter((entry) => entry.tools.length > 0);
   }, [appGroups, search, capabilityFilter]);
 
-  if (catalogLoading) return <LoadingState label="Loading tools…" />;
+  if (catalogLoading) return <LoadingState label={t("tools.WizardToolsStep.loadingTools")} />;
 
   // Cold state A (AP17): nothing connected at all.
   if (appGroups.length === 0) {
@@ -91,7 +91,7 @@ export function WizardToolsStep(props: WizardToolsStepProps) {
           </p>
         </div>
         <Button asChild variant="outline">
-          <Link to="/apps">Browse app connections</Link>
+          <Link to="/apps">{t("tools.WizardToolsStep.browseAppConnections")}</Link>
         </Button>
       </div>
     );
@@ -193,7 +193,7 @@ function AppRow({
   return (
     <div>
       <div className="flex items-center gap-2.5 px-3 py-2">
-        <Checkbox checked={checked} onCheckedChange={onToggleApp} aria-label={`All ${group.name} tools`} />
+        <Checkbox checked={checked} onCheckedChange={onToggleApp} aria-label={t("tools.WizardToolsStep.allGroupTools", { name: group.name })} />
         <button
           type="button"
           onClick={() => setExpanded((v) => !v)}
@@ -262,14 +262,14 @@ function NewToolsRadio({
   const options: Array<{ value: NewToolsAction; label: string; hint: string; recommended?: boolean }> = [
     {
       value: "deny",
-      label: "Stay blocked until someone allows them",
-      hint: "New tools an app adds later won't be usable until you review them.",
+      label: t("tools.WizardToolsStep.stayBlockedUntilSomeoneAllowsThem"),
+      hint: t("tools.WizardToolsStep.newToolsAnAppAddsLater"),
       recommended: true,
     },
     {
       value: "allow",
-      label: "Allowed automatically",
-      hint: "Any tool an app adds later becomes usable right away.",
+      label: t("tools.WizardToolsStep.allowedAutomatically"),
+      hint: t("tools.WizardToolsStep.anyToolAnAppAddsLater"),
     },
   ];
   return (
@@ -290,7 +290,7 @@ function NewToolsRadio({
                 {opt.label}
                 {opt.recommended ? (
                   <Badge variant="outline" className="text-(length:--text-nano)">
-                    Recommended
+                    {t("tools.WizardToolsStep.recommended")}
                   </Badge>
                 ) : (
                   <span className="text-xs font-normal text-amber-600">{t("tools.profiles.wizardTools.risky", { defaultValue: "(risky)" })}</span>
@@ -306,9 +306,9 @@ function NewToolsRadio({
 }
 
 const RULE_KIND_OPTIONS: Array<{ value: AdvancedRuleKind; label: string }> = [
-  { value: "tool_name", label: "Tool name pattern" },
-  { value: "risk_level", label: "Risk level" },
-  { value: "catalog_entry", label: "By tool ID" },
+  { value: "tool_name", label: t("tools.WizardToolsStep.toolNamePattern") },
+  { value: "risk_level", label: t("tools.WizardToolsStep.riskLevel") },
+  { value: "catalog_entry", label: t("tools.WizardToolsStep.byToolId") },
 ];
 
 function createAdvancedRuleId() {
@@ -389,8 +389,8 @@ function AdvancedRules({
               <SelectValue />
             </SelectTrigger>
             <SelectContent>
-              <SelectItem value="include">Allow</SelectItem>
-              <SelectItem value="exclude">Block</SelectItem>
+              <SelectItem value="include">{t("tools.WizardToolsStep.allow")}</SelectItem>
+              <SelectItem value="exclude">{t("tools.WizardToolsStep.block")}</SelectItem>
             </SelectContent>
           </Select>
           <Select value={kind} onValueChange={(v) => setKind(v as AdvancedRuleKind)}>
@@ -412,8 +412,8 @@ function AdvancedRules({
               </SelectTrigger>
               <SelectContent>
                 <SelectItem value="read">Read-only</SelectItem>
-                <SelectItem value="write">Makes changes</SelectItem>
-                <SelectItem value="destructive">Destructive</SelectItem>
+                <SelectItem value="write">{t("tools.WizardToolsStep.makesChanges")}</SelectItem>
+                <SelectItem value="destructive">{t("tools.WizardToolsStep.destructive")}</SelectItem>
               </SelectContent>
             </Select>
           ) : (

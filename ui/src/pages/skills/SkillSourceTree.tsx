@@ -1,3 +1,4 @@
+import { t } from "@/i18n";
 import { useMemo, useState } from 'react';
 import type { SkillSourceCandidate } from '@paperclipai/shared';
 import { FileTree, buildFileTree, collectAllPaths, type FileTreeNode } from '@/components/FileTree';
@@ -104,7 +105,7 @@ export function SkillSourceTree({ candidates, selected, excludedFolders, onChang
     </div>
     <div className="flex items-center justify-between gap-2 border-y border-border bg-muted/30 px-3 py-1.5">
       <label className="flex items-center gap-2 text-xs text-muted-foreground">
-        <input type="checkbox" className="size-3.5 accent-foreground" aria-label="Import folder Repository"
+        <input type="checkbox" className="size-3.5 accent-foreground" aria-label={t("skills.SkillSourceTree.importFolderRepository")}
           checked={candidates.length > 0 && selectedCount === candidates.length}
           ref={element => { if (element) element.indeterminate = selectedCount > 0 && selectedCount < candidates.length; }}
           disabled={disabled || candidates.length === 0} onChange={() => toggleCheck('')} />
@@ -115,12 +116,12 @@ export function SkillSourceTree({ candidates, selected, excludedFolders, onChang
     <div className="min-h-0 max-h-(--sz-480px) overflow-auto py-1">
       <FileTree layout="explorer" wrapLabels={false}
         nodes={nodes} selectedFile={null} expandedDirs={expanded}
-        visiblePaths={visiblePaths} disabled={disabled} ariaLabel="Discovered skills"
+        visiblePaths={visiblePaths} disabled={disabled} ariaLabel={t("skills.SkillSourceTree.discoveredSkills")}
         empty={{ title: t('skills.tree.emptyTitle', { defaultValue: 'No matching skills found.' }), description: t('skills.tree.emptyDescription', { defaultValue: 'Try another skill name or path.' }) }}
         onToggleDir={path => setExpansion(previous => new Map(previous).set(path, !expanded.has(path)))}
         onSelectFile={path => { const file = included.get(path); if (file) onPreview?.(file.skill, file.filePath); }}
         onToggleCheck={toggleCheck}
-        checkboxLabel={node => skillsByPath.has(node.path) ? `Import ${node.path}` : `Import folder ${node.path}`}
+        checkboxLabel={node => skillsByPath.has(node.path) ? t("skills.SkillSourceTree.importPath", { path: node.path }) : t("skills.SkillSourceTree.importFolderPath", { path: node.path })}
         getCheckboxState={node => {
           if (included.has(node.path)) return null;
           if (skillsByPath.has(node.path)) return selected.has(node.path) ? 'checked' : 'unchecked';
@@ -139,17 +140,17 @@ export function SkillSourceTree({ candidates, selected, excludedFolders, onChang
         }}
         renderNodeExtra={node => {
           const skill = skillsByPath.get(node.path);
-          if (!skill) return node.kind === 'file' ? <span className="text-xs text-muted-foreground">Included</span> : null;
+          if (!skill) return node.kind === 'file' ? <span className="text-xs text-muted-foreground">{t("skills.SkillSourceTree.included")}</span> : null;
           const label = skill.error ? t('skills.tree.needsSetup', { defaultValue: 'Needs setup' }) : skill.note === 'New skill' ? t('skills.tree.newBadge', { defaultValue: 'New' }) : skill.note === 'Already imported' ? t('skills.tree.installedBadge', { defaultValue: 'Installed' }) : skill.note?.startsWith('Removed from source') ? t('skills.tree.removedBadge', { defaultValue: 'Removed' }) : skill.note;
           const count = skill.inspection?.files.length ?? skill.fileCount;
           return <>
             {label && <Badge variant="outline" className="hidden font-normal text-muted-foreground sm:inline-flex" title={skill.error ?? skill.note}>{label}</Badge>}
             {count !== undefined && <span className="shrink-0 text-xs tabular-nums text-muted-foreground">{t('skills.tree.fileCount', { count, defaultValue: `${count} ${count === 1 ? 'file' : 'files'}` })}</span>}
-            {onPreview && <Button type="button" size="icon-xs" variant="ghost" disabled={disabled} aria-label={t('skills.tree.inspectSkill', { name: skill.name, defaultValue: `Inspect ${skill.name}` })} onKeyDown={event => event.stopPropagation()} onClick={event => { event.stopPropagation(); onPreview(skill); }}>{skill.inspection?.references.length ? <AlertTriangle className="size-3.5" /> : <Info className="size-3.5" />}</Button>}
+            {onPreview && <Button type="button" size="icon-xs" variant="ghost" disabled={disabled} aria-label={t('skills.tree.inspectSkill', { name: skill.name, defaultValue: t("skills.SkillSourceTree.inspectName", { name: skill.name }) })} onKeyDown={event => event.stopPropagation()} onClick={event => { event.stopPropagation(); onPreview(skill); }}>{skill.inspection?.references.length ? <AlertTriangle className="size-3.5" /> : <Info className="size-3.5" />}</Button>}
           </>;
         }}
       />
     </div>
-    {packageMode === 'skills' && <p className="border-t border-border px-3 py-2 text-xs text-muted-foreground">Select whole skill packages. Expand a skill to see its included files. Nested skills are selected separately.</p>}
+    {packageMode === 'skills' && <p className="border-t border-border px-3 py-2 text-xs text-muted-foreground">{t("skills.SkillSourceTree.selectWholeSkillPackagesExpandA")}</p>}
   </div>;
 }

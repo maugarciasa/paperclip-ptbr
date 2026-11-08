@@ -1,3 +1,4 @@
+import { t } from "@/i18n";
 import { useState } from 'react';
 import { useQuery } from '@tanstack/react-query';
 import { ExternalLink, FileImage, AlertTriangle } from 'lucide-react';
@@ -47,7 +48,7 @@ export function SkillPackagePreview({ companyId, repository, commitSha, skill, i
         <h3 className="font-medium">{t('skills.preview.runtimeRequirements', { defaultValue: 'Runtime requirements' })}</h3>
         <p className="mt-1 whitespace-pre-wrap text-muted-foreground">{inspection.requirements}</p>
       </section>}
-      {Boolean(inspection?.references.length) && <section className="rounded-md border border-border p-3 text-sm" aria-label="Package reference warnings">
+      {Boolean(inspection?.references.length) && <section className="rounded-md border border-border p-3 text-sm" aria-label={t("skills.SkillPackagePreview.packageReferenceWarnings")}>
         <h3 className="flex items-center gap-2 font-medium"><AlertTriangle className="size-4" />{t('skills.preview.filesNotIncluded', { defaultValue: 'Files not included' })}</h3>
         <ul className="mt-2 space-y-2">
           {inspection!.references.map(reference => <li key={`${reference.fromPath}:${reference.resolvedPath}`} className="break-all text-xs">
@@ -63,7 +64,7 @@ export function SkillPackagePreview({ companyId, repository, commitSha, skill, i
       {inspection && <div className="flex min-h-0 flex-col overflow-hidden rounded-md border border-border md:flex-row">
         <div className="max-h-48 shrink-0 overflow-auto border-b border-border py-1 md:max-h-(--sz-480px) md:w-56 md:border-b-0 md:border-r">
           <FileTree nodes={nodes} selectedFile={filePath} expandedDirs={expanded} showCheckboxes={false} wrapLabels={false}
-            ariaLabel="Included package files" onSelectFile={setFilePath} onToggleDir={path => setCollapsed(previous => { const next = new Set(previous); if (next.has(path)) next.delete(path); else next.add(path); return next; })} />
+            ariaLabel={t("skills.SkillPackagePreview.includedPackageFiles")} onSelectFile={setFilePath} onToggleDir={path => setCollapsed(previous => { const next = new Set(previous); if (next.has(path)) next.delete(path); else next.add(path); return next; })} />
         </div>
         <div className="flex min-w-0 flex-1 flex-col">
           <div className="flex flex-wrap items-center justify-between gap-2 border-b border-border bg-muted/30 px-3 py-2 text-xs">

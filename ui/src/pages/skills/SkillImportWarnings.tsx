@@ -1,3 +1,4 @@
+import { t } from "@/i18n";
 import { AlertTriangle } from 'lucide-react';
 import type { SkillRepositoryPackage, SkillSourceCandidate } from '@paperclipai/shared';
 import { useTranslation } from '@/i18n';
@@ -19,7 +20,7 @@ export function skillImportWarnings(candidates: Pick<SkillSourceCandidate, 'path
 export function SkillImportWarnings({ warnings }: { warnings: string[] }) {
   const { t } = useTranslation();
   if (!warnings.length) return null;
-  return <details className="text-sm" aria-label="Import warnings">
+  return <details className="text-sm" aria-label={t("skills.SkillImportWarnings.importWarnings")}>
     <summary className="cursor-pointer text-muted-foreground"><span className="inline-flex items-center gap-2"><AlertTriangle className="size-4 shrink-0" />{t('skills.warnings.importWarningCount', { count: warnings.length, defaultValue: `${warnings.length} import ${warnings.length === 1 ? 'warning' : 'warnings'}` })}</span></summary>
     <ul className="mt-2 space-y-2 text-xs text-muted-foreground">{warnings.map(warning => <li className="break-words" key={warning}>{warning}</li>)}</ul>
   </details>;

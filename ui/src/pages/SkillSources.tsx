@@ -1,3 +1,4 @@
+import { t } from "@/i18n";
 import { ProjectSkillRepositoryRow } from "@/components/skill-studio/ProjectSkillRepositoryRow";
 import { SkillSourceConnectionRepair } from "@/components/skill-studio/SkillSourceConnectionRepair";
 import { SkillSourceBranchRepair } from "@/components/skill-studio/SkillSourceBranchRepair";
@@ -47,7 +48,7 @@ export function SkillSources() {
   const [branchSourceId, setBranchSourceId] = useState<string | null>(null);
   const [disconnectSource, setDisconnectSource] = useState<SkillSource | null>(null);
   const companyId = selectedCompanyId ?? '';
-  useEffect(() => { setBreadcrumbs([{ label: 'Skills', href: '/skills' }, { label: 'Sources' }]); }, [setBreadcrumbs]);
+  useEffect(() => { setBreadcrumbs([{ label: t("skills.SkillSources.skills"), href: '/skills' }, { label: t("skills.SkillSources.sources") }]); }, [setBreadcrumbs]);
   const query = useQuery({ queryKey: sourceKey(companyId), queryFn: () => skillSourcesApi.list(companyId), enabled: Boolean(companyId), refetchInterval: 5000 });
   const repairSource = query.data?.find(source => source.id === repairSourceId);
   const branchSource = query.data?.find(source => source.id === branchSourceId);
@@ -107,7 +108,7 @@ export function SkillSources() {
     <SkillsPageNavigation activeView="sources" />
     {(view.kind === 'loading' || view.kind === 'reconnecting') && <p role="status" className="text-sm text-muted-foreground">{t('skills.sources.loading', { defaultValue: 'Loading sources…' })}</p>}
     {view.kind === 'error' && <QueryErrorState error={query.error} action={t("errorActions.loadSkillSources")} onRetry={view.retry} retrying={view.isFetching} />}
-    {query.data?.length === 0 && availableProjects.length === 0 && <div className="flex flex-col items-start gap-3 py-8"><p className="text-sm text-muted-foreground">{t('skills.sources.noRepositories', { company: selectedCompany?.name ?? 'this company', defaultValue: `No repositories added yet. Import your skills to make them available in ${selectedCompany?.name ?? 'this company'}.` })}</p><Button variant="outline" onClick={() => navigate('/skills/sources/new')}>{t('skills.actions.importGithub', { defaultValue: 'Import from GitHub' })}</Button></div>}
+    {query.data?.length === 0 && availableProjects.length === 0 && <div className="flex flex-col items-start gap-3 py-8"><p className="text-sm text-muted-foreground">{t('skills.sources.noRepositories', { company: selectedCompany?.name ?? 'this company', defaultValue: t("skills.SkillSources.noRepositoriesYet", { company: selectedCompany?.name ?? t("skills.SkillSources.thisCompany") }) })}</p><Button variant="outline" onClick={() => navigate('/skills/sources/new')}>{t('skills.actions.importGithub', { defaultValue: 'Import from GitHub' })}</Button></div>}
     {projectsView.kind === 'error' && <p role="alert" className="text-sm text-destructive">{describeError(projectRepositories.error).body} <Button variant="ghost" size="sm" onClick={() => void projectRepositories.refetch()}>{t('skills.sources.tryAgain', { defaultValue: 'Try again' })}</Button></p>}
     {adopt.error && <p role="alert" className="text-sm text-destructive">{describeError(adopt.error).body}</p>}
     {uninstalledProjects.length > 0 && <div className="divide-y divide-border" aria-label={t("skills.SkillSources.projectRepositories")}>
@@ -141,7 +142,7 @@ export function SkillSources() {
               onAutomaticUpdates={enabled => settings.mutate({ source, enabled })} />
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
-                <Button ref={button => { sourceActionButtons.current[source.id] = button; }} size="icon-sm" variant="ghost" className="shrink-0" aria-label={t('skills.sources.moreActionsFor', { name: source.fullName, defaultValue: `More actions for ${source.fullName}` })}><MoreVertical className="size-4" /></Button>
+                <Button ref={button => { sourceActionButtons.current[source.id] = button; }} size="icon-sm" variant="ghost" className="shrink-0" aria-label={t('skills.sources.moreActionsFor', { name: source.fullName, defaultValue: t("skills.SkillSources.moreActionsFor", { name: source.fullName }) })}><MoreVertical className="size-4" /></Button>
               </DropdownMenuTrigger>
               <DropdownMenuContent align="end">
                 <DropdownMenuCheckboxItem checked={source.automaticUpdates ?? true} disabled={!source.enabled || settings.isPending}
@@ -157,7 +158,7 @@ export function SkillSources() {
             </DropdownMenu>
           </div>
           {projectGroup?.repository.lastError && <SourceErrorNotice message={projectGroup.repository.lastError} />}
-          {installed.length > 0 && <ul className="ml-8 min-w-0" aria-label={`Installed skills from ${source.fullName}`}>
+          {installed.length > 0 && <ul className="ml-8 min-w-0" aria-label={t("skills.SkillSources.installedSkillsFrom", { name: source.fullName })}>
             {installed.map(entry => <li key={entry.id}>
               <Link to={skillRoute(entry.skillId!)} title={entry.path} className="group flex min-w-0 items-center gap-2 rounded-sm py-1 text-sm hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring">
                 <FileText className="size-3.5 shrink-0 text-muted-foreground" />
@@ -173,11 +174,11 @@ export function SkillSources() {
           {localError && <SourceErrorNotice message={localError} />}
           <SkillImportWarnings warnings={skillImportWarnings(source.entries.filter(entry => entry.selection === 'selected'), source.repositoryPackage)} />
           {source.lastError && <SourceErrorNotice message={source.lastError}
-            detail={source.lastAttemptAt ? t('skills.sources.lastAttempt', { time: timeAgo(source.lastAttemptAt), defaultValue: `Last attempt ${timeAgo(source.lastAttemptAt)}` }) : undefined}
+            detail={source.lastAttemptAt ? t('skills.sources.lastAttempt', { time: timeAgo(source.lastAttemptAt), defaultValue: t("skills.SkillSources.lastAttempt", { when: timeAgo(source.lastAttemptAt) }) }) : undefined}
             action={<Link to={`/skills/sources/${source.id}`} className="font-medium text-destructive underline underline-offset-2">{t('skills.sources.reviewSource', { defaultValue: 'Review source' })}</Link>} />}
           {source.lastError && (source.repairAction === 'connection' || (!source.repairAction && !source.connectionId)) && <Button variant="outline" size="sm" className="self-start" onClick={() => setRepairSourceId(source.id)}>{t('skills.sources.chooseConnection', { defaultValue: 'Choose connection' })}</Button>}
           {source.lastError && source.repairAction === 'branch' && (source.accessScope === 'projects' || source.projects?.some(project => project.active)
-            ? <div className="flex flex-wrap gap-3">{source.projects?.filter(project => project.active).map(project => <Link key={project.id} to={`/projects/${project.id}`} className="text-sm underline">{t('skills.sources.updateProjectRepo', { name: project.name, defaultValue: `Update ${project.name} repository` })}</Link>)}</div>
+            ? <div className="flex flex-wrap gap-3">{source.projects?.filter(project => project.active).map(project => <Link key={project.id} to={`/projects/${project.id}`} className="text-sm underline">{t('skills.sources.updateProjectRepo', { name: project.name, defaultValue: t("skills.SkillSources.updateRepository", { name: project.name }) })}</Link>)}</div>
             : <Button variant="outline" size="sm" className="self-start" onClick={() => setBranchSourceId(source.id)}>{t('skills.sources.chooseBranch', { defaultValue: 'Choose a new branch' })}</Button>)}
         </section>;
       })}
@@ -219,14 +220,14 @@ function DisconnectSourceDialog({ source, pending, error, stale, onReload, onClo
   const { t } = useTranslation();
   const count = new Set(source.entries.flatMap(entry => entry.skillId ? [entry.skillId] : [])).size;
   const [choice, setChoice] = useState<SkillSourceDisconnectRequest['skills'] | ''>('');
-  const action = source.enabled ? 'Disconnect source' : 'Remove source';
+  const action = source.enabled ? t("skills.SkillSources.disconnectSource") : t("skills.SkillSources.removeSource");
   return <Dialog open onOpenChange={open => { if (!open && !pending) onClose(); }}>
     <DialogContent>
       <DialogHeader>
-        <DialogTitle>{source.enabled ? t('skills.sources.disconnect.titleDisconnect', { name: source.fullName, defaultValue: `Disconnect ${source.fullName}?` }) : t('skills.sources.disconnect.titleRemove', { name: source.fullName, defaultValue: `Remove ${source.fullName}?` })}</DialogTitle>
-        <DialogDescription>{count ? t('skills.sources.disconnect.descCount', { count, defaultValue: `Remove this repository from Sources. What should happen to its ${count} imported ${count === 1 ? 'skill' : 'skills'}?` }) : t('skills.sources.disconnect.descEmpty', { defaultValue: 'Remove this repository from Sources.' })}</DialogDescription>
+        <DialogTitle>{source.enabled ? t('skills.sources.disconnect.titleDisconnect', { name: source.fullName, defaultValue: t("skills.SkillSources.disconnectName", { name: source.fullName }) }) : t('skills.sources.disconnect.titleRemove', { name: source.fullName, defaultValue: t("skills.SkillSources.removeName", { name: source.fullName }) })}</DialogTitle>
+        <DialogDescription>{count ? t('skills.sources.disconnect.descCount', { count, defaultValue: t("skills.SkillSources.removeRepositoryQuestion", { count }) }) : t('skills.sources.disconnect.descEmpty', { defaultValue: 'Remove this repository from Sources.' })}</DialogDescription>
       </DialogHeader>
-      {count > 0 && <RadioCardGroup ariaLabel="Imported skills" value={choice}
+      {count > 0 && <RadioCardGroup ariaLabel={t("skills.SkillSources.importedSkills")} value={choice}
         onValueChange={value => { setChoice(value as SkillSourceDisconnectRequest['skills']); onChoiceChange(); }} disabled={pending}
         options={[
           { value: 'copy', title: t('skills.sources.disconnect.keepTitle', { defaultValue: 'Keep editable copies' }), description: source.accessScope === 'projects' ? t('skills.sources.disconnect.keepDescProjects', { defaultValue: 'Move them to My Skills, keeping project access restrictions. Assigned agents keep using them.' }) : t('skills.sources.disconnect.keepDescGlobal', { defaultValue: 'Move them to My Skills. Assigned agents keep using them.' }) },
@@ -309,7 +310,7 @@ function SourceDialog({ companyId, source, onClose, onSaved }: {
     onSuccess: async result => { sessionStorage.removeItem(draftKey); await onSaved(result); },
   });
   const candidates: SkillTreeCandidate[] = discovery?.candidates ?? (source ? source.entries.map(entry => ({ ...entry,
-    note: !entry.present ? 'Removed from source · installed copy retained' : entry.selection === 'new' ? 'New skill' : entry.skillId ? 'Already imported' : undefined,
+    note: !entry.present ? t("skills.SkillSources.removedFromSourceInstalledCopyRetained") : entry.selection === 'new' ? t("skills.SkillSources.newSkill") : entry.skillId ? t("skills.SkillSources.alreadyImported") : undefined,
   })) : []);
   const ready = Boolean(source || discovery);
   const repositoryPackage = discovery?.repositoryPackage ?? source?.repositoryPackage;
@@ -336,7 +337,7 @@ function SourceDialog({ companyId, source, onClose, onSaved }: {
             <Button asChild variant="outline" size="sm"><Link onClick={rememberReturn} to={connectHref}><Plus className="size-4" />{t('skills.sources.dialog.addRepos', { defaultValue: 'Add repos' })}</Link></Button>
           </div>}
           {repositoriesLoading && <p role="status" className="text-sm text-muted-foreground">{t('skills.sources.dialog.loadingRepos', { defaultValue: 'Loading your GitHub repositories…' })}</p>}
-          {availableRepositories.length > 0 && <Command className="h-auto border border-border" label="Source repositories">
+          {availableRepositories.length > 0 && <Command className="h-auto border border-border" label={t("skills.SkillSources.sourceRepositories")}>
               <CommandInput placeholder={t('skills.sources.dialog.searchRepos', { defaultValue: 'Search repositories…' })} aria-label={t('skills.sources.dialog.searchReposAria', { defaultValue: 'Search repositories' })} disabled={busy} />
               <CommandList className="max-h-48">
                 <CommandEmpty>{t('skills.sources.dialog.noMatchingRepos', { defaultValue: 'No matching repositories.' })}</CommandEmpty>
@@ -347,8 +348,8 @@ function SourceDialog({ companyId, source, onClose, onSaved }: {
                       <span className="block truncate">{repo.fullName}</span>
                       <span className="block truncate text-xs text-muted-foreground">{repo.connections.join(' · ')}</span>
                     </span>
-                    {repo.private && <Lock className="size-3 shrink-0 text-muted-foreground" aria-label="Private repository" />}
-                    {matchingRepository?.id === repo.id && <Check className="size-4 shrink-0" aria-label="Selected repository" />}
+                    {repo.private && <Lock className="size-3 shrink-0 text-muted-foreground" aria-label={t("skills.SkillSources.privateRepository")} />}
+                    {matchingRepository?.id === repo.id && <Check className="size-4 shrink-0" aria-label={t("skills.SkillSources.selectedRepository")} />}
                   </CommandItem>)}
                 </CommandGroup>
               </CommandList>
@@ -373,7 +374,7 @@ function SourceDialog({ companyId, source, onClose, onSaved }: {
       {source?.lastError && <p role="alert" className="text-sm text-destructive">{source.lastError}{' '}<Link onClick={rememberReturn} to={source.connectionId ? `/apps/${source.connectionId}/permissions` : connectHref} className="underline">{t('skills.sources.manageConnection', { defaultValue: 'Manage GitHub connection' })}</Link></p>}
       {ready && !save.isPending && !scan.isPending && <div className="space-y-3">
         {packageMode === 'repository' ? <>
-          {candidates[0] && <Button variant="outline" size="sm" onClick={() => setPreview({ skill: candidates[0]!, repository: true })}><FileText className="size-4" />{t('skills.sources.dialog.viewFiles', { count: repositoryPackage?.files.length ?? 0, defaultValue: `View ${repositoryPackage?.files.length ?? 0} ${repositoryPackage?.files.length === 1 ? 'file' : 'files'}` })}</Button>}
+          {candidates[0] && <Button variant="outline" size="sm" onClick={() => setPreview({ skill: candidates[0]!, repository: true })}><FileText className="size-4" />{t('skills.sources.dialog.viewFiles', { count: repositoryPackage?.files.length ?? 0, defaultValue: t("skills.SkillSources.viewFiles", { count: repositoryPackage?.files.length ?? 0 }) })}</Button>}
         </> : null}
         {selectionTree}
         <SkillImportWarnings warnings={warnings} />
@@ -385,7 +386,7 @@ function SourceDialog({ companyId, source, onClose, onSaved }: {
     </div>
       <footer className="flex shrink-0 items-center justify-between gap-3 border-t border-border pt-4">
         <Button variant="ghost" disabled={save.isPending} onClick={() => { if (scan.isPending) stopScan(); else if (discovery && !source) clearScan(); else dismiss(); }}>{scan.isPending ? t('skills.sources.dialog.cancelScan', { defaultValue: 'Cancel scan' }) : discovery && !source ? t('skills.sources.dialog.back', { defaultValue: 'Back' }) : t('skills.sources.dialog.cancel', { defaultValue: 'Cancel' })}</Button>
-        {ready ? <Button disabled={busy || (!source && packageMode === 'skills' && selectedCount === 0)} onClick={() => save.mutate()}>{save.isPending ? t('skills.sources.dialog.saving', { defaultValue: 'Saving…' }) : source ? t('skills.sources.dialog.saveSelection', { defaultValue: 'Save selection' }) : packageMode === 'repository' ? t('skills.sources.dialog.importRepository', { defaultValue: 'Import repository' }) : t('skills.sources.dialog.importCount', { count: selectedCount, defaultValue: `Import ${selectedCount} ${selectedCount === 1 ? 'skill' : 'skills'}` })}</Button>
+        {ready ? <Button disabled={busy || (!source && packageMode === 'skills' && selectedCount === 0)} onClick={() => save.mutate()}>{save.isPending ? t('skills.sources.dialog.saving', { defaultValue: 'Saving…' }) : source ? t('skills.sources.dialog.saveSelection', { defaultValue: 'Save selection' }) : packageMode === 'repository' ? t('skills.sources.dialog.importRepository', { defaultValue: 'Import repository' }) : t('skills.sources.dialog.importCount', { count: selectedCount, defaultValue: t("skills.SkillSources.importSkills", { count: selectedCount }) })}</Button>
           : <Button disabled={busy || repositories.isPending || !repositoryUrl.trim()} onClick={() => scan.mutate(packageMode)}>{scan.isPending ? t('skills.sources.dialog.scanning', { defaultValue: 'Scanning…' }) : t('skills.sources.dialog.findSkills', { defaultValue: 'Find skills' })}</Button>}
       </footer>
     {preview && <SkillPackagePreview key={`${packageMode}:${preview.repository}:${preview.skill.path}:${preview.filePath ?? ''}`} companyId={companyId}

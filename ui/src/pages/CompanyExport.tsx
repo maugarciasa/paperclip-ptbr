@@ -738,8 +738,8 @@ export function CompanyExport() {
   useEffect(() => {
     setBreadcrumbs([
       { label: selectedCompany?.name ?? "Organization", href: "/dashboard" },
-      { label: "Settings", href: "/company/settings" },
-      { label: "Export" },
+      { label: t("portability.CompanyExport.settings"), href: "/company/settings" },
+      { label: t("portability.CompanyExport.export") },
     ]);
   }, [selectedCompany?.name, setBreadcrumbs]);
 
@@ -780,7 +780,7 @@ export function CompanyExport() {
       if (request.requestId !== previewRequestIdRef.current || isAbortError(err)) return;
       pushToast({
         tone: "error",
-        title: "Export failed",
+        title: t("portability.CompanyExport.exportFailed"),
         body: previewErrorMessage(err),
       });
     },
@@ -814,14 +814,14 @@ export function CompanyExport() {
       downloadZip(result, resultCheckedFiles, result.files);
       pushToast({
         tone: "success",
-        title: "Export downloaded",
+        title: t("portability.CompanyExport.exportDownloaded"),
         body: `${resultCheckedFiles.size} file${resultCheckedFiles.size === 1 ? "" : "s"} exported as ${result.rootPath}.zip`,
       });
     },
     onError: (err) => {
       pushToast({
         tone: "error",
-        title: "Export failed",
+        title: t("portability.CompanyExport.exportFailed"),
         body: describeError(err).body,
       });
     },
@@ -1039,8 +1039,8 @@ export function CompanyExport() {
     return (
       <EmptyState
         icon={Package}
-        title="Export preview cancelled"
-        message="The preview request was cancelled. Your export settings are unchanged."
+        title={t("portability.CompanyExport.exportPreviewCancelled")}
+        message={t("portability.CompanyExport.thePreviewRequestWasCancelledYour")}
         action="Retry preview"
         onAction={startPreviewRequest}
         hideActionIcon
@@ -1052,9 +1052,9 @@ export function CompanyExport() {
     return (
       <EmptyState
         icon={Package}
-        title="Export preview failed"
+        title={t("portability.CompanyExport.exportPreviewFailed")}
         message={previewErrorMessage(exportPreviewMutation.error)}
-        description="Retry the preview. You do not need to reload this page."
+        description={t("portability.CompanyExport.retryThePreviewYouDoNot")}
         action="Retry preview"
         onAction={startPreviewRequest}
         hideActionIcon
@@ -1066,8 +1066,8 @@ export function CompanyExport() {
     return (
       <EmptyState
         icon={Package}
-        title="Export preview unavailable"
-        message="No export preview is loaded."
+        title={t("portability.CompanyExport.exportPreviewUnavailable")}
+        message={t("portability.CompanyExport.noExportPreviewIsLoaded")}
         action="Load preview"
         onAction={startPreviewRequest}
         hideActionIcon
@@ -1113,8 +1113,8 @@ export function CompanyExport() {
           >
             <Download className="mr-1.5 h-3.5 w-3.5" />
             {downloadMutation.isPending
-              ? "Building export..."
-              : `Export ${selectedCount.toLocaleString()} file${selectedCount === 1 ? "" : "s"}`}
+              ? t("portability.CompanyExport.buildingExport")
+              : t("portability.CompanyExport.exportFiles", { count: selectedCount, n: selectedCount.toLocaleString() })}
           </Button>
         </div>
       </div>
@@ -1171,7 +1171,7 @@ export function CompanyExport() {
                     )}
                     title={
                       disabled
-                        ? "Attachments travel with tasks and routines; re-enable one of them to include attachments."
+                        ? t("portability.CompanyExport.attachmentsTravelWithTasksAndRoutines")
                         : undefined
                     }
                   >
