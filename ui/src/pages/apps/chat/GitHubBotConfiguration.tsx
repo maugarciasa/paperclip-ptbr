@@ -203,7 +203,7 @@ function GitHubPassingScore({
         <Label className="flex items-center gap-2 text-sm font-normal">
           <Checkbox aria-label={t("apps.githubBotConfig.reportOnly", "Report only")} checked={value === null}
             onCheckedChange={(checked) => { setText("5"); onChange(checked === true ? null : 5); }} />
-          Report only
+          {t("apps.GitHubBotConfiguration.reportOnly")}
         </Label>
       </div>
       {!valid && <p id={`${id}-error`} role="alert" className="text-xs text-destructive">{t("apps.githubBotConfig.scoreRangeError", "Enter a whole number from 1 to 5.")}</p>}
@@ -213,7 +213,7 @@ function GitHubPassingScore({
           : "Paperclip passes the check when a complete review of the latest commit meets this score. Lower scores fail. This does not approve the PR."}
       </p>
       <p className="text-xs text-muted-foreground">
-        To block merging, require the <strong>Paperclip Review</strong> check from this App in your GitHub branch rules.{" "}
+        {t("apps.GitHubBotConfiguration.blockMergingRequire")} <strong>{t("apps.GitHubBotConfiguration.paperclipReviewCheck")}</strong> {t("apps.GitHubBotConfiguration.checkFromApp")}{" "}
         <a className="underline hover:text-foreground"
           href="https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/creating-rulesets-for-a-repository"
           target="_blank" rel="noreferrer">{t("apps.githubBotConfig.configureOnGithub", "Configure on GitHub")}</a>
@@ -286,7 +286,7 @@ export function GitHubPolicyEditor({
           id={`${id}-github-instructions-heading`}
           className="text-base font-semibold"
         >
-          Instructions
+          {t("apps.GitHubBotConfiguration.instructions")}
         </h2>
         <MarkdownEditor
           readOnly={readOnly}
@@ -303,7 +303,7 @@ export function GitHubPolicyEditor({
         <GitHubSettingsDisclosure title={t("apps.githubBotConfig.eventSpecificInstructionsTitle", "Event-specific instructions")}>
           <div className="grid gap-3 pt-3">
             <Label htmlFor={`${id}-github-prompt-event`} className="sr-only">
-              Event
+              {t("apps.GitHubBotConfiguration.event")}
             </Label>
             <select
               id={`${id}-github-prompt-event`}
@@ -351,14 +351,14 @@ export function GitHubPolicyEditor({
           id={`${id}-github-triggers-heading`}
           className="text-base font-semibold"
         >
-          When to run
+          {t("apps.GitHubBotConfiguration.whenToRun")}
         </h2>
         <div className="flex items-start gap-3 py-2">
           <AtSign className="mt-0.5 size-4 shrink-0 text-muted-foreground" />
           <div className="space-y-1">
-            <p className="text-sm font-medium">When mentioned</p>
+            <p className="text-sm font-medium">{t("apps.GitHubBotConfiguration.whenMentioned")}</p>
             <p className="text-xs text-muted-foreground">
-              Authorized people can always @mention this bot.{" "}
+              {t("apps.GitHubBotConfiguration.authorizedMention")}{" "}
               {accessHref && (
                 <Link className="underline underline-offset-4" to={accessHref}>
                   Manage people in Access
@@ -407,11 +407,11 @@ export function GitHubPolicyEditor({
                     set("issueOpened", enabled === true)
                   }
                 />
-                New issues
+                {t("apps.GitHubBotConfiguration.newIssues")}
               </Label>
             </div>
             <p className="text-xs text-muted-foreground">
-              Runs for authorized authors in Access. Use the author filters below to limit whose issues and PRs start work.
+              {t("apps.GitHubBotConfiguration.runsForAuthors")}
             </p>
             <GitHubSettingsDisclosure title={t("apps.githubBotConfig.automaticReviewFiltersTitle", "Automatic review filters")}>
               <div>
@@ -485,7 +485,7 @@ export function GitHubPolicyEditor({
           id={`${id}-github-results-heading`}
           className="text-base font-semibold"
         >
-          Review results
+          {t("apps.GitHubBotConfiguration.reviewResults")}
         </h2>
         <div className="grid gap-x-8 sm:grid-cols-2">
           <GitHubToggle
@@ -514,7 +514,7 @@ export function GitHubPolicyEditor({
           <div className="grid gap-4 sm:grid-cols-2">
             <div className="space-y-2">
               <Label htmlFor={`${id}-github-categories`}>
-                Finding categories
+                {t("apps.GitHubBotConfiguration.findingCategories")}
               </Label>
               <GitHubListInput
                 id={`${id}-github-categories`}
@@ -525,7 +525,7 @@ export function GitHubPolicyEditor({
             </div>
             <div className="space-y-2">
               <Label htmlFor={`${id}-github-severity`}>
-                Minimum inline severity
+                {t("apps.GitHubBotConfiguration.minInlineSeverity")}
               </Label>
               <select
                 id={`${id}-github-severity`}
@@ -539,12 +539,12 @@ export function GitHubPolicyEditor({
                   )
                 }
               >
-                <option value="info">Info</option>
-                <option value="warning">Warning</option>
-                <option value="error">Error</option>
+                <option value="info">{t("apps.GitHubBotConfiguration.severityInfo")}</option>
+                <option value="warning">{t("apps.GitHubBotConfiguration.severityWarning")}</option>
+                <option value="error">{t("apps.GitHubBotConfiguration.severityError")}</option>
               </select>
               <p className="text-xs text-muted-foreground">
-                Hidden findings still count in the assessment.
+                {t("apps.GitHubBotConfiguration.hiddenFindings")}
               </p>
             </div>
           </div>
@@ -771,7 +771,7 @@ export function GitHubAccessEditor({
     </div>
   );
   return (
-    <section className="space-y-6" aria-label="People">
+    <section className="space-y-6" aria-label={t("apps.GitHubBotConfiguration.people")}>
       <div className="space-y-1">
         <h2 className="text-base font-semibold">{t("apps.githubBotConfig.people", "People")}</h2>
         <p className="text-sm text-muted-foreground">
@@ -779,7 +779,7 @@ export function GitHubAccessEditor({
           automatically.
         </p>
       </div>
-      <section className="space-y-2" aria-label="Company members">
+      <section className="space-y-2" aria-label={t("apps.GitHubBotConfiguration.companyMembers")}>
         <div className="flex flex-wrap items-center justify-between gap-2">
           <h3 className="text-sm font-semibold">{t("apps.githubBotConfig.companyMembers", "Company members")}</h3>
           <Button
@@ -792,7 +792,7 @@ export function GitHubAccessEditor({
             }}
           >
             <Plus className="size-4" />
-            Link a member
+            {t("apps.GitHubBotConfiguration.linkMember")}
           </Button>
         </div>
         <GitHubToggle
@@ -835,21 +835,21 @@ export function GitHubAccessEditor({
             </>
           ) : (
             <>
-              Automatic runs are off in{" "}
+              {t("apps.GitHubBotConfiguration.autoRunsOffIn")}{" "}
               <Link
                 className="underline underline-offset-4"
                 to={`/apps/chat/${endpointId}/settings`}
               >
                 Settings
               </Link>
-              . Authorized @mentions still work.
+              {t("apps.GitHubBotConfiguration.autoRunsTail")}
             </>
           )}
         </p>
       </section>
       <section
         className="space-y-2 border-t border-border pt-6"
-        aria-label="External contributors"
+        aria-label={t("apps.GitHubBotConfiguration.externalContributors")}
       >
         <div className="flex flex-wrap items-center justify-between gap-2">
           <h3 className="text-sm font-semibold">{t("apps.githubBotConfig.externalContributors", "External contributors")}</h3>
@@ -862,7 +862,7 @@ export function GitHubAccessEditor({
             }}
           >
             <Plus className="size-4" />
-            Add external contributor
+            {t("apps.GitHubBotConfiguration.addExternalContributor")}
           </Button>
         </div>
         <p className="text-xs text-muted-foreground">
@@ -897,7 +897,7 @@ export function GitHubAccessEditor({
         <div className="space-y-2">
           {activeMembers.length === 1 && responsible ? (
             <p className="text-sm">
-              Responsible member: {memberName(configuration.responsibleUserId)}
+              {t("apps.GitHubBotConfiguration.responsibleMember")} {memberName(configuration.responsibleUserId)}
             </p>
           ) : (
             <>
@@ -1079,7 +1079,7 @@ export function GitHubAccessEditor({
               )}
               <DialogFooter className="flex-row justify-between sm:justify-between">
                 <Button variant="ghost" onClick={() => setDialog(null)}>
-                  Cancel
+                  {t("apps.GitHubBotConfiguration.cancel")}
                 </Button>
                 <Button
                   disabled={
@@ -1108,7 +1108,7 @@ export function GitHubAccessEditor({
                     }
                   }}
                 >
-                  Add contributor
+                  {t("apps.GitHubBotConfiguration.addContributor")}
                 </Button>
               </DialogFooter>
             </>
