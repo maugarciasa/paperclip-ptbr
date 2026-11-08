@@ -6483,6 +6483,23 @@
     }
   },
   "audit": {
+    "AuditFeed": {
+      "document": "Document",
+      "onBehalfOf": "on behalf of",
+      "agentAuditEnterprise": "Agent audit is a Paperclip Enterprise view",
+      "permissionToView": "permission to view it.",
+      "activity": "Activity",
+      "caseLabel": "Case",
+      "auditFilters": "Audit filters",
+      "agentLabel": "Agent",
+      "responsibleUser": "Responsible user",
+      "action": "Action",
+      "entity": "Entity",
+      "from": "From",
+      "to": "To",
+      "clearFilters": "Clear filters",
+      "recordedNote": "Recorded by Paperclip — entries can't be edited. Sensitive values are never stored."
+    },
     "activity": "Activity",
     "commentary": {
       "allAgents": "All agents",

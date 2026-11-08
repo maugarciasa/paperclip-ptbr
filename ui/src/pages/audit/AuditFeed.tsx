@@ -220,6 +220,7 @@ function AuditRow({
   userProfileMap: Map<string, CompanyUserProfile>;
   casesEnabled: boolean;
 }) {
+  const { t } = useTranslation();
   const verb = formatActivityVerb(record.action, record.details, { agentMap, userProfileMap });
   const responsible = record.responsibleUserId ? userProfileMap.get(record.responsibleUserId) : null;
   // Suppress the "on behalf of" chip when the human actor *is* the responsible user.
@@ -254,13 +255,13 @@ function AuditRow({
           </p> : null}
           {documentKey ? (
             <p className="text-xs text-muted-foreground">
-              Document <span className="font-mono text-(length:--text-micro)">{documentKey}</span>
+              {t("audit.AuditFeed.document")} <span className="font-mono text-(length:--text-micro)">{documentKey}</span>
             </p>
           ) : null}
           <div className="flex flex-wrap items-center gap-2 text-xs text-muted-foreground">
             {showOnBehalf && responsibleLabel ? (
               <span className="inline-flex items-center rounded-full bg-muted px-2 py-0.5">
-                on behalf of {responsibleLabel}
+                {t("audit.AuditFeed.onBehalfOf")} {responsibleLabel}
               </span>
             ) : null}
             {record.runId && record.agentId ? (
@@ -288,18 +289,19 @@ function AuditRow({
 
 /** The permission-denied / upsell state shown when the caller lacks the grant. */
 function AuditUpsell() {
+  const { t } = useTranslation();
   return (
     <Card>
       <CardContent className="flex flex-col items-center gap-3 py-14 text-center">
         <ShieldAlert className="h-10 w-10 text-muted-foreground/50" />
         <div>
-          <p className="text-sm font-medium text-foreground">Agent audit is a Paperclip Enterprise view</p>
+          <p className="text-sm font-medium text-foreground">{t("audit.AuditFeed.agentAuditEnterprise")}</p>
           <p className="mx-auto mt-1 max-w-md text-sm text-muted-foreground">
             The agent audit log gives you a searchable, exportable record of everything your agents
             did — every comment, task change, approval, and run — with the responsible person for
             each action. Ask an administrator to grant you the{" "}
             <span className="font-mono text-(length:--text-micro)">audit:view_agent_actions</span>{" "}
-            permission to view it.
+            {t("audit.AuditFeed.permissionToView")}
           </p>
         </div>
       </CardContent>
@@ -566,7 +568,7 @@ export function AuditFeed({
       {!hideHeader ? (
         <div className="flex flex-wrap items-start justify-between gap-3">
           <div>
-            <h2 className="text-lg font-semibold text-foreground">Activity</h2>
+            <h2 className="text-lg font-semibold text-foreground">{t("audit.AuditFeed.activity")}</h2>
             <p className="mt-1 max-w-2xl text-sm text-muted-foreground">
               {resolvedMode === "agents"
                 ? "Every recorded agent action, newest first — with the responsible person and run behind each one."
@@ -598,15 +600,15 @@ export function AuditFeed({
             : lockedAgentId
               ? "Scoped to one agent"
               : scopedCase
-                ? <>Case <Link to={caseHref(scopedCase.identifier)} className="font-medium text-primary hover:underline">{scopedCase.identifier} · {scopedCase.title}</Link></>
+                ? <>{t("audit.AuditFeed.caseLabel")} <Link to={caseHref(scopedCase.identifier)} className="font-medium text-primary hover:underline">{scopedCase.identifier} · {scopedCase.title}</Link></>
                 : `Scoped to ${lockedEntity?.label ?? lockedEntity?.type ?? "entity"}`}
         </div>
       ) : null}
 
-      <div data-canonical-toolbar="audit-activity" role="toolbar" aria-label="Audit filters" className="flex flex-wrap items-end gap-3 border-y border-border py-3">
+      <div data-canonical-toolbar="audit-activity" role="toolbar" aria-label={t("audit.AuditFeed.auditFilters")} className="flex flex-wrap items-end gap-3 border-y border-border py-3">
         {canUseAdvancedControls && !lockedAgentId && !lockedRunId ? (
           <label className="grid gap-1 text-(length:--text-micro) font-medium text-muted-foreground">
-            <span>Agent</span>
+            <span>{t("audit.AuditFeed.agentLabel")}</span>
             <Select value={agent} onValueChange={setAgent}>
               <SelectTrigger className="w-40">
                 <SelectValue placeholder={t("audit.feed.filterAgent")} />
@@ -624,7 +626,7 @@ export function AuditFeed({
         ) : null}
         {canUseAdvancedControls ? (
           <label className="grid gap-1 text-(length:--text-micro) font-medium text-muted-foreground">
-            <span>Responsible user</span>
+            <span>{t("audit.AuditFeed.responsibleUser")}</span>
             <Select value={responsibleUser} onValueChange={setResponsibleUser}>
               {/* Wide enough for "All responsible users" — w-44 truncated it. */}
               <SelectTrigger className="w-52">
@@ -642,7 +644,7 @@ export function AuditFeed({
           </label>
         ) : null}
         <label className="grid gap-1 text-(length:--text-micro) font-medium text-muted-foreground">
-          <span>Action</span>
+          <span>{t("audit.AuditFeed.action")}</span>
           <Select value={actionDomain} onValueChange={setActionDomain}>
             <SelectTrigger className="w-40">
               <SelectValue placeholder={t("audit.feed.filterAction")} />
@@ -658,7 +660,7 @@ export function AuditFeed({
         </label>
         {!lockedEntity ? (
           <label className="grid gap-1 text-(length:--text-micro) font-medium text-muted-foreground">
-            <span>Entity</span>
+            <span>{t("audit.AuditFeed.entity")}</span>
             <Select value={entityType} onValueChange={setEntityType}>
               <SelectTrigger className="w-40">
                 <SelectValue placeholder={t("audit.feed.filterEntity")} />
@@ -675,7 +677,7 @@ export function AuditFeed({
         ) : null}
         {!lockedEntity && entityType === "case" ? (
           <label className="grid gap-1 text-(length:--text-micro) font-medium text-muted-foreground">
-            <span>Case</span>
+            <span>{t("audit.AuditFeed.caseLabel")}</span>
             <Input
               type="search"
               aria-label={t("audit.feed.caseIdAria")}
@@ -697,7 +699,7 @@ export function AuditFeed({
           </label>
         ) : null}
         <label className="grid gap-1 text-(length:--text-micro) font-medium text-muted-foreground">
-          <span>From</span>
+          <span>{t("audit.AuditFeed.from")}</span>
           <Input
             type="date"
             aria-label={t("audit.feed.fromDateAria")}
@@ -708,7 +710,7 @@ export function AuditFeed({
           />
         </label>
         <label className="grid gap-1 text-(length:--text-micro) font-medium text-muted-foreground">
-          <span>To</span>
+          <span>{t("audit.AuditFeed.to")}</span>
           <Input
             type="date"
             aria-label={t("audit.feed.toDateAria")}
@@ -772,7 +774,7 @@ export function AuditFeed({
             </div>
             {hasActiveFilters ? (
               <Button variant="outline" size="sm" onClick={clearFilters}>
-                Clear filters
+                {t("audit.AuditFeed.clearFilters")}
               </Button>
             ) : null}
           </CardContent>
@@ -807,7 +809,7 @@ export function AuditFeed({
       ) : null}
 
       <p className="text-xs text-muted-foreground">
-        Recorded by Paperclip — entries can't be edited. Sensitive values are never stored.
+        {t("audit.AuditFeed.recordedNote")}
       </p>
     </div>
   );

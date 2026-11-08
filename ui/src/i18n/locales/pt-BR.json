@@ -6483,6 +6483,23 @@
     }
   },
   "audit": {
+    "AuditFeed": {
+      "document": "Documento",
+      "onBehalfOf": "em nome de",
+      "agentAuditEnterprise": "A auditoria de agentes é uma visão do Paperclip Enterprise",
+      "permissionToView": "permissão para visualizá-la.",
+      "activity": "Atividade",
+      "caseLabel": "Caso",
+      "auditFilters": "Filtros de auditoria",
+      "agentLabel": "Agente",
+      "responsibleUser": "Usuário responsável",
+      "action": "Ação",
+      "entity": "Entidade",
+      "from": "De",
+      "to": "Até",
+      "clearFilters": "Limpar filtros",
+      "recordedNote": "Registrado pelo Paperclip — as entradas não podem ser editadas. Valores sensíveis nunca são armazenados."
+    },
     "activity": "Atividade",
     "commentary": {
       "allAgents": "Todos os agentes",
