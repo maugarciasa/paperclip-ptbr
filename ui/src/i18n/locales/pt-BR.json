@@ -294,8 +294,8 @@
       "saving": "Salvando…",
       "sentFromServer": "{{date}} · Enviado pelo servidor do Paperclip.",
       "signalMessage": "{{signal}}: {{message}}",
-      "testAccepted": "Carga de teste aceita",
-      "testFailed": "Falha na carga de teste",
+      "testAccepted": "Payload de teste aceito",
+      "testFailed": "Falha no payload de teste",
       "testPartial": "Alguns registros de teste foram rejeitados",
       "testSaved": "Testar configurações salvas",
       "testing": "Testando…",
@@ -437,7 +437,7 @@
     },
     "AiConnectionAccountDetails": {
       "access": "Acesso",
-      "accountOwner": "Titular da conta",
+      "accountOwner": "Proprietário da conta",
       "checkingDetails": "Verificando os dados da conta…",
       "companyShared": "Compartilhada pela empresa",
       "connectedAccount": "Conta conectada",
@@ -2921,7 +2921,7 @@
       "input": "Entrada",
       "manifestVersion": "manifest v{{version}}",
       "noExpiry": "sem validade definida",
-      "payload": "Carga útil",
+      "payload": "Payload",
       "policy": "Política nº {{number}}",
       "previousHash": "Hash anterior do catálogo",
       "reissueBeforeApprove": "Emita a solicitação novamente antes de aprovar: o hash do catálogo mudou.",
@@ -3032,7 +3032,7 @@
       "sharedOrgGithub": "Conta do GitHub compartilhada da empresa (avançado)",
       "unavailableLabel": "{{label}}. Indisponível: {{reason}}",
       "userRunsOnly": "Os agentes só a usam em execuções em que você é o responsável.",
-      "whichAgentOwns": "Qual agente é dono desta conta do GitHub?",
+      "whichAgentOwns": "Qual agente é proprietário desta conta do GitHub?",
       "whichAgents": "Quais agentes podem usar esta conexão?",
       "whichAgentsSharedGithub": "Quais agentes podem usar a conta compartilhada do GitHub?",
       "whichAgentsYourGithub": "Quais agentes podem usar o seu GitHub quando você é o responsável?",
@@ -3074,7 +3074,7 @@
       "hintMoreOptions": "Abra “Mais opções” para confirmar se os campos avançados estão preenchidos corretamente.",
       "hintNoPermission": "A conta conectada pode não ter permissão para esta ação.",
       "hintRateLimit": "O app está limitando chamadas agora — aguarde um momento e execute de novo.",
-      "hintReconnectKey": "Peça ao responsável pela conexão para reconectá-la em Conectores com uma chave nova ou uma URL de servidor atualizada.",
+      "hintReconnectKey": "Peça ao proprietário da conexão para reconectá-la em Conectores com uma chave nova ou uma URL de servidor atualizada.",
       "hintReconnectScope": "Reconecte o app e permita as permissões necessárias para esta ação.",
       "hintReconnectSetup": "Reconecte o app na Configuração se o acesso foi alterado recentemente.",
       "labelAudio": "Áudio",
@@ -3440,7 +3440,7 @@
     },
     "BrowserUseSettingsPanel": {
       "credential": "Credencial",
-      "noPermission": "O dono da credencial ou um gerenciador de conexão compartilhada pode configurar perfis salvos e limites de custo.",
+      "noPermission": "O proprietário da credencial ou um gerenciador de conexão compartilhada pode configurar perfis salvos e limites de custo.",
       "personalCredential": "Credencial pessoal {{number}}",
       "sharedCredential": "Credencial compartilhada {{number}}",
       "title": "Configurações do navegador"
@@ -3682,7 +3682,7 @@
       "accessDeclined": "Acesso recusado",
       "accessGranted": "Acesso de {{name}} concedido",
       "accountConnected": "Sua conta está conectada. Use-a para {{agent}} retomar esta tarefa.",
-      "accountOwner": "O responsável pela conta",
+      "accountOwner": "O proprietário da conta",
       "accountUnavailable": "A conta selecionada não está mais disponível para você. Peça ao responsável para restaurar o acesso ou escolha uma conexão de IA disponível nas configurações do agente.",
       "adoptPrompt": "Usar sua conexão com o {{provider}} para {{agent}}? Isso substitui a autenticação atual do agente pela conta de cada responsável. O modelo continua o mesmo.",
       "agentCanUse": "Este agente agora pode usar a conexão.",
@@ -3724,7 +3724,7 @@
       "notNow": "Agora não",
       "onlyAddressed": "Somente a pessoa indicada pode escolher uma identidade ou autorizar esta conexão.",
       "ready": "{{name}} está pronta.",
-      "reconnectNoOwner": "O responsável pela conta precisa reconectar {{name}}.",
+      "reconnectNoOwner": "O proprietário da conta precisa reconectar {{name}}.",
       "reconnectOwner": "{{owner}} precisa reconectar {{name}}.",
       "retryNotice": "A autorização não foi concluída. Suas escolhas anteriores estão seguras; tente novamente.",
       "retryUsing": "Tentar novamente com esta conexão",
@@ -4703,7 +4703,7 @@
       "containerAccessIntro": "Para permitir que o Paperclip acesse os containers do Railway diretamente por SSH, você pode, opcionalmente, gerar um par de chaves SSH.",
       "enableAccess": "Ativar acesso aos containers",
       "generateKeyPair": "Gerar par de chaves SSH",
-      "managerCanConfigure": "O gerente da conexão e o titular da autorização podem configurar o acesso aos containers.",
+      "managerCanConfigure": "O gerente da conexão e o proprietário da autorização podem configurar o acesso aos containers.",
       "myAccount": "Minha conta",
       "pasteHostKey": "Cole a linha ssh.railway.com de uma entrada do known_hosts que você verificou de forma independente. O Paperclip recusa chaves de host não confiáveis ou alteradas.",
       "publicKey": "Chave pública",
@@ -5318,7 +5318,7 @@
       "justMe": "Só eu",
       "loadAction": "carregar o acesso da conexão",
       "loading": "Carregando acesso…",
-      "onlyOwner": "Somente o dono da credencial",
+      "onlyOwner": "Somente o proprietário da credencial",
       "removing": "Remover um agente atribuído interrompe o recebimento e o envio pela caixa de entrada dele.",
       "whichAgents": "Quais agentes podem usar esta conexão?",
       "whichHumans": "Quais pessoas podem usar esta credencial?"
@@ -6564,7 +6564,7 @@
       }
     },
     "fileKind": {
-      "archive": "Compactado",
+      "archive": "Arquivo compactado",
       "audio": "Áudio",
       "code": "Código",
       "css": "CSS",
@@ -9713,7 +9713,7 @@
       "sharedAgentTitle": "Agente compartilhado.",
       "sourceAssignment": "via atribuição",
       "sourceExplicit": "compartilhado diretamente",
-      "sourceOwner": "dono da tarefa",
+      "sourceOwner": "responsável pela tarefa",
       "sourceProject": "via projeto",
       "thisSubject": "este participante",
       "unknown": "Desconhecido",
@@ -11229,7 +11229,7 @@
       "people": {
         "agent": "Agente",
         "me": "Eu",
-        "owner": "Dono"
+        "owner": "Responsável"
       },
       "recovery": {
         "noPermissionRepairWorkspace": "Você não tem permissão para reparar o workspace desta tarefa.",
@@ -13310,7 +13310,7 @@
       "waitingRequest": "Aguardando uma requisição recebida"
     },
     "RoutineReadOnlyStrip": {
-      "readOnly": "Somente leitura: você não é o dono desta rotina."
+      "readOnly": "Somente leitura: você não é o responsável por esta rotina."
     },
     "RoutineRevisionDiffModal": {
       "close": "Fechar",

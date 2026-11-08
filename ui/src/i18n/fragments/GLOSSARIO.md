@@ -27,6 +27,15 @@ Termos fixos. Use sempre o mesmo termo em todos os arquivos.
 | Settings | Configurações |
 | Secret | Segredo |
 | Adapter | Adapter |
+| Assignee / Responsible | Responsável |
+| Owner (recurso, conta, token, papel) | Proprietário |
+| Owner (tarefa, meta, rotina, recuperação) | Responsável |
+| Trigger | Gatilho |
+| Subtree | Subárvore |
+| Payload | Payload |
+| Archive (verbo) | Arquivar |
+| Archive (tipo de arquivo) | Arquivo compactado |
+| Human only | Somente humano |
 
 Regras:
 - Nomes de produtos e fornecedores ficam como estão (Claude, Codex, OpenAI, GitHub, Paperclip).
