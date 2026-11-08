@@ -476,7 +476,7 @@ function FieldsForm({
       {form.hasName ? (
         <div>
           <Label htmlFor="fm-name" className="text-xs text-muted-foreground">
-            name
+            {t("skills.FrontmatterPanel.name")}
           </Label>
           <Input
             id="fm-name"
@@ -493,7 +493,7 @@ function FieldsForm({
       {form.hasDescription ? (
         <div>
           <Label htmlFor="fm-description" className="text-xs text-muted-foreground">
-            description
+            {t("skills.FrontmatterPanel.description")}
           </Label>
           <Textarea
             id="fm-description"
@@ -509,7 +509,7 @@ function FieldsForm({
 
       {form.allowedToolsPresent ? (
         <div>
-          <Label className="text-xs text-muted-foreground">allowed-tools</Label>
+          <Label className="text-xs text-muted-foreground">{t("skills.FrontmatterPanel.allowedTools")}</Label>
           {form.allowedTools === null ? (
             <p className="mt-1 text-xs text-amber-500">
               {toolsWarning ?? t("skills.frontmatterPanel.expectedList")}
@@ -527,7 +527,7 @@ function FieldsForm({
 
       {form.metadataPresent ? (
         <div>
-          <Label className="text-xs text-muted-foreground">metadata</Label>
+          <Label className="text-xs text-muted-foreground">{t("skills.FrontmatterPanel.metadata")}</Label>
           {form.metadataComplex !== null ? (
             <p className="mt-1 text-xs text-muted-foreground">{t("skills.frontmatterPanel.complexValue")}</p>
           ) : (

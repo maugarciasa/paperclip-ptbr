@@ -1487,8 +1487,7 @@ export function StepTargetManager({
         className="rounded-md border border-blue-500/30 bg-blue-500/10 px-3 py-2.5 text-sm text-blue-700 dark:text-blue-300"
         id="target-manager-help"
       >
-        This team&apos;s root agents need a manager in your organization. Pick the agent who will become
-        their parent. Internal team hierarchy is preserved.
+        {t("teamCatalog.TeamCatalog.thisTeamSRoot")}
       </div>
 
       <div className="space-y-1.5">
@@ -1677,8 +1676,7 @@ export function StepSkillPlan({
   return (
     <div className="space-y-4">
       <div role="alert" className="rounded-md border border-blue-500/30 bg-blue-500/10 px-3 py-2.5 text-sm text-blue-700 dark:text-blue-300">
-        Before agents are imported, the catalog resolves the skills they depend on. This is the
-        resolution plan.
+        {t("teamCatalog.TeamCatalog.beforeAgentsAreImported")}
       </div>
       <ul className="divide-y divide-border rounded-md border border-border">
         {(preparations ?? team.requiredSkills.map(toPreparation)).map((prep) => {
@@ -1948,8 +1946,7 @@ export function StepPreview({
             );
           })}
           <li className="px-3 py-1.5 text-(length:--text-micro) text-muted-foreground">
-            Each imported agent defaults to its package adapter; override here before install.
-            Deeper per-adapter model config is editable on the agent after install.
+            {t("teamCatalog.TeamCatalog.eachImportedAgentDefaults")}
           </li>
         </PreviewSection>
       )}
@@ -2012,7 +2009,7 @@ export function StepPreview({
       {/* Provenance */}
       <div className="rounded-md border border-border px-3 py-2.5 text-xs text-muted-foreground">
         {t("teamCatalog.TeamCatalog.provenanceStamp")} <code className="font-mono">metadata.paperclip.catalogTeam</code>{" "}
-        ({team.packageName ?? team.key}, {t("teamCatalog.TeamCatalog.contentHashLabel")} <code className="font-mono">{team.contentHash.slice(0, 16)}…</code>),
+        ({team.packageName ?? team.key}, {t("teamCatalog.TeamCatalog.contentHashLabel")} <code className="font-mono">{team.contentHash.slice(0, 16)}…</code>{t("teamCatalog.TeamCatalog.closeParenComma")}
         {t("teamCatalog.TeamCatalog.provenanceEvent")}
       </div>
     </div>

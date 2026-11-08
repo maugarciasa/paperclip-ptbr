@@ -1,5 +1,12 @@
 {
   "agents": {
+    "AgentRateLimitGauge": {
+      "limitReachedWorkContinues": "Limite atingido; o trabalho continua com os créditos da conta.",
+      "providerUsageLimits": "Limites de uso do {{provider}}",
+      "resetsWhen": "· renova {{when}}",
+      "reportedWhen": "Informado {{when}}",
+      "viewAgent": "Ver agente"
+    },
     "ContextUsageMeter": {
       "usedOfTotalTokens": "{{used}} de {{total}} tokens",
       "updatedWhen": "· atualizado {{when}}",
@@ -217,7 +224,10 @@
       "terminalTitle": "Alternativa pelo terminal (macOS/Linux)",
       "winCopyPath": "Clique em \"Copiar como caminho\".",
       "winFindFolder": "Localize a pasta no Explorador de Arquivos.",
-      "windowsTitle": "Windows (Explorador de Arquivos)"
+      "windowsTitle": "Windows (Explorador de Arquivos)",
+      "cUsersYournameDocuments": "C:\\Users\\yourname\\Documents\\project",
+      "option": "Option",
+      "shift": "Shift"
     },
     "AgentConversationSidebar": {
       "addChat": "Adicionar chat",
@@ -3076,6 +3086,19 @@
     }
   },
   "apps": {
+    "GrokBotWorkSummary": {
+      "showsPaperclipReportedActivity": "Mostra a atividade informada pelo Paperclip. Abra o app desktop do Grok Bot para ver toda a atividade do Bot.",
+      "connectionStatusCouldNot": "Não foi possível atualizar o status da conexão.",
+      "noActivePaperclipWork": "Nenhuma sessão de trabalho ativa do Paperclip",
+      "connectionSetupIncomplete": "Configuração da conexão incompleta",
+      "awaitingAcknowledgement": "Aguardando confirmação",
+      "workingInGrokBot": "Trabalhando no Grok Bot",
+      "recoveryNeeded": "Recuperação necessária",
+      "queuedTasks": "Tarefas na fila:",
+      "lastContact": "Último contato:",
+      "notObserved": "Não observado",
+      "checking": "Verificando…"
+    },
     "OwnSlackAppSetup": {
       "selectTheWorkspaceWhere": "Selecione o workspace em que você quer instalar o bot.",
       "yourAppConfigurationTokens": "Your App Configuration Tokens",
@@ -7523,6 +7546,12 @@
     "unarchive": "Desarquivar"
   },
   "costs": {
+    "FinanceBillerCard": {
+      "estimated": "estimado",
+      "credits": "créditos",
+      "debits": "débitos",
+      "net": "líquido"
+    },
     "Costs": {
       "costDateRange": "Intervalo de datas dos custos"
     },
@@ -10527,7 +10556,12 @@
       "theAddressedPerson": "a pessoa endereçada",
       "toolApprovalRequested": "Aprovação de ferramenta solicitada",
       "withdrawn": "Retirado",
-      "withdrawnBy": "Retirado por"
+      "withdrawnBy": "Retirado por",
+      "thisGithubConnectionCannot": "Esta conexão do GitHub não consegue acessar a conta ou o repositório solicitado. Verifique a conta conectada e o acesso do Paperclip ao repositório e depois peça ao agente para continuar.",
+      "githubAccessNeeded": "É preciso ter acesso ao GitHub",
+      "manageGithubAccess": "Gerenciar acesso ao GitHub",
+      "errorDetails": "Detalhes do erro",
+      "arguments": "Argumentos"
     },
     "ItemVerdictDeepLink": {
       "open": "Abrir"
@@ -13213,6 +13247,11 @@
     "routeDescription": "Esta rota não existe."
   },
   "onboarding": {
+    "OnboardingWizard": {
+      "thisWillBeYour": "Esta será sua conta {{provider}} padrão.",
+      "respondWithHello": "Respond with hello.",
+      "anthropicApiKey": "ANTHROPIC_API_KEY"
+    },
     "AdapterLoginChrome": {
       "apiKeyInstruction": "Informe sua chave de API do {{provider}} para conectar",
       "apiKeyLabel": "Chave de API",
@@ -13798,6 +13837,18 @@
     }
   },
   "projects": {
+    "LegacyProjectRepository": {
+      "existingRepoUrl": "URL do repositório existente",
+      "saveUrl": "Salvar URL",
+      "cancel": "Cancelar",
+      "edit": "Editar"
+    },
+    "ProjectWorkspaceSummaryCard": {
+      "linkedTasks": "Tarefas vinculadas",
+      "service": "Serviço",
+      "branch": "Branch",
+      "path": "Caminho"
+    },
     "ProjectWorkspaceDetail": {
       "projectWorkspace": "Workspace do projeto",
       "makePrimary": "Tornar principal",
@@ -13809,7 +13860,11 @@
       "workspaceFacts": "Dados do workspace",
       "currentState": "Estado atual",
       "workspaceCommands": "Comandos do workspace",
-      "servicesJobs": "Serviços e jobs"
+      "servicesJobs": "Serviços e jobs",
+      "configureTheConcreteWorkspace": "Configure o workspace concreto que o Paperclip anexa a este projeto. Esses valores controlam o comportamento de checkout por workspace e os serviços de runtime padrão dos workspaces de execução filhos, e permitem substituir comandos de configuração ou limpeza quando um workspace precisa de tratamento especial.",
+      "paperclipDerivesServicesAnd": "O Paperclip deriva Serviços e Jobs deste JSON. Prefira editar primeiro os comandos nomeados; use o JSON bruto para ciclo de vida, porta, prontidão ou configurações de ambiente avançados.",
+      "longRunningServicesStay": "Serviços de longa duração ficam supervisionados aqui, enquanto jobs pontuais rodam sob demanda neste workspace. Os workspaces de execução herdam esta configuração, a menos que a substituam.",
+      "runtimeConfigPlaceholder": "{\n  \"commands\": [\n    {\n      \"id\": \"web\",\n      \"name\": \"web\",\n      \"kind\": \"service\",\n      \"command\": \"pnpm dev\",\n      \"cwd\": \".\",\n      \"port\": { \"type\": \"auto\" },\n      \"readiness\": {\n        \"type\": \"http\",\n        \"urlTemplate\": \"http://127.0.0.1:${port}\"\n      },\n      \"expose\": {\n        \"type\": \"url\",\n        \"urlTemplate\": \"http://127.0.0.1:${port}\"\n      },\n      \"lifecycle\": \"shared\",\n      \"reuseScope\": \"project_workspace\"\n    },\n    {\n      \"id\": \"db-migrate\",\n      \"name\": \"db:migrate\",\n      \"kind\": \"job\",\n      \"command\": \"pnpm db:migrate\",\n      \"cwd\": \".\"\n    }\n  ]\n}"
     },
     "ArchiveDangerZone": {
       "actionProject": "{{action}} projeto",
@@ -14965,7 +15020,13 @@
       "noMatchIn": "Não encontramos resultados em",
       "searchAllScopes": "Buscar em todos os escopos",
       "createTaskFromQuery": "Criar tarefa a partir desta busca",
-      "identifierShortcut": "Use um atalho de identificador como"
+      "identifierShortcut": "Use um atalho de identificador como",
+      "yourInputAndFilters": "Sua entrada e seus filtros continuam aqui, então você pode tentar de novo ou usar o filtro de Tarefas.",
+      "reopensTheCommandPalette": "reabre a paleta de comandos já preenchida com sua busca atual.",
+      "wrapAPhraseIn": "coloque uma frase entre aspas para buscar a sequência exata.",
+      "tryWideningTheScope": ". Tente ampliar o escopo ou reformular sua busca.",
+      "serverReturned": "O servidor retornou {{status}}.",
+      "requestFailed": "A requisição falhou."
     },
     "CommandPalette": {
       "actions": "Ações",
@@ -16877,6 +16938,12 @@
     }
   },
   "skills": {
+    "FrontmatterPanel": {
+      "allowedTools": "allowed-tools",
+      "description": "description",
+      "metadata": "metadata",
+      "name": "name"
+    },
     "ForkSkillDialog": {
       "anUneditedCopyOf": "Já existe uma cópia não editada desta skill. Abra-a em vez de criar outra.",
       "nothingIsAssignedTo": "Nada está atribuído a ela, então sua cópia não mudará o comportamento de nenhum agente.",
@@ -18232,7 +18299,11 @@
       "projectsCount_one": "{{count}} projeto",
       "projectsCount_other": "{{count}} projetos",
       "routinesCount_one": "{{count}} rotina",
-      "routinesCount_other": "{{count}} rotinas"
+      "routinesCount_other": "{{count}} rotinas",
+      "eachImportedAgentDefaults": "Cada agente importado usa por padrão o adapter do seu pacote; altere aqui antes de instalar. A configuração de modelo mais detalhada por adapter pode ser editada no agente depois da instalação.",
+      "thisTeamSRoot": "Os agentes raiz desta equipe precisam de um gerente na sua empresa. Escolha o agente que será o pai deles. A hierarquia interna da equipe é preservada.",
+      "beforeAgentsAreImported": "Antes de importar os agentes, o catálogo resolve as skills de que eles dependem. Este é o plano de resolução.",
+      "closeParenComma": "),"
     },
     "agents": "Agentes",
     "allCategories": "Todas as categorias",

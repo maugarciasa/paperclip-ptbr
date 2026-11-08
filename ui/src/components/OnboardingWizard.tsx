@@ -3223,7 +3223,7 @@ function OnboardingWizardInner({
                           }}
                           onSubmit={() => handleConnectStepPrimary()}
                         />}
-                        {managedProvider && !selectedApiKey && !hasGatewaySelection && !connectionModels && <p className="text-xs text-muted-foreground">This will be your default {CONNECT_SOURCE_NAMES[adapterType] ?? managedProvider} account.</p>}
+                        {managedProvider && !selectedApiKey && !hasGatewaySelection && !connectionModels && <p className="text-xs text-muted-foreground">{t("onboarding.OnboardingWizard.thisWillBeYour", { provider: CONNECT_SOURCE_NAMES[adapterType] ?? managedProvider })}</p>}
                         {hasGatewaySelection && (gatewayLookupFailed ? <>
                           <p role="alert" className="text-sm text-destructive">{t("onboarding.wizard.gatewayConnectionLoadFailed")}</p>
                           <Button type="button" variant="outline" disabled={loading || adapterEnvLoading} onClick={() => { void connectionModelState.refresh(); }}>
@@ -3417,7 +3417,7 @@ function OnboardingWizardInner({
                         <div className="rounded-md border border-amber-300/60 bg-amber-50/40 px-2.5 py-2 space-y-2">
                           <p className="text-(length:--text-micro) text-amber-900/90 leading-relaxed">
                             {t("onboarding.wizard.claudeFailedWhile")}
-                            <span className="font-mono">ANTHROPIC_API_KEY</span>
+                            <span className="font-mono">{t("onboarding.OnboardingWizard.anthropicApiKey")}</span>
                             {t("onboarding.wizard.claudeFailedIsSet")}
                           </p>
                           <Button
@@ -3454,7 +3454,7 @@ function OnboardingWizardInner({
                           </p>
                           <p className="text-muted-foreground">
                             {t("onboarding.wizard.promptLabel")}
-                            <span className="font-mono">Respond with hello.</span>
+                            <span className="font-mono">{t("onboarding.OnboardingWizard.respondWithHello")}</span>
                           </p>
                           {adapterType === "claude_local" || adapterType === "codex_local" ? (
                             <p className="text-muted-foreground">

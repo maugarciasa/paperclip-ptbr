@@ -503,9 +503,7 @@ export function ProjectWorkspaceDetail() {
         <div className="space-y-6">
           <Card className="block p-5">
             <p className="max-w-2xl text-sm text-muted-foreground">
-              Configure the concrete workspace Paperclip attaches to this project. These values drive per-workspace
-              checkout behavior, default runtime services for child execution workspaces, and let you override setup
-              or cleanup commands when one workspace needs special handling.
+              {t("projects.ProjectWorkspaceDetail.configureTheConcreteWorkspace")}
             </p>
 
             <Separator className="my-5" />
@@ -651,7 +649,7 @@ export function ProjectWorkspaceDetail() {
               <details className="rounded-xl border border-dashed border-border/70 bg-background px-3 py-3">
                 <summary className="cursor-pointer text-sm font-medium">{t("workspaces.projectDetail.fields.advancedRuntimeJson", { defaultValue: "Advanced runtime JSON" })}</summary>
                 <p className="mt-2 text-sm text-muted-foreground">
-                  Paperclip derives Services and Jobs from this JSON. Prefer editing named commands first; use raw JSON for advanced lifecycle, port, readiness, or environment settings.
+                  {t("projects.ProjectWorkspaceDetail.paperclipDerivesServicesAnd")}
                 </p>
                 <div className="mt-3">
                   <Field label={t("workspaces.projectDetail.fields.commandsJson", { defaultValue: "Workspace commands JSON" })} hint={t("workspaces.projectDetail.fields.commandsJsonHint", { defaultValue: "Execution workspaces inherit this config unless they override it. Legacy `services` arrays still work, but `commands` supports both services and jobs." })}>
@@ -659,7 +657,7 @@ export function ProjectWorkspaceDetail() {
                       className="min-h-96 w-full rounded-lg border border-border bg-background px-3 py-2 font-mono text-sm outline-none"
                       value={form.runtimeConfig}
                       onChange={(event) => setForm((current) => current ? { ...current, runtimeConfig: event.target.value } : current)}
-                      placeholder={"{\n  \"commands\": [\n    {\n      \"id\": \"web\",\n      \"name\": \"web\",\n      \"kind\": \"service\",\n      \"command\": \"pnpm dev\",\n      \"cwd\": \".\",\n      \"port\": { \"type\": \"auto\" },\n      \"readiness\": {\n        \"type\": \"http\",\n        \"urlTemplate\": \"http://127.0.0.1:${port}\"\n      },\n      \"expose\": {\n        \"type\": \"url\",\n        \"urlTemplate\": \"http://127.0.0.1:${port}\"\n      },\n      \"lifecycle\": \"shared\",\n      \"reuseScope\": \"project_workspace\"\n    },\n    {\n      \"id\": \"db-migrate\",\n      \"name\": \"db:migrate\",\n      \"kind\": \"job\",\n      \"command\": \"pnpm db:migrate\",\n      \"cwd\": \".\"\n    }\n  ]\n}"}
+                      placeholder={t("projects.ProjectWorkspaceDetail.runtimeConfigPlaceholder")}
                     />
                   </Field>
                 </div>
@@ -727,7 +725,7 @@ export function ProjectWorkspaceDetail() {
                 <div className="text-xs font-medium uppercase tracking-(--tracking-eyebrow) text-muted-foreground">{t("projects.ProjectWorkspaceDetail.workspaceCommands")}</div>
                 <h2 className="text-lg font-semibold">{t("projects.ProjectWorkspaceDetail.servicesJobs")}</h2>
                 <p className="text-sm text-muted-foreground">
-                  Long-running services stay supervised here, while one-shot jobs run on demand against this workspace. Execution workspaces inherit this config unless they override it.
+                  {t("projects.ProjectWorkspaceDetail.longRunningServicesStay")}
                 </p>
               </div>
             </div>

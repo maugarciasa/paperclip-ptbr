@@ -809,12 +809,10 @@ function SearchTabContent({
             <code className="rounded bg-muted px-1 py-0.5 text-(length:--text-micro)">PAP-123</code> {t("search.Search.jumpToTask")}
           </li>
           <li>
-            <span className="font-medium text-foreground">{t("search.Search.quotedPhrases")}</span> wrap a phrase in quotes to match the
-            exact sequence.
+            <span className="font-medium text-foreground">{t("search.Search.quotedPhrases")}</span> {t("search.Search.wrapAPhraseIn")}
           </li>
           <li>
-            <span className="font-medium text-foreground">{t("search.Search.shortcutKColon")}</span> reopens the command palette pre-seeded with your
-            current query.
+            <span className="font-medium text-foreground">{t("search.Search.shortcutKColon")}</span> {t("search.Search.reopensTheCommandPalette")}
           </li>
         </ul>
       </div>
@@ -828,8 +826,7 @@ function SearchTabContent({
         <AlertTriangle className="h-10 w-10 text-destructive" aria-hidden />
         <div className="text-base font-semibold">{t("search.page.error.title", { defaultValue: "Couldn’t run that search" })}</div>
         <p className="text-sm text-muted-foreground">
-          {status ? `The server returned ${status}.` : "The request failed."} Your input and filters are still here, so
-          you can retry or fall back to the Tasks filter.
+          {status ? t("search.Search.serverReturned", { status }) : t("search.Search.requestFailed")} {t("search.Search.yourInputAndFilters")}
         </p>
         <div className="flex flex-wrap items-center justify-center gap-2">
           <Button onClick={refetch} variant="default" size="sm">
@@ -876,8 +873,7 @@ function SearchTabContent({
         <FileQuestion className="h-10 w-10 text-muted-foreground" aria-hidden />
         <div className="text-base font-semibold">{t("search.page.empty.title", { query: trimmedQuery, defaultValue: `No results for “${trimmedQuery}”` })}</div>
         <p className="text-sm text-muted-foreground">
-          {t("search.Search.noMatchIn")} {describeScope(scope).toLowerCase()}. Try widening the scope or rephrasing your
-          query.
+          {t("search.Search.noMatchIn")} {describeScope(scope).toLowerCase()}{t("search.Search.tryWideningTheScope")}
         </p>
         <div className="flex flex-wrap items-center justify-center gap-2">
           {scope !== "all" ? (

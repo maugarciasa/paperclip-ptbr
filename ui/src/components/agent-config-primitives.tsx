@@ -488,7 +488,7 @@ export function ChoosePathButton() {
               <p className="font-medium">{t("agents.AgentConfigPrimitives.macOsTitle")}</p>
               <ol className="list-decimal space-y-1 pl-5 text-muted-foreground">
                 <li>{t("agents.AgentConfigPrimitives.macFindFolder")}</li>
-                <li>{t("agents.AgentConfigPrimitives.holdKey")} <kbd>Option</kbd> {t("agents.AgentConfigPrimitives.rightClickFolder")}</li>
+                <li>{t("agents.AgentConfigPrimitives.holdKey")} <kbd>{t("agents.AgentConfigPrimitives.option")}</kbd> {t("agents.AgentConfigPrimitives.rightClickFolder")}</li>
                 <li>{t("agents.AgentConfigPrimitives.macCopyPath")}</li>
                 <li>{t("agents.AgentConfigPrimitives.pastePath")}</li>
               </ol>
@@ -497,15 +497,15 @@ export function ChoosePathButton() {
               </p>
             </section>
             <section className="space-y-1.5">
-              <p className="font-medium">Windows (File Explorer)</p>
+              <p className="font-medium">{t("agents.AgentConfigPrimitives.windowsTitle")}</p>
               <ol className="list-decimal space-y-1 pl-5 text-muted-foreground">
                 <li>{t("agents.AgentConfigPrimitives.winFindFolder")}</li>
-                <li>{t("agents.AgentConfigPrimitives.holdKey")} <kbd>Shift</kbd> {t("agents.AgentConfigPrimitives.rightClickFolder")}</li>
+                <li>{t("agents.AgentConfigPrimitives.holdKey")} <kbd>{t("agents.AgentConfigPrimitives.shift")}</kbd> {t("agents.AgentConfigPrimitives.rightClickFolder")}</li>
                 <li>{t("agents.AgentConfigPrimitives.winCopyPath")}</li>
                 <li>{t("agents.AgentConfigPrimitives.pastePath")}</li>
               </ol>
               <p className="rounded-md bg-muted px-2 py-1 font-mono text-xs">
-                C:\Users\yourname\Documents\project
+                {t("agents.AgentConfigPrimitives.cUsersYournameDocuments")}
               </p>
             </section>
             <section className="space-y-1.5">

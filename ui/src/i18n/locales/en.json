@@ -1,5 +1,12 @@
 {
   "agents": {
+    "AgentRateLimitGauge": {
+      "limitReachedWorkContinues": "Limit reached; work continues on account credits.",
+      "providerUsageLimits": "{{provider}} usage limits",
+      "resetsWhen": "· resets {{when}}",
+      "reportedWhen": "Reported {{when}}",
+      "viewAgent": "View agent"
+    },
     "ContextUsageMeter": {
       "usedOfTotalTokens": "{{used}} of {{total}} tokens",
       "updatedWhen": "· updated {{when}}",
@@ -217,7 +224,10 @@
       "terminalTitle": "Terminal fallback (macOS/Linux)",
       "winCopyPath": "Click \"Copy as path\".",
       "winFindFolder": "Find the folder in File Explorer.",
-      "windowsTitle": "Windows (File Explorer)"
+      "windowsTitle": "Windows (File Explorer)",
+      "cUsersYournameDocuments": "C:\\Users\\yourname\\Documents\\project",
+      "option": "Option",
+      "shift": "Shift"
     },
     "AgentConversationSidebar": {
       "addChat": "Add chat",
@@ -3076,6 +3086,19 @@
     }
   },
   "apps": {
+    "GrokBotWorkSummary": {
+      "showsPaperclipReportedActivity": "Shows Paperclip-reported activity. Open the Grok Bot desktop app to inspect the Bot’s complete activity.",
+      "connectionStatusCouldNot": "Connection status could not be refreshed.",
+      "noActivePaperclipWork": "No active Paperclip work session",
+      "connectionSetupIncomplete": "Connection setup incomplete",
+      "awaitingAcknowledgement": "Awaiting acknowledgement",
+      "workingInGrokBot": "Working in Grok Bot",
+      "recoveryNeeded": "Recovery needed",
+      "queuedTasks": "Queued tasks:",
+      "lastContact": "Last contact:",
+      "notObserved": "Not observed",
+      "checking": "Checking…"
+    },
     "OwnSlackAppSetup": {
       "selectTheWorkspaceWhere": "Select the workspace where you want to install your bot.",
       "yourAppConfigurationTokens": "Your App Configuration Tokens",
@@ -7523,6 +7546,12 @@
     "unarchive": "Unarchive"
   },
   "costs": {
+    "FinanceBillerCard": {
+      "estimated": "estimated",
+      "credits": "credits",
+      "debits": "debits",
+      "net": "net"
+    },
     "Costs": {
       "costDateRange": "Cost date range"
     },
@@ -10527,7 +10556,12 @@
       "theAddressedPerson": "the addressed person",
       "toolApprovalRequested": "Tool approval requested",
       "withdrawn": "Withdrawn",
-      "withdrawnBy": "Withdrawn by"
+      "withdrawnBy": "Withdrawn by",
+      "thisGithubConnectionCannot": "This GitHub connection cannot access the requested account or repository. Check the connected account and Paperclip’s repository access, then ask the agent to continue.",
+      "githubAccessNeeded": "GitHub access needed",
+      "manageGithubAccess": "Manage GitHub access",
+      "errorDetails": "Error details",
+      "arguments": "Arguments"
     },
     "ItemVerdictDeepLink": {
       "open": "Open"
@@ -13213,6 +13247,11 @@
     "routeDescription": "This route does not exist."
   },
   "onboarding": {
+    "OnboardingWizard": {
+      "thisWillBeYour": "This will be your default {{provider}} account.",
+      "respondWithHello": "Respond with hello.",
+      "anthropicApiKey": "ANTHROPIC_API_KEY"
+    },
     "AdapterLoginChrome": {
       "apiKeyInstruction": "Provide your {{provider}} API key to connect",
       "apiKeyLabel": "API key",
@@ -13798,6 +13837,18 @@
     }
   },
   "projects": {
+    "LegacyProjectRepository": {
+      "existingRepoUrl": "Existing repo URL",
+      "saveUrl": "Save URL",
+      "cancel": "Cancel",
+      "edit": "Edit"
+    },
+    "ProjectWorkspaceSummaryCard": {
+      "linkedTasks": "Linked tasks",
+      "service": "Service",
+      "branch": "Branch",
+      "path": "Path"
+    },
     "ProjectWorkspaceDetail": {
       "projectWorkspace": "Project workspace",
       "makePrimary": "Make primary",
@@ -13809,7 +13860,11 @@
       "workspaceFacts": "Workspace facts",
       "currentState": "Current state",
       "workspaceCommands": "Workspace commands",
-      "servicesJobs": "Services and jobs"
+      "servicesJobs": "Services and jobs",
+      "configureTheConcreteWorkspace": "Configure the concrete workspace Paperclip attaches to this project. These values drive per-workspace checkout behavior, default runtime services for child execution workspaces, and let you override setup or cleanup commands when one workspace needs special handling.",
+      "paperclipDerivesServicesAnd": "Paperclip derives Services and Jobs from this JSON. Prefer editing named commands first; use raw JSON for advanced lifecycle, port, readiness, or environment settings.",
+      "longRunningServicesStay": "Long-running services stay supervised here, while one-shot jobs run on demand against this workspace. Execution workspaces inherit this config unless they override it.",
+      "runtimeConfigPlaceholder": "{\n  \"commands\": [\n    {\n      \"id\": \"web\",\n      \"name\": \"web\",\n      \"kind\": \"service\",\n      \"command\": \"pnpm dev\",\n      \"cwd\": \".\",\n      \"port\": { \"type\": \"auto\" },\n      \"readiness\": {\n        \"type\": \"http\",\n        \"urlTemplate\": \"http://127.0.0.1:${port}\"\n      },\n      \"expose\": {\n        \"type\": \"url\",\n        \"urlTemplate\": \"http://127.0.0.1:${port}\"\n      },\n      \"lifecycle\": \"shared\",\n      \"reuseScope\": \"project_workspace\"\n    },\n    {\n      \"id\": \"db-migrate\",\n      \"name\": \"db:migrate\",\n      \"kind\": \"job\",\n      \"command\": \"pnpm db:migrate\",\n      \"cwd\": \".\"\n    }\n  ]\n}"
     },
     "ArchiveDangerZone": {
       "actionProject": "{{action}} project",
@@ -14965,7 +15020,13 @@
       "noMatchIn": "We couldn’t find a match in",
       "searchAllScopes": "Search all scopes",
       "createTaskFromQuery": "Create task from this query",
-      "identifierShortcut": "Use an identifier shortcut like"
+      "identifierShortcut": "Use an identifier shortcut like",
+      "yourInputAndFilters": "Your input and filters are still here, so you can retry or fall back to the Tasks filter.",
+      "reopensTheCommandPalette": "reopens the command palette pre-seeded with your current query.",
+      "wrapAPhraseIn": "wrap a phrase in quotes to match the exact sequence.",
+      "tryWideningTheScope": ". Try widening the scope or rephrasing your query.",
+      "serverReturned": "The server returned {{status}}.",
+      "requestFailed": "The request failed."
     },
     "CommandPalette": {
       "actions": "Actions",
@@ -16877,6 +16938,12 @@
     }
   },
   "skills": {
+    "FrontmatterPanel": {
+      "allowedTools": "allowed-tools",
+      "description": "description",
+      "metadata": "metadata",
+      "name": "name"
+    },
     "ForkSkillDialog": {
       "anUneditedCopyOf": "An unedited copy of this skill already exists. Open it instead of making another.",
       "nothingIsAssignedTo": "Nothing is assigned to it, so your copy won't change any agent's behaviour.",
@@ -18232,7 +18299,11 @@
       "projectsCount_one": "{{count}} project",
       "projectsCount_other": "{{count}} projects",
       "routinesCount_one": "{{count}} routine",
-      "routinesCount_other": "{{count}} routines"
+      "routinesCount_other": "{{count}} routines",
+      "eachImportedAgentDefaults": "Each imported agent defaults to its package adapter; override here before install. Deeper per-adapter model config is editable on the agent after install.",
+      "thisTeamSRoot": "This team's root agents need a manager in your organization. Pick the agent who will become their parent. Internal team hierarchy is preserved.",
+      "beforeAgentsAreImported": "Before agents are imported, the catalog resolves the skills they depend on. This is the resolution plan.",
+      "closeParenComma": "),"
     },
     "agents": "Agents",
     "allCategories": "All categories",

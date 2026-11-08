@@ -1754,10 +1754,10 @@ function ToolActionResolution({
   if (state === "failed" && result?.errorCode === "github_access_denied") {
     const connectionId = interaction.payload.toolAction?.connectionId;
     return <div role="alert" className="space-y-2 rounded-lg bg-destructive/10 p-3 text-sm text-foreground">
-      <p className="flex items-center gap-2 font-medium"><AlertTriangle className="size-4 shrink-0 text-destructive" aria-hidden="true" />GitHub access needed</p>
-      <p>This GitHub connection cannot access the requested account or repository. Check the connected account and Paperclip’s repository access, then ask the agent to continue.</p>
-      {connectionId ? <Button asChild size="sm" variant="outline"><Link to={appTabHref(connectionId, "permissions")}>Manage GitHub access</Link></Button> : null}
-      {detail ? <details className="text-xs text-muted-foreground"><summary className="cursor-pointer">Error details</summary><p className="mt-2 break-words">{detail}</p></details> : null}
+      <p className="flex items-center gap-2 font-medium"><AlertTriangle className="size-4 shrink-0 text-destructive" aria-hidden="true" />{t("issues.IssueThreadInteractionCard.githubAccessNeeded")}</p>
+      <p>{t("issues.IssueThreadInteractionCard.thisGithubConnectionCannot")}</p>
+      {connectionId ? <Button asChild size="sm" variant="outline"><Link to={appTabHref(connectionId, "permissions")}>{t("issues.IssueThreadInteractionCard.manageGithubAccess")}</Link></Button> : null}
+      {detail ? <details className="text-xs text-muted-foreground"><summary className="cursor-pointer">{t("issues.IssueThreadInteractionCard.errorDetails")}</summary><p className="mt-2 break-words">{detail}</p></details> : null}
     </div>;
   }
   const status = <>
@@ -1847,7 +1847,7 @@ function RequestToolActionCard({
       {isPending ? inspectableArguments ? (
         <details className="mt-3">
           <summary className="cursor-pointer text-xs font-medium text-muted-foreground">
-            Arguments
+            {t("issues.IssueThreadInteractionCard.arguments")}
           </summary>
           <pre className="mt-2 max-h-40 overflow-auto whitespace-pre-wrap break-words font-mono text-xs text-foreground">
             {payload.argumentsSummaryJson}
