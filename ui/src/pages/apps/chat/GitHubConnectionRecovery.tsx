@@ -119,12 +119,12 @@ export function GitHubAppRecovery({ endpoint, reconnect, credentialFields, requi
   }
   return <div className="space-y-6">
     {reconnect && <div className="space-y-3">
-      <p className="text-sm">Restore <strong>{appName}</strong> using its saved credentials. Paperclip will check the App and its installation, then repair event delivery.</p>
-      <p className="text-sm text-muted-foreground">Your agent, repository choices, review settings, and task history stay attached to this connection. You don’t need to create another GitHub App.</p>
+      <p className="text-sm">{t("apps.GitHubConnectionRecovery.restoreLead")} <strong>{appName}</strong> {t("apps.GitHubConnectionRecovery.restoreBody")}</p>
+      <p className="text-sm text-muted-foreground">{t("apps.GitHubConnectionRecovery.keepsConnection")}</p>
     </div>}
-    {rotateWebhookSecret && <section aria-label="Rotate webhook secret" className="space-y-3">
-      <h2 className="text-base font-semibold">Rotate the webhook secret</h2>
-      <p className="text-sm">{rotationAlreadyCommitted ? t("apps.githubRecovery.rotatedSavedNotice", "The rotated secret is saved. Reconnect using that value; Paperclip will check GitHub’s signed delivery.") : <>Generate a new secret, then replace the webhook secret in <a href={gitHubAppSettingsUrl(endpoint)} target="_blank" rel="noreferrer" className="underline">{t("apps.githubRecovery.openAppSettingsLink", "GitHub App settings")}</a>. GitHub must verify the new secret before you reconnect.</>}</p>
+    {rotateWebhookSecret && <section aria-label={t("apps.GitHubConnectionRecovery.rotateSecretSection")} className="space-y-3">
+      <h2 className="text-base font-semibold">{t("apps.GitHubConnectionRecovery.rotateTheSecret")}</h2>
+      <p className="text-sm">{rotationAlreadyCommitted ? t("apps.githubRecovery.rotatedSavedNotice", "The rotated secret is saved. Reconnect using that value; Paperclip will check GitHub’s signed delivery.") : <>{t("apps.GitHubConnectionRecovery.generateNewSecret")} <a href={gitHubAppSettingsUrl(endpoint)} target="_blank" rel="noreferrer" className="underline">{t("apps.githubRecovery.openAppSettingsLink", "GitHub App settings")}</a>{t("apps.GitHubConnectionRecovery.mustVerify")}</>}</p>
       <p className="text-sm text-muted-foreground">{t("apps.githubRecovery.rotateWarning", "Generating immediately invalidates the previous secret. This value is shown only here; keep this page open until you have copied it.")}</p>
       <Button type="button" variant="outline" disabled={pending} onClick={() => void generateSecret()}>{rotationSecret || rotationAlreadyCommitted ? t("apps.githubRecovery.generateAnotherSecret", "Generate another secret") : t("apps.githubRecovery.generateWebhookSecret", "Generate webhook secret")}</Button>
       {rotationUncertain && <p role="status" className="text-sm">{t("apps.githubRecovery.rotationUncertain", "The active secret is not confirmed. Check its saved status before using an earlier value.")}</p>}
@@ -163,8 +163,8 @@ export function GitHubAppRecovery({ endpoint, reconnect, credentialFields, requi
       {needsPrivateKey && <div className="space-y-2">
         <CredentialLabel id="github-private-key" label={t("apps.githubRecovery.privateKeyLabel", "Private key")} help={t("apps.githubRecovery.privateKeyHelp", "Upload the .pem file downloaded from this GitHub App, or paste its entire contents, including the BEGIN and END lines.")} />
         <ol id="github-private-key-help" className="list-decimal space-y-2 pl-5 text-sm text-muted-foreground">
-          <li>In the same App’s settings, open <strong>Credentials → Key pairs → New key</strong>. On the older settings page, use <strong>Private keys → Generate a private key</strong>.</li>
-          <li>Upload the downloaded <strong>.pem</strong> file below, or paste its entire contents.</li>
+          <li>{t("apps.GitHubConnectionRecovery.sameAppSettings")} <strong>{t("apps.GitHubConnectionRecovery.keyPairsLabel")}</strong>{t("apps.GitHubConnectionRecovery.olderPage")} <strong>{t("apps.GitHubConnectionRecovery.privateKeysLabel")}</strong>.</li>
+          <li>{t("apps.GitHubConnectionRecovery.uploadDownloaded")} <strong>{t("apps.GitHubConnectionRecovery.pemName")}</strong> {t("apps.GitHubConnectionRecovery.uploadBelow")}</li>
         </ol>
         <p className="text-sm text-muted-foreground">{t("apps.githubRecovery.privateKeyNote", "You can reuse a .pem file you already saved. GitHub cannot show an old private key again. Creating a new key for the same App keeps its installation.")}</p>
         <Input type="file" accept=".pem" aria-label={t("apps.githubRecovery.uploadPemAria", "Upload private key PEM file")} disabled={pending} onChange={async event => {

@@ -3049,6 +3049,22 @@
     }
   },
   "apps": {
+    "GitHubConnectionRecovery": {
+      "restoreLead": "Restaure",
+      "restoreBody": "usando as credenciais salvas. O Paperclip vai verificar o App e a instalação e depois reparar a entrega de eventos.",
+      "keepsConnection": "Seu agente, as escolhas de repositório, as configurações de revisão e o histórico de tarefas continuam vinculados a esta conexão. Você não precisa criar outro GitHub App.",
+      "rotateSecretSection": "Renovar secret do webhook",
+      "rotateTheSecret": "Renove o secret do webhook",
+      "generateNewSecret": "Gere um novo secret e depois substitua o secret do webhook em",
+      "mustVerify": ". O GitHub precisa verificar o novo secret antes de você reconectar.",
+      "sameAppSettings": "Nas configurações do mesmo App, abra",
+      "keyPairsLabel": "Credentials → Key pairs → New key",
+      "uploadDownloaded": "Envie o arquivo",
+      "olderPage": ". Na página de configurações mais antiga, use",
+      "privateKeysLabel": "Private keys → Generate a private key",
+      "pemName": ".pem",
+      "uploadBelow": "baixado abaixo, ou cole todo o conteúdo."
+    },
     "McpConnect": {
       "allowWorkAs": "Permitir que esta conexão atue como",
       "inWord": "em",
