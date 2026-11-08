@@ -424,7 +424,7 @@ function NewToolsReviewDialog({
                     <p className="mt-1 text-sm text-muted-foreground">{tool.description}</p>
                   ) : null}
                   <p className="mt-1 text-xs text-muted-foreground">
-                    {tool.applicationName ?? tool.connectionName ?? "App tool"} · added {formatShortDate(tool.addedAt)}
+                    {tool.applicationName ?? tool.connectionName ?? "App tool"} · {t("tools.ProfileDetail.addedOn", { date: formatShortDate(tool.addedAt) })}
                   </p>
                 </div>
                 <div className="flex items-center gap-2 sm:justify-end">
@@ -497,7 +497,7 @@ function AllowList({ rows, total }: { rows: AllowRow[]; total: number }) {
               </td>
               <td className="px-3 py-2">
                 <span>{row.app}</span>
-                {row.degraded ? <span className="ml-2 text-xs text-muted-foreground">{row.app} is disconnected</span> : null}
+                {row.degraded ? <span className="ml-2 text-xs text-muted-foreground">{row.app} {t("tools.ProfileDetail.isDisconnected")}</span> : null}
               </td>
               <td className="px-3 py-2 text-muted-foreground">{row.capabilities}</td>
               <td className="px-3 py-2">
@@ -508,7 +508,7 @@ function AllowList({ rows, total }: { rows: AllowRow[]; total: number }) {
                 )}
                 {row.autoAddedAt ? (
                   <div className="mt-0.5 text-xs text-muted-foreground">
-                    added automatically · {formatShortDate(row.autoAddedAt)}
+                    {t("tools.ProfileDetail.addedAutomatically")} {formatShortDate(row.autoAddedAt)}
                   </div>
                 ) : null}
               </td>
@@ -518,11 +518,11 @@ function AllowList({ rows, total }: { rows: AllowRow[]; total: number }) {
       </table>
       {rows.length > 80 ? (
         <p className="border-t border-border px-3 py-2 text-xs text-muted-foreground">
-          Showing 80 of {rows.length} allowed tools.
+          {t("tools.ProfileDetail.showingOf")} {rows.length} {t("tools.ProfileDetail.allowedTools")}
         </p>
       ) : (
         <p className="border-t border-border px-3 py-2 text-xs text-muted-foreground">
-          Allows {rows.length} of {total} known tools.
+          {t("tools.ProfileDetail.allows")} {rows.length} {t("tools.ProfileDetail.ofWord")} {total} {t("tools.ProfileDetail.knownTools")}
         </p>
       )}
     </div>
@@ -660,20 +660,20 @@ function ProfileDialogs({
           </DialogHeader>
           <div className="space-y-3">
             <div className="space-y-1.5">
-              <Label htmlFor="edit-profile-name">Name</Label>
+              <Label htmlFor="edit-profile-name">{t("tools.ProfileDetail.nameLabel")}</Label>
               <Input id="edit-profile-name" value={name} onChange={(e) => setName(e.target.value)} />
-              {duplicateName ? <p className="text-xs text-destructive">Another profile already uses this name.</p> : null}
+              {duplicateName ? <p className="text-xs text-destructive">{t("tools.ProfileDetail.duplicateName")}</p> : null}
             </div>
             <div className="space-y-1.5">
-              <Label htmlFor="edit-profile-description">Description</Label>
+              <Label htmlFor="edit-profile-description">{t("tools.ProfileDetail.descriptionLabel")}</Label>
               <Textarea id="edit-profile-description" value={description} onChange={(e) => setDescription(e.target.value)} rows={3} />
             </div>
             <button type="button" className="text-sm font-medium text-muted-foreground hover:text-foreground" onClick={() => setAdvancedOpen((v) => !v)}>
-              Advanced
+              {t("tools.ProfileDetail.advanced")}
             </button>
             {advancedOpen ? (
               <div className="space-y-1.5">
-                <Label htmlFor="edit-profile-key">Identifier</Label>
+                <Label htmlFor="edit-profile-key">{t("tools.ProfileDetail.identifierLabel")}</Label>
                 <Input id="edit-profile-key" value={profileKey} onChange={(e) => setProfileKey(e.target.value)} className="font-mono text-xs" />
               </div>
             ) : null}
@@ -699,9 +699,9 @@ function ProfileDialogs({
           </DialogHeader>
           <div className="space-y-3">
             <div className="space-y-1.5">
-              <Label htmlFor="copy-profile-name">Name</Label>
+              <Label htmlFor="copy-profile-name">{t("tools.ProfileDetail.nameLabel")}</Label>
               <Input id="copy-profile-name" value={copyName} onChange={(e) => setCopyName(e.target.value)} />
-              {duplicateCopyName ? <p className="text-xs text-destructive">Another profile already uses this name.</p> : null}
+              {duplicateCopyName ? <p className="text-xs text-destructive">{t("tools.ProfileDetail.duplicateName")}</p> : null}
             </div>
             <label className="flex items-center gap-2 text-sm">
               <input type="checkbox" checked={copyAssignments} onChange={(e) => setCopyAssignments(e.target.checked)} />

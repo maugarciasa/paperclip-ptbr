@@ -1088,10 +1088,10 @@ export function CompanyExport() {
         <div className="flex flex-wrap items-center justify-between gap-3">
           <div className="flex flex-wrap items-center gap-4 text-sm">
             <span className="font-medium">
-              {selectedCompany?.name ?? "Organization"} export
+              {selectedCompany?.name ?? t("portability.CompanyExport.organizationFallback")} {t("portability.CompanyExport.exportWord")}
             </span>
             <span className="text-muted-foreground">
-              Exporting {selectedCount.toLocaleString()} of {totalFiles.toLocaleString()} file{totalFiles === 1 ? "" : "s"}
+              {t("portability.CompanyExport.exporting", { selected: selectedCount.toLocaleString(), total: totalFiles.toLocaleString(), count: totalFiles })}
               {selectedCount > 0 && ` (~${formatBytes(estimatedZipBytes)})`}
             </span>
             {warnings.length > 0 && (
@@ -1153,8 +1153,8 @@ export function CompanyExport() {
             <h2 className="text-base font-semibold">{t("portability.export.packageFiles")}</h2>
           </div>
           <div className="border-b border-border px-4 py-3 shrink-0">
-            <h3 className="mb-2 text-xs font-medium text-muted-foreground">What to include</h3>
-            <div className="grid grid-cols-2 gap-x-4 gap-y-1.5" role="group" aria-label="What to include">
+            <h3 className="mb-2 text-xs font-medium text-muted-foreground">{t("portability.CompanyExport.whatToInclude")}</h3>
+            <div className="grid grid-cols-2 gap-x-4 gap-y-1.5" role="group" aria-label={t("portability.CompanyExport.whatToInclude")}>
               {EXPORT_CATEGORY_ORDER.map((key) => {
                 const isAttachments = key === "attachments";
                 const disabled = isAttachments && !isAttachmentsCategoryEnabled(categories);
@@ -1192,7 +1192,7 @@ export function CompanyExport() {
               })}
             </div>
             <p className="mt-2 text-xs text-muted-foreground">
-              Task and routine history is opt-in because it can be large.
+              {t("portability.CompanyExport.historyOptIn")}
             </p>
           </div>
           <div className="border-b border-border px-3 py-2 shrink-0">
@@ -1251,14 +1251,14 @@ export function CompanyExport() {
               <div className="flex max-w-md flex-col items-center gap-3">
                 <LoaderCircle className="h-6 w-6 animate-spin text-muted-foreground" />
                 <div>
-                  <p className="text-sm font-medium">Updating export preview…</p>
+                  <p className="text-sm font-medium">{t("portability.CompanyExport.updatingPreview")}</p>
                   <p className="mt-1 text-xs text-muted-foreground">
-                    Large task histories can take a minute. You can untick Tasks or cancel this update.
+                    {t("portability.CompanyExport.largeHistoryNote")}
                   </p>
                 </div>
                 <Button type="button" variant="outline" size="sm" onClick={handleCancelPreview}>
                   <X />
-                  Cancel update
+                  {t("portability.CompanyExport.cancelUpdate")}
                 </Button>
               </div>
             </div>
@@ -1269,14 +1269,14 @@ export function CompanyExport() {
             >
               <div className="flex max-w-md flex-col items-center gap-3">
                 <div>
-                  <p className="text-sm font-medium">Preview update cancelled</p>
+                  <p className="text-sm font-medium">{t("portability.CompanyExport.previewCancelled")}</p>
                   <p className="mt-1 text-xs text-muted-foreground">
-                    The previous preview remains available. Retry when you are ready.
+                    {t("portability.CompanyExport.previousPreview")}
                   </p>
                 </div>
                 <Button type="button" variant="outline" size="sm" onClick={startPreviewRequest}>
                   <RotateCcw />
-                  Retry preview
+                  {t("portability.CompanyExport.retryPreview")}
                 </Button>
               </div>
             </div>
@@ -1295,7 +1295,7 @@ export function CompanyExport() {
                 </div>
                 <Button type="button" variant="outline" size="sm" onClick={startPreviewRequest}>
                   <RotateCcw />
-                  Retry preview
+                  {t("portability.CompanyExport.retryPreview")}
                 </Button>
               </div>
             </div>

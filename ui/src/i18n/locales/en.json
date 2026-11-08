@@ -13402,6 +13402,22 @@
     }
   },
   "portability": {
+    "CompanyExport": {
+      "exporting_one": "Exporting {{selected}} of {{total}} file",
+      "exporting_other": "Exporting {{selected}} of {{total}} files",
+      "whatToInclude": "What to include",
+      "exportWord": "export",
+      "organizationFallback": "Organization",
+      "exporting_one": "Exporting {{selected}} of {{total}} file",
+      "exporting_other": "Exporting {{selected}} of {{total}} files",
+      "historyOptIn": "Task and routine history is opt-in because it can be large.",
+      "updatingPreview": "Updating export preview…",
+      "largeHistoryNote": "Large task histories can take a minute. You can untick Tasks or cancel this update.",
+      "cancelUpdate": "Cancel update",
+      "previewCancelled": "Preview update cancelled",
+      "previousPreview": "The previous preview remains available. Retry when you are ready.",
+      "retryPreview": "Retry preview"
+    },
     "CompanyImport": {
       "binaryPreviewUnavailable": "Binary asset preview is not available for this file type.",
       "renames": "Renames",
@@ -18198,6 +18214,21 @@
     "zoomOut": "Zoom out"
   },
   "tools": {
+    "ProfileDetail": {
+      "addedOn": "· added {{date}}",
+      "isDisconnected": "is disconnected",
+      "addedAutomatically": "added automatically ·",
+      "showingOf": "Showing 80 of",
+      "allowedTools": "allowed tools.",
+      "allows": "Allows",
+      "ofWord": "of",
+      "knownTools": "known tools.",
+      "nameLabel": "Name",
+      "duplicateName": "Another profile already uses this name.",
+      "descriptionLabel": "Description",
+      "advanced": "Advanced",
+      "identifierLabel": "Identifier"
+    },
     "SmokeLabTab": {
       "notRun": "not run",
       "enableUnderSettings": "under Settings → Experimental to enable it.",

@@ -13402,6 +13402,22 @@
     }
   },
   "portability": {
+    "CompanyExport": {
+      "exporting_one": "Exportando {{selected}} de {{total}} arquivo",
+      "exporting_other": "Exportando {{selected}} de {{total}} arquivos",
+      "whatToInclude": "O que incluir",
+      "exportWord": "exportação",
+      "organizationFallback": "Organização",
+      "exporting_one": "Exportando {{selected}} de {{total}} arquivo",
+      "exporting_other": "Exportando {{selected}} de {{total}} arquivos",
+      "historyOptIn": "O histórico de tarefas e rotinas é opcional porque pode ser grande.",
+      "updatingPreview": "Atualizando a pré-visualização da exportação…",
+      "largeHistoryNote": "Históricos grandes de tarefas podem levar um minuto. Você pode desmarcar Tarefas ou cancelar esta atualização.",
+      "cancelUpdate": "Cancelar atualização",
+      "previewCancelled": "Atualização da pré-visualização cancelada",
+      "previousPreview": "A pré-visualização anterior continua disponível. Tente de novo quando quiser.",
+      "retryPreview": "Tentar pré-visualização de novo"
+    },
     "CompanyImport": {
       "binaryPreviewUnavailable": "A pré-visualização de arquivos binários não está disponível para este tipo de arquivo.",
       "renames": "Renomeações",
@@ -18198,6 +18214,21 @@
     "zoomOut": "Diminuir zoom"
   },
   "tools": {
+    "ProfileDetail": {
+      "addedOn": "· adicionado em {{date}}",
+      "isDisconnected": "está desconectado",
+      "addedAutomatically": "adicionado automaticamente ·",
+      "showingOf": "Mostrando 80 de",
+      "allowedTools": "ferramentas permitidas.",
+      "allows": "Permite",
+      "ofWord": "de",
+      "knownTools": "ferramentas conhecidas.",
+      "nameLabel": "Nome",
+      "duplicateName": "Outro perfil já usa este nome.",
+      "descriptionLabel": "Descrição",
+      "advanced": "Avançado",
+      "identifierLabel": "Identificador"
+    },
     "SmokeLabTab": {
       "notRun": "não executado",
       "enableUnderSettings": "em Configurações → Experimental para ativar.",
