@@ -1,3 +1,4 @@
+import { t } from "../i18n.js";
 import * as p from "@clack/prompts";
 import path from "node:path";
 import pc from "picocolors";
@@ -499,7 +500,7 @@ export async function onboard(opts: OnboardOptions): Promise<void> {
     let shouldRunNow = !serviceInstalled && (opts.run === true || opts.yes === true);
     if (shouldOfferForegroundStart({ serviceInstalled, startAlreadyDecided: shouldRunNow, invokedByRun: opts.invokedByRun === true, interactive: Boolean(process.stdin.isTTY && process.stdout.isTTY) })) {
       const answer = await p.confirm({
-        message: "Start Paperclip now?",
+        message: t("common.startPaperclipNow", "Start Paperclip now?"),
         initialValue: true,
       });
       if (!p.isCancel(answer)) {
@@ -527,23 +528,23 @@ export async function onboard(opts: OnboardOptions): Promise<void> {
     );
   } else {
     const setupModeChoice = await p.select({
-      message: "Choose setup path",
+      message: t("common.chooseSetupPath", "Choose setup path"),
       options: [
         {
           value: "quickstart" as const,
-          label: "Quickstart",
-          hint: "Recommended: local defaults + ready to run",
+          label: t("common.quickstart", "Quickstart"),
+          hint: t("common.quickstartHint", "Recommended: local defaults + ready to run"),
         },
         {
           value: "advanced" as const,
-          label: "Advanced setup",
-          hint: "Customize database, server, storage, and more",
+          label: t("common.advancedSetup", "Advanced setup"),
+          hint: t("common.advancedSetupHint", "Customize database, server, storage, and more"),
         },
       ],
       initialValue: "quickstart",
     });
     if (p.isCancel(setupModeChoice)) {
-      p.cancel("Setup cancelled.");
+      p.cancel(t("common.setupCancelled", "Setup cancelled."));
       return;
     }
     setupMode = setupModeChoice as SetupMode;

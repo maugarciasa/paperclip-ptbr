@@ -1,3 +1,4 @@
+import { t } from "../i18n.js";
 import * as p from "@clack/prompts";
 import type { SecretProvider } from "@paperclipai/shared";
 import type { SecretsConfig } from "../config/schema.js";
@@ -22,39 +23,39 @@ export async function promptSecrets(current?: SecretsConfig): Promise<SecretsCon
   const base = current ?? defaultSecretsConfig();
 
   const provider = await p.select({
-    message: "Secrets provider",
+    message: t("prompts.secrets.provider", "Secrets provider"),
     options: [
       {
         value: "local_encrypted" as const,
-        label: "Local encrypted (recommended)",
-        hint: "best for single-developer installs",
+        label: t("prompts.secrets.localEncrypted", "Local encrypted (recommended)"),
+        hint: t("prompts.secrets.localEncryptedHint", "best for single-developer installs"),
       },
       {
         value: "aws_secrets_manager" as const,
-        label: "AWS Secrets Manager",
-        hint: "requires runtime AWS credentials and provider env config",
+        label: t("prompts.secrets.aws", "AWS Secrets Manager"),
+        hint: t("prompts.secrets.awsHint", "requires runtime AWS credentials and provider env config"),
       },
       {
         value: "gcp_secret_manager" as const,
-        label: "GCP Secret Manager",
-        hint: "requires external adapter integration",
+        label: t("prompts.secrets.gcp", "GCP Secret Manager"),
+        hint: t("prompts.secrets.gcpHint", "requires external adapter integration"),
       },
       {
         value: "vault" as const,
-        label: "HashiCorp Vault",
-        hint: "requires external adapter integration",
+        label: t("prompts.secrets.vault", "HashiCorp Vault"),
+        hint: t("prompts.secrets.vaultHint", "requires external adapter integration"),
       },
     ],
     initialValue: base.provider,
   });
 
   if (p.isCancel(provider)) {
-    p.cancel("Setup cancelled.");
+    p.cancel(t("common.setupCancelled", "Setup cancelled."));
     process.exit(0);
   }
 
   const strictMode = await p.confirm({
-    message: "Require secret refs for sensitive env vars?",
+    message: t("prompts.secrets.strictMode", "Require secret refs for sensitive env vars?"),
     initialValue: base.strictMode,
   });
 

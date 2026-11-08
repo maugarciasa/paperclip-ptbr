@@ -1,3 +1,4 @@
+import { t } from "../i18n.js";
 import * as p from "@clack/prompts";
 import { isLoopbackHost, type BindMode } from "@paperclipai/shared";
 import type { AuthConfig, ServerConfig } from "../config/schema.js";
@@ -8,7 +9,7 @@ const TAILNET_BIND_WARNING =
   "No Tailscale address was detected during setup. The saved config will stay on loopback until Tailscale is available or PAPERCLIP_TAILNET_BIND_HOST is set.";
 
 function cancelled(): never {
-  p.cancel("Setup cancelled.");
+  p.cancel(t("common.setupCancelled", "Setup cancelled."));
   process.exit(0);
 }
 
@@ -21,27 +22,27 @@ export async function promptServer(opts?: {
   const currentBind = inferConfiguredBind(currentServer);
 
   const bindSelection = await p.select({
-    message: "Reachability",
+    message: t("prompts.server.reachability", "Reachability"),
     options: [
       {
         value: "loopback" as const,
-        label: "Trusted local",
-        hint: "Recommended for first run: localhost only, no login friction",
+        label: t("prompts.server.trustedLocal", "Trusted local"),
+        hint: t("prompts.server.trustedLocalHint", "Recommended for first run: localhost only, no login friction"),
       },
       {
         value: "lan" as const,
-        label: "Private network",
-        hint: "Broad private bind for LAN, VPN, or legacy --tailscale-auth style access",
+        label: t("prompts.server.lan", "Private network"),
+        hint: t("prompts.server.lanHint", "Broad private bind for LAN, VPN, or legacy --tailscale-auth style access"),
       },
       {
         value: "tailnet" as const,
-        label: "Tailnet",
-        hint: "Private authenticated access using the machine's detected Tailscale address",
+        label: t("prompts.server.tailnet", "Tailnet"),
+        hint: t("prompts.server.tailnetHint", "Private authenticated access using the machine's detected Tailscale address"),
       },
       {
         value: "custom" as const,
-        label: "Custom",
-        hint: "Choose exact auth mode, exposure, and host manually",
+        label: t("prompts.server.custom", "Custom"),
+        hint: t("prompts.server.customHint", "Choose exact auth mode, exposure, and host manually"),
       },
     ],
     initialValue: currentBind,
@@ -52,7 +53,7 @@ export async function promptServer(opts?: {
 
   const portDefault = String(currentServer?.port ?? 3100);
   const portStr = await p.text({
-    message: "Server port",
+    message: t("prompts.server.port", "Server port"),
     defaultValue: portDefault,
     placeholder: "3100",
     validate: (val) => {

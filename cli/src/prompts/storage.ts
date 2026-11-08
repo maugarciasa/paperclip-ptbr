@@ -1,3 +1,4 @@
+import { t } from "../i18n.js";
 import * as p from "@clack/prompts";
 import type { StorageConfig } from "../config/schema.js";
 import { resolveDefaultStorageDir, resolvePaperclipInstanceId } from "../config/home.js";
@@ -26,31 +27,31 @@ export async function promptStorage(current?: StorageConfig): Promise<StorageCon
   const base = current ?? defaultStorageConfig();
 
   const provider = await p.select({
-    message: "Storage provider",
+    message: t("prompts.storage.provider", "Storage provider"),
     options: [
       {
         value: "local_disk" as const,
-        label: "Local disk (recommended)",
-        hint: "best for single-user local deployments",
+        label: t("prompts.storage.localDisk", "Local disk (recommended)"),
+        hint: t("prompts.storage.localDiskHint", "best for single-user local deployments"),
       },
       {
         value: "s3" as const,
-        label: "S3 compatible",
-        hint: "for cloud/object storage backends",
+        label: t("prompts.storage.s3", "S3 compatible"),
+        hint: t("prompts.storage.s3Hint", "for cloud/object storage backends"),
       },
     ],
     initialValue: base.provider,
   });
 
   if (p.isCancel(provider)) {
-    p.cancel("Setup cancelled.");
+    p.cancel(t("common.setupCancelled", "Setup cancelled."));
     process.exit(0);
   }
 
   if (provider === "local_disk") {
     const baseDirDefault = base.localDisk.baseDir || defaultStorageBaseDir();
     const baseDir = await p.text({
-      message: "Local storage base directory",
+      message: t("prompts.storage.baseDir", "Local storage base directory"),
       defaultValue: baseDirDefault,
       placeholder: defaultStorageBaseDir(),
       validate: (value) => {

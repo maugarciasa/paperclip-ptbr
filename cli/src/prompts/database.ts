@@ -1,3 +1,4 @@
+import { t } from "../i18n.js";
 import * as p from "@clack/prompts";
 import type { DatabaseConfig } from "../config/schema.js";
 import {
@@ -23,16 +24,16 @@ export async function promptDatabase(current?: DatabaseConfig): Promise<Database
   };
 
   const mode = await p.select({
-    message: "Database mode",
+    message: t("prompts.db.mode", "Database mode"),
     options: [
-      { value: "embedded-postgres" as const, label: "Embedded PostgreSQL (managed locally)", hint: "recommended" },
-      { value: "postgres" as const, label: "PostgreSQL (external server)" },
+      { value: "embedded-postgres" as const, label: t("prompts.db.embedded", "Embedded PostgreSQL (managed locally)"), hint: t("common.recommended", "recommended") },
+      { value: "postgres" as const, label: t("prompts.db.external", "PostgreSQL (external server)") },
     ],
     initialValue: base.mode,
   });
 
   if (p.isCancel(mode)) {
-    p.cancel("Setup cancelled.");
+    p.cancel(t("common.setupCancelled", "Setup cancelled."));
     process.exit(0);
   }
 
@@ -47,7 +48,7 @@ export async function promptDatabase(current?: DatabaseConfig): Promise<Database
     // that will actually be submitted — the typed input, or the default.
     const connectionStringDefault = base.connectionString ?? "";
     const value = await p.text({
-      message: "PostgreSQL connection string",
+      message: t("prompts.db.connString", "PostgreSQL connection string"),
       defaultValue: connectionStringDefault,
       placeholder: "postgres://user:pass@localhost:5432/paperclip",
       validate: (val) => {
@@ -65,7 +66,7 @@ export async function promptDatabase(current?: DatabaseConfig): Promise<Database
     connectionString = value;
   } else {
     const dataDir = await p.text({
-      message: "Embedded PostgreSQL data directory",
+      message: t("prompts.db.dataDir", "Embedded PostgreSQL data directory"),
       defaultValue: base.embeddedPostgresDataDir || defaultEmbeddedDir,
       placeholder: defaultEmbeddedDir,
     });
@@ -78,7 +79,7 @@ export async function promptDatabase(current?: DatabaseConfig): Promise<Database
     embeddedPostgresDataDir = dataDir || defaultEmbeddedDir;
 
     const portValue = await p.text({
-      message: "Embedded PostgreSQL port",
+      message: t("prompts.db.port", "Embedded PostgreSQL port"),
       defaultValue: embeddedPortDefault,
       placeholder: "54329",
       validate: (val) => {
@@ -97,7 +98,7 @@ export async function promptDatabase(current?: DatabaseConfig): Promise<Database
   }
 
   const backupEnabled = await p.confirm({
-    message: "Enable automatic database backups?",
+    message: t("prompts.db.backupsEnabled", "Enable automatic database backups?"),
     initialValue: base.backup.enabled,
   });
   if (p.isCancel(backupEnabled)) {
@@ -107,7 +108,7 @@ export async function promptDatabase(current?: DatabaseConfig): Promise<Database
 
   const backupDirDefault = base.backup.dir || defaultBackupDir;
   const backupDirInput = await p.text({
-    message: "Backup directory",
+    message: t("prompts.db.backupDir", "Backup directory"),
     defaultValue: backupDirDefault,
     placeholder: defaultBackupDir,
     validate: (val) => ((val || backupDirDefault).trim().length === 0 ? "Backup directory is required" : undefined),
@@ -120,7 +121,7 @@ export async function promptDatabase(current?: DatabaseConfig): Promise<Database
   const backupIntervalDefault = String(base.backup.intervalMinutes || 60);
   const backupRetentionDefault = String(base.backup.retentionDays || 30);
   const backupIntervalInput = await p.text({
-    message: "Backup interval (minutes)",
+    message: t("prompts.db.backupInterval", "Backup interval (minutes)"),
     defaultValue: backupIntervalDefault,
     placeholder: "60",
     validate: (val) => {
@@ -136,7 +137,7 @@ export async function promptDatabase(current?: DatabaseConfig): Promise<Database
   }
 
   const backupRetentionInput = await p.text({
-    message: "Backup retention (days)",
+    message: t("prompts.db.backupRetention", "Backup retention (days)"),
     defaultValue: backupRetentionDefault,
     placeholder: "30",
     validate: (val) => {
