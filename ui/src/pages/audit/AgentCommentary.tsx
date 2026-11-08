@@ -61,7 +61,7 @@ function CommentaryDetail({ companyId, id, onClose, triggerRef }: { companyId: s
         }
       }}>
         <DialogHeader className="shrink-0 pr-6">
-          <DialogTitle>{entry?.kind === "complaint" ? "Complaint" : entry ? "Suggestion" : "Commentary"}</DialogTitle>
+          <DialogTitle>{entry?.kind === "complaint" ? "Complaint" : entry ? "Suggestion" : t("audit.AgentCommentary.commentary")}</DialogTitle>
           <DialogDescription>{entry ? `Submitted ${new Date(entry.createdAt).toLocaleString()}` : "Message details and source context."}</DialogDescription>
         </DialogHeader>
         {detail.isPending ? <p role="status" className="text-sm text-muted-foreground">{t("audit.commentary.loadingMessage")}</p> : detail.error ? (
@@ -121,9 +121,9 @@ export function AgentCommentary({ companyId }: { companyId: string }) {
   const clearFilters = () => updateFilters({ q: "", agentId: "", kind: "" });
 
   return (
-    <section className="flex flex-col gap-5" aria-label="Commentary">
-      <div className="flex flex-col gap-1"><h2 className="text-lg font-semibold">Commentary</h2><p className="text-sm text-muted-foreground">Suggestions and complaints from your agents.</p></div>
-      <div data-canonical-toolbar="audit-commentary" role="toolbar" aria-label="Commentary filters" className="flex flex-wrap items-center gap-2">
+    <section className="flex flex-col gap-5" aria-label={t("audit.AgentCommentary.commentary")}>
+      <div className="flex flex-col gap-1"><h2 className="text-lg font-semibold">{t("audit.AgentCommentary.commentary")}</h2><p className="text-sm text-muted-foreground">{t("audit.AgentCommentary.suggestionsAndComplaintsFrom")}</p></div>
+      <div data-canonical-toolbar="audit-commentary" role="toolbar" aria-label={t("audit.AgentCommentary.commentaryFilters")} className="flex flex-wrap items-center gap-2">
         <div className="relative min-w-48 flex-1 sm:max-w-sm"><Search className="pointer-events-none absolute left-3 top-1/2 size-4 -translate-y-1/2 text-muted-foreground" /><Input aria-label={t("audit.commentary.searchAria")} placeholder={t("audit.commentary.searchPlaceholder")} maxLength={200} value={search} onChange={(event) => setSearch(event.target.value)} className="pl-9" /></div>
         <Select value={agentId} onValueChange={(value) => updateFilters({ agentId: value })}><SelectTrigger aria-label={t("audit.commentary.filterByAgentAria")} className="min-w-40"><SelectValue placeholder={t("audit.commentary.allAgents")} /></SelectTrigger><SelectContent><SelectItem value={ALL}>{t("audit.commentary.allAgents")}</SelectItem>{agents.data?.map((agent) => <SelectItem key={agent.id} value={agent.id}><AgentIdentity agent={agent} size="xs" /></SelectItem>)}</SelectContent></Select>
         <Select value={kind ?? ALL} onValueChange={(value) => updateFilters({ kind: value })}><SelectTrigger aria-label={t("audit.commentary.filterByTypeAria")} className="min-w-36"><SelectValue /></SelectTrigger><SelectContent><SelectItem value={ALL}>{t("audit.commentary.allTypes")}</SelectItem><SelectItem value="suggestion">{t("audit.commentary.suggestions")}</SelectItem><SelectItem value="complaint">{t("audit.commentary.complaints")}</SelectItem></SelectContent></Select>

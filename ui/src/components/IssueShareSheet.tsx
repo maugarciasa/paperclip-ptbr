@@ -244,7 +244,7 @@ export function IssueShareSheet({
     },
   });
 
-  // Candidate subjects for the "Add someone" combobox, minus anyone who already
+  // Candidate subjects for the t("issues.IssueShareSheet.addSomeone") combobox, minus anyone who already
   // holds a direct grant on this task. Inherited/project access can be supplemented
   // with an independent child grant before broader access is removed. Value encodes both type and id: `type:id`.
   const addGroups = useMemo<SearchableSelectGroup<string, AccessSelectOption>[]>(() => {
@@ -394,7 +394,7 @@ export function IssueShareSheet({
                           </Button>
                         ) : grant.source === "project" ? (
                           <span className="text-(length:--text-nano) text-muted-foreground">
-                            project-managed
+                            {t("issues.IssueShareSheet.projectManaged")}
                           </span>
                         ) : null
                       }
@@ -413,7 +413,7 @@ export function IssueShareSheet({
                   onClick={() => setView("add")}
                   disabled={isLoading}
                 >
-                  <UserPlus className="h-3.5 w-3.5" aria-hidden="true" /> Add someone
+                  <UserPlus className="h-3.5 w-3.5" aria-hidden="true" /> {t("issues.IssueShareSheet.addSomeone")}
                 </Button>
               </div>
             ) : null}
@@ -457,7 +457,7 @@ export function IssueShareSheet({
                   setAddSelection("");
                 }}
               >
-                Back
+                {t("issues.IssueShareSheet.back")}
               </Button>
               <Button size="sm" onClick={submitAdd} disabled={!addSelection || addMutation.isPending}>
                 {addMutation.isPending ? t("issues.IssueShareSheet.adding") : t("issues.IssueShareSheet.add")}

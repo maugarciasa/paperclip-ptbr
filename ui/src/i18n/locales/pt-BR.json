@@ -1,5 +1,10 @@
 {
   "agents": {
+    "AgentToolsTab": {
+      "unavailableTools": "Ferramentas indisponíveis",
+      "whyTheseTools": "Por que estas ferramentas?",
+      "accessProfiles": "Perfis de acesso"
+    },
     "AgentRateLimitGauge": {
       "limitReachedWorkContinues": "Limite atingido; o trabalho continua com os créditos da conta.",
       "providerUsageLimits": "Limites de uso do {{provider}}",
@@ -3086,6 +3091,12 @@
     }
   },
   "apps": {
+    "SlackAvatarStep": {
+      "displayInformation": "Display Information",
+      "appIconPreview": "App icon & Preview",
+      "basicInformation": "Basic Information",
+      "saveChanges": "Save Changes"
+    },
     "GrokBotWorkSummary": {
       "showsPaperclipReportedActivity": "Mostra a atividade informada pelo Paperclip. Abra o app desktop do Grok Bot para ver toda a atividade do Bot.",
       "connectionStatusCouldNot": "Não foi possível atualizar o status da conexão.",
@@ -6600,6 +6611,11 @@
     }
   },
   "audit": {
+    "AgentCommentary": {
+      "suggestionsAndComplaintsFrom": "Sugestões e reclamações dos seus agentes.",
+      "commentaryFilters": "Filtros de comentários",
+      "commentary": "Comentários"
+    },
     "AuditRuns": {
       "recentAgentExecutionsAcross": "Execuções recentes de agentes em toda a empresa. Abra uma execução para ver a transcrição, a saída e o contexto da tarefa.",
       "executionsCreatedByThis": "Execuções criadas por esta rotina, das mais recentes às mais antigas.",
@@ -8564,6 +8580,11 @@
     }
   },
   "inbox": {
+    "DecisionDateChips": {
+      "clear": "Limpar",
+      "from": "De",
+      "to": "Até"
+    },
     "DecisionQueuePage": {
       "queueEmpty": "Esta fila está vazia.",
       "landHere": "As decisões aparecem aqui quando atendem às regras da fila ou quando um agente as adiciona.",
@@ -9294,6 +9315,28 @@
     "working": "Processando..."
   },
   "issues": {
+    "IssueAssignedBacklogNotice": {
+      "commentsStillNotifyThe": "Comentários ainda notificam o responsável para dúvidas ou triagem. Deixe isto parado somente se o trabalho estiver em espera de propósito.",
+      "willNotBeAsked": "não será acionado para trabalhar nisto até o status mudar para A fazer ou Em andamento.",
+      "parked": "Parado"
+    },
+    "IssueFieldChangeReceipt": {
+      "authorizedByReason": "autorizado por {{reason}}",
+      "preview": "prévia",
+      "for": "para"
+    },
+    "TaskChatRunHealthBanner": {
+      "theAgentRanWithout": "O agente rodou sem essas ferramentas. Corrija o comando ou as credenciais do servidor e tente de novo.",
+      "mcpServerFailedTo": "falhou ao iniciar como servidor MCP",
+      "mcpServers_other": "{{count}} servidores MCP",
+      "failedToStart": "falharam ao iniciar:",
+      "mcpServers_one": "{{count}} servidor MCP"
+    },
+    "TaskChatUsageReadout": {
+      "usedTotalCtxPct": "{{used}}/{{total}} ctx ({{pct}}%)",
+      "inputOutput": "· ↑{{input}} ↓{{output}}",
+      "cost": "· ${{cost}}"
+    },
     "DesignSandboxTasks": {
       "parentTasksIncludedFor": " · Tarefas-mãe incluídas para dar contexto",
       "searchViewsAndFilters_other": "A busca, as visões e os filtros cobrem as {{count}} tarefas carregadas.",
@@ -10404,7 +10447,9 @@
       "unassigned": "não atribuído",
       "userOwner": "usuário {{id}}",
       "wakeFinished": "As tentativas automáticas terminaram — é preciso tomar uma decisão",
-      "wakeNotRun": "A nova tentativa agendada não foi executada — é preciso tentar de novo ou tomar uma decisão"
+      "wakeNotRun": "A nova tentativa agendada não foi executada — é preciso tentar de novo ou tomar uma decisão",
+      "paperclip": "Paperclip",
+      "board": "Board"
     },
     "IssueReferenceActivitySummary": {
       "added": "Referências adicionadas",
@@ -10524,7 +10569,10 @@
       "thisSubject": "este participante",
       "unknown": "Desconhecido",
       "unknownUser": "Usuário desconhecido",
-      "whoCanAccess": "Quem pode acessar esta tarefa"
+      "whoCanAccess": "Quem pode acessar esta tarefa",
+      "projectManaged": "gerenciado pelo projeto",
+      "addSomeone": "Adicionar pessoa",
+      "back": "Voltar"
     },
     "IssueSiblingNavigation": {
       "navigationLabel": "Navegação entre sub-tarefas",
@@ -15212,6 +15260,12 @@
     }
   },
   "secrets": {
+    "ProposalsTab": {
+      "agentsProposeCredentialsAnd": "Agentes propõem credenciais e vínculos de acesso; você os aprova ou rejeita aqui. Os valores propostos nunca são exibidos, apenas uma impressão digital e o tamanho.",
+      "loadingProposals": "Carregando propostas…",
+      "agent": "agente",
+      "by": "por"
+    },
     "Secrets": {
       "accessEventsRecorded": "Os eventos de acesso são registrados no valor armazenado de cada membro quando ocorre a resolução em tempo de execução.",
       "accessGrantedBody": "{{agent}} agora recebe {{key}}",
@@ -18539,6 +18593,11 @@
     "zoomOut": "Diminuir zoom"
   },
   "tools": {
+    "EnforcementBanner": {
+      "toolAccessIsEnforced": "O acesso às ferramentas é imposto no servidor pelo gateway de ferramentas. Estas telas configuram e observam essa imposição, mas não a substituem. Os agentes veem e chamam apenas as ferramentas que seus perfis e políticas permitem; todo o resto é negado por padrão.",
+      "governedToolCallDenied_other": "chamadas de ferramentas governadas foram negadas ou falharam na última hora. O acesso é imposto no servidor pelo gateway de ferramentas; abra o conector afetado para ver o que foi bloqueado e por quê.",
+      "governedToolCallDenied_one": "chamada de ferramenta governada foi negada ou falhou na última hora. O acesso é imposto no servidor pelo gateway de ferramentas; abra o conector afetado para ver o que foi bloqueado e por quê."
+    },
     "WizardToolsStep": {
       "profilesWillBeAvailable": "Os perfis estarão disponíveis quando as conexões de apps estiverem prontas. Enquanto isso, veja as integrações planejadas.",
       "matchToolsByA": "Selecione ferramentas por padrão de nome, nível de risco ou ID específico. Estas regras valem além das escolhas acima.",

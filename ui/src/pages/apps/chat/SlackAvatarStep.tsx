@@ -134,15 +134,15 @@ export function SlackAvatarContent({
               {t("apps.SlackAvatarContent.chooseApp")} <strong>{appName}</strong>.
             </li>
             <li>
-              {t("apps.SlackAvatarContent.step2Choose")} <strong>Basic Information</strong>{t("apps.SlackAvatarContent.step2Scroll")}{" "}
-              <strong>Display Information</strong>.
+              {t("apps.SlackAvatarContent.step2Choose")} <strong>{t("apps.SlackAvatarStep.basicInformation")}</strong>{t("apps.SlackAvatarContent.step2Scroll")}{" "}
+              <strong>{t("apps.SlackAvatarStep.displayInformation")}</strong>.
             </li>
             <li>
-              {t("apps.SlackAvatarContent.step3Under")} <strong>App icon &amp; Preview</strong>{t("apps.SlackAvatarContent.step3Click")} {t("apps.SlackAvatarContent.step3Upload")}{" "}
+              {t("apps.SlackAvatarContent.step3Under")} <strong>{t("apps.SlackAvatarStep.appIconPreview")}</strong>{t("apps.SlackAvatarContent.step3Click")} {t("apps.SlackAvatarContent.step3Upload")}{" "}
               <span className="break-all font-mono text-xs">{filename}</span>.
             </li>
             <li>
-              {t("apps.SlackAvatarContent.step4Confirm")} <strong>Save Changes</strong> {t("apps.SlackAvatarContent.step4Slack")}
+              {t("apps.SlackAvatarContent.step4Confirm")} <strong>{t("apps.SlackAvatarStep.saveChanges")}</strong> {t("apps.SlackAvatarContent.step4Slack")}
             </li>
           </ol>
         </section>

@@ -51,6 +51,7 @@ function ProposalRow({
   onReject: (p: SecretProposalView) => void;
   disabled: boolean;
 }) {
+  const { t } = useTranslation();
   const isSecret = proposal.kind === "secret";
   const expiry = expiryLabel(proposal.expiresAt);
   const secret = bindingSecretLabel(proposal);
@@ -75,7 +76,7 @@ function ProposalRow({
               {proposal.target ? (
                 <AgentRefChip agent={proposal.target} className="font-medium" />
               ) : (
-                <span className="text-muted-foreground">agent</span>
+                <span className="text-muted-foreground">{t("secrets.ProposalsTab.agent")}</span>
               )}
               <DeliveryBadge configPath={proposal.configPath} />
               <code className="font-mono text-xs">{envKey || proposal.configPath}</code>
@@ -92,7 +93,7 @@ function ProposalRow({
         {/* Provenance meta */}
         <div className="flex flex-wrap items-center gap-x-2 gap-y-1 text-xs text-muted-foreground">
           <span className="inline-flex items-center gap-1">
-            by <AgentRefChip agent={proposal.proposedBy} className="font-medium text-foreground" />
+            {t("secrets.ProposalsTab.by")} <AgentRefChip agent={proposal.proposedBy} className="font-medium text-foreground" />
           </span>
           {proposal.originIssue ? (
             <>
@@ -183,7 +184,7 @@ export function ProposalsTab({
   if (proposalsQuery.isPending || proposalsView.kind === "reconnecting") {
     return (
       <div className="flex items-center gap-2 py-8 text-sm text-muted-foreground">
-        <Loader2 className="size-4 animate-spin" /> Loading proposals…
+        <Loader2 className="size-4 animate-spin" /> {t("secrets.ProposalsTab.loadingProposals")}
       </div>
     );
   }
@@ -201,8 +202,7 @@ export function ProposalsTab({
   return (
     <div className="space-y-2">
       <p className="text-xs text-muted-foreground">
-        Agents propose credentials and access bindings; you approve or reject them here. Proposed
-        values are never shown — only a fingerprint and length.
+        {t("secrets.ProposalsTab.agentsProposeCredentialsAnd")}
       </p>
       {sorted.map((proposal) => (
         <ProposalRow

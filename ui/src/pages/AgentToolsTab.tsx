@@ -663,14 +663,14 @@ export function AgentToolsTab({ agent, companyId }: { agent: AgentDetailRecord; 
           <div className="rounded-lg border border-border bg-background/60 p-3">
             <h3 className="flex items-center gap-1.5 text-sm font-semibold text-foreground">
               <HelpCircle className="h-3.5 w-3.5 text-muted-foreground" />
-              Why these tools?
+              {t("agents.AgentToolsTab.whyTheseTools")}
             </h3>
 
             {/* {t("agents.toolsTab.accessProfiles", { defaultValue: "Access profiles" })} */}
             <div className="mt-3 space-y-1.5">
               <div className="flex items-center justify-between gap-2">
                 <div className="text-(length:--text-micro) font-medium uppercase tracking-wide text-muted-foreground">
-                  Access profiles
+                  {t("agents.AgentToolsTab.accessProfiles")}
                 </div>
                 <Link
                   to={`${profilesHref}?check=1`}
@@ -744,7 +744,7 @@ export function AgentToolsTab({ agent, companyId }: { agent: AgentDetailRecord; 
             {/* {t("agents.toolsTab.unavailableTools", { defaultValue: "Unavailable tools" })} */}
             <div className="mt-3 space-y-1.5">
               <div className="text-(length:--text-micro) font-medium uppercase tracking-wide text-muted-foreground">
-                Unavailable tools
+                {t("agents.AgentToolsTab.unavailableTools")}
               </div>
               {catalogLoading ? (
                 <p className="text-xs text-muted-foreground">{t("agents.toolsTab.checkingTools", { defaultValue: "Checking tools…" })}</p>

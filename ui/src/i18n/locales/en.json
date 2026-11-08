@@ -1,5 +1,10 @@
 {
   "agents": {
+    "AgentToolsTab": {
+      "unavailableTools": "Unavailable tools",
+      "whyTheseTools": "Why these tools?",
+      "accessProfiles": "Access profiles"
+    },
     "AgentRateLimitGauge": {
       "limitReachedWorkContinues": "Limit reached; work continues on account credits.",
       "providerUsageLimits": "{{provider}} usage limits",
@@ -3086,6 +3091,12 @@
     }
   },
   "apps": {
+    "SlackAvatarStep": {
+      "displayInformation": "Display Information",
+      "appIconPreview": "App icon & Preview",
+      "basicInformation": "Basic Information",
+      "saveChanges": "Save Changes"
+    },
     "GrokBotWorkSummary": {
       "showsPaperclipReportedActivity": "Shows Paperclip-reported activity. Open the Grok Bot desktop app to inspect the Bot’s complete activity.",
       "connectionStatusCouldNot": "Connection status could not be refreshed.",
@@ -6600,6 +6611,11 @@
     }
   },
   "audit": {
+    "AgentCommentary": {
+      "suggestionsAndComplaintsFrom": "Suggestions and complaints from your agents.",
+      "commentaryFilters": "Commentary filters",
+      "commentary": "Commentary"
+    },
     "AuditRuns": {
       "recentAgentExecutionsAcross": "Recent agent executions across the organization. Open a run to inspect its transcript, output, and task context.",
       "executionsCreatedByThis": "Executions created by this routine, newest first.",
@@ -8564,6 +8580,11 @@
     }
   },
   "inbox": {
+    "DecisionDateChips": {
+      "clear": "Clear",
+      "from": "From",
+      "to": "To"
+    },
     "DecisionQueuePage": {
       "queueEmpty": "This queue is empty.",
       "landHere": "Decisions land here when they match the queue's rules or an agent adds them.",
@@ -9294,6 +9315,28 @@
     "working": "Working..."
   },
   "issues": {
+    "IssueAssignedBacklogNotice": {
+      "commentsStillNotifyThe": "Comments still notify the assignee for questions or triage. Leave this parked only if the work is intentionally on hold.",
+      "willNotBeAsked": "will not be asked to work on this until status changes to To do or In progress.",
+      "parked": "Parked"
+    },
+    "IssueFieldChangeReceipt": {
+      "authorizedByReason": "authorized by {{reason}}",
+      "preview": "preview",
+      "for": "for"
+    },
+    "TaskChatRunHealthBanner": {
+      "theAgentRanWithout": "The agent ran without these tools. Fix the server's command or credentials, then try again.",
+      "mcpServerFailedTo": "MCP server failed to start",
+      "mcpServers_other": "{{count}} MCP servers",
+      "failedToStart": "failed to start:",
+      "mcpServers_one": "{{count}} MCP server"
+    },
+    "TaskChatUsageReadout": {
+      "usedTotalCtxPct": "{{used}}/{{total}} ctx ({{pct}}%)",
+      "inputOutput": "· ↑{{input}} ↓{{output}}",
+      "cost": "· ${{cost}}"
+    },
     "DesignSandboxTasks": {
       "parentTasksIncludedFor": " · Parent tasks included for context",
       "searchViewsAndFilters_other": "Search, views and filters cover the {{count}} loaded tasks.",
@@ -10404,7 +10447,9 @@
       "unassigned": "unassigned",
       "userOwner": "user {{id}}",
       "wakeFinished": "Automatic retries are finished — a decision is needed",
-      "wakeNotRun": "The scheduled retry did not run — a retry or a decision is needed"
+      "wakeNotRun": "The scheduled retry did not run — a retry or a decision is needed",
+      "paperclip": "Paperclip",
+      "board": "Board"
     },
     "IssueReferenceActivitySummary": {
       "added": "Added references",
@@ -10524,7 +10569,10 @@
       "thisSubject": "this subject",
       "unknown": "Unknown",
       "unknownUser": "Unknown user",
-      "whoCanAccess": "Who can access this task"
+      "whoCanAccess": "Who can access this task",
+      "projectManaged": "project-managed",
+      "addSomeone": "Add someone",
+      "back": "Back"
     },
     "IssueSiblingNavigation": {
       "navigationLabel": "Sub-task navigation",
@@ -15212,6 +15260,12 @@
     }
   },
   "secrets": {
+    "ProposalsTab": {
+      "agentsProposeCredentialsAnd": "Agents propose credentials and access bindings; you approve or reject them here. Proposed values are never shown — only a fingerprint and length.",
+      "loadingProposals": "Loading proposals…",
+      "agent": "agent",
+      "by": "by"
+    },
     "Secrets": {
       "accessEventsRecorded": "Access events are recorded on each member's stored value when runtime resolution occurs.",
       "accessGrantedBody": "{{agent}} now receives {{key}}",
@@ -18539,6 +18593,11 @@
     "zoomOut": "Zoom out"
   },
   "tools": {
+    "EnforcementBanner": {
+      "toolAccessIsEnforced": "Tool access is enforced server-side by the tool gateway. These screens configure and observe that enforcement — they do not replace it. Agents see and call only the tools their profiles and policies allow; everything else is denied by default.",
+      "governedToolCallDenied_other": "governed tool calls were denied or failed in the last hour. Access is enforced server-side by the tool gateway — open the affected connector to review what was blocked and why.",
+      "governedToolCallDenied_one": "governed tool call was denied or failed in the last hour. Access is enforced server-side by the tool gateway — open the affected connector to review what was blocked and why."
+    },
     "WizardToolsStep": {
       "profilesWillBeAvailable": "Profiles will be available once app connections are ready. Browse the planned integrations in the meantime.",
       "matchToolsByA": "Match tools by a name pattern, a risk level, or a specific tool ID. These run on top of the choices above.",

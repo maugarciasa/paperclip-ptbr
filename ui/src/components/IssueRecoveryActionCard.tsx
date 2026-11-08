@@ -1209,7 +1209,7 @@ export function IssueRecoveryActionCard({
               >
                 {lineage.lane === "native_run" && (action.ownerType !== "board" || Boolean(lineage.liveRunId)) ? (
                   <>
-                    <span className="font-medium">Paperclip</span>
+                    <span className="font-medium">{t("issues.IssueRecoveryActionCard.paperclip")}</span>
                     <span className="text-muted-foreground">{t("issues.IssueRecoveryActionCard.recoversExistingRun")}</span>
                   </>
                 ) : recoveryOwnerIsSourceOwner ? (
@@ -1221,7 +1221,7 @@ export function IssueRecoveryActionCard({
                   </>
                 ) : action.ownerType === "board" ? (
                   <>
-                    <span className="font-medium">Board</span>
+                    <span className="font-medium">{t("issues.IssueRecoveryActionCard.board")}</span>
                     <span className="text-muted-foreground">{t("issues.IssueRecoveryActionCard.decidesNextOnly")}</span>
                   </>
                 ) : action.ownerType === "user" && action.ownerUserId ? (
@@ -1293,7 +1293,7 @@ export function IssueRecoveryActionCard({
                 <AgentLink agentId={action.ownerAgentId} agentMap={agentMap} />
               </>
             ) : action.ownerType === "board" ? (
-              <span className="font-medium">Board</span>
+              <span className="font-medium">{t("issues.IssueRecoveryActionCard.board")}</span>
             ) : action.ownerType === "user" && action.ownerUserId ? (
               <span className="font-medium">{t("issues.IssueRecoveryActionCard.userOwner", { id: action.ownerUserId.slice(0, 6) })}</span>
             ) : action.ownerType === "system" ? (
