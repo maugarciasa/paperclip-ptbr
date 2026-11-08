@@ -464,7 +464,11 @@
       "log": "Log",
       "patch": "Patch",
       "file": "File"
-    }
+    },
+    "yourAgent": "Your agent",
+    "thisTask": "this task",
+    "openTask": "Open task",
+    "unassigned": "Unassigned"
   },
   "onboarding": {
     "connectModelPreview": {
@@ -4859,7 +4863,8 @@
       "showMore": "Show more decisions",
       "unnamedProject": "Unnamed project",
       "noProject": "No project",
-      "otherAgents": "Other agents"
+      "otherAgents": "Other agents",
+      "inbox": "Inbox"
     },
     "BlockedInboxView": {
       "loadFailed": "Couldn't load the Blocked tab.",
@@ -8703,6 +8708,9 @@
       "anyone": "anyone",
       "notCreator": "anyone else",
       "humanOnly": "human only"
+    },
+    "properties": {
+      "loadingUsageLimit": "Loading usage limit"
     }
   },
   "nav": {
@@ -13096,7 +13104,9 @@
       "ascending": "Ascending",
       "descending": "Descending",
       "group": "Group",
-      "groupCases": "Group cases"
+      "groupCases": "Group cases",
+      "filterCasesActive_one": "Filter cases ({{count}} active)",
+      "filterCasesActive_other": "Filter cases ({{count}} active)"
     },
     "filters": {
       "filterBy": "Filter by {{name}}",
@@ -13278,6 +13288,10 @@
       "caseFields": "Case fields",
       "fields": "Fields",
       "fieldsHint": "from the skill's schema — rendered generically"
+    },
+    "CaseListRow": {
+      "taskUnavailable": "Task unavailable",
+      "noTaskLinked": "No task linked"
     }
   },
   "goals": {
@@ -17951,6 +17965,60 @@
     },
     "errors": {
       "selectOrganization": "Select an organization first."
+    }
+  },
+  "coordinator": {
+    "chatReceipts": {
+      "updatesFailed": "Decision updates couldn’t load.",
+      "loadingEarlier": "Loading earlier decisions…",
+      "loadEarlier": "Load earlier decisions"
+    },
+    "chatQuestions": {
+      "needsInput": "{{agent}} needs your input on {{task}}.",
+      "loadError": "Task questions couldn’t load."
+    },
+    "chatReferences": {
+      "chatWith": "Chat with {{name}}"
+    },
+    "chatHandoffs": {
+      "loadError": "Created tasks couldn’t load.",
+      "loadingEarlier": "Loading earlier tasks…",
+      "loadEarlier": "Load earlier tasks"
+    },
+    "interactionReceipt": {
+      "answersRecorded": "Answers recorded",
+      "approved": "Approved",
+      "changesRequested": "Changes requested",
+      "viewDecisionInTask": "View decision in task"
+    },
+    "tasks": {
+      "tasksAria": "Tasks",
+      "newTask": "New Task"
+    }
+  },
+  "issueOutput": {
+    "browseInGallery": "Browse {{filename}} in gallery",
+    "openFile": "Open {{filename}}",
+    "metadataUnavailable": "Output metadata is unavailable — this file can’t be played or downloaded here.",
+    "primary": "Primary",
+    "browse": "Browse",
+    "open": "Open",
+    "downloadFile": "Download {{filename}}",
+    "download": "Download"
+  },
+  "chat": {
+    "legacySend": {
+      "discardRecord": "Discard saved delivery record",
+      "discardTitle": "Discard saved delivery record?",
+      "discardDescription": "First check Activity. Discarding this browser record does not cancel an update that was already accepted. It lets you start a new update.",
+      "keepRecord": "Keep record",
+      "confirmDiscard": "Discard record"
+    },
+    "setup": {
+      "chooseAgent": "Choose agent",
+      "connectProvider": "Connect provider",
+      "tryIt": "Try it",
+      "progressAria": "Connection setup progress"
     }
   }
 }

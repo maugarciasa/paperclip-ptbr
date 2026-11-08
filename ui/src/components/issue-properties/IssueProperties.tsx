@@ -2433,7 +2433,7 @@ export function IssueProperties({
         {assigneeRuntimeStateLoading || (assigneeRateLimits && summarizeProviderRateLimits(assigneeRateLimits, Date.now())) ? (
           <PropertyRow label="Usage limit">
             {assigneeRuntimeStateLoading ? (
-              <Skeleton className="h-4 w-32" role="status" aria-label="Loading usage limit" />
+              <Skeleton className="h-4 w-32" role="status" aria-label={t("issues.properties.loadingUsageLimit", "Loading usage limit")} />
             ) : (
               <AgentRateLimitPropertyValue
                 snapshot={assigneeRateLimits}

@@ -6271,7 +6271,9 @@
       "searchAriaLabel": "Buscar casos",
       "searchPlaceholder": "Buscar casos…",
       "sortCases": "Ordenar casos",
-      "visibleFields": "Campos visíveis"
+      "visibleFields": "Campos visíveis",
+      "filterCasesActive_one": "Filtrar casos ({{count}} ativo)",
+      "filterCasesActive_other": "Filtrar casos ({{count}} ativos)"
     },
     "detail": {
       "attachments": "Anexos",
@@ -6358,6 +6360,10 @@
       "waitingForFinish": "Aguardando {{agent}} terminar.",
       "waitingForStart": "Aguardando {{agent}} iniciar.",
       "workflow": "Fluxo de trabalho"
+    },
+    "CaseListRow": {
+      "taskUnavailable": "Tarefa indisponível",
+      "noTaskLinked": "Nenhuma tarefa vinculada"
     }
   },
   "common": {
@@ -6791,7 +6797,11 @@
     "updating": "Atualizando...",
     "upload": "Enviar arquivo",
     "view": "Visualizar",
-    "yes": "Sim"
+    "yes": "Sim",
+    "yourAgent": "Seu agente",
+    "thisTask": "esta tarefa",
+    "openTask": "Abrir tarefa",
+    "unassigned": "Não atribuído"
   },
   "companies": {
     "CompanySwitcher": {
@@ -7945,7 +7955,8 @@
       "sortDecisions": "Ordenar decisões",
       "sortHistory": "Ordenar histórico de decisões",
       "stalledText": "Esta tarefa continua em revisão, sem revisor ativo nem continuação. Devolva-a ao trabalho, solicite mudanças ou marque a tarefa como concluída.",
-      "unnamedProject": "Projeto sem nome"
+      "unnamedProject": "Projeto sem nome",
+      "inbox": "Caixa de entrada"
     },
     "attention": {
       "dateBucket": {
@@ -12034,6 +12045,9 @@
       "anyone": "qualquer pessoa",
       "notCreator": "qualquer outra pessoa",
       "humanOnly": "somente humanos"
+    },
+    "properties": {
+      "loadingUsageLimit": "Carregando limite de uso"
     }
   },
   "nav": {
@@ -17951,6 +17965,60 @@
     },
     "errors": {
       "selectOrganization": "Selecione uma empresa primeiro."
+    }
+  },
+  "coordinator": {
+    "chatReceipts": {
+      "updatesFailed": "Não foi possível carregar as atualizações de decisões.",
+      "loadingEarlier": "Carregando decisões anteriores…",
+      "loadEarlier": "Carregar decisões anteriores"
+    },
+    "chatQuestions": {
+      "needsInput": "{{agent}} precisa da sua resposta sobre {{task}}.",
+      "loadError": "Não foi possível carregar as perguntas da tarefa."
+    },
+    "chatReferences": {
+      "chatWith": "Conversar com {{name}}"
+    },
+    "chatHandoffs": {
+      "loadError": "Não foi possível carregar as tarefas criadas.",
+      "loadingEarlier": "Carregando tarefas anteriores…",
+      "loadEarlier": "Carregar tarefas anteriores"
+    },
+    "interactionReceipt": {
+      "answersRecorded": "Respostas registradas",
+      "approved": "Aprovado",
+      "changesRequested": "Alterações solicitadas",
+      "viewDecisionInTask": "Ver decisão na tarefa"
+    },
+    "tasks": {
+      "tasksAria": "Tarefas",
+      "newTask": "Nova Tarefa"
+    }
+  },
+  "issueOutput": {
+    "browseInGallery": "Explorar {{filename}} na galeria",
+    "openFile": "Abrir {{filename}}",
+    "metadataUnavailable": "Metadados do resultado indisponíveis — este arquivo não pode ser reproduzido nem baixado aqui.",
+    "primary": "Principal",
+    "browse": "Explorar",
+    "open": "Abrir",
+    "downloadFile": "Baixar {{filename}}",
+    "download": "Baixar"
+  },
+  "chat": {
+    "legacySend": {
+      "discardRecord": "Descartar registro de envio salvo",
+      "discardTitle": "Descartar registro de envio salvo?",
+      "discardDescription": "Primeiro verifique a Atividade. Descartar este registro do navegador não cancela uma atualização que já foi aceita. Isso permite iniciar uma nova atualização.",
+      "keepRecord": "Manter registro",
+      "confirmDiscard": "Descartar registro"
+    },
+    "setup": {
+      "chooseAgent": "Escolher agente",
+      "connectProvider": "Conectar provedor",
+      "tryIt": "Experimentar",
+      "progressAria": "Progresso da configuração da conexão"
     }
   }
 }

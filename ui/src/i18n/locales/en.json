@@ -6271,7 +6271,9 @@
       "searchAriaLabel": "Search cases",
       "searchPlaceholder": "Search cases…",
       "sortCases": "Sort cases",
-      "visibleFields": "Visible fields"
+      "visibleFields": "Visible fields",
+      "filterCasesActive_one": "Filter cases ({{count}} active)",
+      "filterCasesActive_other": "Filter cases ({{count}} active)"
     },
     "detail": {
       "attachments": "Attachments",
@@ -6358,6 +6360,10 @@
       "waitingForFinish": "Waiting for {{agent}} to finish.",
       "waitingForStart": "Waiting for {{agent}} to start.",
       "workflow": "Workflow"
+    },
+    "CaseListRow": {
+      "taskUnavailable": "Task unavailable",
+      "noTaskLinked": "No task linked"
     }
   },
   "common": {
@@ -6791,7 +6797,11 @@
     "updating": "Updating...",
     "upload": "Upload",
     "view": "View",
-    "yes": "Yes"
+    "yes": "Yes",
+    "yourAgent": "Your agent",
+    "thisTask": "this task",
+    "openTask": "Open task",
+    "unassigned": "Unassigned"
   },
   "companies": {
     "CompanySwitcher": {
@@ -7945,7 +7955,8 @@
       "sortDecisions": "Sort decisions",
       "sortHistory": "Sort decision history",
       "stalledText": "This task is still in review with no active reviewer or continuation. Return it to work, request changes, or mark the task done.",
-      "unnamedProject": "Unnamed project"
+      "unnamedProject": "Unnamed project",
+      "inbox": "Inbox"
     },
     "attention": {
       "dateBucket": {
@@ -12034,6 +12045,9 @@
       "anyone": "anyone",
       "notCreator": "anyone else",
       "humanOnly": "human only"
+    },
+    "properties": {
+      "loadingUsageLimit": "Loading usage limit"
     }
   },
   "nav": {
@@ -17951,6 +17965,60 @@
     },
     "errors": {
       "selectOrganization": "Select an organization first."
+    }
+  },
+  "coordinator": {
+    "chatReceipts": {
+      "updatesFailed": "Decision updates couldn’t load.",
+      "loadingEarlier": "Loading earlier decisions…",
+      "loadEarlier": "Load earlier decisions"
+    },
+    "chatQuestions": {
+      "needsInput": "{{agent}} needs your input on {{task}}.",
+      "loadError": "Task questions couldn’t load."
+    },
+    "chatReferences": {
+      "chatWith": "Chat with {{name}}"
+    },
+    "chatHandoffs": {
+      "loadError": "Created tasks couldn’t load.",
+      "loadingEarlier": "Loading earlier tasks…",
+      "loadEarlier": "Load earlier tasks"
+    },
+    "interactionReceipt": {
+      "answersRecorded": "Answers recorded",
+      "approved": "Approved",
+      "changesRequested": "Changes requested",
+      "viewDecisionInTask": "View decision in task"
+    },
+    "tasks": {
+      "tasksAria": "Tasks",
+      "newTask": "New Task"
+    }
+  },
+  "issueOutput": {
+    "browseInGallery": "Browse {{filename}} in gallery",
+    "openFile": "Open {{filename}}",
+    "metadataUnavailable": "Output metadata is unavailable — this file can’t be played or downloaded here.",
+    "primary": "Primary",
+    "browse": "Browse",
+    "open": "Open",
+    "downloadFile": "Download {{filename}}",
+    "download": "Download"
+  },
+  "chat": {
+    "legacySend": {
+      "discardRecord": "Discard saved delivery record",
+      "discardTitle": "Discard saved delivery record?",
+      "discardDescription": "First check Activity. Discarding this browser record does not cancel an update that was already accepted. It lets you start a new update.",
+      "keepRecord": "Keep record",
+      "confirmDiscard": "Discard record"
+    },
+    "setup": {
+      "chooseAgent": "Choose agent",
+      "connectProvider": "Connect provider",
+      "tryIt": "Try it",
+      "progressAria": "Connection setup progress"
     }
   }
 }

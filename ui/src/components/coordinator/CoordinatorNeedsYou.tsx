@@ -174,7 +174,7 @@ export function CoordinatorNeedsYou() {
   const filtersActive = Boolean(query.trim() || agentFilter || projectFilter);
   const closeHistory = useCallback(() => { setHistoryOpen(false); closePanel(); }, [closePanel]);
   const showHistory = () => { setHistoryOpen(true); if (!isMobile) setPanelVisible(true); };
-  useEffect(() => { setBreadcrumbs([{ label: "Inbox" }]); }, [setBreadcrumbs]);
+  useEffect(() => { setBreadcrumbs([{ label: t("inbox.CoordinatorNeedsYou.inbox", "Inbox") }]); }, [setBreadcrumbs, t]);
   useEffect(() => {
     setSettling([]); setHistoryOpen(false); setNow(Date.now()); closePanel();
     return closePanel;
@@ -208,7 +208,7 @@ export function CoordinatorNeedsYou() {
         <div className="min-h-0 flex-1 overflow-y-auto p-4"><HistoryPanel companyId={selectedCompanyId} agents={agentQuery.data ?? []} onClose={closeHistory} mobile /></div>
       </SheetContent>
     </Sheet> : null}
-    <header className="flex items-center justify-between gap-3"><h1 className="text-2xl font-medium">Inbox</h1><Button variant="ghost" onClick={showHistory}><History className="size-4" />Decision history</Button></header>
+    <header className="flex items-center justify-between gap-3"><h1 className="text-2xl font-medium">{t("inbox.CoordinatorNeedsYou.inbox", "Inbox")}</h1><Button variant="ghost" onClick={showHistory}><History className="size-4" />{t("inbox.CoordinatorNeedsYou.decisionHistory", "Decision history")}</Button></header>
     <div data-canonical-toolbar="coordinator-decisions" role="toolbar" aria-label={t("inbox.CoordinatorNeedsYou.controls")} className="flex flex-wrap items-center gap-2">
       <ToolbarSearch query={query} onQueryChange={setQuery} label={t("inbox.CoordinatorNeedsYou.searchDecisions")} placeholder={t("inbox.CoordinatorNeedsYou.searchPlaceholder")} />
       <NativeSelect aria-label={t("inbox.CoordinatorNeedsYou.filterDecisionsAgent")} value={agentFilter} onChange={(event) => setAgentFilter(event.target.value)} className="w-auto"><option value="">{t("inbox.CoordinatorNeedsYou.allAgents")}</option>{(agentQuery.data ?? []).map((agent) => <option key={agent.id} value={agent.id}>{agent.name}</option>)}</NativeSelect>
