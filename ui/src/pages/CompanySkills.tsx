@@ -875,7 +875,7 @@ function SkillCard({
         <div className="min-w-0 flex-1">
           <div className="truncate font-mono text-sm font-medium text-foreground">{card.name}</div>
           <div className="truncate text-xs text-muted-foreground">
-            by {card.author}{card.version ? ` · ${card.version}` : ""}
+            {t("skills.CompanySkills.byAuthor")} {card.author}{card.version ? ` · ${card.version}` : ""}
           </div>
           {badgeFolder !== undefined ? (
             <div className="mt-1 flex min-w-0 items-center gap-1.5 text-xs text-muted-foreground">
@@ -921,7 +921,7 @@ function SkillCard({
       {card.forkedFrom ? (
         <div className="mt-2 inline-flex items-center gap-1 text-(length:--text-micro) text-muted-foreground">
           <GitFork className="h-3 w-3" aria-hidden="true" />
-          Forked
+          {t("skills.CompanySkills.forkedBadge")}
         </div>
       ) : null}
 
@@ -1223,11 +1223,11 @@ export function DiscoveryGrid({
           <div className="border-b border-border px-4 py-4">
             <h2 className="text-sm font-semibold text-foreground">{t("skills.CompanySkills.browseByCategory")}</h2>
             <p className="text-xs text-muted-foreground">
-              Filter {installedView ? "installed" : "discoverable"} skills.
+              {t("skills.CompanySkills.filterSkills", { view: installedView ? t("skills.CompanySkills.viewInstalled") : t("skills.CompanySkills.viewDiscoverable") })} {installedView ? "installed" : "discoverable"} skills.
             </p>
           </div>
           <div className="px-4 pb-1 pt-3 text-(length:--text-micro) font-medium uppercase tracking-wide text-muted-foreground">
-            Categories
+            {t("skills.CompanySkills.categoriesLabel")}
           </div>
           <div className="min-h-0 flex-1 overflow-y-auto pb-4">
             <CategoryNav
@@ -1301,7 +1301,7 @@ export function DiscoveryGrid({
                   title={`Refresh skills from ${activeProjectFolder.name}`}
                 >
                   <RefreshCw className={cn("h-3.5 w-3.5", scanPending && "animate-spin")} />
-                  Refresh
+                  {t("skills.CompanySkills.refresh")}
                 </Button>
               ) : null}
             </div>
@@ -1349,12 +1349,12 @@ export function DiscoveryGrid({
                 <div className="mt-3 flex flex-col items-center gap-2">
                   {installedView ? (
                     <Button size="sm" onClick={onBrowseDiscover}>
-                      <Compass className="mr-1.5 h-3.5 w-3.5" /> Discover skills
+                      <Compass className="mr-1.5 h-3.5 w-3.5" /> {t("skills.CompanySkills.discoverSkills")}
                     </Button>
                   ) : null}
                   <Button size="sm" variant="outline" asChild><Link to="/skills/sources/new">{t("skills.CompanySkills.importFromGithub")}</Link></Button>
                   <Button size="sm" variant="ghost" onClick={onCreate}>
-                    Create a skill
+                    {t("skills.CompanySkills.createSkillCta")}
                   </Button>
                 </div>
               ) : (search || activeCategory || sourceFilterActive) ? (
@@ -1368,7 +1368,7 @@ export function DiscoveryGrid({
                       setSourceBadgeFilter("all");
                     }}
                   >
-                    Clear filters
+                    {t("skills.CompanySkills.clearFilters")}
                   </Button>
                 </div>
               ) : null}
@@ -1460,7 +1460,7 @@ function NewSkillWizard({
       {draft.forkedFromName ? (
         <div className="flex items-center gap-2 rounded-md border border-border bg-muted/30 px-3 py-2 text-xs text-muted-foreground">
           <GitFork className="h-3.5 w-3.5" />
-          Forking {draft.forkedFromName}
+          {t("skills.CompanySkills.forkingName", { name: draft.forkedFromName })}
         </div>
       ) : null}
 
@@ -1618,15 +1618,15 @@ function NewSkillWizard({
 
       <div className="flex items-center justify-between gap-2 border-t border-border pt-3">
         <Button variant="ghost" size="sm" onClick={onCancel} disabled={isPending}>
-          Cancel
+          {t("skills.CompanySkills.cancelLabel")}
         </Button>
         <div className="flex items-center gap-2">
           <Button variant="ghost" size="sm" onClick={() => setStep((value) => Math.max(0, value - 1))} disabled={isPending || step === 0}>
-            Back
+            {t("skills.CompanySkills.back")}
           </Button>
           {step < steps.length - 1 ? (
             <Button size="sm" onClick={() => setStep((value) => Math.min(steps.length - 1, value + 1))} disabled={!nameValid}>
-              Next
+              {t("skills.CompanySkills.next")}
             </Button>
           ) : (
             <Button size="sm" onClick={submit} disabled={isPending || !nameValid}>
@@ -1680,7 +1680,7 @@ function CatalogList({
   if (filtered.length === 0) {
     return (
       <div className="px-4 py-6 text-sm text-muted-foreground">
-        No catalog skills match this filter.
+        {t("skills.CompanySkills.noCatalogMatch")}
       </div>
     );
   }
@@ -1757,7 +1757,7 @@ function CatalogList({
       {bundled.length > 0 && kindFilter !== "optional" ? (
         <div>
           <div className="border-b border-border bg-background px-3 py-1.5 text-xs font-semibold uppercase tracking-wide text-muted-foreground">
-            Bundled · {bundled.length}
+            {t("skills.CompanySkills.countBundled", { count: bundled.length })}
           </div>
           {bundled.map(renderRow)}
         </div>
@@ -1765,7 +1765,7 @@ function CatalogList({
       {optional.length > 0 && kindFilter !== "bundled" ? (
         <div>
           <div className="border-b border-border bg-background px-3 py-1.5 text-xs font-semibold uppercase tracking-wide text-muted-foreground">
-            Optional · {optional.length}
+            {t("skills.CompanySkills.countOptional", { count: optional.length })}
           </div>
           {optional.map(renderRow)}
         </div>
@@ -1773,7 +1773,7 @@ function CatalogList({
       {installed.length > 0 ? (
         <div>
           <div className="border-b border-border bg-background px-3 py-1.5 text-xs font-semibold uppercase tracking-wide text-muted-foreground">
-            Installed · {installed.length}
+            {t("skills.CompanySkills.countInstalled", { count: installed.length })}
           </div>
           {installed.map(renderRow)}
         </div>
@@ -1824,7 +1824,7 @@ function CatalogDetailPane({
           <span>
             <Button disabled>
               <Download className="mr-1.5 h-3.5 w-3.5" />
-              Install skill
+              {t("skills.CompanySkills.installSkill")}
             </Button>
           </span>
         </TooltipTrigger>
@@ -1842,14 +1842,14 @@ function CatalogDetailPane({
     cta = (
       <Button onClick={onUpdate} disabled={loadingPrimaryAction} className="border-amber-500/40 bg-amber-500/20 text-amber-900 dark:text-amber-100 hover:bg-amber-500/30">
         <ArrowUpCircle className="mr-1.5 h-3.5 w-3.5" />
-        Update from catalog
+        {t("skills.CompanySkills.updateFromCatalog")}
       </Button>
     );
   } else {
     cta = (
       <Button variant="ghost" onClick={() => installedSkillId && onOpenInstalled(installedSkillId)}>
         <Check className="mr-1.5 h-3.5 w-3.5" />
-        Installed · Open in library
+        {t("skills.CompanySkills.installedOpenLibrary")}
       </Button>
     );
   }
@@ -2062,7 +2062,7 @@ export function InstallPreviewDialog({
                 {skill.compatibility === "compatible" ? (
                   <span className="inline-flex items-center gap-1 text-muted-foreground">
                     <Check className="h-3 w-3" aria-hidden="true" />
-                    Compatible
+                    {t("skills.CompanySkills.compatible")}
                   </span>
                 ) : (
                   <CompatChip compatibility={skill.compatibility} />
@@ -2082,7 +2082,7 @@ export function InstallPreviewDialog({
 
           <div className="rounded-md border border-border">
             <div className="border-b border-border px-3 py-2 text-xs uppercase tracking-wide text-muted-foreground">
-              Files ({skill.files.length})
+              {t("skills.CompanySkills.filesCount", { count: skill.files.length })}
             </div>
             <div className="max-h-48 overflow-y-auto">
               {skill.files.map((file) => (
@@ -2097,8 +2097,8 @@ export function InstallPreviewDialog({
 
           {conflict ? (
             <div className="rounded-md border border-amber-500/40 bg-amber-500/10 p-3 text-xs text-amber-800 dark:text-amber-200">
-              An existing skill with key <span className="font-mono">{conflict.key}</span> is installed (
-              {conflict.sourceLabel ?? conflict.sourceType}). Installing will {defaultAction === "update" ? "overwrite the catalog content" : "replace the existing skill"}.
+              {t("skills.CompanySkills.conflictLead")} <span className="font-mono">{conflict.key}</span> {t("skills.CompanySkills.conflictMid")}
+              {conflict.sourceLabel ?? conflict.sourceType}{t("skills.CompanySkills.conflictEnd", { action: defaultAction === "update" ? t("skills.CompanySkills.overwriteCatalog") : t("skills.CompanySkills.replaceExisting") })}
             </div>
           ) : null}
 
@@ -2106,7 +2106,7 @@ export function InstallPreviewDialog({
             <div className="rounded-md border border-border p-3">
               <div className="mb-1 text-xs uppercase tracking-wide text-muted-foreground">{t("skills.CompanySkills.enableForAgents")}</div>
               <p className="mb-2 text-xs text-muted-foreground">
-                Installing adds the skill to the organization library. Agents can only use it once it is enabled for them.
+                {t("skills.CompanySkills.installingAdds")}
               </p>
               <AgentMultiSelect
                 agents={agents}
@@ -2135,7 +2135,7 @@ export function InstallPreviewDialog({
             className="inline-flex items-center gap-1 text-xs text-muted-foreground hover:text-foreground"
           >
             {advancedOpen ? <ChevronDown className="h-3 w-3" /> : <ChevronRight className="h-3 w-3" />}
-            Advanced
+            {t("skills.CompanySkills.advanced")}
           </button>
           {advancedOpen ? (
             <div className="space-y-3 rounded-md border border-border p-3 text-xs">
@@ -2159,7 +2159,7 @@ export function InstallPreviewDialog({
 
         <DialogFooter>
           <Button variant="ghost" onClick={() => onOpenChange(false)} disabled={isPending}>
-            Cancel
+            {t("skills.CompanySkills.cancelLabel")}
           </Button>
           <Button
             variant={confirmVariant}
@@ -2395,16 +2395,16 @@ function SkillList({
     if (sourceFilter !== "all" && skills.length > 0) {
       return (
         <div className="px-4 py-6 text-sm text-muted-foreground">
-          No {sourceFilterLabel(sourceFilter).toLowerCase()} skills installed.{" "}
+          {t("skills.CompanySkills.noSourceSkills", { source: sourceFilterLabel(sourceFilter).toLowerCase() })}{" "}
           <button type="button" className="text-foreground underline" onClick={onClearFilters}>
-            Clear filter
+            {t("skills.CompanySkills.clearFilter")}
           </button>
         </div>
       );
     }
     return (
       <div className="px-4 py-6 text-sm text-muted-foreground">
-        No skills match this filter.
+        {t("skills.CompanySkills.noSkillsMatchFilter")}
       </div>
     );
   }
@@ -2705,7 +2705,7 @@ function SkillLocationCard({
         {onMove ? (
           <Button size="sm" variant="outline" onClick={onMove}>
             <FolderInput className="mr-1.5 h-3.5 w-3.5" />
-            Move
+            {t("skills.CompanySkills.move")}
           </Button>
         ) : null}
       </div>
@@ -2740,7 +2740,7 @@ function SkillTagsEditor({
     <section>
       <div className="mb-2 flex items-center gap-1.5 text-xs font-medium uppercase tracking-wide text-muted-foreground">
         <Hash className="h-3 w-3" />
-        Tags
+        {t("skills.CompanySkills.tags")}
       </div>
       <div className="flex flex-wrap gap-1.5">
         {categories.map((tag) => (
@@ -2993,13 +2993,13 @@ export function SkillDetailPage({
                     className={cn("px-3 py-1.5 text-sm", viewMode === "preview" ? "text-foreground" : "text-muted-foreground")}
                     onClick={() => setViewMode("preview")}
                   >
-                    <span className="flex items-center gap-1.5"><Eye className="h-3.5 w-3.5" /> View</span>
+                    <span className="flex items-center gap-1.5"><Eye className="h-3.5 w-3.5" /> {t("skills.CompanySkills.view")}</span>
                   </button>
                   <button
                     className={cn("border-l border-border px-3 py-1.5 text-sm", viewMode === "code" ? "text-foreground" : "text-muted-foreground")}
                     onClick={() => setViewMode("code")}
                   >
-                    <span className="flex items-center gap-1.5"><Code2 className="h-3.5 w-3.5" /> Code</span>
+                    <span className="flex items-center gap-1.5"><Code2 className="h-3.5 w-3.5" /> {t("skills.CompanySkills.code")}</span>
                   </button>
                 </div>
               ) : null}
@@ -3014,7 +3014,7 @@ export function SkillDetailPage({
                   </>
                 ) : (
                   <Button variant="ghost" size="sm" onClick={() => setEditMode(true)}>
-                    <Pencil className="mr-1.5 h-3.5 w-3.5" /> Edit
+                    <Pencil className="mr-1.5 h-3.5 w-3.5" /> {t("skills.CompanySkills.editLabel")}
                   </Button>
                 )
               ) : !skill.editable ? (
@@ -3124,7 +3124,7 @@ export function SkillDetailPage({
             onClick={() => openVersionDiff()}
             disabled={sortedVersions.length < 2}
           >
-            <History className="mr-1.5 h-3.5 w-3.5" /> Compare
+            <History className="mr-1.5 h-3.5 w-3.5" /> {t("skills.CompanySkills.compare")}
           </Button>
         </div>
         <div className="border-y border-border">
@@ -3138,7 +3138,7 @@ export function SkillDetailPage({
                 <div className="min-w-0">
                   <div className="font-medium">{versionLabel(version)}</div>
                   <div className="mt-1 text-xs text-muted-foreground">
-                    {relativeTime(version.createdAt)} · {version.fileInventory.length} files
+                    {relativeTime(version.createdAt)} · {t("skills.CompanySkills.versionFiles", { count: version.fileInventory.length })}
                   </div>
                 </div>
                 <Button
@@ -3147,7 +3147,7 @@ export function SkillDetailPage({
                   size="sm"
                   onClick={() => openVersionDiff(version.id)}
                 >
-                  View diff
+                  {t("skills.CompanySkills.viewDiff")}
                 </Button>
               </div>
             ))
@@ -3174,7 +3174,7 @@ export function SkillDetailPage({
       <div className="space-y-3">
         <div className="flex items-center justify-between gap-3">
           <p className="text-sm text-muted-foreground">
-            {attached.length} {attached.length === 1 ? "agent" : "agents"} attached
+            {t("skills.CompanySkills.attachedAgents", { count: attached.length })}
             {selectedVersion ? ` · ${versionLabel(selectedVersion)}` : " · Latest"}
           </p>
           <AttachAgentsPopover
@@ -3188,7 +3188,7 @@ export function SkillDetailPage({
         </div>
         {attached.length === 0 ? (
           <div className="rounded-md border border-dashed border-border py-8 text-center text-sm text-muted-foreground">
-            No agents are using this skill yet. Use “Add to agent” to attach it.
+            {t("skills.CompanySkills.noAgentsUsing")}
           </div>
         ) : (
           <div className="border-y border-border">
@@ -3268,7 +3268,7 @@ export function SkillDetailPage({
                 {/* GitHub-style "by" attribution sits directly under the title. */}
                 {detail.authorName ? (
                   <p className="mt-0.5 text-sm text-muted-foreground">
-                    by <span className="text-foreground">{detail.authorName}</span>
+                    {t("skills.CompanySkills.byAuthor")} <span className="text-foreground">{detail.authorName}</span>
                   </p>
                 ) : null}
                 {subtitleText ? (
@@ -3415,7 +3415,7 @@ export function SkillDetailPage({
                   })}
                   {detail.usedByAgents.length > 3 ? (
                     <p className="px-1.5 pt-0.5 text-xs text-muted-foreground">
-                      and {detail.usedByAgents.length - 3} more
+                      {t("skills.CompanySkills.andMore", { count: detail.usedByAgents.length - 3 })}
                     </p>
                   ) : null}
                 </div>
@@ -3496,12 +3496,12 @@ export function SkillDetailPage({
                 </div>
                 <Button variant="outline" size="sm" className="w-full" onClick={onCheckUpdates} disabled={checkUpdatesPending || updateStatusLoading}>
                   <RefreshCw className={cn("mr-1.5 h-3.5 w-3.5", (checkUpdatesPending || updateStatusLoading) && "animate-spin")} />
-                  Check for updates
+                  {t("skills.CompanySkills.checkForUpdates")}
                 </Button>
                 {updateStatus?.supported && updateStatus.hasUpdate ? (
                   <Button size="sm" className="w-full" onClick={onInstallUpdate} disabled={installUpdatePending}>
                     <ArrowUpCircle className={cn("mr-1.5 h-3.5 w-3.5", installUpdatePending && "animate-spin")} />
-                    Install update{latestPin ? ` ${latestPin}` : ""}
+                    {t("skills.CompanySkills.installUpdate")}{latestPin ? ` ${latestPin}` : ""}
                   </Button>
                 ) : updateStatus?.supported && !updateStatus.hasUpdate && !updateStatusLoading ? (
                   <p className="text-xs text-muted-foreground">{t("skills.CompanySkills.upToDateDot")}</p>
@@ -3543,7 +3543,7 @@ export function SkillDetailPage({
             }}
             disabled={savePending}
           >
-            Discard
+            {t("skills.CompanySkills.discard")}
           </Button>
           <Button size="sm" onClick={onSave} disabled={savePending}>
             <Save className="mr-1.5 h-3.5 w-3.5" />
@@ -3594,7 +3594,7 @@ export function SkillDetailPage({
                 }}
                 disabled={!settingsDirty || updateSettingsPending}
               >
-                Reset
+                {t("skills.CompanySkills.reset")}
               </Button>
               <Button
                 type="button"
@@ -3785,7 +3785,7 @@ function SkillPane({
                 <span className="text-(length:--text-micro) uppercase tracking-(--tracking-caps) text-muted-foreground">{t("skills.CompanySkills.pinLabel")}</span>
                 <span className="font-mono text-xs">{currentPin ?? "untracked"}</span>
                 {updateStatus?.trackingRef && (
-                  <span className="text-xs text-muted-foreground">tracking {updateStatus.trackingRef}</span>
+                  <span className="text-xs text-muted-foreground">{t("skills.CompanySkills.trackingRef", { ref: updateStatus.trackingRef })}</span>
                 )}
                 <Button
                   variant="ghost"
@@ -3794,7 +3794,7 @@ function SkillPane({
                   disabled={checkUpdatesPending || updateStatusLoading}
                 >
                   <RefreshCw className={cn("mr-1.5 h-3.5 w-3.5", (checkUpdatesPending || updateStatusLoading) && "animate-spin")} />
-                  Check for updates
+                  {t("skills.CompanySkills.checkForUpdates")}
                 </Button>
                 {updateStatus?.supported && updateStatus.hasUpdate && (
                   <Button
@@ -3803,7 +3803,7 @@ function SkillPane({
                     disabled={installUpdatePending}
                   >
                     <RefreshCw className={cn("mr-1.5 h-3.5 w-3.5", installUpdatePending && "animate-spin")} />
-                    Install update{latestPin ? ` ${latestPin}` : ""}
+                    {t("skills.CompanySkills.installUpdate")}{latestPin ? ` ${latestPin}` : ""}
                   </Button>
                 )}
                 {updateStatus?.supported && !updateStatus.hasUpdate && !updateStatusLoading && (
@@ -3889,7 +3889,7 @@ function SkillPane({
                 >
                   <span className="flex items-center gap-1.5">
                     <Eye className="h-3.5 w-3.5" />
-                    View
+                    {t("skills.CompanySkills.view")}
                   </span>
                 </button>
                 <button
@@ -3898,7 +3898,7 @@ function SkillPane({
                 >
                   <span className="flex items-center gap-1.5">
                     <Code2 className="h-3.5 w-3.5" />
-                    Code
+                    {t("skills.CompanySkills.code")}
                   </span>
                 </button>
               </div>
@@ -3906,7 +3906,7 @@ function SkillPane({
             {editMode && file?.editable && (
               <>
                 <Button variant="ghost" size="sm" onClick={() => setEditMode(false)} disabled={savePending}>
-                  Cancel
+                  {t("skills.CompanySkills.cancelLabel")}
                 </Button>
                 <Button size="sm" onClick={onSave} disabled={savePending}>
                   <Save className="mr-1.5 h-3.5 w-3.5" />
@@ -5175,24 +5175,24 @@ export function CompanySkills({ collectionView }: { collectionView?: "authored" 
             </p>
             {deleteTargetDetail?.usedByAgents?.length ? (
               <div className="rounded-md border border-border px-3 py-3 text-muted-foreground">
-                Currently used by {deleteTargetDetail.usedByAgents.map((agent) => agent.name).join(", ")}.
+                {t("skills.CompanySkills.currentlyUsedBy", { names: deleteTargetDetail.usedByAgents.map((agent) => agent.name).join(", ") })}
               </div>
             ) : null}
             {(deleteTargetDetail?.usedByAgents.length ?? 0) > 0 ? (
               <p className="text-muted-foreground">
-                Detach this skill from all agents to enable removal.
+                {t("skills.CompanySkills.detachToRemove")}
               </p>
             ) : null}
           </div>
           <DialogFooter>
             {(deleteTargetDetail?.usedByAgents.length ?? 0) > 0 ? (
               <Button variant="ghost" onClick={() => closeDeleteDialog(false)}>
-                Close
+                {t("skills.CompanySkills.close")}
               </Button>
             ) : (
               <>
                 <Button variant="ghost" onClick={() => closeDeleteDialog(false)} disabled={deleteSkill.isPending}>
-                  Cancel
+                  {t("skills.CompanySkills.cancelLabel")}
                 </Button>
                 <Button
                   variant="destructive"
@@ -5225,7 +5225,7 @@ export function CompanySkills({ collectionView }: { collectionView?: "authored" 
               <span>
                 <span className="block font-medium">{t("skills.CompanySkills.browseSkillsSh")}</span>
                 <span className="mt-1 block text-muted-foreground">
-                  Find install commands and paste one here.
+                  {t("skills.CompanySkills.findInstallCommands")}
                 </span>
               </span>
               <ExternalLink className="mt-0.5 h-4 w-4 shrink-0 text-muted-foreground" />
@@ -5239,7 +5239,7 @@ export function CompanySkills({ collectionView }: { collectionView?: "authored" 
               <span>
                 <span className="block font-medium">{t("skills.CompanySkills.searchGithub")}</span>
                 <span className="mt-1 block text-muted-foreground">
-                  Look for repositories with `SKILL.md`, then paste the repo URL here.
+                  {t("skills.CompanySkills.lookForReposHere")}
                 </span>
               </span>
               <ExternalLink className="mt-0.5 h-4 w-4 shrink-0 text-muted-foreground" />
