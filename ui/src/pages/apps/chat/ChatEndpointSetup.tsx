@@ -1133,16 +1133,16 @@ function ProviderConnectStep({
           </div>
           <ol className="list-decimal space-y-3 pl-5 text-sm">
             <li>
-              <strong>Microsoft Entra admin center · App registrations</strong>: {t("apps.ChatEndpointSetup.portalSelect")} <strong>New registration</strong>, {t("apps.ChatEndpointSetup.portalChoose")} <strong>Accounts in this organizational directory only (Single tenant)</strong>, {t("apps.ChatEndpointSetup.portalThenSelect")} <strong>Register</strong>. {t("apps.ChatEndpointSetup.portalCopy")} <strong>Application (client) ID</strong> {t("apps.ChatEndpointSetup.portalAnd")} <strong>Directory (tenant) ID</strong>. {t("apps.ChatEndpointSetup.portalUnder")} <strong>Certificates &amp; secrets · Client secrets</strong>, {t("apps.ChatEndpointSetup.portalSelect")} <strong>New client secret</strong> {t("apps.ChatEndpointSetup.portalAndCopyIts")} <strong>Value</strong>, {t("apps.ChatEndpointSetup.portalNotItsSecretId")}
+              <strong>{t("apps.ChatEndpointSetup.microsoftEntraAdminCenter")}</strong>: {t("apps.ChatEndpointSetup.portalSelect")} <strong>{t("apps.ChatEndpointSetup.newRegistration")}</strong>, {t("apps.ChatEndpointSetup.portalChoose")} <strong>{t("apps.ChatEndpointSetup.accountsInThisOrganizational")}</strong>, {t("apps.ChatEndpointSetup.portalThenSelect")} <strong>{t("apps.ChatEndpointSetup.register")}</strong>. {t("apps.ChatEndpointSetup.portalCopy")} <strong>{t("apps.ChatEndpointSetup.applicationClientId")}</strong> {t("apps.ChatEndpointSetup.portalAnd")} <strong>{t("apps.ChatEndpointSetup.directoryTenantId")}</strong>. {t("apps.ChatEndpointSetup.portalUnder")} <strong>Certificates &amp; secrets · Client secrets</strong>, {t("apps.ChatEndpointSetup.portalSelect")} <strong>{t("apps.ChatEndpointSetup.newClientSecret")}</strong> {t("apps.ChatEndpointSetup.portalAndCopyIts")} <strong>{t("apps.ChatEndpointSetup.value")}</strong>, {t("apps.ChatEndpointSetup.portalNotItsSecretId")}
             </li>
             <li>
-              <strong>Azure · Create Azure Bot</strong>: {t("apps.ChatEndpointSetup.portalSet")} <strong>Microsoft App ID</strong> {t("apps.ChatEndpointSetup.portalTo")} <strong>Single Tenant</strong>, {t("apps.ChatEndpointSetup.portalSet")} <strong>Creation type</strong> {t("apps.ChatEndpointSetup.portalTo")} <strong>Use existing app registration</strong>{t("apps.ChatEndpointSetup.teamsEnterAndOpen")} <strong>Settings · Configuration</strong> {t("apps.ChatEndpointSetup.teamsAndPaste")} <strong>Messaging endpoint</strong>; {t("apps.ChatEndpointSetup.teamsThenOpen")} <strong>Settings · Channels</strong> {t("apps.ChatEndpointSetup.teamsAndEnable")} <strong>Microsoft Teams</strong>.
+              <strong>{t("apps.ChatEndpointSetup.azureCreateAzureBot")}</strong>: {t("apps.ChatEndpointSetup.portalSet")} <strong>{t("apps.ChatEndpointSetup.microsoftAppId")}</strong> {t("apps.ChatEndpointSetup.portalTo")} <strong>{t("apps.ChatEndpointSetup.singleTenant")}</strong>, {t("apps.ChatEndpointSetup.portalSet")} <strong>{t("apps.ChatEndpointSetup.creationType")}</strong> {t("apps.ChatEndpointSetup.portalTo")} <strong>{t("apps.ChatEndpointSetup.useExistingAppRegistration")}</strong>{t("apps.ChatEndpointSetup.teamsEnterAndOpen")} <strong>{t("apps.ChatEndpointSetup.settingsConfiguration")}</strong> {t("apps.ChatEndpointSetup.teamsAndPaste")} <strong>{t("apps.ChatEndpointSetup.messagingEndpoint")}</strong>; {t("apps.ChatEndpointSetup.teamsThenOpen")} <strong>{t("apps.ChatEndpointSetup.settingsChannels")}</strong> {t("apps.ChatEndpointSetup.teamsAndEnable")} <strong>{t("apps.ChatEndpointSetup.microsoftTeams")}</strong>.
             </li>
             <li>
-              <strong>Teams Developer Portal · Apps</strong>: {t("apps.ChatEndpointSetup.portalSelect")} <strong>New app</strong>. {t("apps.ChatEndpointSetup.portalUnder")} <strong>Configure · App features · Bot</strong>{t("apps.ChatEndpointSetup.teamsAddBot")} <strong>Personal</strong>, <strong>Team</strong>, {t("apps.ChatEndpointSetup.portalAnd")} <strong>Group chat</strong> {t("apps.ChatEndpointSetup.teamsScopes")} <strong>Configure · Permissions</strong>{t("apps.ChatEndpointSetup.teamsAddRsc")} <strong>Application</strong> {t("apps.ChatEndpointSetup.teamsRscRest")}
+              <strong>{t("apps.ChatEndpointSetup.teamsDeveloperPortalApps")}</strong>: {t("apps.ChatEndpointSetup.portalSelect")} <strong>{t("apps.ChatEndpointSetup.newApp")}</strong>. {t("apps.ChatEndpointSetup.portalUnder")} <strong>{t("apps.ChatEndpointSetup.configureAppFeaturesBot")}</strong>{t("apps.ChatEndpointSetup.teamsAddBot")} <strong>{t("apps.ChatEndpointSetup.personal")}</strong>, <strong>{t("apps.ChatEndpointSetup.team")}</strong>, {t("apps.ChatEndpointSetup.portalAnd")} <strong>{t("apps.ChatEndpointSetup.groupChat")}</strong> {t("apps.ChatEndpointSetup.teamsScopes")} <strong>{t("apps.ChatEndpointSetup.configurePermissions")}</strong>{t("apps.ChatEndpointSetup.teamsAddRsc")} <strong>{t("apps.ChatEndpointSetup.application")}</strong> {t("apps.ChatEndpointSetup.teamsRscRest")}
             </li>
             <li>
-              <strong>Microsoft Teams · Apps · Manage your apps</strong>: {t("apps.ChatEndpointSetup.portalSelect")} <strong>Upload an app · Upload a custom app</strong>{t("apps.ChatEndpointSetup.teamsUploadRest")}
+              <strong>{t("apps.ChatEndpointSetup.microsoftTeamsAppsManage")}</strong>: {t("apps.ChatEndpointSetup.portalSelect")} <strong>{t("apps.ChatEndpointSetup.uploadAnAppUpload")}</strong>{t("apps.ChatEndpointSetup.teamsUploadRest")}
             </li>
           </ol>
         </section>
@@ -1229,16 +1229,16 @@ function ProviderConnectStep({
               {t("apps.ChatEndpointSetup.githubStepCreate")}
             </li>
             <li>
-              {t("apps.ChatEndpointSetup.ghKeep")} <strong>Webhooks · Active</strong> {t("apps.ChatEndpointSetup.ghOn")} <strong>Enable SSL verification</strong> {t("apps.ChatEndpointSetup.ghSelected")}
+              {t("apps.ChatEndpointSetup.ghKeep")} <strong>{t("apps.ChatEndpointSetup.webhooksActive")}</strong> {t("apps.ChatEndpointSetup.ghOn")} <strong>{t("apps.ChatEndpointSetup.enableSslVerification")}</strong> {t("apps.ChatEndpointSetup.ghSelected")}
             </li>
             <li>
-              {t("apps.ChatEndpointSetup.ghUnderRepo")} <strong>Issues</strong> {t("apps.ChatEndpointSetup.portalAnd")} <strong>Pull requests</strong> {t("apps.ChatEndpointSetup.portalTo")} <strong>Read &amp; write</strong>{t("apps.ChatEndpointSetup.ghLeaveDefault")}
+              {t("apps.ChatEndpointSetup.ghUnderRepo")} <strong>{t("apps.ChatEndpointSetup.issues")}</strong> {t("apps.ChatEndpointSetup.portalAnd")} <strong>{t("apps.ChatEndpointSetup.pullRequests")}</strong> {t("apps.ChatEndpointSetup.portalTo")} <strong>Read &amp; write</strong>{t("apps.ChatEndpointSetup.ghLeaveDefault")}
             </li>
             <li>
-              {t("apps.ChatEndpointSetup.ghSubscribe")} <strong>Issue comment</strong> (<code>issue_comment</code>), <strong>Pull request review comment</strong> (<code>pull_request_review_comment</code>). {t("apps.ChatEndpointSetup.ghGitHubSends")} <code>installation</code> {t("apps.ChatEndpointSetup.portalAnd")} <code>installation_repositories</code> {t("apps.ChatEndpointSetup.ghAutoEvents")}
+              {t("apps.ChatEndpointSetup.ghSubscribe")} <strong>{t("apps.ChatEndpointSetup.issueComment")}</strong> (<code>issue_comment</code>), <strong>{t("apps.ChatEndpointSetup.pullRequestReviewComment")}</strong> (<code>pull_request_review_comment</code>). {t("apps.ChatEndpointSetup.ghGitHubSends")} <code>installation</code> {t("apps.ChatEndpointSetup.portalAnd")} <code>installation_repositories</code> {t("apps.ChatEndpointSetup.ghAutoEvents")}
             </li>
             <li>
-              {t("apps.ChatEndpointSetup.chooseVerb")} <strong>Only on this account</strong>{t("apps.ChatEndpointSetup.ghCreateSpec")}
+              {t("apps.ChatEndpointSetup.chooseVerb")} <strong>{t("apps.ChatEndpointSetup.onlyOnThisAccount")}</strong>{t("apps.ChatEndpointSetup.ghCreateSpec")}
             </li>
           </ol>
         )}
@@ -1443,8 +1443,8 @@ function ProviderConnectStep({
     );
   const slackRequestUrlInstructions = <ol className="list-decimal space-y-2 pl-5 text-sm">
       <li><a className="underline underline-offset-4" href={endpoint.setup?.slackRegistration?.appId ? `https://api.slack.com/apps/${encodeURIComponent(endpoint.setup.slackRegistration.appId)}/event-subscriptions` : "https://api.slack.com/apps"} target="_blank" rel="noopener noreferrer">{t("apps.ChatEndpointSetup.slackOpenAppSettings")} <ExternalLink className="inline size-3" /></a> {t("apps.ChatEndpointSetup.slackAndChoose")} <strong>{slackApp.appName}</strong>.</li>
-      <li>{t("apps.ChatEndpointSetup.chooseVerb")} <strong>Event Subscriptions</strong>.</li>
-      <li>{t("apps.ChatEndpointSetup.slackBeside")} <strong>Request URL</strong>, {t("apps.ChatEndpointSetup.slackClick")} <strong>Retry</strong> {t("apps.ChatEndpointSetup.slackIfNot")}</li>
+      <li>{t("apps.ChatEndpointSetup.chooseVerb")} <strong>{t("apps.ChatEndpointSetup.eventSubscriptions")}</strong>.</li>
+      <li>{t("apps.ChatEndpointSetup.slackBeside")} <strong>{t("apps.ChatEndpointSetup.requestUrl")}</strong>, {t("apps.ChatEndpointSetup.slackClick")} <strong>{t("apps.ChatEndpointSetup.retry")}</strong> {t("apps.ChatEndpointSetup.slackIfNot")}</li>
     </ol>;
   if (slackStage === "finish")
     return (
@@ -1601,7 +1601,7 @@ function ProviderConnectStep({
           <p className="text-sm text-muted-foreground">{t("apps.ChatEndpointSetup.credentialsSaved")}</p>
         )}
         <section className="space-y-3">
-          <h2 className="text-sm font-semibold"><label htmlFor="slack-bot-token">Bot User OAuth Token</label></h2>
+          <h2 className="text-sm font-semibold"><label htmlFor="slack-bot-token">{t("apps.ChatEndpointSetup.botUserOauthToken")}</label></h2>
           <ul id="slack-bot-token-help" className="list-disc space-y-1 pl-5 text-sm">
             <li>
               <a href="https://api.slack.com/apps" target="_blank" rel="noopener noreferrer" className="underline underline-offset-4">
@@ -1609,7 +1609,7 @@ function ProviderConnectStep({
               </a> {t("apps.ChatEndpointSetup.slackAndChoose")} <strong>{slackApp.appName}</strong>.
             </li>
             <li>{t("apps.ChatEndpointSetup.chooseVerb")} <strong>OAuth &amp; Permissions</strong></li>
-            <li>{t("apps.ChatEndpointSetup.copyPasteYour")} <strong>Bot OAuth Token</strong></li>
+            <li>{t("apps.ChatEndpointSetup.copyPasteYour")} <strong>{t("apps.ChatEndpointSetup.botOauthToken")}</strong></li>
           </ul>
           <Input
             id="slack-bot-token"
@@ -1627,15 +1627,15 @@ function ProviderConnectStep({
           )}
         </section>
         <section className="space-y-3">
-          <h2 className="text-sm font-semibold"><label htmlFor="slack-signing-secret">Signing Secret</label></h2>
+          <h2 className="text-sm font-semibold"><label htmlFor="slack-signing-secret">{t("apps.ChatEndpointSetup.signingSecret")}</label></h2>
           <ul id="slack-signing-secret-help" className="list-disc space-y-1 pl-5 text-sm">
             <li>
               <a href="https://api.slack.com/apps" target="_blank" rel="noopener noreferrer" className="underline underline-offset-4">
                 {t("apps.ChatEndpointSetup.slackOpenAppSettings")} <ExternalLink className="inline size-3" />
               </a> {t("apps.ChatEndpointSetup.slackAndChoose")} <strong>{slackApp.appName}</strong>.
             </li>
-            <li>{t("apps.ChatEndpointSetup.chooseVerb")} <strong>Basic Information</strong></li>
-            <li>{t("apps.ChatEndpointSetup.copyPasteYour")} <strong>Signing Secret</strong></li>
+            <li>{t("apps.ChatEndpointSetup.chooseVerb")} <strong>{t("apps.ChatEndpointSetup.basicInformation")}</strong></li>
+            <li>{t("apps.ChatEndpointSetup.copyPasteYour")} <strong>{t("apps.ChatEndpointSetup.signingSecret")}</strong></li>
           </ul>
           <Input
             id="slack-signing-secret"
@@ -1648,7 +1648,7 @@ function ProviderConnectStep({
           />
           {slackSigningSecretHasTokenPrefix && (
             <p id="slack-signing-secret-warning" role="alert" className="text-sm text-destructive">
-              {t("apps.ChatEndpointSetup.slackUseThe")} <strong>Signing Secret</strong>, {t("apps.ChatEndpointSetup.slackNotAppToken")}
+              {t("apps.ChatEndpointSetup.slackUseThe")} <strong>{t("apps.ChatEndpointSetup.signingSecret")}</strong>, {t("apps.ChatEndpointSetup.slackNotAppToken")}
             </p>
           )}
         </section>
