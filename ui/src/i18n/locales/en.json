@@ -16306,6 +16306,13 @@
   },
   "skills": {
     "CompanySkills": {
+      "newFolder": "New folder",
+      "browseCatalog": "Browse catalog",
+      "countBundled": "Bundled · {{count}}",
+      "versionFiles_one": "{{count}} file",
+      "versionFiles_other": "{{count}} files",
+      "attachedAgents_one": "{{count}} agent attached",
+      "attachedAgents_other": "{{count}} agents attached",
       "byAuthor": "by",
       "forkedBadge": "Forked",
       "filterSkills": "Filter {{view}} skills.",

@@ -16306,6 +16306,13 @@
   },
   "skills": {
     "CompanySkills": {
+      "newFolder": "Nova pasta",
+      "browseCatalog": "Explorar catálogo",
+      "countBundled": "Incluídas · {{count}}",
+      "versionFiles_one": "{{count}} arquivo",
+      "versionFiles_other": "{{count}} arquivos",
+      "attachedAgents_one": "{{count}} agente vinculado",
+      "attachedAgents_other": "{{count}} agentes vinculados",
       "byAuthor": "por",
       "forkedBadge": "Bifurcada",
       "filterSkills": "Filtrar skills {{view}}.",
