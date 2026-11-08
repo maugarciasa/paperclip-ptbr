@@ -1,5 +1,29 @@
 {
   "agents": {
+    "AgentConfigForm": {
+      "promptTemplateReplay": "Prompt template is replayed on every heartbeat. Keep it compact and dynamic to avoid recurring token cost and cache churn.",
+      "kubernetesSandbox": "Kubernetes sandbox",
+      "grokBot": "Grok Bot",
+      "liveOpenCodeDiscovery": "Live OpenCode model discovery only runs for Local environments. Using the curated list and manual entry for",
+      "codexMinimal": "Codex may reject `minimal` thinking when search is enabled.",
+      "bootstrapLegacy": "Bootstrap prompt is legacy and will be removed in a future release. Consider moving this content into the agent's prompt template or instructions file instead.",
+      "runPolicy": "Run Policy",
+      "debugging": "Debugging",
+      "rawTracing": "Raw tracing is on for future runs. Paperclip keeps at most 64 MiB per run and automatically deletes it after 24 hours.",
+      "cancel": "Cancel",
+      "signIn": "Sign in",
+      "copyCodeOpen": "Copy the code, then open the authentication page.",
+      "stepCode": "1. Code",
+      "stepAuthUrl": "2. Authentication URL",
+      "bindFailed": "Could not bind this agent to the signed-in account.",
+      "retry": "Retry",
+      "openAuthPage": "Open the authorization page, then enter the browser code it shows.",
+      "submit": "Submit",
+      "hintLabel": "Hint:",
+      "experimental": "Experimental",
+      "modelId": "Model ID",
+      "defaultLabel": "Default"
+    },
     "AgentActionButtons": {
       "actionFailed": "Action failed",
       "agentDuplicated": "Agent duplicated",

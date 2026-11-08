@@ -1,5 +1,29 @@
 {
   "agents": {
+    "AgentConfigForm": {
+      "promptTemplateReplay": "O template do prompt é reenviado a cada heartbeat. Mantenha-o compacto e dinâmico para evitar custo recorrente de tokens e churn de cache.",
+      "kubernetesSandbox": "sandbox Kubernetes",
+      "grokBot": "Grok Bot",
+      "liveOpenCodeDiscovery": "A descoberta ao vivo de modelos do OpenCode só roda em ambientes Local. Usando a lista curada e a entrada manual para",
+      "codexMinimal": "O Codex pode rejeitar o raciocínio `minimal` quando a busca está ativada.",
+      "bootstrapLegacy": "O prompt de bootstrap é legado e será removido em uma versão futura. Considere mover este conteúdo para o template de prompt ou para o arquivo de instruções do agente.",
+      "runPolicy": "Política de execução",
+      "debugging": "Depuração",
+      "rawTracing": "O rastreamento bruto está ativo para as próximas execuções. O Paperclip mantém no máximo 64 MiB por execução e apaga automaticamente após 24 horas.",
+      "cancel": "Cancelar",
+      "signIn": "Entrar",
+      "copyCodeOpen": "Copie o código e depois abra a página de autenticação.",
+      "stepCode": "1. Código",
+      "stepAuthUrl": "2. URL de autenticação",
+      "bindFailed": "Não foi possível vincular este agente à conta conectada.",
+      "retry": "Tentar novamente",
+      "openAuthPage": "Abra a página de autorização e depois digite o código exibido no navegador.",
+      "submit": "Enviar",
+      "hintLabel": "Dica:",
+      "experimental": "Experimental",
+      "modelId": "ID do modelo",
+      "defaultLabel": "Padrão"
+    },
     "AgentActionButtons": {
       "actionFailed": "Ação falhou",
       "agentDuplicated": "Agente duplicado",
