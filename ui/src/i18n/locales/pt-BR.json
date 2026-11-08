@@ -16305,6 +16305,27 @@
     }
   },
   "skills": {
+    "CompanySkills": {
+      "filtersActive": "Filtros: {{count}}",
+      "filter": "Filtrar",
+      "sourceLabel": "Origem",
+      "typeLabel": "Tipo",
+      "categoryLabel": "Categoria",
+      "allCategories": "Todas as categorias",
+      "all": "Todos",
+      "bundled": "Incluídas",
+      "optional": "Opcionais",
+      "trustMarkdownOnly": "Somente Markdown",
+      "trustMarkdownOnlyTip": "Somente texto: sem scripts, binários ou recursos.",
+      "trustAssets": "Inclui recursos",
+      "trustAssetsTip": "Traz imagens, fontes ou outros arquivos que não são scripts.",
+      "trustScripts": "Inclui scripts",
+      "trustScriptsTip": "Traz scripts executáveis. Revise antes de instalar.",
+      "compatUnknown": "Formato desconhecido",
+      "compatUnknownTip": "O Paperclip não conseguiu validar esta skill como Markdown do Agent Skills. Instale por sua conta e risco.",
+      "compatInvalid": "Inválida",
+      "compatInvalidTip": "Esta skill não pode ser instalada: o conteúdo não é Markdown válido do Agent Skills."
+    },
     "AddAgentPicker": {
       "addAgent": "Adicionar agente…",
       "emptyMessage": "Todos os agentes elegíveis já têm esta skill.",

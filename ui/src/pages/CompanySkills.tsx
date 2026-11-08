@@ -398,7 +398,7 @@ function SourceFilterMenu({
           variant="ghost"
           size="icon-sm"
           className={cn("relative shrink-0", activeFilterCount > 0 && "text-blue-600 dark:text-blue-400")}
-          title={activeFilterCount > 0 ? `Filters: ${activeFilterCount}` : "Filter"}
+          title={activeFilterCount > 0 ? t("skills.CompanySkills.filtersActive", { count: activeFilterCount }) : t("skills.CompanySkills.filter")}
         >
           <Filter className="h-3.5 w-3.5" />
           {activeFilterCount > 0 ? (
@@ -409,7 +409,7 @@ function SourceFilterMenu({
         </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent align="end" className="w-48">
-        <DropdownMenuLabel>Source</DropdownMenuLabel>
+        <DropdownMenuLabel>{t("skills.CompanySkills.sourceLabel")}</DropdownMenuLabel>
         <DropdownMenuRadioGroup value={value} onValueChange={(next) => onChange(next as SourceFilter)}>
           {filters.map((filter) => (
             <DropdownMenuRadioItem key={filter} value={filter}>
@@ -444,7 +444,7 @@ function CatalogFilterMenu({
           variant="ghost"
           size="icon-sm"
           className={cn("relative shrink-0", activeFilterCount > 0 && "text-blue-600 dark:text-blue-400")}
-          title={activeFilterCount > 0 ? `Filters: ${activeFilterCount}` : "Filter"}
+          title={activeFilterCount > 0 ? t("skills.CompanySkills.filtersActive", { count: activeFilterCount }) : t("skills.CompanySkills.filter")}
         >
           <Filter className="h-3.5 w-3.5" />
           {activeFilterCount > 0 ? (
@@ -455,16 +455,16 @@ function CatalogFilterMenu({
         </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent align="end" className="max-h-(--sz-calc-32) w-56 overflow-y-auto">
-        <DropdownMenuLabel>Type</DropdownMenuLabel>
+        <DropdownMenuLabel>{t("skills.CompanySkills.typeLabel")}</DropdownMenuLabel>
         <DropdownMenuRadioGroup value={kindFilter} onValueChange={(next) => onKindChange(next as "all" | "bundled" | "optional")}>
-          <DropdownMenuRadioItem value="all">All</DropdownMenuRadioItem>
-          <DropdownMenuRadioItem value="bundled">Bundled</DropdownMenuRadioItem>
-          <DropdownMenuRadioItem value="optional">Optional</DropdownMenuRadioItem>
+          <DropdownMenuRadioItem value="all">{t("skills.CompanySkills.all")}</DropdownMenuRadioItem>
+          <DropdownMenuRadioItem value="bundled">{t("skills.CompanySkills.bundled")}</DropdownMenuRadioItem>
+          <DropdownMenuRadioItem value="optional">{t("skills.CompanySkills.optional")}</DropdownMenuRadioItem>
         </DropdownMenuRadioGroup>
         <DropdownMenuSeparator />
-        <DropdownMenuLabel>Category</DropdownMenuLabel>
+        <DropdownMenuLabel>{t("skills.CompanySkills.categoryLabel")}</DropdownMenuLabel>
         <DropdownMenuRadioGroup value={categoryFilter || "__all__"} onValueChange={(next) => onCategoryChange(next === "__all__" ? "" : next)}>
-          <DropdownMenuRadioItem value="__all__">All categories</DropdownMenuRadioItem>
+          <DropdownMenuRadioItem value="__all__">{t("skills.CompanySkills.allCategories")}</DropdownMenuRadioItem>
           {categories.map((category) => (
             <DropdownMenuRadioItem key={category} value={category}>
               {category}
@@ -480,20 +480,20 @@ function TrustChip({ level }: { level: CompanySkillTrustLevel }) {
   const map = {
     markdown_only: {
       icon: ShieldCheck,
-      label: "Markdown only",
-      tooltip: "Text only — no scripts, no binaries, no assets.",
+      label: t("skills.CompanySkills.trustMarkdownOnly"),
+      tooltip: t("skills.CompanySkills.trustMarkdownOnlyTip"),
       className: "border-border bg-muted/40 text-muted-foreground",
     },
     assets: {
       icon: Folder,
-      label: "Includes assets",
-      tooltip: "Ships images, fonts, or other non-script files.",
+      label: t("skills.CompanySkills.trustAssets"),
+      tooltip: t("skills.CompanySkills.trustAssetsTip"),
       className: "border-cyan-500/30 bg-cyan-500/10 text-cyan-800 dark:text-cyan-200",
     },
     scripts_executables: {
       icon: AlertTriangle,
-      label: "Includes scripts",
-      tooltip: "Ships executable scripts. Review before installing.",
+      label: t("skills.CompanySkills.trustScripts"),
+      tooltip: t("skills.CompanySkills.trustScriptsTip"),
       className: "border-amber-500/40 bg-amber-500/10 text-amber-800 dark:text-amber-200",
     },
   } as const;
@@ -517,14 +517,14 @@ function CompatChip({ compatibility }: { compatibility: CompanySkillCompatibilit
   const map = {
     unknown: {
       icon: HelpCircle,
-      label: "Unknown format",
-      tooltip: "Paperclip could not validate this skill as Agent Skills markdown. Install at your own risk.",
+      label: t("skills.CompanySkills.compatUnknown"),
+      tooltip: t("skills.CompanySkills.compatUnknownTip"),
       className: "border-yellow-500/40 bg-yellow-500/10 text-yellow-800 dark:text-yellow-200",
     },
     invalid: {
       icon: XOctagon,
-      label: "Invalid",
-      tooltip: "This skill cannot be installed — content is not valid Agent Skills markdown.",
+      label: t("skills.CompanySkills.compatInvalid"),
+      tooltip: t("skills.CompanySkills.compatInvalidTip"),
       className: "border-destructive/40 bg-destructive/10 text-destructive",
     },
   } as const;
