@@ -179,6 +179,7 @@ function AuditRow({
   agentMap: Map<string, Agent>;
   userProfileMap: Map<string, CompanyUserProfile>;
 }) {
+  const { t } = useTranslation();
   const verb = formatActivityVerb(record.action, record.details, { agentMap, userProfileMap });
   const responsible = record.responsibleUserId ? userProfileMap.get(record.responsibleUserId) : null;
   // Suppress the "on behalf of" chip when the human actor *is* the responsible user.
@@ -207,13 +208,13 @@ function AuditRow({
           ) : null}
           {documentKey ? (
             <p className="text-xs text-muted-foreground">
-              Document <span className="font-mono text-(length:--text-micro)">{documentKey}</span>
+              {t("audit.AuditFeed.document")} <span className="font-mono text-(length:--text-micro)">{documentKey}</span>
             </p>
           ) : null}
           <div className="flex flex-wrap items-center gap-2 text-xs text-muted-foreground">
             {showOnBehalf && responsibleLabel ? (
               <span className="inline-flex items-center rounded-full bg-muted px-2 py-0.5">
-                on behalf of {responsibleLabel}
+                {t("audit.AuditFeed.onBehalfOfName", { name: responsibleLabel })}
               </span>
             ) : null}
             {record.runId && record.agentId ? (
@@ -241,18 +242,17 @@ function AuditRow({
 
 /** The permission-denied / upsell state shown when the caller lacks the grant. */
 function AuditUpsell() {
+  const { t } = useTranslation();
   return (
     <Card>
       <CardContent className="flex flex-col items-center gap-3 py-14 text-center">
         <ShieldAlert className="h-10 w-10 text-muted-foreground/50" />
         <div>
-          <p className="text-sm font-medium text-foreground">Agent audit is a Paperclip Enterprise view</p>
+          <p className="text-sm font-medium text-foreground">{t("audit.AuditFeed.agentAuditEnterprise")}</p>
           <p className="mx-auto mt-1 max-w-md text-sm text-muted-foreground">
-            The agent audit log gives you a searchable, exportable record of everything your agents
-            did — every comment, task change, approval, and run — with the responsible person for
-            each action. Ask an administrator to grant you the{" "}
-            <span className="font-mono text-(length:--text-micro)">audit:view_agent_actions</span>{" "}
-            permission to view it.
+            {t("audit.AuditFeed.theAgentAuditLog")}{" "}
+            <span className="font-mono text-(length:--text-micro)">{t("audit.AuditFeed.auditViewAgentActions")}</span>{" "}
+            {t("audit.AuditFeed.permissionToView")}
           </p>
         </div>
       </CardContent>
@@ -470,7 +470,7 @@ export function AuditFeed({
       {!hideHeader ? (
         <div className="flex flex-wrap items-start justify-between gap-3">
           <div>
-            <h1 className="text-lg font-semibold text-foreground">Activity</h1>
+            <h1 className="text-lg font-semibold text-foreground">{t("audit.AuditFeed.activity")}</h1>
             <p className="mt-1 max-w-2xl text-sm text-muted-foreground">
               {resolvedMode === "agents"
                 ? "Every recorded agent action, newest first — with the responsible person and run behind each one."
@@ -562,7 +562,7 @@ export function AuditFeed({
           />
           {hasActiveFilters ? (
             <Button variant="ghost" size="sm" onClick={clearFilters}>
-              Clear filters
+              {t("audit.AuditFeed.clearFilters")}
             </Button>
           ) : null}
           <Button
@@ -649,7 +649,7 @@ export function AuditFeed({
       ) : null}
 
       <p className="text-xs text-muted-foreground">
-        Recorded by Paperclip — entries can't be edited. Sensitive values are never stored.
+        {t("audit.AuditFeed.recordedNote")}
       </p>
     </div>
   );

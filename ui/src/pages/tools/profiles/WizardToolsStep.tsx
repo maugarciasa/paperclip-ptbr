@@ -54,6 +54,7 @@ export interface WizardToolsStepProps {
 }
 
 export function WizardToolsStep(props: WizardToolsStepProps) {
+  const { t } = useTranslation();
   const { appGroups, catalogLoading, selections, onSelectionsChange } = props;
   const [search, setSearch] = useState("");
   const [capabilityFilter, setCapabilityFilter] = useState<ToolCapability | null>(null);
@@ -84,10 +85,9 @@ export function WizardToolsStep(props: WizardToolsStepProps) {
       <div className="flex flex-col items-center gap-3 rounded-lg border border-dashed border-border py-12 text-center">
         <Plug className="h-6 w-6 text-muted-foreground" />
         <div>
-          <p className="text-sm font-medium text-foreground">App connections are coming soon</p>
+          <p className="text-sm font-medium text-foreground">{t("tools.WizardToolsStep.appConnectionsAreComing")}</p>
           <p className="mx-auto max-w-sm text-sm text-muted-foreground">
-            Profiles will be available once app connections are ready. Browse the planned integrations in the
-            meantime.
+            {t("tools.WizardToolsStep.profilesWillBeAvailable")}
           </p>
         </div>
         <Button asChild variant="outline">
@@ -131,7 +131,7 @@ export function WizardToolsStep(props: WizardToolsStepProps) {
       {filteredGroups.length === 0 ? (
         // Cold state B (AP17): a search/filter that matches nothing.
         <div className="flex flex-col items-center gap-2 rounded-lg border border-dashed border-border py-10 text-center">
-          <p className="text-sm font-medium text-foreground">No tools match “{search}”.</p>
+          <p className="text-sm font-medium text-foreground">{t("tools.WizardToolsStep.noToolsMatchSearch", { search })}</p>
           <button
             type="button"
             onClick={() => {
@@ -140,7 +140,7 @@ export function WizardToolsStep(props: WizardToolsStepProps) {
             }}
             className="text-sm font-medium text-primary hover:underline"
           >
-            Clear search
+            {t("tools.WizardToolsStep.clearSearch")}
           </button>
         </div>
       ) : (
@@ -185,6 +185,7 @@ function AppRow({
   onToggleApp: () => void;
   onToggleTool: (toolId: string) => void;
 }) {
+  const { t } = useTranslation();
   const [expanded, setExpanded] = useState(false);
   const state = appCheckState(group, selection);
   const checked = state === "checked" ? true : state === "indeterminate" ? "indeterminate" : false;
@@ -205,7 +206,7 @@ function AppRow({
           )}
           <span className="flex flex-col">
             <span className="text-sm font-medium text-foreground">
-              All {group.name} tools ({group.tools.length})
+              {t("tools.WizardToolsStep.allNameToolsCount", { name: group.name, count: group.tools.length })}
             </span>
             <span className="text-xs text-muted-foreground">
               {state === "indeterminate"
@@ -257,6 +258,7 @@ function NewToolsRadio({
   value: NewToolsAction;
   onChange: (next: NewToolsAction) => void;
 }) {
+  const { t } = useTranslation();
   const options: Array<{ value: NewToolsAction; label: string; hint: string; recommended?: boolean }> = [
     {
       value: "deny",
@@ -329,6 +331,7 @@ function AdvancedRules({
   rules: AdvancedRule[];
   onChange: (next: AdvancedRule[]) => void;
 }) {
+  const { t } = useTranslation();
   const [open, setOpen] = useState(false);
   const [kind, setKind] = useState<AdvancedRuleKind>("tool_name");
   const [value, setValue] = useState("");
@@ -356,8 +359,7 @@ function AdvancedRules({
       </CollapsibleTrigger>
       <CollapsibleContent className="space-y-3 border-t border-border px-4 py-3">
         <p className="text-xs text-muted-foreground">
-          Match tools by a name pattern, a risk level, or a specific tool ID. These run on top of the choices
-          above.
+          {t("tools.WizardToolsStep.matchToolsByA")}
         </p>
 
         {rules.length > 0 ? (
@@ -370,7 +372,7 @@ function AdvancedRules({
                 <span className="text-foreground">{ruleSummary(rule)}</span>
                 <button
                   type="button"
-                  aria-label="Remove rule"
+                  aria-label={t("tools.WizardToolsStep.removeRule")}
                   onClick={() => onChange(rules.filter((r) => r.id !== rule.id))}
                   className="text-muted-foreground hover:text-destructive"
                 >
@@ -424,7 +426,7 @@ function AdvancedRules({
           )}
           <Button type="button" variant="outline" size="sm" onClick={addRule}>
             <Plus className="mr-1 h-3.5 w-3.5" />
-            Add rule
+            {t("tools.WizardToolsStep.addRule")}
           </Button>
         </div>
       </CollapsibleContent>

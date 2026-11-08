@@ -6516,6 +6516,18 @@
     }
   },
   "audit": {
+    "AuditRuns": {
+      "recentAgentExecutionsAcross": "Recent agent executions across the organization. Open a run to inspect its transcript, output, and task context.",
+      "executionsCreatedByThis": "Executions created by this routine, newest first.",
+      "loadingRoutineRuns": "Loading routine runs…",
+      "auditFilters": "Audit filters",
+      "clearFilters": "Clear filters",
+      "loadingRuns": "Loading runs…",
+      "routineRuns": "Routine runs",
+      "status": "Status",
+      "agent": "Agent",
+      "runs": "Runs"
+    },
     "AuditFeed": {
       "document": "Document",
       "onBehalfOf": "on behalf of",
@@ -6531,7 +6543,10 @@
       "from": "From",
       "to": "To",
       "clearFilters": "Clear filters",
-      "recordedNote": "Recorded by Paperclip — entries can't be edited. Sensitive values are never stored."
+      "recordedNote": "Recorded by Paperclip — entries can't be edited. Sensitive values are never stored.",
+      "theAgentAuditLog": "The agent audit log gives you a searchable, exportable record of everything your agents did — every comment, task change, approval, and run — with the responsible person for each action. Ask an administrator to grant you the",
+      "auditViewAgentActions": "audit:view_agent_actions",
+      "onBehalfOfName": "on behalf of {{name}}"
     },
     "activity": "Activity",
     "commentary": {
@@ -9181,6 +9196,17 @@
     "working": "Working..."
   },
   "issues": {
+    "IssueWorkspaceCard": {
+      "openFileByPath": "Open file by path…",
+      "browseFiles": "Browse files…",
+      "environment": "Environment:",
+      "reusing": "Reusing:",
+      "current": "Current:",
+      "cancel": "Cancel",
+      "repo": "Repo:",
+      "save": "Save",
+      "edit": "Edit"
+    },
     "LegacyIssuesList": {
       "doneWord": "done",
       "inProgressWord": "in progress",
@@ -15686,6 +15712,17 @@
     }
   },
   "settings": {
+    "InstanceExperimentalSettings": {
+      "thisIsAnIsolated": "This is an isolated git-worktree preview instance. Turn this on to let the scheduler execute runs here. Only tasks created after enabling will run automatically — copied/pre-existing tasks stay parked. Toggling off and on resets the cutoff.",
+      "toggleItOffAnd": "Toggle it off and back on to arm execution for tasks created here.",
+      "internalToolsForDeveloping": "Internal tools for developing, testing, and debugging Paperclip.",
+      "optionalProductFeaturesThat": "Optional product features that are still being evaluated.",
+      "theseFeaturesAreGoing": "These features are going to be removed.",
+      "runningTasksCreatedAfter": "Running tasks created after",
+      "paperclipDeveloperMode": "Paperclip Developer Mode",
+      "experimentalFeatures": "Experimental features",
+      "legacy": "Legacy"
+    },
     "ClaudeSubscriptionPanel": {
       "description": "Quota from the Claude subscription connected to this server.",
       "resets": "Resets {{when}}",
@@ -18271,6 +18308,16 @@
     "zoomOut": "Zoom out"
   },
   "tools": {
+    "WizardToolsStep": {
+      "profilesWillBeAvailable": "Profiles will be available once app connections are ready. Browse the planned integrations in the meantime.",
+      "matchToolsByA": "Match tools by a name pattern, a risk level, or a specific tool ID. These run on top of the choices above.",
+      "appConnectionsAreComing": "App connections are coming soon",
+      "allNameToolsCount": "All {{name}} tools ({{count}})",
+      "noToolsMatchSearch": "No tools match “{{search}}”.",
+      "clearSearch": "Clear search",
+      "removeRule": "Remove rule",
+      "addRule": "Add rule"
+    },
     "ProfileWizard": {
       "allowsLead": "Allows",
       "ofWord": "of",

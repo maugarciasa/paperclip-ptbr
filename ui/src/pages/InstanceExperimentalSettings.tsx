@@ -302,10 +302,10 @@ export function InstanceExperimentalSettings() {
       <section className="space-y-3" aria-labelledby="experimental-features-heading">
         <div className="space-y-1">
           <h2 id="experimental-features-heading" className="text-sm font-semibold">
-            Experimental features
+            {t("settings.InstanceExperimentalSettings.experimentalFeatures")}
           </h2>
           <p className="text-sm text-muted-foreground">
-            Optional product features that are still being evaluated.
+            {t("settings.InstanceExperimentalSettings.optionalProductFeaturesThat")}
           </p>
         </div>
 
@@ -650,10 +650,10 @@ export function InstanceExperimentalSettings() {
         <section className="space-y-3" aria-labelledby="developer-mode-heading">
           <div className="space-y-1">
             <h2 id="developer-mode-heading" className="text-sm font-semibold">
-              Paperclip Developer Mode
+              {t("settings.InstanceExperimentalSettings.paperclipDeveloperMode")}
             </h2>
             <p className="text-sm text-muted-foreground">
-              Internal tools for developing, testing, and debugging Paperclip.
+              {t("settings.InstanceExperimentalSettings.internalToolsForDeveloping")}
             </p>
           </div>
 
@@ -706,9 +706,7 @@ export function InstanceExperimentalSettings() {
                       {worktreeRunExecutionManaged ? <ManagedByCloudBadge /> : null}
                     </div>
                     <p className="max-w-2xl text-sm text-muted-foreground">
-                      This is an isolated git-worktree preview instance. Turn this on to let the scheduler execute runs
-                      here. Only tasks created after enabling will run automatically — copied/pre-existing tasks stay
-                      parked. Toggling off and on resets the cutoff.
+                      {t("settings.InstanceExperimentalSettings.thisIsAnIsolated")}
                     </p>
                   </div>
                   <ToggleSwitch
@@ -726,7 +724,7 @@ export function InstanceExperimentalSettings() {
                   <div className="flex items-center gap-2 rounded-md border border-emerald-500/30 bg-emerald-500/5 px-3 py-2 text-sm text-foreground">
                     <Play className="h-4 w-4 shrink-0 text-emerald-600" />
                     <span>
-                      Running tasks created after{" "}
+                      {t("settings.InstanceExperimentalSettings.runningTasksCreatedAfter")}{" "}
                       <span className="font-medium">
                         {formatActivationTimestamp(worktreeRunExecutionState.activatedAt)}
                       </span>
@@ -744,7 +742,7 @@ export function InstanceExperimentalSettings() {
                         {worktreeRunExecutionState.reason === "instance_mismatch"
                           ? "This setting was armed in a different instance and copied here, so no tasks run automatically."
                           : "This setting is missing its activation cutoff, so no tasks run automatically."}{" "}
-                        Toggle it off and back on to arm execution for tasks created here.
+                        {t("settings.InstanceExperimentalSettings.toggleItOffAnd")}
                       </p>
                     </div>
                   </div>
@@ -796,9 +794,9 @@ export function InstanceExperimentalSettings() {
         <section className="space-y-3" aria-labelledby="legacy-heading">
           <div className="space-y-1">
             <h2 id="legacy-heading" className="text-sm font-semibold">
-              Legacy
+              {t("settings.InstanceExperimentalSettings.legacy")}
             </h2>
-            <p className="text-sm text-muted-foreground">These features are going to be removed.</p>
+            <p className="text-sm text-muted-foreground">{t("settings.InstanceExperimentalSettings.theseFeaturesAreGoing")}</p>
           </div>
 
           <ExperimentalToggleCard

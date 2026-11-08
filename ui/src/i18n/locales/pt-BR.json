@@ -6516,6 +6516,18 @@
     }
   },
   "audit": {
+    "AuditRuns": {
+      "recentAgentExecutionsAcross": "Execuções recentes de agentes em toda a empresa. Abra uma execução para ver a transcrição, a saída e o contexto da tarefa.",
+      "executionsCreatedByThis": "Execuções criadas por esta rotina, das mais recentes às mais antigas.",
+      "loadingRoutineRuns": "Carregando execuções da rotina…",
+      "auditFilters": "Filtros de auditoria",
+      "clearFilters": "Limpar filtros",
+      "loadingRuns": "Carregando execuções…",
+      "routineRuns": "Execuções da rotina",
+      "status": "Status",
+      "agent": "Agente",
+      "runs": "Execuções"
+    },
     "AuditFeed": {
       "document": "Documento",
       "onBehalfOf": "em nome de",
@@ -6531,7 +6543,10 @@
       "from": "De",
       "to": "Até",
       "clearFilters": "Limpar filtros",
-      "recordedNote": "Registrado pelo Paperclip — as entradas não podem ser editadas. Valores sensíveis nunca são armazenados."
+      "recordedNote": "Registrado pelo Paperclip — as entradas não podem ser editadas. Valores sensíveis nunca são armazenados.",
+      "theAgentAuditLog": "O log de auditoria de agentes oferece um registro pesquisável e exportável de tudo o que seus agentes fizeram (cada comentário, mudança de tarefa, aprovação e execução), com o responsável por cada ação. Peça a um administrador que conceda a você a permissão",
+      "auditViewAgentActions": "audit:view_agent_actions",
+      "onBehalfOfName": "em nome de {{name}}"
     },
     "activity": "Atividade",
     "commentary": {
@@ -9181,6 +9196,17 @@
     "working": "Processando..."
   },
   "issues": {
+    "IssueWorkspaceCard": {
+      "openFileByPath": "Abrir arquivo pelo caminho…",
+      "browseFiles": "Procurar arquivos…",
+      "environment": "Ambiente:",
+      "reusing": "Reutilizando:",
+      "current": "Atual:",
+      "cancel": "Cancelar",
+      "repo": "Repositório:",
+      "save": "Salvar",
+      "edit": "Editar"
+    },
     "LegacyIssuesList": {
       "doneWord": "concluídas",
       "inProgressWord": "em andamento",
@@ -15686,6 +15712,17 @@
     }
   },
   "settings": {
+    "InstanceExperimentalSettings": {
+      "thisIsAnIsolated": "Esta é uma instância de prévia isolada em git worktree. Ative para o agendador executar execuções aqui. Só as tarefas criadas depois da ativação rodam automaticamente; tarefas copiadas ou preexistentes ficam paradas. Desativar e ativar de novo redefine o limite.",
+      "toggleItOffAnd": "Desative e ative de novo para liberar a execução das tarefas criadas aqui.",
+      "internalToolsForDeveloping": "Ferramentas internas para desenvolver, testar e depurar o Paperclip.",
+      "optionalProductFeaturesThat": "Recursos opcionais do produto que ainda estão em avaliação.",
+      "theseFeaturesAreGoing": "Estes recursos serão removidos.",
+      "runningTasksCreatedAfter": "Executando tarefas criadas depois de",
+      "paperclipDeveloperMode": "Modo desenvolvedor do Paperclip",
+      "experimentalFeatures": "Recursos experimentais",
+      "legacy": "Legado"
+    },
     "ClaudeSubscriptionPanel": {
       "description": "Cota da assinatura do Claude conectada a este servidor.",
       "resets": "Renova {{when}}",
@@ -18271,6 +18308,16 @@
     "zoomOut": "Diminuir zoom"
   },
   "tools": {
+    "WizardToolsStep": {
+      "profilesWillBeAvailable": "Os perfis estarão disponíveis quando as conexões de apps estiverem prontas. Enquanto isso, veja as integrações planejadas.",
+      "matchToolsByA": "Selecione ferramentas por padrão de nome, nível de risco ou ID específico. Estas regras valem além das escolhas acima.",
+      "appConnectionsAreComing": "As conexões de apps chegarão em breve",
+      "allNameToolsCount": "Todas as {{count}} ferramentas de {{name}}",
+      "noToolsMatchSearch": "Nenhuma ferramenta corresponde a “{{search}}”.",
+      "clearSearch": "Limpar busca",
+      "removeRule": "Remover regra",
+      "addRule": "Adicionar regra"
+    },
     "ProfileWizard": {
       "allowsLead": "Permite",
       "ofWord": "de",

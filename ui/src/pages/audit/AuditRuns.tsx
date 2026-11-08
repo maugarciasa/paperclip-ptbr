@@ -61,7 +61,7 @@ function RoutineScopedRuns({
   if (view.kind === "loading" || view.kind === "reconnecting") {
     return (
       <div className="border-y border-border py-14 text-center text-sm text-muted-foreground">
-        Loading routine runs…
+        {t("audit.AuditRuns.loadingRoutineRuns")}
       </div>
     );
   }
@@ -84,9 +84,9 @@ function RoutineScopedRuns({
   return (
     <div className="space-y-4">
       <div>
-        <h2 className="text-lg font-semibold text-foreground">Routine runs</h2>
+        <h2 className="text-lg font-semibold text-foreground">{t("audit.AuditRuns.routineRuns")}</h2>
         <p className="mt-1 max-w-2xl text-sm text-muted-foreground">
-          Executions created by this routine, newest first.
+          {t("audit.AuditRuns.executionsCreatedByThis")}
         </p>
       </div>
       <ul className="divide-y divide-border border-y border-border" aria-label={t("audit.runs.routineRunsAria")}>
@@ -217,17 +217,16 @@ export function AuditRuns({
     <div className="space-y-4">
       {hideHeader ? null : (
         <div>
-          <h2 className="text-lg font-semibold text-foreground">Runs</h2>
+          <h2 className="text-lg font-semibold text-foreground">{t("audit.AuditRuns.runs")}</h2>
           <p className="mt-1 max-w-2xl text-sm text-muted-foreground">
-            Recent agent executions across the organization. Open a run to inspect its transcript,
-            output, and task context.
+            {t("audit.AuditRuns.recentAgentExecutionsAcross")}
           </p>
         </div>
       )}
 
-      <div data-canonical-toolbar="audit-runs" role="toolbar" aria-label="Audit filters" className="flex flex-wrap items-end gap-3 border-y border-border py-3">
+      <div data-canonical-toolbar="audit-runs" role="toolbar" aria-label={t("audit.AuditRuns.auditFilters")} className="flex flex-wrap items-end gap-3 border-y border-border py-3">
         {lockedAgentId ? null : <label className="grid gap-1 text-(length:--text-micro) font-medium text-muted-foreground">
-          <span>Agent</span>
+          <span>{t("audit.AuditRuns.agent")}</span>
           <Select value={agentId} onValueChange={(value) => updateFilter("agentId", value)}>
             <SelectTrigger className="w-48">
               <SelectValue placeholder="All agents" />
@@ -243,7 +242,7 @@ export function AuditRuns({
           </Select>
         </label>}
         <label className="grid gap-1 text-(length:--text-micro) font-medium text-muted-foreground">
-          <span>Status</span>
+          <span>{t("audit.AuditRuns.status")}</span>
           <Select value={status} onValueChange={(value) => updateFilter("runStatus", value)}>
             <SelectTrigger className="w-40">
               <SelectValue placeholder="All statuses" />
@@ -260,14 +259,14 @@ export function AuditRuns({
         </label>
         {(!lockedAgentId && agentId !== ALL) || status !== ALL ? (
           <Button variant="ghost" size="sm" onClick={clearFilters}>
-            Clear filters
+            {t("audit.AuditRuns.clearFilters")}
           </Button>
         ) : null}
       </div>
 
       {runsView.kind === "loading" || runsView.kind === "reconnecting" ? (
         <div className="border-y border-border py-14 text-center text-sm text-muted-foreground">
-          Loading runs…
+          {t("audit.AuditRuns.loadingRuns")}
         </div>
       ) : runsView.kind === "error" ? (
         <QueryErrorState
