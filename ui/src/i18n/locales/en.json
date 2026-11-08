@@ -17544,6 +17544,29 @@
     }
   },
   "teamCatalog": {
+    "TeamCatalog": {
+      "contentHashLabel": "content hash",
+      "provenanceEvent": "and an activity event is recorded for preview and install.",
+      "externalSources_one": "This team references {{count}} external source",
+      "externalSources_other": "This team references {{count}} external sources",
+      "close": "Close",
+      "installTeam": "Install {{name}}",
+      "stepOf": "Step {{current}} of {{total}} · {{label}}",
+      "partialState": "Partial state is not rolled back. Review the organization activity log before retrying.",
+      "externalSourcesReview_one": "This team references {{count}} external source. Review each one and decide what to allow before continuing.",
+      "externalSourcesReview_other": "This team references {{count}} external sources. Review each one and decide what to allow before continuing.",
+      "provenanceStamp": "Imported entities are stamped with",
+      "resolving": "Resolving skills, importing agents, projects, and routines. This may take a moment.",
+      "importedDone": "{{name}} was imported into your organization. Imported entities are stamped with catalog provenance.",
+      "countsSummary": "{{agents}}a · {{projects}}p · {{routines}}r · {{skills}}s",
+      "agentsCount_one": "{{count}} agent",
+      "agentsCount_other": "{{count}} agents",
+      "resetFilters": "Reset filters",
+      "projectsCount_one": "{{count}} project",
+      "projectsCount_other": "{{count}} projects",
+      "routinesCount_one": "{{count}} routine",
+      "routinesCount_other": "{{count}} routines"
+    },
     "agents": "Agents",
     "allCategories": "All categories",
     "allKinds": "All kinds",
@@ -17700,6 +17723,20 @@
     }
   },
   "timeline": {
+    "Timeline": {
+      "legendDelegated": "Delegated",
+      "legendAutomation": "Automation",
+      "legendCancelled": "Cancelled",
+      "legendNow": "Now",
+      "range": "Range",
+      "zoomOut": "Zoom out",
+      "zoomIn": "Zoom in",
+      "resetZoom": "Reset zoom",
+      "runsCount_one": "{{count}} run",
+      "runsCount_other": "{{count}} runs",
+      "rangeTo": "{{from}} to {{to}}",
+      "windowCapped": " · window capped"
+    },
     "MiniMap": {
       "leftHandle": "Drag left edge to resize visible range",
       "rightHandle": "Drag right edge to resize visible range"

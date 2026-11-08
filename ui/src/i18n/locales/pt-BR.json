@@ -17544,6 +17544,29 @@
     }
   },
   "teamCatalog": {
+    "TeamCatalog": {
+      "contentHashLabel": "hash do conteúdo",
+      "provenanceEvent": "e um evento de atividade é registrado para pré-visualização e instalação.",
+      "externalSources_one": "Esta equipe referencia {{count}} fonte externa",
+      "externalSources_other": "Esta equipe referencia {{count}} fontes externas",
+      "close": "Fechar",
+      "installTeam": "Instalar {{name}}",
+      "stepOf": "Etapa {{current}} de {{total}} · {{label}}",
+      "partialState": "O estado parcial não é revertido. Revise o log de atividades da organização antes de tentar de novo.",
+      "externalSourcesReview_one": "Esta equipe referencia {{count}} fonte externa. Revise cada uma e decida o que permitir antes de continuar.",
+      "externalSourcesReview_other": "Esta equipe referencia {{count}} fontes externas. Revise cada uma e decida o que permitir antes de continuar.",
+      "provenanceStamp": "Entidades importadas recebem",
+      "resolving": "Resolvendo skills, importando agentes, projetos e rotinas. Isso pode levar um momento.",
+      "importedDone": "{{name}} foi importada para a sua organização. As entidades importadas recebem a procedência do catálogo.",
+      "countsSummary": "{{agents}}a · {{projects}}p · {{routines}}r · {{skills}}s",
+      "agentsCount_one": "{{count}} agente",
+      "agentsCount_other": "{{count}} agentes",
+      "resetFilters": "Redefinir filtros",
+      "projectsCount_one": "{{count}} projeto",
+      "projectsCount_other": "{{count}} projetos",
+      "routinesCount_one": "{{count}} rotina",
+      "routinesCount_other": "{{count}} rotinas"
+    },
     "agents": "Agentes",
     "allCategories": "Todas as categorias",
     "allKinds": "Todos os tipos",
@@ -17700,6 +17723,20 @@
     }
   },
   "timeline": {
+    "Timeline": {
+      "legendDelegated": "Delegado",
+      "legendAutomation": "Automação",
+      "legendCancelled": "Cancelado",
+      "legendNow": "Agora",
+      "range": "Período",
+      "zoomOut": "Reduzir zoom",
+      "zoomIn": "Ampliar zoom",
+      "resetZoom": "Redefinir zoom",
+      "runsCount_one": "{{count}} execução",
+      "runsCount_other": "{{count}} execuções",
+      "rangeTo": "{{from}} até {{to}}",
+      "windowCapped": " · janela limitada"
+    },
     "MiniMap": {
       "leftHandle": "Arraste a borda esquerda para redimensionar o intervalo visível",
       "rightHandle": "Arraste a borda direita para redimensionar o intervalo visível"

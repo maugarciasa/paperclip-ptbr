@@ -342,8 +342,7 @@ function RiskBanner({ team }: { team: CatalogTeam }) {
     >
       <div className="flex items-center gap-2 text-sm font-medium">
         <AlertTriangle className="h-4 w-4" />
-        This team references {unsafe.length} external source
-        {unsafe.length === 1 ? "" : "s"}
+        {t("teamCatalog.TeamCatalog.externalSources", { count: unsafe.length })}
       </div>
       <ul className="mt-1.5 space-y-0.5 text-xs">
         {unsafe.map((s) => (
@@ -843,7 +842,7 @@ export function TeamDetailPane({
                   className="text-xs text-muted-foreground hover:text-foreground"
                   onClick={() => onSelectFile(null)}
                 >
-                  Close
+                  {t("teamCatalog.TeamCatalog.close")}
                 </button>
               </div>
               <div className="max-h-96 overflow-auto p-3">
@@ -1285,14 +1284,14 @@ export function TeamInstallerDialog({
   const headerTitle = (
     <span className="flex items-center gap-2">
       <Users2 className="h-4 w-4" />
-      Install {team.name}
+      {t("teamCatalog.TeamCatalog.installTeam", { name: team.name })}
     </span>
   );
   const headerDescription =
     phase === "form" ? (
       <span className="flex items-center gap-2">
         <span>
-          Step {stepIndex + 1} of {totalSteps} · {STEP_LABELS[currentStep]}
+          {t("teamCatalog.TeamCatalog.stepOf", { current: stepIndex + 1, total: totalSteps, label: STEP_LABELS[currentStep] })}
         </span>
         <span className="flex items-center gap-1" aria-hidden>
           {steps.map((s, i) => (
@@ -1375,7 +1374,7 @@ export function TeamInstallerDialog({
                 <p className="font-medium">{t("teamCatalog.wizard.installFailed", { defaultValue: "Install failed" })}</p>
                 <p className="mt-0.5 text-xs">{applyError}</p>
                 <p className="mt-1 text-xs opacity-80">
-                  Partial state is not rolled back. Review the organization activity log before retrying.
+                  {t("teamCatalog.TeamCatalog.partialState")}
                 </p>
               </div>
             </div>
@@ -1567,8 +1566,7 @@ export function StepSourcePolicy({
   return (
     <div className="space-y-4">
       <div role="alert" className="rounded-md border border-amber-500/30 bg-amber-500/10 px-3 py-2.5 text-sm text-amber-700 dark:text-amber-300">
-        This team references {external.length} external source{external.length === 1 ? "" : "s"}.
-        Review each one and decide what to allow before continuing.
+        {t("teamCatalog.TeamCatalog.externalSourcesReview", { count: external.length })}
       </div>
 
       <ul className="divide-y divide-border rounded-md border border-border">
@@ -2013,9 +2011,9 @@ export function StepPreview({
 
       {/* Provenance */}
       <div className="rounded-md border border-border px-3 py-2.5 text-xs text-muted-foreground">
-        Imported entities are stamped with <code className="font-mono">metadata.paperclip.catalogTeam</code>{" "}
-        ({team.packageName ?? team.key}, content hash <code className="font-mono">{team.contentHash.slice(0, 16)}…</code>),
-        and an activity event is recorded for preview and install.
+        {t("teamCatalog.TeamCatalog.provenanceStamp")} <code className="font-mono">metadata.paperclip.catalogTeam</code>{" "}
+        ({team.packageName ?? team.key}, {t("teamCatalog.TeamCatalog.contentHashLabel")} <code className="font-mono">{team.contentHash.slice(0, 16)}…</code>),
+        {t("teamCatalog.TeamCatalog.provenanceEvent")}
       </div>
     </div>
   );
@@ -2051,7 +2049,7 @@ export function ApplyProgress({ team }: { team: CatalogTeam }) {
       <div>
         <p className="font-medium">{t("teamCatalog.wizard.installingTeam", { name: team.name, defaultValue: `Installing ${team.name}…` })}</p>
         <p className="text-xs text-muted-foreground">
-          Resolving skills, importing agents, projects, and routines. This may take a moment.
+          {t("teamCatalog.TeamCatalog.resolving")}
         </p>
       </div>
     </div>
@@ -2089,7 +2087,7 @@ export function ApplySuccess({
         <p className="text-base font-semibold">{t("teamCatalog.teamInstalled", { defaultValue: "Team installed" })}</p>
       </div>
       <p className="text-sm text-muted-foreground">
-        {team.name} was imported into your organization. Imported entities are stamped with catalog provenance.
+        {t("teamCatalog.TeamCatalog.importedDone", { name: team.name })}
       </p>
       {result && (
         <ul className="divide-y divide-border/60 rounded-md border border-border px-3">
@@ -2173,7 +2171,7 @@ export function TeamRow({
       </div>
       <div className="flex items-center gap-1.5 text-(length:--text-micro) text-muted-foreground">
         <span>
-          {team.counts.agents}a · {team.counts.projects}p · {team.counts.routines}r · {skillCount(team)}s
+          {t("teamCatalog.TeamCatalog.countsSummary", { agents: team.counts.agents, projects: team.counts.projects, routines: team.counts.routines, skills: skillCount(team) })}
         </span>
         <TrustChip level={team.trustLevel} iconOnly />
       </div>
@@ -2218,9 +2216,9 @@ export function TeamCard({
       <div className="space-y-0.5">
         <h3 className="text-sm font-semibold leading-snug">{team.name}</h3>
         <p className="text-xs text-muted-foreground">
-          {team.counts.agents} agent{team.counts.agents === 1 ? "" : "s"} ·{" "}
-          {team.counts.projects} project{team.counts.projects === 1 ? "" : "s"} ·{" "}
-          {team.counts.routines} routine{team.counts.routines === 1 ? "" : "s"}
+          {t("teamCatalog.TeamCatalog.agentsCount", { count: team.counts.agents })} ·{" "}
+          {t("teamCatalog.TeamCatalog.projectsCount", { count: team.counts.projects })} ·{" "}
+          {t("teamCatalog.TeamCatalog.routinesCount", { count: team.counts.routines })}
         </p>
       </div>
 
@@ -2481,7 +2479,7 @@ export function TeamCatalog() {
 
         {anyFilterActive && (
           <Button variant="ghost" size="sm" className="h-8 text-xs" onClick={() => setSearchParams(new URLSearchParams())}>
-            Reset filters
+            {t("teamCatalog.TeamCatalog.resetFilters")}
           </Button>
         )}
       </div>
