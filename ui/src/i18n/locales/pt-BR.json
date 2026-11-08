@@ -18230,6 +18230,19 @@
     "zoomOut": "Diminuir zoom"
   },
   "tools": {
+    "ProfileWizard": {
+      "allowsLead": "Permite",
+      "ofWord": "de",
+      "toolsWord": "ferramentas",
+      "saveFinishLater": "Salvar e concluir depois",
+      "back": "Voltar",
+      "cancel": "Cancelar",
+      "continue": "Continuar",
+      "saveProfile": "Salvar perfil",
+      "usedInExports": "Usado em exportações e na API. Preenchido automaticamente a partir do nome.",
+      "everyAgentUses": "Todo agente sem perfil próprio usa este.",
+      "severalProfiles": "Se um agente tiver vários perfis, ele pode usar tudo o que qualquer um deles permitir."
+    },
     "ProfileDetail": {
       "addedOn": "· adicionado em {{date}}",
       "isDisconnected": "está desconectado",

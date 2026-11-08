@@ -288,8 +288,8 @@ export function ProfileWizard({
           <div className="flex items-center gap-3 text-sm text-muted-foreground">
             {step >= 2 ? (
               <span>
-                Allows <span className="font-medium text-foreground">{live.allowed}</span> of {live.total}{" "}
-                tools
+                {t("tools.ProfileWizard.allowsLead")} <span className="font-medium text-foreground">{live.allowed}</span> {t("tools.ProfileWizard.ofWord")} {live.total}{" "}
+                {t("tools.ProfileWizard.toolsWord")}
               </span>
             ) : null}
             {draftId ? (
@@ -299,7 +299,7 @@ export function ProfileWizard({
                 disabled={busy}
                 className="font-medium text-primary hover:underline disabled:opacity-50"
               >
-                Save &amp; finish later
+                {t("tools.ProfileWizard.saveFinishLater")}
               </button>
             ) : null}
           </div>
@@ -307,11 +307,11 @@ export function ProfileWizard({
           <div className="flex items-center gap-2">
             {step > 1 ? (
               <Button variant="outline" disabled={busy} onClick={() => setStep((s) => (s - 1) as WizardStep)}>
-                Back
+                {t("tools.ProfileWizard.back")}
               </Button>
             ) : (
               <Button variant="ghost" disabled={busy} onClick={() => navigate("/apps/advanced/profiles")}>
-                Cancel
+                {t("tools.ProfileWizard.cancel")}
               </Button>
             )}
 
@@ -323,7 +323,7 @@ export function ProfileWizard({
                 }
               >
                 {busy ? <Loader2 className="mr-1.5 h-4 w-4 animate-spin" /> : null}
-                Continue
+                {t("tools.ProfileWizard.continue")}
               </Button>
             ) : null}
 
@@ -333,14 +333,14 @@ export function ProfileWizard({
                 onClick={() => saveDraft.mutate({ goToStep: 3, completedStep: 2 })}
               >
                 {busy ? <Loader2 className="mr-1.5 h-4 w-4 animate-spin" /> : null}
-                Continue
+                {t("tools.ProfileWizard.continue")}
               </Button>
             ) : null}
 
             {step === 3 ? (
               <Button disabled={busy} onClick={() => finish.mutate()}>
                 {busy ? <Loader2 className="mr-1.5 h-4 w-4 animate-spin" /> : null}
-                Save profile
+                {t("tools.ProfileWizard.saveProfile")}
               </Button>
             ) : null}
           </div>
@@ -543,7 +543,7 @@ export function StepName({
               className="font-mono text-xs"
             />
             <p className="text-xs text-muted-foreground">
-              Used in exports and the API. Auto-filled from the name.
+              {t("tools.ProfileWizard.usedInExports")}
             </p>
           </div>
         </CollapsibleContent>
@@ -615,7 +615,7 @@ export function StepAssign({
         <span className="flex flex-col gap-0.5">
           <span className="text-sm font-medium text-foreground">{t("tools.profiles.wizard.orgDefault", { defaultValue: "Make this the organization default" })}</span>
           <span className="text-xs text-muted-foreground">
-            Every agent without its own profile uses this one.
+            {t("tools.ProfileWizard.everyAgentUses")}
             {defaultProfileName ? ` Replaces “${defaultProfileName}”.` : ""}
           </span>
         </span>
@@ -639,7 +639,7 @@ export function StepAssign({
           }}
         />
         <p className="text-xs text-muted-foreground">
-          If an agent has several profiles, it can use anything any of them allows.
+          {t("tools.ProfileWizard.severalProfiles")}
         </p>
       </div>
 

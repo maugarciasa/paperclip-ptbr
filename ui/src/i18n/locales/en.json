@@ -18230,6 +18230,19 @@
     "zoomOut": "Zoom out"
   },
   "tools": {
+    "ProfileWizard": {
+      "allowsLead": "Allows",
+      "ofWord": "of",
+      "toolsWord": "tools",
+      "saveFinishLater": "Save & finish later",
+      "back": "Back",
+      "cancel": "Cancel",
+      "continue": "Continue",
+      "saveProfile": "Save profile",
+      "usedInExports": "Used in exports and the API. Auto-filled from the name.",
+      "everyAgentUses": "Every agent without its own profile uses this one.",
+      "severalProfiles": "If an agent has several profiles, it can use anything any of them allows."
+    },
     "ProfileDetail": {
       "addedOn": "· added {{date}}",
       "isDisconnected": "is disconnected",
