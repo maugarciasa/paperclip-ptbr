@@ -194,7 +194,6 @@ const STEP_STATUS_LABEL: Record<TaskChatProtocolStep["status"], string> = {
 };
 
 function fileCountLabel(files: number): string {
-  const { t } = useTranslation();
   return t("issues.TaskChatTurnStatusIsland.filesChanged", { count: files });
 }
 

@@ -1,5 +1,18 @@
 {
   "agents": {
+    "ContextUsageMeter": {
+      "usedOfTotalTokens": "{{used}} de {{total}} tokens",
+      "updatedWhen": "· atualizado {{when}}",
+      "contextWindow": "Janela de contexto",
+      "ofWindow": "de {{window}}"
+    },
+    "AgentDetail": {
+      "useLettersNumbersHyphens": "Use letras, números, hífens ou sublinhados.",
+      "copyAsMarkdown": "Copiar como markdown",
+      "stderr": "stderr",
+      "stdout": "stdout",
+      "md": ".md"
+    },
     "AgentBulkRoster": {
       "countSelected": "{{count}} selecionados",
       "agentFilters": "Filtros de agentes",
@@ -32,7 +45,11 @@
       "hintLabel": "Dica:",
       "experimental": "Experimental",
       "modelId": "ID do modelo",
-      "defaultLabel": "Padrão"
+      "defaultLabel": "Padrão",
+      "thisInstanceRequiresThe": "Esta instância exige o sandbox do Kubernetes, mas ainda não há nenhum ambiente Kubernetes gerenciado disponível para esta empresa. Configure um antes de criar agentes; a execução não voltará para o modo local.",
+      "thisConnectionIsNot": "Esta conexão não é criptografada. O código de login trafega em texto simples nesta rede. Continue apenas em uma rede em que você confia.",
+      "keepYourHarnessModel": "Mantenha seu harness, modelo, conta e configurações compatíveis. Novas sessões começam do zero; execuções anteriores continuam disponíveis.",
+      "youHaveASaved": "Você tem um login do Claude salvo. Use-o para vincular este agente ou entre de novo para substituir o token armazenado."
     },
     "AgentActionButtons": {
       "actionFailed": "Ação falhou",
@@ -9248,6 +9265,18 @@
     "working": "Processando..."
   },
   "issues": {
+    "DesignSandboxTasks": {
+      "parentTasksIncludedFor": " · Tarefas-mãe incluídas para dar contexto",
+      "searchViewsAndFilters_other": "A busca, as visões e os filtros cobrem as {{count}} tarefas carregadas.",
+      "searchViewsAndFilters_one": "A busca, as visões e os filtros cobrem a {{count}} tarefa carregada.",
+      "couldNotLoadTasks": "Não foi possível carregar as tarefas",
+      "matchingTasks_other": "{{count}} tarefas correspondentes",
+      "matchingTasks_one": "{{count}} tarefa correspondente",
+      "loadMoreTasks": "Carregar mais tarefas",
+      "loadingTasks": "Carregando tarefas…",
+      "loading": "Carregando…",
+      "retry": "Tentar novamente"
+    },
     "TaskChatProtocolCard": {
       "binaryFileTextDiff": "Arquivo binário; o diff de texto não está disponível.",
       "thisPatchIsToo": "Este patch é grande demais para exibir aqui.",
@@ -9958,7 +9987,12 @@
       "taskIdDescription": "Identificador da tarefa, como PAP-1009, na borda final.",
       "taskStatusDescription": "Ícone de estado da tarefa na borda inicial.",
       "updated": "Atualizado {{time}}",
-      "user": "Usuário"
+      "user": "Usuário",
+      "countLiveBelow": "{{count}} ao vivo abaixo",
+      "statusIdUpdated": "status, id, atualização",
+      "unassigned": "Sem responsável",
+      "unknown": "Desconhecido",
+      "live": "Ao vivo"
     },
     "IssueContinuationHandoff": {
       "badge": "passagem",
@@ -11220,7 +11254,12 @@
       "expand": "Expandir",
       "thinking": "Pensando",
       "thought": "Pensamento",
-      "tokenUsage": "Uso de tokens"
+      "tokenUsage": "Uso de tokens",
+      "blockedReason": "Bloqueado: {{reason}}",
+      "readFiles_other": "Leu {{count}} arquivos",
+      "exitCode": "saída {{code}}",
+      "readFiles_one": "Leu {{count}} arquivo",
+      "text": "· +"
     },
     "TaskChatSkillCreatedCard": {
       "skillCreated": "Skill criada",
@@ -15809,6 +15848,14 @@
     }
   },
   "settings": {
+    "AdapterManager": {
+      "theAdapterPluginSystem": "O sistema de plugins de adapter está em desenvolvimento ativo. As APIs e o formato de armazenamento podem mudar. Use o ícone de energia para ocultar adapters dos menus de agentes sem removê-los.",
+      "alreadyOnTheLatest": "Já está na versão mais recente.",
+      "modelsCount_other": "{{count}} modelos",
+      "modelsCount_one": "{{count}} modelo",
+      "installAdapter": "Instalar adapter",
+      "cancel": "Cancelar"
+    },
     "ClassicWorkspaceSetting": {
       "useThePreviousWorkspace": "Use o workspace anterior em vez do workspace padrão do Coordinator. Isso muda sua interface em todas as empresas desta instância.",
       "offByDefaultTurn": "Desativado por padrão. Desative para voltar ao Coordinator. Seu trabalho e as configurações dos colegas continuam iguais.",
@@ -16830,6 +16877,13 @@
     }
   },
   "skills": {
+    "ForkSkillDialog": {
+      "anUneditedCopyOf": "Já existe uma cópia não editada desta skill. Abra-a em vez de criar outra.",
+      "nothingIsAssignedTo": "Nada está atribuído a ela, então sua cópia não mudará o comportamento de nenhum agente.",
+      "switchTheseAgentsTo": "Trocar estes agentes para a cópia",
+      "openYourExistingCopy": "Abrir sua cópia existente",
+      "cancel": "Cancelar"
+    },
     "SkillSources": {
       "projectRepositories": "Repositórios do projeto",
       "cancel": "Cancelar",
@@ -19399,6 +19453,13 @@
     "touched": "Modificadas"
   },
   "workspaces": {
+    "ExecutionWorkspaceDetail": {
+      "bashScriptsProvisionWorktree": "bash ./scripts/provision-worktree-runtime.sh",
+      "bashScriptsProvisionWorktree2": "bash ./scripts/provision-worktree.sh",
+      "bashScriptsTeardownWorktree": "bash ./scripts/teardown-worktree.sh",
+      "pkillFViteTrue": "pkill -f vite || true",
+      "commandsPlaceholder": "{\n  \"commands\": [\n    {\n      \"id\": \"web\",\n      \"name\": \"web\",\n      \"kind\": \"service\",\n      \"command\": \"pnpm dev\",\n      \"cwd\": \".\",\n      \"port\": { \"type\": \"auto\" }\n    },\n    {\n      \"id\": \"db-migrate\",\n      \"name\": \"db:migrate\",\n      \"kind\": \"job\",\n      \"command\": \"pnpm db:migrate\",\n      \"cwd\": \".\"\n    }\n  ]\n}"
+    },
     "WorkspaceExportRecovery": {
       "confirmThePreviousServer": "Confirme que o servidor anterior parou",
       "howDidYouConfirm": "Como você confirmou que o servidor anterior e a cópia de arquivos dele pararam?",

@@ -2432,9 +2432,9 @@ export function PromptsTab({
                   }
                 }}
               />
-              <span className="pr-3 font-mono text-sm text-muted-foreground/50" aria-hidden>.md</span>
+              <span className="pr-3 font-mono text-sm text-muted-foreground/50" aria-hidden>{t("agents.AgentDetail.md")}</span>
               </div>
-              <p id="markdown-file-name-hint" className="text-xs text-muted-foreground">Use letters, numbers, hyphens or underscores.</p>
+              <p id="markdown-file-name-hint" className="text-xs text-muted-foreground">{t("agents.AgentDetail.useLettersNumbersHyphens")}</p>
               <div className="flex gap-2">
                 <Button
                   type="button"
@@ -2578,7 +2578,7 @@ export function PromptsTab({
               </Button>
               {!fileLoading && (
                 <Button type="button" variant="ghost" size="icon-xs" className="size-8"
-                  aria-label={t("agents.detail.instructions.copyFileAria")} title="Copy as markdown"
+                  aria-label={t("agents.detail.instructions.copyFileAria")} title={t("agents.AgentDetail.copyAsMarkdown")}
                   onClick={async () => {
                     clearTimeout(copyTimer.current);
                     setCopyVisible(true);
@@ -3491,7 +3491,7 @@ function RunDetail({ run: initialRun, agentRouteId, adapterType, adapterConfig }
       {/* stderr excerpt for failed runs */}
       {run.stderrExcerpt && (
         <div className="space-y-1">
-          <span className="text-xs font-medium text-red-600 dark:text-red-400">stderr</span>
+          <span className="text-xs font-medium text-red-600 dark:text-red-400">{t("agents.AgentDetail.stderr")}</span>
           <pre className="bg-neutral-100 dark:bg-neutral-950 rounded-md p-3 text-xs font-mono text-red-700 dark:text-red-300 overflow-x-auto whitespace-pre-wrap">{run.stderrExcerpt}</pre>
         </div>
       )}
@@ -3499,7 +3499,7 @@ function RunDetail({ run: initialRun, agentRouteId, adapterType, adapterConfig }
       {/* stdout excerpt when no log is available */}
       {run.stdoutExcerpt && !run.logRef && (
         <div className="space-y-1">
-          <span className="text-xs font-medium text-muted-foreground">stdout</span>
+          <span className="text-xs font-medium text-muted-foreground">{t("agents.AgentDetail.stdout")}</span>
           <pre className="bg-neutral-100 dark:bg-neutral-950 rounded-md p-3 text-xs font-mono text-foreground overflow-x-auto whitespace-pre-wrap">{run.stdoutExcerpt}</pre>
         </div>
       )}

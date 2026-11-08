@@ -1,5 +1,18 @@
 {
   "agents": {
+    "ContextUsageMeter": {
+      "usedOfTotalTokens": "{{used}} of {{total}} tokens",
+      "updatedWhen": "· updated {{when}}",
+      "contextWindow": "Context window",
+      "ofWindow": "of {{window}}"
+    },
+    "AgentDetail": {
+      "useLettersNumbersHyphens": "Use letters, numbers, hyphens or underscores.",
+      "copyAsMarkdown": "Copy as markdown",
+      "stderr": "stderr",
+      "stdout": "stdout",
+      "md": ".md"
+    },
     "AgentBulkRoster": {
       "countSelected": "{{count}} selected",
       "agentFilters": "Agent filters",
@@ -32,7 +45,11 @@
       "hintLabel": "Hint:",
       "experimental": "Experimental",
       "modelId": "Model ID",
-      "defaultLabel": "Default"
+      "defaultLabel": "Default",
+      "thisInstanceRequiresThe": "This instance requires the Kubernetes sandbox, but no managed Kubernetes environment is available for this organization yet. Configure one before creating agents; execution will not fall back to local.",
+      "thisConnectionIsNot": "This connection is not encrypted. The login code travels in clear text on this network. Continue only on a network you trust.",
+      "keepYourHarnessModel": "Keep your harness, model, account, and compatible settings. New sessions start fresh; past runs stay available.",
+      "youHaveASaved": "You have a saved Claude login. Use it to bind this agent, or log in again to replace the stored token."
     },
     "AgentActionButtons": {
       "actionFailed": "Action failed",
@@ -9248,6 +9265,18 @@
     "working": "Working..."
   },
   "issues": {
+    "DesignSandboxTasks": {
+      "parentTasksIncludedFor": " · Parent tasks included for context",
+      "searchViewsAndFilters_other": "Search, views and filters cover the {{count}} loaded tasks.",
+      "searchViewsAndFilters_one": "Search, views and filters cover the {{count}} loaded task.",
+      "couldNotLoadTasks": "Could not load tasks",
+      "matchingTasks_other": "{{count}} matching tasks",
+      "matchingTasks_one": "{{count}} matching task",
+      "loadMoreTasks": "Load more tasks",
+      "loadingTasks": "Loading tasks…",
+      "loading": "Loading…",
+      "retry": "Retry"
+    },
     "TaskChatProtocolCard": {
       "binaryFileTextDiff": "Binary file; text diff is unavailable.",
       "thisPatchIsToo": "This patch is too large to show here.",
@@ -9958,7 +9987,12 @@
       "taskIdDescription": "Task identifier like PAP-1009 on the trailing edge.",
       "taskStatusDescription": "Task state icon on the leading edge.",
       "updated": "Updated {{time}}",
-      "user": "User"
+      "user": "User",
+      "countLiveBelow": "{{count}} live below",
+      "statusIdUpdated": "status, id, updated",
+      "unassigned": "Unassigned",
+      "unknown": "Unknown",
+      "live": "Live"
     },
     "IssueContinuationHandoff": {
       "badge": "handoff",
@@ -11220,7 +11254,12 @@
       "expand": "Expand",
       "thinking": "Thinking",
       "thought": "Thought",
-      "tokenUsage": "Token usage"
+      "tokenUsage": "Token usage",
+      "blockedReason": "Blocked: {{reason}}",
+      "readFiles_other": "Read {{count}} files",
+      "exitCode": "exit {{code}}",
+      "readFiles_one": "Read {{count}} file",
+      "text": "· +"
     },
     "TaskChatSkillCreatedCard": {
       "skillCreated": "Skill created",
@@ -15809,6 +15848,14 @@
     }
   },
   "settings": {
+    "AdapterManager": {
+      "theAdapterPluginSystem": "The adapter plugin system is under active development. APIs and storage format may change. Use the power icon to hide adapters from agent menus without removing them.",
+      "alreadyOnTheLatest": "Already on the latest version.",
+      "modelsCount_other": "{{count}} models",
+      "modelsCount_one": "{{count}} model",
+      "installAdapter": "Install Adapter",
+      "cancel": "Cancel"
+    },
     "ClassicWorkspaceSetting": {
       "useThePreviousWorkspace": "Use the previous workspace instead of the standard Coordinator workspace. This changes your interface across companies on this instance.",
       "offByDefaultTurn": "Off by default. Turn it off to return to Coordinator. Your work and your teammates’ settings stay the same.",
@@ -16830,6 +16877,13 @@
     }
   },
   "skills": {
+    "ForkSkillDialog": {
+      "anUneditedCopyOf": "An unedited copy of this skill already exists. Open it instead of making another.",
+      "nothingIsAssignedTo": "Nothing is assigned to it, so your copy won't change any agent's behaviour.",
+      "switchTheseAgentsTo": "Switch these agents to the copy",
+      "openYourExistingCopy": "Open your existing copy",
+      "cancel": "Cancel"
+    },
     "SkillSources": {
       "projectRepositories": "Project repositories",
       "cancel": "Cancel",
@@ -19399,6 +19453,13 @@
     "touched": "Touched"
   },
   "workspaces": {
+    "ExecutionWorkspaceDetail": {
+      "bashScriptsProvisionWorktree": "bash ./scripts/provision-worktree-runtime.sh",
+      "bashScriptsProvisionWorktree2": "bash ./scripts/provision-worktree.sh",
+      "bashScriptsTeardownWorktree": "bash ./scripts/teardown-worktree.sh",
+      "pkillFViteTrue": "pkill -f vite || true",
+      "commandsPlaceholder": "{\n  \"commands\": [\n    {\n      \"id\": \"web\",\n      \"name\": \"web\",\n      \"kind\": \"service\",\n      \"command\": \"pnpm dev\",\n      \"cwd\": \".\",\n      \"port\": { \"type\": \"auto\" }\n    },\n    {\n      \"id\": \"db-migrate\",\n      \"name\": \"db:migrate\",\n      \"kind\": \"job\",\n      \"command\": \"pnpm db:migrate\",\n      \"cwd\": \".\"\n    }\n  ]\n}"
+    },
     "WorkspaceExportRecovery": {
       "confirmThePreviousServer": "Confirm the previous server stopped",
       "howDidYouConfirm": "How did you confirm that the previous server and its file copy stopped?",

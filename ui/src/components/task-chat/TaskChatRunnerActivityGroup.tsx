@@ -318,7 +318,7 @@ function ActivityRowContent({
               )}
               data-tool-exit-code={exitCode}
             >
-              exit {exitCode}
+              {t("issues.TaskChatRunnerActivityGroup.exitCode", { code: exitCode })}
             </span>
           ) : null}
           {durationMs != null ? (
@@ -430,7 +430,7 @@ function ActivityDetailsBody({ item }: { item: Activity }) {
       {item.target ? (
         <p className="break-all font-mono">{item.target}</p>
       ) : null}
-      {item.blockedReason ? <p className="text-destructive">Blocked: {item.blockedReason}</p> : null}
+      {item.blockedReason ? <p className="text-destructive">{t("issues.TaskChatRunnerActivityGroup.blockedReason", { reason: item.blockedReason })}</p> : null}
       {item.detail ? (
         <pre className="whitespace-pre-wrap break-words font-mono">
           {item.detail}
@@ -439,7 +439,7 @@ function ActivityDetailsBody({ item }: { item: Activity }) {
       {item.decision ? <p>{t("issues.ActivityDetails.permissionDecision", { decision: item.decision })}</p> : null}
       {item.diff ? (
         <p className="break-all font-mono">
-          {item.diff.path} · +{item.diff.added} −{item.diff.removed}
+          {item.diff.path} {t("issues.TaskChatRunnerActivityGroup.text")}{item.diff.added} −{item.diff.removed}
         </p>
       ) : null}
     </>
@@ -550,6 +550,7 @@ function readRunPreview(items: ToolActivity[]): string {
 }
 
 function ReadRunActivity({ items }: { items: ToolActivity[] }) {
+  const { t } = useTranslation();
   const id = `runner-reads:${items[0]!.id}`;
   const [open, setOpen] = useTaskChatExpansion(id, false);
   const listId = useId();
@@ -567,7 +568,7 @@ function ReadRunActivity({ items }: { items: ToolActivity[] }) {
             <BookOpen className="size-3.5" aria-hidden="true" />
           </span>
           <span className="flex min-w-0 flex-1 items-center gap-2 overflow-hidden whitespace-nowrap">
-            <span className="shrink-0 text-xs">Read {items.length} files</span>
+            <span className="shrink-0 text-xs">{t("issues.TaskChatRunnerActivityGroup.readFiles", { count: items.length })}</span>
             <span className="truncate font-mono text-xs text-muted-foreground">{readRunPreview(items)}</span>
           </span>
         </span>

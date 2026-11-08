@@ -111,7 +111,7 @@ function AdapterRow({
             {adapter.packageName && adapter.packageName !== adapter.type && (
               <> · {adapter.packageName}</>
             )}
-            {" · "}{adapter.modelsCount} models
+            {" · "}{t("settings.AdapterManager.modelsCount", { count: adapter.modelsCount })}
           </p>
         </div>
         <div className="flex items-center gap-2 shrink-0">
@@ -239,14 +239,14 @@ function ReinstallDialog({
           </div>
           {isUpToDate && (
             <p className="text-xs text-muted-foreground pt-1">
-              Already on the latest version.
+              {t("settings.AdapterManager.alreadyOnTheLatest")}
             </p>
           )}
         </div>
 
         <DialogFooter>
           <Button variant="outline" onClick={onCancel} disabled={isReinstalling}>
-            Cancel
+            {t("settings.AdapterManager.cancel")}
           </Button>
           <Button disabled={isReinstalling} onClick={onConfirm}>
             {isReinstalling ? "Reinstalling..." : "Reinstall"}
@@ -415,7 +415,7 @@ export function AdapterManager() {
           <DialogTrigger asChild>
             <Button size="sm" className="gap-2">
               <Plus className="h-4 w-4" />
-              Install Adapter
+              {t("settings.AdapterManager.installAdapter")}
             </Button>
           </DialogTrigger>
           <DialogContent>
@@ -524,8 +524,7 @@ export function AdapterManager() {
           <div className="space-y-1 text-sm">
             <p className="font-medium text-foreground">{t("settings.adapters.alphaWarningTitle")}</p>
             <p className="text-muted-foreground">
-              The adapter plugin system is under active development. APIs and storage format may change.
-              Use the power icon to hide adapters from agent menus without removing them.
+              {t("settings.AdapterManager.theAdapterPluginSystem")}
             </p>
           </div>
         </div>

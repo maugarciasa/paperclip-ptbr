@@ -1621,8 +1621,7 @@ export function AgentConfigForm(props: AgentConfigFormProps) {
             <div className="min-w-0 flex-1 space-y-1">
               <p className="text-sm font-medium">{t("agents.configForm.upgradeRunnerTitle")}</p>
               <p className="text-sm text-muted-foreground">
-                Keep your harness, model, account, and compatible settings.
-                New sessions start fresh; past runs stay available.
+                {t("agents.AgentConfigForm.keepYourHarnessModel")}
               </p>
               {canQualifyRunnerUpgrade && runnerAvailability?.defaultRunner !== "paperclip" ? (
                 <p className="text-xs text-muted-foreground">{t("agents.configForm.upgradeRunnerDescription")}</p>
@@ -1747,9 +1746,7 @@ export function AgentConfigForm(props: AgentConfigFormProps) {
                 </div>
               ) : (
                 <div className="rounded-md border border-amber-500/25 bg-amber-500/10 px-3 py-2 text-xs text-amber-800 dark:text-amber-200">
-                  This instance requires the Kubernetes sandbox, but no managed Kubernetes
-                  environment is available for this organization yet. Configure one before creating
-                  agents; execution will not fall back to local.
+                  {t("agents.AgentConfigForm.thisInstanceRequiresThe")}
                 </div>
               )}
             </Field>
@@ -3746,8 +3743,7 @@ function SubmittedBrowserCodeLoginPanel({
         {transportInsecure && (
           <p className="flex items-start gap-2 pl-2 text-xs text-amber-700 dark:text-amber-200">
             <TriangleAlert className="mt-0.5 size-3 shrink-0" />
-            This connection is not encrypted. The login code travels in clear text on this
-            network. Continue only on a network you trust.
+            {t("agents.AgentConfigForm.thisConnectionIsNot")}
           </p>
         )}
         {!failure && !retryLogin.isPending && (
@@ -3826,8 +3822,7 @@ function SubmittedBrowserCodeLoginPanel({
           token; a replacement login rotates it under the captured version. */}
       {storedToken && !isActive && !isStored && !appliedStored && (
         <div className="text-(length:--text-micro) text-muted-foreground">
-          You have a saved Claude login. Use it to bind this agent, or log in again to replace the
-          stored token.
+          {t("agents.AgentConfigForm.youHaveASaved")}
         </div>
       )}
 
@@ -3862,8 +3857,7 @@ function SubmittedBrowserCodeLoginPanel({
               >
                 <TriangleAlert className="size-3 shrink-0 mt-0.5" />
                 <span>
-                  This connection is not encrypted. The login code travels in clear text on this
-                  network. Continue only on a network you trust.
+                  {t("agents.AgentConfigForm.thisConnectionIsNot")}
                 </span>
               </div>
             )}

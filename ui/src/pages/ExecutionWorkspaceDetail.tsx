@@ -1261,7 +1261,7 @@ export function ExecutionWorkspaceDetail() {
                           className="min-h-20 font-mono"
                           value={form.provisionCommand}
                           onChange={(event) => setForm((current) => current ? { ...current, provisionCommand: event.target.value } : current)}
-                          placeholder="bash ./scripts/provision-worktree.sh"
+                          placeholder={t("workspaces.ExecutionWorkspaceDetail.bashScriptsProvisionWorktree2")}
                         />
                       </Field>
 
@@ -1273,7 +1273,7 @@ export function ExecutionWorkspaceDetail() {
                           className="min-h-20 font-mono"
                           value={form.runtimeProvisionCommand}
                           onChange={(event) => setForm((current) => current ? { ...current, runtimeProvisionCommand: event.target.value } : current)}
-                          placeholder="bash ./scripts/provision-worktree-runtime.sh"
+                          placeholder={t("workspaces.ExecutionWorkspaceDetail.bashScriptsProvisionWorktree")}
                         />
                       </Field>
 
@@ -1282,7 +1282,7 @@ export function ExecutionWorkspaceDetail() {
                           className="min-h-20 font-mono"
                           value={form.teardownCommand}
                           onChange={(event) => setForm((current) => current ? { ...current, teardownCommand: event.target.value } : current)}
-                          placeholder="bash ./scripts/teardown-worktree.sh"
+                          placeholder={t("workspaces.ExecutionWorkspaceDetail.bashScriptsTeardownWorktree")}
                         />
                       </Field>
 
@@ -1291,7 +1291,7 @@ export function ExecutionWorkspaceDetail() {
                           className="min-h-16 font-mono"
                           value={form.cleanupCommand}
                           onChange={(event) => setForm((current) => current ? { ...current, cleanupCommand: event.target.value } : current)}
-                          placeholder="pkill -f vite || true"
+                          placeholder={t("workspaces.ExecutionWorkspaceDetail.pkillFViteTrue")}
                         />
                       </Field>
                     </div>
@@ -1365,7 +1365,7 @@ export function ExecutionWorkspaceDetail() {
                           value={form.workspaceRuntime}
                           onChange={(event) => setForm((current) => current ? { ...current, workspaceRuntime: event.target.value } : current)}
                           disabled={form.inheritRuntime}
-                          placeholder={'{\n  "commands": [\n    {\n      "id": "web",\n      "name": "web",\n      "kind": "service",\n      "command": "pnpm dev",\n      "cwd": ".",\n      "port": { "type": "auto" }\n    },\n    {\n      "id": "db-migrate",\n      "name": "db:migrate",\n      "kind": "job",\n      "command": "pnpm db:migrate",\n      "cwd": "."\n    }\n  ]\n}'}
+                          placeholder={t("workspaces.ExecutionWorkspaceDetail.commandsPlaceholder")}
                         />
                       </Field>
                     </div>
