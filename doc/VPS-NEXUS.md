@@ -34,3 +34,8 @@ A imagem de produção passa de 17 GB e cada deploy baixa uma nova. Sem limpeza,
 deploy falha com `no space left on device`. Em 08/11/2026 o disco estava em 96% e o
 `docker image prune -a` liberou 43 GB. Antes de limpar, conferir `docker system df`. O prune só
 remove imagens sem nenhum contêiner associado.
+
+Desde então o `atualizar.sh` remove a imagem anterior do Paperclip (`docker rmi`) depois de um
+deploy saudável, para não acumular uma por versão. O `reverter` baixa a anterior do GHCR de novo.
+O `docker-compose.yml` da VPS aparece como modificado no git de `~/paperclip` porque cada deploy
+troca o digest; isso é esperado.
