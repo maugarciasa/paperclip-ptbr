@@ -595,7 +595,7 @@ export function Search() {
             aria-hidden
             className="pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 rounded border border-border bg-muted px-1.5 py-0.5 text-(length:--text-nano) font-medium text-muted-foreground"
           >
-            ⌘K
+            {t("search.Search.shortcutK")}
           </kbd>
         </div>
         <div className="mt-2 flex min-h-6 flex-wrap items-center gap-1.5 text-(length:--text-micro) text-muted-foreground">
@@ -629,9 +629,9 @@ export function Search() {
             </div>
           ) : (
             <span className="truncate">
-              Try <code className="rounded bg-muted px-1 py-0.5 text-(length:--text-micro)">status:todo</code>,{" "}
+              {t("search.Search.tryPrefix")} <code className="rounded bg-muted px-1 py-0.5 text-(length:--text-micro)">status:todo</code>,{" "}
               <code className="rounded bg-muted px-1 py-0.5 text-(length:--text-micro)">assignee:me</code>,{" "}
-              or <code className="rounded bg-muted px-1 py-0.5 text-(length:--text-micro)">updated:&gt;7d</code>.
+              {t("search.Search.orWord")} <code className="rounded bg-muted px-1 py-0.5 text-(length:--text-micro)">updated:&gt;7d</code>.
             </span>
           )}
         </div>
@@ -779,13 +779,13 @@ function SearchTabContent({
         <div>
           <h2 className="text-lg font-semibold">{t("search.page.initial.title", { defaultValue: "Type to search organization memory." })}</h2>
           <p className="mt-1 text-sm text-muted-foreground">
-            Tasks, comments, plan documents, artifacts, agents, projects — same surface, ranked by relevance.
+            {t("search.Search.scopeIntro")}
           </p>
         </div>
         {recentSearches.length > 0 ? (
           <div>
             <div className="mb-2 text-(length:--text-micro) font-semibold uppercase tracking-wide text-muted-foreground">
-              Recent searches
+              {t("search.Search.recentSearches")}
             </div>
             <ul className="flex flex-col divide-y divide-border rounded-md border border-border">
               {recentSearches.map((entry) => (
@@ -805,15 +805,15 @@ function SearchTabContent({
         ) : null}
         <ul className="space-y-1 text-xs text-muted-foreground">
           <li>
-            <span className="font-medium text-foreground">Identifier lookup:</span> type{" "}
-            <code className="rounded bg-muted px-1 py-0.5 text-(length:--text-micro)">PAP-123</code> to jump straight to a task.
+            <span className="font-medium text-foreground">{t("search.Search.identifierLookup")}</span> {t("search.Search.typeWord")}{" "}
+            <code className="rounded bg-muted px-1 py-0.5 text-(length:--text-micro)">PAP-123</code> {t("search.Search.jumpToTask")}
           </li>
           <li>
-            <span className="font-medium text-foreground">Quoted phrases:</span> wrap a phrase in quotes to match the
+            <span className="font-medium text-foreground">{t("search.Search.quotedPhrases")}</span> wrap a phrase in quotes to match the
             exact sequence.
           </li>
           <li>
-            <span className="font-medium text-foreground">⌘K:</span> reopens the command palette pre-seeded with your
+            <span className="font-medium text-foreground">{t("search.Search.shortcutKColon")}</span> reopens the command palette pre-seeded with your
             current query.
           </li>
         </ul>
@@ -833,10 +833,10 @@ function SearchTabContent({
         </p>
         <div className="flex flex-wrap items-center justify-center gap-2">
           <Button onClick={refetch} variant="default" size="sm">
-            Retry
+            {t("search.Search.retry")}
           </Button>
           <Button onClick={navigateIssuesFallback} variant="outline" size="sm">
-            Open Tasks filter view
+            {t("search.Search.openTasksView")}
           </Button>
         </div>
       </div>
@@ -876,27 +876,27 @@ function SearchTabContent({
         <FileQuestion className="h-10 w-10 text-muted-foreground" aria-hidden />
         <div className="text-base font-semibold">{t("search.page.empty.title", { query: trimmedQuery, defaultValue: `No results for “${trimmedQuery}”` })}</div>
         <p className="text-sm text-muted-foreground">
-          We couldn’t find a match in {describeScope(scope).toLowerCase()}. Try widening the scope or rephrasing your
+          {t("search.Search.noMatchIn")} {describeScope(scope).toLowerCase()}. Try widening the scope or rephrasing your
           query.
         </p>
         <div className="flex flex-wrap items-center justify-center gap-2">
           {scope !== "all" ? (
             <Button onClick={showAllScope} size="sm" variant="outline">
-              Search all scopes
+              {t("search.Search.searchAllScopes")}
             </Button>
           ) : null}
           <Button onClick={openNewIssue} size="sm" variant="default">
             <Plus className="mr-1.5 h-4 w-4" />
-            Create task from this query
+            {t("search.Search.createTaskFromQuery")}
           </Button>
           <Button onClick={navigateIssuesFallback} size="sm" variant="ghost">
-            Open Tasks filter view
+            {t("search.Search.openTasksView")}
           </Button>
         </div>
         <ul className="mt-2 space-y-0.5 text-xs text-muted-foreground">
           <li>{t("search.page.empty.tipFewerTokens", { defaultValue: "Try fewer tokens or a single distinctive term." })}</li>
           <li>
-            Use an identifier shortcut like <code className="rounded bg-muted px-1 py-0.5">PAP-123</code>.
+            {t("search.Search.identifierShortcut")} <code className="rounded bg-muted px-1 py-0.5">PAP-123</code>.
           </li>
           <li>{t("search.page.empty.tipQuotes", { defaultValue: "Wrap multi-word phrases in quotes." })}</li>
         </ul>

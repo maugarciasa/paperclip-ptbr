@@ -14629,6 +14629,24 @@
     }
   },
   "search": {
+    "Search": {
+      "shortcutK": "⌘K",
+      "tryPrefix": "Tente",
+      "orWord": "ou",
+      "scopeIntro": "Tarefas, comentários, documentos de plano, artefatos, agentes, projetos — mesma superfície, ordenados por relevância.",
+      "recentSearches": "Buscas recentes",
+      "identifierLookup": "Busca por identificador:",
+      "typeWord": "digite",
+      "jumpToTask": "para ir direto a uma tarefa.",
+      "quotedPhrases": "Frases entre aspas:",
+      "shortcutKColon": "⌘K:",
+      "retry": "Tentar novamente",
+      "openTasksView": "Abrir visualização de filtro de tarefas",
+      "noMatchIn": "Não encontramos resultados em",
+      "searchAllScopes": "Buscar em todos os escopos",
+      "createTaskFromQuery": "Criar tarefa a partir desta busca",
+      "identifierShortcut": "Use um atalho de identificador como"
+    },
     "CommandPalette": {
       "actions": "Ações",
       "activity": "Atividade",

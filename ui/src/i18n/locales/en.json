@@ -14629,6 +14629,24 @@
     }
   },
   "search": {
+    "Search": {
+      "shortcutK": "⌘K",
+      "tryPrefix": "Try",
+      "orWord": "or",
+      "scopeIntro": "Tasks, comments, plan documents, artifacts, agents, projects — same surface, ranked by relevance.",
+      "recentSearches": "Recent searches",
+      "identifierLookup": "Identifier lookup:",
+      "typeWord": "type",
+      "jumpToTask": "to jump straight to a task.",
+      "quotedPhrases": "Quoted phrases:",
+      "shortcutKColon": "⌘K:",
+      "retry": "Retry",
+      "openTasksView": "Open Tasks filter view",
+      "noMatchIn": "We couldn’t find a match in",
+      "searchAllScopes": "Search all scopes",
+      "createTaskFromQuery": "Create task from this query",
+      "identifierShortcut": "Use an identifier shortcut like"
+    },
     "CommandPalette": {
       "actions": "Actions",
       "activity": "Activity",
