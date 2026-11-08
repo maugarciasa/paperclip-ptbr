@@ -6647,6 +6647,17 @@
     "title": "Auditoria"
   },
   "auth": {
+    "CliAuth": {
+      "cliAccessApproved": "Acesso à CLI aprovado",
+      "thePaperclipCliCan": "A CLI do Paperclip agora pode concluir a autenticação na máquina solicitante.",
+      "command": "Comando:",
+      "startTheCliAuth": "Inicie o fluxo de autenticação da CLI de novo pelo terminal para gerar uma nova solicitação de aprovação.",
+      "signInRequired": "Login necessário",
+      "signInOrCreate": "Entre ou crie uma conta e depois volte a esta página para aprovar a solicitação de acesso à CLI.",
+      "approvePaperclipCliAccess": "Aprovar acesso à CLI do Paperclip",
+      "aCliClientIs": "Um cliente da CLI está pedindo acesso total ao board nas organizações que você pode acessar nesta instância. Aprove somente se você iniciou esta solicitação no seu próprio terminal.",
+      "requestedAccess": "Acesso solicitado"
+    },
     "BootstrapPendingPage": {
       "adminTitle": "Você é o administrador da instância",
       "claimInstance": "Reivindicar esta instância",
@@ -7428,6 +7439,9 @@
     "unarchive": "Desarquivar"
   },
   "costs": {
+    "Costs": {
+      "costDateRange": "Intervalo de datas dos custos"
+    },
     "AccountingModelCard": {
       "description": "O Paperclip agora separa o uso de inferência por requisição dos eventos financeiros da conta. Assim, os relatórios do provedor continuam fiéis quando o faturador é OpenRouter, Cloudflare, Bedrock ou outro intermediário.",
       "finance": {
@@ -9077,6 +9091,10 @@
     }
   },
   "invite": {
+    "InviteLanding": {
+      "post": "POST",
+      "thisInviteWillCreate": "Este convite criará uma solicitação de aprovação para um novo agente em"
+    },
     "acceptBootstrapInvite": "Aceitar convite de bootstrap",
     "acceptOrgInvite": "Aceitar convite da empresa",
     "accountAlreadyBelongsTo": "Esta conta já pertence à empresa {{company}}.",
@@ -13247,6 +13265,10 @@
     }
   },
   "orgChart": {
+    "OrgChart": {
+      "importCompany": "Importar empresa",
+      "exportCompany": "Exportar empresa"
+    },
     "actions": {
       "loadChart": "carregar o organograma"
     },
@@ -16665,6 +16687,11 @@
     }
   },
   "skills": {
+    "SkillSources": {
+      "projectRepositories": "Repositórios do projeto",
+      "cancel": "Cancelar",
+      "tryAgain": "Tentar novamente"
+    },
     "ImportSkillsFromProjectDialog": {
       "closeImportDialog": "Fechar diálogo de importação",
       "selectAll": "Selecionar tudo",

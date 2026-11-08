@@ -6647,6 +6647,17 @@
     "title": "Audit"
   },
   "auth": {
+    "CliAuth": {
+      "cliAccessApproved": "CLI access approved",
+      "thePaperclipCliCan": "The Paperclip CLI can now finish authentication on the requesting machine.",
+      "command": "Command:",
+      "startTheCliAuth": "Start the CLI auth flow again from your terminal to generate a new approval request.",
+      "signInRequired": "Sign in required",
+      "signInOrCreate": "Sign in or create an account, then return to this page to approve the CLI access request.",
+      "approvePaperclipCliAccess": "Approve Paperclip CLI access",
+      "aCliClientIs": "A CLI client is requesting full board access to the organizations you can access on this instance. Approve only if you started this request in your own terminal.",
+      "requestedAccess": "Requested access"
+    },
     "BootstrapPendingPage": {
       "adminTitle": "You're the instance admin",
       "claimInstance": "Claim this instance",
@@ -7428,6 +7439,9 @@
     "unarchive": "Unarchive"
   },
   "costs": {
+    "Costs": {
+      "costDateRange": "Cost date range"
+    },
     "AccountingModelCard": {
       "description": "Paperclip now separates request-level inference usage from account-level finance events. That keeps provider reporting honest when the biller is OpenRouter, Cloudflare, Bedrock, or another intermediary.",
       "finance": {
@@ -9077,6 +9091,10 @@
     }
   },
   "invite": {
+    "InviteLanding": {
+      "post": "POST",
+      "thisInviteWillCreate": "This invite will create an approval request for a new agent in"
+    },
     "acceptBootstrapInvite": "Accept bootstrap invite",
     "acceptOrgInvite": "Accept organization invite",
     "accountAlreadyBelongsTo": "This account already belongs to {{company}}.",
@@ -13247,6 +13265,10 @@
     }
   },
   "orgChart": {
+    "OrgChart": {
+      "importCompany": "Import company",
+      "exportCompany": "Export company"
+    },
     "actions": {
       "loadChart": "load the org chart"
     },
@@ -16665,6 +16687,11 @@
     }
   },
   "skills": {
+    "SkillSources": {
+      "projectRepositories": "Project repositories",
+      "cancel": "Cancel",
+      "tryAgain": "Try again"
+    },
     "ImportSkillsFromProjectDialog": {
       "closeImportDialog": "Close import dialog",
       "selectAll": "Select all",

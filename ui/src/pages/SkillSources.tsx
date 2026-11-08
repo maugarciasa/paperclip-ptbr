@@ -110,7 +110,7 @@ export function SkillSources() {
     {query.data?.length === 0 && availableProjects.length === 0 && <div className="flex flex-col items-start gap-3 py-8"><p className="text-sm text-muted-foreground">{t('skills.sources.noRepositories', { company: selectedCompany?.name ?? 'this company', defaultValue: `No repositories added yet. Import your skills to make them available in ${selectedCompany?.name ?? 'this company'}.` })}</p><Button variant="outline" onClick={() => navigate('/skills/sources/new')}>{t('skills.actions.importGithub', { defaultValue: 'Import from GitHub' })}</Button></div>}
     {projectsView.kind === 'error' && <p role="alert" className="text-sm text-destructive">{describeError(projectRepositories.error).body} <Button variant="ghost" size="sm" onClick={() => void projectRepositories.refetch()}>{t('skills.sources.tryAgain', { defaultValue: 'Try again' })}</Button></p>}
     {adopt.error && <p role="alert" className="text-sm text-destructive">{describeError(adopt.error).body}</p>}
-    {uninstalledProjects.length > 0 && <div className="divide-y divide-border" aria-label="Project repositories">
+    {uninstalledProjects.length > 0 && <div className="divide-y divide-border" aria-label={t("skills.SkillSources.projectRepositories")}>
       {uninstalledProjects.map(group => <ProjectSkillRepositoryRow key={group.key} repository={group.repository} backgroundPending={group.hasPending} disabled={adopt.isPending}
         pending={adopt.isPending && adopt.variables?.key === group.key} onImport={() => adopt.mutate(group)} />)}
     </div>}
@@ -237,7 +237,7 @@ function DisconnectSourceDialog({ source, pending, error, stale, onReload, onClo
         {stale && <Button variant="ghost" size="sm" disabled={pending} onClick={onReload}>{t('skills.sources.disconnect.reloadSource', { defaultValue: 'Reload source' })}</Button>}
       </div>}
       <div className="flex items-center justify-between gap-3">
-        <Button variant="outline" disabled={pending} onClick={onClose}>Cancel</Button>
+        <Button variant="outline" disabled={pending} onClick={onClose}>{t("skills.SkillSources.cancel")}</Button>
         <Button variant={choice === 'delete' ? 'destructive' : 'default'} disabled={pending || stale || Boolean(count && !choice)} onClick={() => onConfirm(choice || 'copy')}>
           {pending ? t('skills.sources.disconnect.removing', { defaultValue: 'Removing…' }) : action}
         </Button>
@@ -355,7 +355,7 @@ function SourceDialog({ companyId, source, onClose, onSaved }: {
           </Command>}
           {(repositoriesView.kind === 'error' || Boolean(repositories.data?.failedConnectionCount)) && <p role="alert" className="text-xs text-destructive">
             {availableRepositories.length ? t('skills.sources.dialog.someFailedLoadingRepos', { defaultValue: 'Some GitHub connections could not load repositories.' }) : t('skills.sources.dialog.errorLoadingRepos', { defaultValue: 'Could not load GitHub repositories.' })}{' '}
-            <Button variant="ghost" size="sm" disabled={repositories.isFetching} onClick={() => void repositories.refetch()}>Try again</Button>
+            <Button variant="ghost" size="sm" disabled={repositories.isFetching} onClick={() => void repositories.refetch()}>{t("skills.SkillSources.tryAgain")}</Button>
             <Link to="/apps" className="underline">{t('skills.sources.manageConnections', { defaultValue: 'Manage connections' })}</Link>
           </p>}
           {!repositoriesLoading && availableRepositories.length === 0 && <Button asChild variant="outline" className="h-28 w-full flex-col gap-3 whitespace-normal text-center">

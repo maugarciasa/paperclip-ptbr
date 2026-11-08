@@ -201,7 +201,7 @@ function AwaitingJoinApprovalPanel({
           <div className="mt-4 space-y-1 border border-zinc-800 p-3 text-xs text-zinc-400">
             <div className="text-zinc-200">{t("invite.claimSecret", "Claim secret")}</div>
             <div className="font-mono break-all">{claimSecret}</div>
-            <div className="font-mono break-all">POST {claimApiKeyPath}</div>
+            <div className="font-mono break-all">{t("invite.InviteLanding.post")} {claimApiKeyPath}</div>
           </div>
         ) : null}
         {onboardingTextUrl ? (
@@ -626,7 +626,7 @@ export function InviteLandingPage() {
                 <div>
                   <h2 className="text-lg font-semibold">{t("invite.submitAgentTitle", "Submit agent details")}</h2>
                   <p className="mt-1 text-sm text-zinc-400">
-                    This invite will create an approval request for a new agent in {companyDisplayName}.
+                    {t("invite.InviteLanding.thisInviteWillCreate")} {companyDisplayName}.
                   </p>
                 </div>
                 <label className="block text-sm">
