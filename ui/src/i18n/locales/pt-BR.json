@@ -11030,7 +11030,12 @@
       "steer": "Direcionar",
       "steerTemporarilyUnavailable": "O direcionamento está temporariamente indisponível",
       "steerThisMessage": "Direcionar esta mensagem para o turno ativo",
-      "steerUnsupported": "Este runner não oferece suporte a direcionamento"
+      "steerUnsupported": "Este runner não oferece suporte a direcionamento",
+      "sendingInSeconds": "Enviando em {{seconds}}s",
+      "editBeforeSent": "Editar antes de enviar",
+      "edit": "Editar",
+      "keepInQueue": "Manter esta mensagem na fila",
+      "cancel": "Cancelar"
     },
     "StaleDispositionWarningDetails": {
       "noDetails": "Nenhum detalhe adicional."
@@ -11326,7 +11331,8 @@
       "stillQueued": "As mensagens continuam na fila.",
       "submittedWaiting": "Mensagens da fila enviadas. Aguardando o agente.",
       "tooLateDiscard": "Tarde demais para descartar: esta mensagem já está sendo enviada.",
-      "willSendAfterStop": "As mensagens da fila serão enviadas quando a execução anterior parar."
+      "willSendAfterStop": "As mensagens da fila serão enviadas quando a execução anterior parar.",
+      "autoSteerAnnouncement": "A mensagem na fila será enviada ao turno ativo em alguns segundos. Edite ou cancele para mantê-la."
     },
     "TaskChatRichInput": {
       "attachImage": "Anexar imagem",
@@ -19598,7 +19604,47 @@
       "taskAccessCouldNot": "Não foi possível verificar o acesso à tarefa. Atualize antes de pedir a recuperação de arquivos.",
       "checkingFileRecoveryAccess": "Verificando o acesso à recuperação de arquivos…",
       "aBoardMemberWith": "Um membro do quadro com acesso à tarefa pode pedir a recuperação de arquivos.",
-      "doesNotApplyUnverified": "O Paperclip não aplica arquivos que não consegue verificar."
+      "doesNotApplyUnverified": "O Paperclip não aplica arquivos que não consegue verificar.",
+      "controllerHostWaiting": "O servidor anterior desta execução foi registrado antes de o Paperclip guardar em qual host ele rodava, então o Paperclip não consegue verificar que ele parou. O estado salvo da execução foi mantido.",
+      "previousServerStopQuestion": "Como você confirmou que o servidor anterior parou?",
+      "previousServerStopPlaceholder": "Por exemplo: o contêiner do servidor antigo foi substituído e não está mais em execução.",
+      "resumingRun": "Retomando a execução…",
+      "ownerGoneWaiting": "{{what}}: registro anterior ao momento em que o Paperclip passou a guardar qual servidor o mantinha. O Paperclip não consegue verificar que o servidor parou, e o recurso continua reservado até lá.",
+      "restoringSavedWork": "Restaurando o trabalho salvo…",
+      "savedWorkNotRecovered": "O trabalho salvo ainda não foi recuperado. O resultado do agente está salvo.",
+      "defaultStopWaiting": "O servidor anterior parou enquanto salvava os arquivos desta tarefa, e o Paperclip não consegue verificar que ele parou. O resultado do agente está salvo.",
+      "checkingAccess": "Verificando o acesso…",
+      "waitingToConfirmStop": "O Paperclip está aguardando a confirmação de que o servidor anterior parou.",
+      "confirming": "Confirmando…",
+      "confirmAndResume": "Confirmar e retomar",
+      "confirmationNotAccepted": "A confirmação não foi aceita. Atualize a tarefa e tente novamente.",
+      "tooManySources": "O Paperclip não consegue verificar a origem dos arquivos salvos aqui porque a execução registrou origens demais.",
+      "ambiguousOwnership": "O Paperclip não consegue confirmar que só esta execução usou o sandbox que guarda os arquivos salvos.",
+      "cannotVerifySource": "O Paperclip não consegue verificar a origem registrada dos arquivos salvos ({{code}}).",
+      "sourceCouldNotBeVerified": "Não foi possível verificar a origem dos arquivos salvos.",
+      "recoveryReplacedShowing": "Esta recuperação de arquivos foi substituída. Mostrando a recuperação atual da tarefa.",
+      "ownerGoneWhat": {
+        "environmentRunLease": "Uma concessão de sandbox da execução anterior desta tarefa",
+        "legacyController": "A execução anterior desta tarefa",
+        "environmentTeardown": "Uma limpeza de sandbox da execução anterior desta tarefa",
+        "sandboxCreation": "Um sandbox que a execução anterior desta tarefa estava criando",
+        "workspaceRuntimeControl": "Uma alteração de serviço do workspace da execução anterior desta tarefa",
+        "nativeFinalizeAttempt": "Um salvamento de workspace da execução anterior desta tarefa",
+        "nativeFinalizerLease": "O tratamento do resultado da execução anterior desta tarefa",
+        "nativeCleanupLease": "A limpeza da execução anterior desta tarefa",
+        "defaultResource": "Um recurso da execução anterior desta tarefa"
+      },
+      "ownerGoneReleasing": {
+        "environmentRunLease": "Liberando a concessão de sandbox…",
+        "legacyController": "Recuperando a execução…",
+        "environmentTeardown": "Retomando a limpeza do sandbox…",
+        "sandboxCreation": "Reconciliando o sandbox…",
+        "workspaceRuntimeControl": "Liberando o workspace…",
+        "nativeFinalizeAttempt": "Liberando o salvamento do workspace…",
+        "nativeFinalizerLease": "Retomando o tratamento do resultado…",
+        "nativeCleanupLease": "Retomando a limpeza…",
+        "defaultResource": "Liberando o recurso…"
+      }
     },
     "WorkspaceAccessCard": {
       "noteCredentials": "Entra com as credenciais locais do snapshot capturadas quando este clone foi criado.",

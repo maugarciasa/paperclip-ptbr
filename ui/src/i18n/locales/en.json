@@ -11030,7 +11030,12 @@
       "steer": "Steer",
       "steerTemporarilyUnavailable": "Steering is temporarily unavailable",
       "steerThisMessage": "Steer this message into the active turn",
-      "steerUnsupported": "This runner does not support steering"
+      "steerUnsupported": "This runner does not support steering",
+      "sendingInSeconds": "Sending in {{seconds}}s",
+      "editBeforeSent": "Edit before it is sent",
+      "edit": "Edit",
+      "keepInQueue": "Keep this message in the queue",
+      "cancel": "Cancel"
     },
     "StaleDispositionWarningDetails": {
       "noDetails": "No additional details."
@@ -11326,7 +11331,8 @@
       "stillQueued": "Messages are still queued.",
       "submittedWaiting": "Queued messages submitted. Waiting for the agent.",
       "tooLateDiscard": "Too late to discard: this message is already being sent.",
-      "willSendAfterStop": "Queued messages will be sent when the previous run has stopped."
+      "willSendAfterStop": "Queued messages will be sent when the previous run has stopped.",
+      "autoSteerAnnouncement": "Queued message will be sent into the active turn in a few seconds. Edit or Cancel to keep it."
     },
     "TaskChatRichInput": {
       "attachImage": "Attach image",
@@ -19598,7 +19604,47 @@
       "taskAccessCouldNot": "Task access could not be checked. Refresh before requesting file recovery.",
       "checkingFileRecoveryAccess": "Checking file recovery access…",
       "aBoardMemberWith": "A board member with task access can request file recovery.",
-      "doesNotApplyUnverified": "Paperclip does not apply files it can’t verify."
+      "doesNotApplyUnverified": "Paperclip does not apply files it can’t verify.",
+      "controllerHostWaiting": "This run’s previous server was recorded before Paperclip stored which host it ran on, so Paperclip can’t verify that it stopped. The run’s saved state is kept.",
+      "previousServerStopQuestion": "How did you confirm that the previous server stopped?",
+      "previousServerStopPlaceholder": "For example: the old server container was replaced and is no longer running.",
+      "resumingRun": "Resuming the run…",
+      "ownerGoneWaiting": "{{what}} was recorded before Paperclip stored which server held it, so Paperclip can’t verify that the server stopped. It stays reserved until then.",
+      "restoringSavedWork": "Restoring saved work…",
+      "savedWorkNotRecovered": "Saved work is not recovered yet. The agent’s result is saved.",
+      "defaultStopWaiting": "The previous server stopped while it was saving this task’s files, and Paperclip can’t verify that it stopped. The agent’s result is saved.",
+      "checkingAccess": "Checking access…",
+      "waitingToConfirmStop": "Paperclip is waiting to confirm that the previous server stopped.",
+      "confirming": "Confirming…",
+      "confirmAndResume": "Confirm and resume",
+      "confirmationNotAccepted": "The confirmation was not accepted. Refresh the task and try again.",
+      "tooManySources": "Paperclip can’t check the saved files’ source here because the run recorded too many sources.",
+      "ambiguousOwnership": "Paperclip can’t confirm that this run alone used the sandbox that holds the saved files.",
+      "cannotVerifySource": "Paperclip can’t verify the saved files’ recorded source ({{code}}).",
+      "sourceCouldNotBeVerified": "The saved files’ source could not be verified.",
+      "recoveryReplacedShowing": "This file recovery was replaced. Showing the task’s current recovery.",
+      "ownerGoneWhat": {
+        "environmentRunLease": "A sandbox lease from this task’s earlier run",
+        "legacyController": "This task’s earlier run",
+        "environmentTeardown": "A sandbox cleanup from this task’s earlier run",
+        "sandboxCreation": "A sandbox this task’s earlier run was creating",
+        "workspaceRuntimeControl": "A workspace service change from this task’s earlier run",
+        "nativeFinalizeAttempt": "A workspace save from this task’s earlier run",
+        "nativeFinalizerLease": "The result handling of this task’s earlier run",
+        "nativeCleanupLease": "The cleanup of this task’s earlier run",
+        "defaultResource": "A resource from this task’s earlier run"
+      },
+      "ownerGoneReleasing": {
+        "environmentRunLease": "Releasing the sandbox lease…",
+        "legacyController": "Recovering the run…",
+        "environmentTeardown": "Resuming the sandbox cleanup…",
+        "sandboxCreation": "Reconciling the sandbox…",
+        "workspaceRuntimeControl": "Releasing the workspace…",
+        "nativeFinalizeAttempt": "Releasing the workspace save…",
+        "nativeFinalizerLease": "Resuming the result handling…",
+        "nativeCleanupLease": "Resuming the cleanup…",
+        "defaultResource": "Releasing the resource…"
+      }
     },
     "WorkspaceAccessCard": {
       "noteCredentials": "Signs in with the snapshot-local credentials captured when this clone was made.",

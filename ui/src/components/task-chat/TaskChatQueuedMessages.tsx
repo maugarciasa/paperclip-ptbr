@@ -175,26 +175,26 @@ function SortableQueuedMessage({
       {autoSteerSecondsLeft !== null ? (
         <span className="flex shrink-0 items-center gap-1" data-testid={`task-chat-queued-auto-steer-${entry.comment.id}`}>
           <span className="px-1 text-xs text-muted-foreground tabular-nums">
-            Sending in {autoSteerSecondsLeft}s
+            {t("issues.SortableQueuedMessage.sendingInSeconds", { seconds: autoSteerSecondsLeft })}
           </span>
           <button
             type="button"
             onClick={onEdit}
             disabled={!entry.canEdit}
-            title="Edit before it is sent"
+            title={t("issues.SortableQueuedMessage.editBeforeSent")}
             className="flex h-7 shrink-0 items-center rounded-md px-2 text-xs font-medium text-muted-foreground transition-colors hover:bg-accent hover:text-foreground disabled:opacity-40"
             data-testid={`task-chat-queued-auto-steer-edit-${entry.comment.id}`}
           >
-            Edit
+            {t("issues.SortableQueuedMessage.edit")}
           </button>
           <button
             type="button"
             onClick={onCancelAutoSteer}
-            title="Keep this message in the queue"
+            title={t("issues.SortableQueuedMessage.keepInQueue")}
             className="flex h-7 shrink-0 items-center rounded-md px-2 text-xs font-medium text-muted-foreground transition-colors hover:bg-accent hover:text-foreground"
             data-testid={`task-chat-queued-auto-steer-cancel-${entry.comment.id}`}
           >
-            Cancel
+            {t("issues.SortableQueuedMessage.cancel")}
           </button>
         </span>
       ) : (queue.targetRunId || queue.state === "deferred") && (!queue.targetRunId || queue.protocol === "legacy" || entry.source?.requiresFreshSession ||
@@ -364,7 +364,7 @@ export function TaskChatQueuedMessages({
   useEffect(() => {
     const fresh = [...autoSteerDeadlines.keys()].filter(id => !announcedCountdowns.current.has(id));
     for (const id of fresh) announcedCountdowns.current.add(id);
-    if (fresh.length) setAnnouncement("Queued message will be sent into the active turn in a few seconds. Edit or Cancel to keep it.");
+    if (fresh.length) setAnnouncement(t("issues.TaskChatQueuedMessages.autoSteerAnnouncement"));
   }, [autoSteerDeadlines]);
 
   // Tick only while a countdown is visible.

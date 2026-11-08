@@ -30,17 +30,17 @@ const CONTROLLER_HOST_UNVERIFIED = "native_controller_host_unverified";
 const OWNER_UNPROVABLE = "ownership_owner_unprovable";
 
 /** What the stuck record is, by ownership kind, for the board's confirmation. */
-const OWNER_GONE_RESOURCE: Record<string, { what: string; releasing: string }> = {
-  environment_run_lease_active: { what: "A sandbox lease from this task’s earlier run", releasing: "Releasing the sandbox lease…" },
-  legacy_controller_lease: { what: "This task’s earlier run", releasing: "Recovering the run…" },
-  environment_teardown_claim: { what: "A sandbox cleanup from this task’s earlier run", releasing: "Resuming the sandbox cleanup…" },
-  sandbox_creation_intent: { what: "A sandbox this task’s earlier run was creating", releasing: "Reconciling the sandbox…" },
-  workspace_runtime_control_operation: { what: "A workspace service change from this task’s earlier run", releasing: "Releasing the workspace…" },
-  native_workspace_finalize_attempt: { what: "A workspace save from this task’s earlier run", releasing: "Releasing the workspace save…" },
-  native_finalizer_lease: { what: "The result handling of this task’s earlier run", releasing: "Resuming the result handling…" },
-  native_cleanup_lease: { what: "The cleanup of this task’s earlier run", releasing: "Resuming the cleanup…" },
+const OWNER_GONE_RESOURCE: Record<string, string> = {
+  environment_run_lease_active: "environmentRunLease",
+  legacy_controller_lease: "legacyController",
+  environment_teardown_claim: "environmentTeardown",
+  sandbox_creation_intent: "sandboxCreation",
+  workspace_runtime_control_operation: "workspaceRuntimeControl",
+  native_workspace_finalize_attempt: "nativeFinalizeAttempt",
+  native_finalizer_lease: "nativeFinalizerLease",
+  native_cleanup_lease: "nativeCleanupLease",
 };
-const OWNER_GONE_DEFAULT = { what: "A resource from this task’s earlier run", releasing: "Releasing the resource…" };
+const OWNER_GONE_DEFAULT = "defaultResource";
 
 /** Causes whose one action is the board's previous-server stop confirmation;
  * the generic recovery card must not offer other resolutions for them. */
@@ -54,6 +54,7 @@ export function WorkspaceExportRecovery({ action, className, issueId, companyId,
   className?: string; action: IssueRecoveryAction | null; issueId?: string; companyId?: string; showStatus?: boolean;
   onRecoveryControlChange?: (owns: boolean) => void;
 }) {
+  const { t } = useTranslation();
   // A restart killed the copyback owner of retained saved-work recovery. Recovery
   // and any accepted Retry wait on its receipt; the confirmation is the one action.
   const retainedOwnerToken = action && issueId && companyId && isRetainedExport(action, issueId, companyId)
@@ -76,10 +77,10 @@ export function WorkspaceExportRecovery({ action, className, issueId, companyId,
         action={action} issueId={issueId} companyId={companyId} className={className}
         confirmStop={stopEvidence => issuesApi.confirmControllerStopped(issueId, {
           actionId: action.id, runId: action.evidence.runId as string, stopEvidence })}
-        copy={{ waiting: "This run’s previous server was recorded before Paperclip stored which host it ran on, so Paperclip can’t verify that it stopped. The run’s saved state is kept.",
-          question: "How did you confirm that the previous server stopped?",
-          placeholder: "For example: the old server container was replaced and is no longer running.",
-          resuming: "Resuming the run…" }} /></>;
+        copy={{ waiting: t("workspaces.WorkspaceExportRecovery.controllerHostWaiting"),
+          question: t("workspaces.WorkspaceExportRecovery.previousServerStopQuestion"),
+          placeholder: t("workspaces.WorkspaceExportRecovery.previousServerStopPlaceholder"),
+          resuming: t("workspaces.WorkspaceExportRecovery.resumingRun") }} /></>;
   }
   // A resource held by a server recorded before Paperclip stored which server held it.
   if (action?.cause === OWNER_UNPROVABLE && issueId && companyId && isOwnerGoneRequired(action, issueId, companyId)) {
@@ -93,10 +94,10 @@ export function WorkspaceExportRecovery({ action, className, issueId, companyId,
           actionId: action.id, recordId: action.evidence.recordId as string, stopEvidence,
           // The version shown here: a request refreshed since must be confirmed again.
           ...(typeof action.evidence.recordUpdatedAt === "string" ? { recordVersion: action.evidence.recordUpdatedAt } : {}) })}
-        copy={{ waiting: `${resource.what} was recorded before Paperclip stored which server held it, so Paperclip can’t verify that the server stopped. It stays reserved until then.`,
-          question: "How did you confirm that the previous server stopped?",
-          placeholder: "For example: the old server container was replaced and is no longer running.",
-          resuming: resource.releasing }} /></>;
+        copy={{ waiting: t("workspaces.WorkspaceExportRecovery.ownerGoneWaiting", { what: t(`workspaces.WorkspaceExportRecovery.ownerGoneWhat.${resource}`) }),
+          question: t("workspaces.WorkspaceExportRecovery.previousServerStopQuestion"),
+          placeholder: t("workspaces.WorkspaceExportRecovery.previousServerStopPlaceholder"),
+          resuming: t(`workspaces.WorkspaceExportRecovery.ownerGoneReleasing.${resource}`) }} /></>;
   }
   const ownerRecovery = action?.cause === "native_workspace_finalization_owner_unverified";
   // The task's interruption names this wait; the confirmation is its one action.
@@ -114,7 +115,7 @@ export function WorkspaceExportRecovery({ action, className, issueId, companyId,
   const automatic = queued || (ownerRecovery && asObject(action.evidence.workspaceOwnerRecovery).state === "resuming");
   return <><ReportRecoveryControl owns={false} onChange={onRecoveryControlChange} />
     <p role="status" className={cn("text-sm text-muted-foreground", className)}>
-      {automatic ? "Restoring saved work…" : "Saved work is not recovered yet. The agent’s result is saved."}
+      {automatic ? t("workspaces.WorkspaceExportRecovery.restoringSavedWork") : t("workspaces.WorkspaceExportRecovery.savedWorkNotRecovered")}
     </p></>;
 }
 
@@ -183,11 +184,11 @@ function PreviousServerStopConfirmation({ action, ownerToken, issueId, companyId
     } });
   const ready = evidence.trim().length >= 20;
   return <div className={cn("flex flex-col gap-2 text-sm", className)} data-testid="previous-server-stop">
-    <p role="status">{confirm.isSuccess ? copy?.resuming ?? "Restoring saved work…"
-      : copy?.waiting ?? "The previous server stopped while it was saving this task’s files, and Paperclip can’t verify that it stopped. The agent’s result is saved."}</p>
+    <p role="status">{confirm.isSuccess ? copy?.resuming ?? t("workspaces.WorkspaceExportRecovery.restoringSavedWork")
+      : copy?.waiting ?? t("workspaces.WorkspaceExportRecovery.defaultStopWaiting")}</p>
     {confirm.isSuccess ? null : !canConfirm
       ? <p className="text-xs text-muted-foreground">{accessView.kind === "loading" || accessView.kind === "reconnecting"
-        ? "Checking access…" : "Paperclip is waiting to confirm that the previous server stopped."}</p>
+        ? t("workspaces.WorkspaceExportRecovery.checkingAccess") : t("workspaces.WorkspaceExportRecovery.waitingToConfirmStop")}</p>
       : !open ? <Button variant="outline" size="sm" className="self-start" onClick={() => setOpen(true)}>
         {t("workspaces.WorkspaceExportRecovery.confirmThePreviousServer")}</Button>
       : <form className="flex flex-col gap-2" onSubmit={event => { event.preventDefault(); if (ready && !confirm.isPending) confirm.mutate(); }}>
@@ -198,25 +199,25 @@ function PreviousServerStopConfirmation({ action, ownerToken, issueId, companyId
         <div className="flex items-center justify-between gap-2">
           <Button type="button" variant="ghost" size="sm" disabled={confirm.isPending} onClick={() => setOpen(false)}>{t("workspaces.WorkspaceExportRecovery.cancel")}</Button>
           <Button type="submit" size="sm" disabled={!ready || confirm.isPending}>
-            {confirm.isPending ? "Confirming…" : "Confirm and resume"}</Button>
+            {confirm.isPending ? t("workspaces.WorkspaceExportRecovery.confirming") : t("workspaces.WorkspaceExportRecovery.confirmAndResume")}</Button>
         </div>
       </form>}
     {confirm.error ? <p role="alert" className="text-sm text-destructive">
-      {confirm.error instanceof Error ? confirm.error.message : "The confirmation was not accepted. Refresh the task and try again."}</p> : null}
+      {confirm.error instanceof Error ? confirm.error.message : t("workspaces.WorkspaceExportRecovery.confirmationNotAccepted")}</p> : null}
   </div>;
 }
 
 type RecoveryInput = { actionId: string; runId: string };
 
 /** Plain wording for a source inspection that did not verify. The code stays visible for support. */
-function unverifiedSourceText(inspected: WorkspaceSourceInspection | undefined): string {
+function unverifiedSourceText(inspected: WorkspaceSourceInspection | undefined, t: ReturnType<typeof useTranslation>["t"]): string {
   if (!inspected || inspected.status === "verified") return "";
   if (inspected.status === "not_inspected")
-    return "Paperclip can’t check the saved files’ source here because the run recorded too many sources.";
+    return t("workspaces.WorkspaceExportRecovery.tooManySources");
   const code = inspected.sourceVerification?.reason ?? inspected.failureCode;
   return code === "allocation_ownership_ambiguous"
-    ? "Paperclip can’t confirm that this run alone used the sandbox that holds the saved files."
-    : `Paperclip can’t verify the saved files’ recorded source (${code}).`;
+    ? t("workspaces.WorkspaceExportRecovery.ambiguousOwnership")
+    : t("workspaces.WorkspaceExportRecovery.cannotVerifySource", { code });
 }
 
 function RetainedFilesRecovery({ action, issueId, companyId, className, onRecoveryControlChange }: {
@@ -290,7 +291,7 @@ function RetainedFilesRecovery({ action, issueId, companyId, className, onRecove
       if (observed.error || !fresh || state.status !== "blocked" || state.retryable !== true)
         throw new Error("File recovery changed. Inspect its current status before requesting recovery.");
       if (!sourceVerified(observed.data))
-        throw new Error(unverifiedSourceText(observed.data?.sourceInspection) || "The saved files’ source could not be verified.");
+        throw new Error(unverifiedSourceText(observed.data?.sourceInspection, t) || t("workspaces.WorkspaceExportRecovery.sourceCouldNotBeVerified"));
       if (!canMutate || !owner || readOwner() !== owner || !storageKey)
         throw new Error("Your account changed. Refresh before requesting file recovery.");
       const previous = readPendingSend(storageKey, matchesInput);
@@ -330,7 +331,7 @@ function RetainedFilesRecovery({ action, issueId, companyId, className, onRecove
       // The task's current recovery replaced this record. Reload the task so it
       // shows that recovery, instead of asking for a refresh that changes nothing.
       invalidate();
-      throw new Error("This file recovery was replaced. Showing the task’s current recovery.");
+      throw new Error(t("workspaces.WorkspaceExportRecovery.recoveryReplacedShowing"));
     }
     const state = asObject(fresh.evidence.workspaceRecovery);
     const ids = state.requestIds;
@@ -374,7 +375,7 @@ function RetainedFilesRecovery({ action, issueId, companyId, className, onRecove
       {current && recovery.status === "blocked" && (serverAcknowledged || recovery.retryable !== true)
         ? <p role="alert">{t("workspaces.WorkspaceExportRecovery.fileRecoveryHasNot")}</p> : null}
       {unverified ? <p role="status" className="text-muted-foreground">
-        {unverifiedSourceText(source.data?.sourceInspection)} {t("workspaces.WorkspaceExportRecovery.doesNotApplyUnverified")}
+        {unverifiedSourceText(source.data?.sourceInspection, t)} {t("workspaces.WorkspaceExportRecovery.doesNotApplyUnverified")}
       </p> : null}
       {sourceReady && !current ? <p role="alert">{t("workspaces.WorkspaceExportRecovery.theRecordedSourceIs")}</p> : null}
     </> : accessView.kind === "error" ? <p role="alert" className="text-sm text-destructive">{t("workspaces.WorkspaceExportRecovery.taskAccessCouldNot")}</p>
