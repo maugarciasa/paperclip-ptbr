@@ -8437,6 +8437,20 @@
     }
   },
   "inbox": {
+    "DecisionQueuePage": {
+      "queueEmpty": "Esta fila está vazia.",
+      "landHere": "As decisões aparecem aqui quando atendem às regras da fila ou quando um agente as adiciona.",
+      "noMatches": "Nenhuma decisão corresponde à sua busca ou aos filtros.",
+      "adjustFilters": "Ajuste ou limpe a busca e os filtros para ver o restante.",
+      "idlePast": "Parado há mais de {{days}} dias — fora da fila. Mantenha as que você ainda quer ver.",
+      "autoSeeding": "Preenchimento automático {{state}}",
+      "on": "ativado",
+      "off": "desativado",
+      "exclude": "Excluir",
+      "removeFromQueue": "Remover desta fila",
+      "reasonPlaceholder": "Motivo (opcional)…",
+      "cancel": "Cancelar"
+    },
     "LegacyInbox": {
       "markAsRead": "Marcar como lida",
       "failedRun": "Execução com falha",

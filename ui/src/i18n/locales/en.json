@@ -8437,6 +8437,20 @@
     }
   },
   "inbox": {
+    "DecisionQueuePage": {
+      "queueEmpty": "This queue is empty.",
+      "landHere": "Decisions land here when they match the queue's rules or an agent adds them.",
+      "noMatches": "No decisions match your search or filters.",
+      "adjustFilters": "Adjust or clear your search and filters to see the rest.",
+      "idlePast": "Idle past {{days}} days — kept off the queue. Keep any you still want surfaced.",
+      "autoSeeding": "Auto-seeding is {{state}}",
+      "on": "on",
+      "off": "off",
+      "exclude": "Exclude",
+      "removeFromQueue": "Remove from this queue",
+      "reasonPlaceholder": "Reason (optional)…",
+      "cancel": "Cancel"
+    },
     "LegacyInbox": {
       "markAsRead": "Mark as read",
       "failedRun": "Failed run",
