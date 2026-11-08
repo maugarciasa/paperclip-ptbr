@@ -289,38 +289,38 @@ function RetainedFilesRecovery({ action, issueId, companyId, className, onRecove
       const fresh = boundAction(observed.data);
       const state = asObject(fresh?.evidence.workspaceRecovery);
       if (observed.error || !fresh || state.status !== "blocked" || state.retryable !== true)
-        throw new Error("File recovery changed. Inspect its current status before requesting recovery.");
+        throw new Error(t("workspaces.WorkspaceExportRecovery.recoveryChanged"));
       if (!sourceVerified(observed.data))
         throw new Error(unverifiedSourceText(observed.data?.sourceInspection, t) || t("workspaces.WorkspaceExportRecovery.sourceCouldNotBeVerified"));
       if (!canMutate || !owner || readOwner() !== owner || !storageKey)
-        throw new Error("Your account changed. Refresh before requesting file recovery.");
+        throw new Error(t("workspaces.WorkspaceExportRecovery.accountChanged"));
       const previous = readPendingSend(storageKey, matchesInput);
       if (restartFailedAttempt && (!previous || !Array.isArray(state.requestIds)
         || !state.requestIds.includes(previous.idempotencyKey)
         || asObject(fresh.evidence.systemRecovery).state !== "exhausted"))
-        throw new Error("The previous failed recovery is not confirmed. Check its status before trying again.");
+        throw new Error(t("workspaces.WorkspaceExportRecovery.previousFailedNotConfirmed"));
       // Unknown acceptance reuses its identity. A new bounded request requires
       // an explicit operator click and a freshly confirmed exhausted attempt.
       const record = (!restartFailedAttempt && previous) || {
         idempotencyKey: createUuid(), payload: { actionId: action.id, runId }, createdAt: Date.now(),
       };
       if (!writePendingSend(storageKey, record))
-        throw new Error("The recovery request could not be saved in this browser. No request was sent.");
+        throw new Error(t("workspaces.WorkspaceExportRecovery.requestNotSaved"));
       try {
         const result = await issuesApi.recoverWorkspace(issueId, { ...record.payload, idempotencyKey: record.idempotencyKey });
         if (result.actionId !== action.id || !["queued", "recovering", "blocked", "recovered"].includes(result.status))
-          throw new Error("The recovery acknowledgement could not be confirmed.");
+          throw new Error(t("workspaces.WorkspaceExportRecovery.ackNotConfirmed"));
         setAcknowledged(true);
         setCheckedUnconfirmed(false);
         invalidate();
         await source.refetch();
       } catch (error) {
         setNotice(classifySendFailure(error) === "rejected"
-          ? `Recovery request was not confirmed: ${error instanceof Error ? error.message : "Inspect its status."}`
-          : "The recovery request could not be confirmed. Check its status before trying again; the saved request will be reused.");
+          ? t("workspaces.WorkspaceExportRecovery.requestRejected", { message: error instanceof Error ? error.message : t("workspaces.WorkspaceExportRecovery.inspectItsStatus") })
+          : t("workspaces.WorkspaceExportRecovery.requestNotConfirmedReuse"));
       }
     } catch (error) {
-      setNotice(error instanceof Error ? error.message : "Unable to inspect file recovery.");
+      setNotice(error instanceof Error ? error.message : t("workspaces.WorkspaceExportRecovery.unableToInspect"));
     } finally { busy.current = false; }
   } });
   const check = useMutation({ retry: false, mutationFn: async () => { // query-error-ok: operator checks run once; the source read uses the shared query retry policy.
@@ -337,7 +337,7 @@ function RetainedFilesRecovery({ action, issueId, companyId, className, onRecove
     const ids = state.requestIds;
     const unconfirmed = Boolean(pending && Array.isArray(ids) && !ids.includes(pending.idempotencyKey));
     setCheckedUnconfirmed(unconfirmed);
-    setNotice(unconfirmed ? "No recovery request is confirmed yet. Trying again will reuse the saved request." : null);
+    setNotice(unconfirmed ? t("workspaces.WorkspaceExportRecovery.noRequestConfirmedYet") : null);
     invalidate();
   } });
   const checkError = isTransientError(check.error) ? null : check.error;
@@ -354,23 +354,23 @@ function RetainedFilesRecovery({ action, issueId, companyId, className, onRecove
   const unverified = Boolean(current && !verified && !saved && !waiting);
   return <div className={cn("flex flex-col gap-2 text-sm", className)} data-testid="retained-file-recovery">
     <ReportRecoveryControl owns={ownsRecoveryControl} onChange={onRecoveryControlChange} />
-    <p role="status">{saved ? "Saved files recovered. Task recovery is still being checked."
-      : failedReceipt ? "File recovery has not finished. The saved source remains protected."
-      : restoring ? "Recovering saved files. Work remains paused until recovery is verified."
-        : waiting ? "File recovery is queued. Waiting for verified saved files."
-          : "The saved files need recovery before work can continue."}</p>
+    <p role="status">{saved ? t("workspaces.WorkspaceExportRecovery.statusSaved")
+      : failedReceipt ? t("workspaces.WorkspaceExportRecovery.statusFailedReceipt")
+      : restoring ? t("workspaces.WorkspaceExportRecovery.statusRestoring")
+        : waiting ? t("workspaces.WorkspaceExportRecovery.statusWaiting")
+          : t("workspaces.WorkspaceExportRecovery.statusNeedsRecovery")}</p>
     {canMutate ? <>
       {current && verified && retryable && !waiting && (!pending || unconfirmed && checkedUnconfirmed || confirmedFailedAttempt) ? <Button variant="outline" size="sm"
         className="self-start" disabled={request.isPending || check.isPending}
-        onClick={() => request.mutate(confirmedFailedAttempt)}>{request.isPending ? "Requesting file recovery…"
-          : confirmedFailedAttempt ? "Try file recovery again" : "Recover saved files"}</Button> : null}
+        onClick={() => request.mutate(confirmedFailedAttempt)}>{request.isPending ? t("workspaces.WorkspaceExportRecovery.requestingRecovery")
+          : confirmedFailedAttempt ? t("workspaces.WorkspaceExportRecovery.tryRecoveryAgain") : t("workspaces.WorkspaceExportRecovery.recoverSavedFiles")}</Button> : null}
       {waiting || unconfirmed || failedReceipt || source.error || sourceReady && !current ? <Button variant="ghost" size="sm" className="self-start"
         disabled={request.isPending || check.isPending} onClick={() => check.mutate()}>
-        {check.isPending ? "Checking file recovery…" : "Check file recovery status"}
+        {check.isPending ? t("workspaces.WorkspaceExportRecovery.checkingRecovery") : t("workspaces.WorkspaceExportRecovery.checkRecoveryStatus")}
       </Button> : null}
       {sourceView.kind === "loading" || sourceView.kind === "reconnecting" ? <p className="text-xs text-muted-foreground">{t("workspaces.WorkspaceExportRecovery.inspectingTheRecordedFile")}</p> : null}
       {sourceView.kind === "error" || checkError || notice ? <p role="alert" className="text-sm text-destructive">
-        {notice ?? (checkError instanceof Error ? checkError.message : "File recovery could not be inspected. Check its status again.")}
+        {notice ?? (checkError instanceof Error ? checkError.message : t("workspaces.WorkspaceExportRecovery.couldNotInspectFallback"))}
       </p> : null}
       {current && recovery.status === "blocked" && (serverAcknowledged || recovery.retryable !== true)
         ? <p role="alert">{t("workspaces.WorkspaceExportRecovery.fileRecoveryHasNot")}</p> : null}
