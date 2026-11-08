@@ -9054,6 +9054,33 @@
     "working": "Processando..."
   },
   "issues": {
+    "LegacyIssuesList": {
+      "doneWord": "concluídas",
+      "inProgressWord": "em andamento",
+      "blockedWord": "bloqueadas",
+      "tokensWord": "tokens",
+      "runtimeWord": "tempo de execução",
+      "subTasksProgress": "Progresso de conclusão das subtarefas",
+      "noActiveSubtasks": "Nenhuma subtarefa ativa",
+      "allSubtasksDone": "Todas as subtarefas concluídas",
+      "noActionableSubtasks": "Nenhuma subtarefa acionável",
+      "viewMode": "Modo de visualização",
+      "listView": "Visualização em lista",
+      "boardView": "Visualização em quadro",
+      "cardsPerColumn": "Cards por coluna",
+      "perColumn": "por coluna",
+      "resetBoardDensity": "Redefinir densidade do quadro",
+      "sort": "Ordenar",
+      "group": "Agrupar",
+      "searchLimit": "Mostrando até {{limit}} resultados. Refine a busca para reduzir.",
+      "boardLimit": "Algumas colunas do quadro mostram até {{limit}} tarefas. Refine os filtros ou a busca para ver o restante.",
+      "failedHierarchy": "Falha ao carregar a hierarquia de tarefas:",
+      "assignee": "Responsável",
+      "noResponsible": "Sem responsável",
+      "meLabel": "Eu",
+      "subTaskCount_one": "({{count}} subtarefa)",
+      "subTaskCount_other": "({{count}} subtarefas)"
+    },
     "AccountIssueDocumentsSection": {
       "bodyEmpty": "O corpo do documento não pode estar vazio",
       "cancel": "Cancelar",

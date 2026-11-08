@@ -9054,6 +9054,33 @@
     "working": "Working..."
   },
   "issues": {
+    "LegacyIssuesList": {
+      "doneWord": "done",
+      "inProgressWord": "in progress",
+      "blockedWord": "blocked",
+      "tokensWord": "tokens",
+      "runtimeWord": "runtime",
+      "subTasksProgress": "Sub-tasks completion progress",
+      "noActiveSubtasks": "No active sub-tasks",
+      "allSubtasksDone": "All sub-tasks done",
+      "noActionableSubtasks": "No actionable sub-tasks",
+      "viewMode": "View mode",
+      "listView": "List view",
+      "boardView": "Board view",
+      "cardsPerColumn": "Cards per column",
+      "perColumn": "per column",
+      "resetBoardDensity": "Reset board density",
+      "sort": "Sort",
+      "group": "Group",
+      "searchLimit": "Showing up to {{limit}} matches. Refine the search to narrow further.",
+      "boardLimit": "Some board columns are showing up to {{limit}} tasks. Refine filters or search to reveal the rest.",
+      "failedHierarchy": "Failed to load task hierarchy:",
+      "assignee": "Assignee",
+      "noResponsible": "No responsible",
+      "meLabel": "Me",
+      "subTaskCount_one": "({{count}} sub-task)",
+      "subTaskCount_other": "({{count}} sub-tasks)"
+    },
     "AccountIssueDocumentsSection": {
       "bodyEmpty": "Document body cannot be empty",
       "cancel": "Cancel",
