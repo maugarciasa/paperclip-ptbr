@@ -1,8 +1,20 @@
 import { readFileSync } from "node:fs";
 import { describe, expect, it } from "vitest";
 
-function source(relativePath: string) {
+// Os textos em inglês das telas moram no catálogo; o contrato confere fonte e catálogo juntos.
+const enCatalog = readFileSync(new URL("../../../i18n/locales/en.json", import.meta.url), "utf8")
+  .replace(/\r\n/g, "\n")
+  .replace(/\\"/g, '"');
+
+function rawSource(relativePath: string) {
   return readFileSync(new URL(relativePath, import.meta.url), "utf8").replace(/\r\n/g, "\n");
+}
+
+function source(relativePath: string) {
+  const text = rawSource(relativePath);
+  return relativePath.endsWith("ChatEndpointSetup.tsx") || relativePath.endsWith("ChatEndpointDetail.tsx")
+    ? `${text}\n${enCatalog}`
+    : text;
 }
 
 describe("chat connector UI contract", () => {
@@ -48,7 +60,7 @@ describe("chat connector UI contract", () => {
   });
 
   it("provides every settled detail tab and no detach control", () => {
-    const detail = source("./ChatEndpointDetail.tsx");
+    const detail = rawSource("./ChatEndpointDetail.tsx");
     for (const tab of ["settings", "access", "conversations", "activity"]) {
       expect(detail).toContain(`"${tab}"`);
     }
@@ -185,7 +197,7 @@ describe("chat connector UI contract", () => {
     expect(setup).toContain("/task@bot_username");
     expect(setup).toContain("registers its command menu automatically");
     expect(setup).toContain(
-      "ordinary\n          mentions are not delivered to bots",
+      "ordinary mentions are not delivered to bots",
     );
     expect(setup).toContain("Create Azure Bot");
     expect(setup).toContain("Microsoft 365 work or school organization");
