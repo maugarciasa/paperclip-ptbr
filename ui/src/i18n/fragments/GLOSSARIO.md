@@ -36,6 +36,7 @@ Termos fixos. Use sempre o mesmo termo em todos os arquivos.
 | Archive (verbo) | Arquivar |
 | Archive (tipo de arquivo) | Arquivo compactado |
 | Human only | Somente humano |
+| Label | Rótulo |
 
 Regras:
 - Nomes de produtos e fornecedores ficam como estão (Claude, Codex, OpenAI, GitHub, Paperclip).

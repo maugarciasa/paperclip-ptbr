@@ -3568,7 +3568,7 @@
     },
     "ConnectClientDialog": {
       "aboutSnippetsAria": "Sobre os snippets para clientes",
-      "authorization": "Authorization",
+      "authorization": "Autorização",
       "authorizationHeader": "Cabeçalho Authorization",
       "availableGroup": "Disponíveis nesta sessão",
       "clientsAria": "Clientes",
@@ -5563,7 +5563,7 @@
       "instructionsHeading": "Instruções",
       "instructionsHelp": "Incluído em cada tarefa do GitHub. Digite / para selecionar uma skill para o agente usar.",
       "instructionsPlaceholder": "O que este agente deve fazer no GitHub?",
-      "labelsDisclosureTitle": "Labels",
+      "labelsDisclosureTitle": "Rótulos",
       "linkCompanyMemberTitle": "Vincular um membro da empresa",
       "linkMemberButton": "Vincular um membro",
       "linkMemberDesc": "Cada membro confirma sua própria identidade do GitHub. Compartilhe este link com um membro existente da empresa ou vincule sua própria conta.",
@@ -11380,7 +11380,7 @@
       "failedToLoadWorkspaces": "Falha ao carregar workspaces.",
       "folder": "Pasta",
       "instructions": "Instruções",
-      "labels": "Etiquetas",
+      "labels": "Rótulos",
       "laneCustom": "Personalizado",
       "lanePrimary": "Principal",
       "lastError": "Último erro",
@@ -13241,14 +13241,14 @@
       "option": "rev. {{number}} — {{time}}"
     },
     "RevisionPreview": {
-      "catchUp": "Catch-up",
+      "catchUp": "Recuperação",
       "compareWithCurrent": "Comparar com a atual",
       "concurrency": "Concorrência",
       "defaultAgent": "Agente padrão",
       "defaultValue": "padrão: {{value}}",
       "description": "Descrição",
       "differsFromCurrent": "difere da atual",
-      "env": "Env",
+      "env": "Variáveis",
       "noDescription": "Sem descrição",
       "noTriggers": "Nenhum gatilho nesta revisão.",
       "priority": "Prioridade",
@@ -13646,7 +13646,7 @@
       "removed": "Gatilho removido ({{name}})"
     },
     "computeFieldChanges": {
-      "catchUp": "Catch-up",
+      "catchUp": "Recuperação",
       "concurrency": "Concorrência",
       "defaultAgent": "Agente padrão",
       "priority": "Prioridade",
@@ -13924,7 +13924,7 @@
     },
     "filterBar": {
       "assigneeLabel": "Responsável",
-      "labelLabel": "Etiqueta",
+      "labelLabel": "Rótulo",
       "me": "Eu",
       "meSearch": "eu meu minha",
       "noAssignees": "Nenhum responsável",
@@ -14029,7 +14029,7 @@
     "searchFilterSheet": {
       "assignee": "Responsável",
       "clearAll": "Limpar tudo",
-      "label": "Etiqueta",
+      "label": "Rótulo",
       "priority": "Prioridade",
       "project": "Projeto",
       "showMany": "Mostrar {{total}} resultados",
