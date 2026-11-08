@@ -465,7 +465,7 @@ export function ProjectWorkspaceDetail() {
       <div className="flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
         <div className="min-w-0 space-y-2">
           <div className="text-xs font-medium uppercase tracking-(--tracking-eyebrow) text-muted-foreground">
-            Project workspace
+            {t("projects.ProjectWorkspaceDetail.projectWorkspace")}
           </div>
           <h1 className="truncate text-xl font-semibold sm:text-2xl">{workspace.name}</h1>
         </div>
@@ -479,12 +479,12 @@ export function ProjectWorkspaceDetail() {
             {setPrimaryWorkspace.isPending
               ? <Loader2 className="mr-2 h-4 w-4 animate-spin" />
               : <Check className="mr-2 h-4 w-4" />}
-            Make primary
+            {t("projects.ProjectWorkspaceDetail.makePrimary")}
           </Button>
         ) : (
           <div className="inline-flex items-center gap-2 rounded-xl border border-emerald-500/25 bg-emerald-500/10 px-3 py-2 text-sm text-emerald-700 dark:text-emerald-300 sm:max-w-sm">
             <Sparkles className="h-4 w-4" />
-            This is the project’s primary codebase workspace.
+            {t("projects.ProjectWorkspaceDetail.primaryCodebase")}
           </div>
         )}
       </div>
@@ -635,7 +635,7 @@ export function ProjectWorkspaceDetail() {
                     className="min-h-28 w-full rounded-lg border border-border bg-background px-3 py-2 font-mono text-sm outline-none"
                     value={form.setupCommand}
                     onChange={(event) => setForm((current) => current ? { ...current, setupCommand: event.target.value } : current)}
-                    placeholder="pnpm install && pnpm dev"
+                    placeholder={t("projects.ProjectWorkspaceDetail.placeholderInstall")}
                   />
                 </Field>
                 <Field label={t("workspaces.projectDetail.fields.cleanupCommand", { defaultValue: "Cleanup command" })} hint={t("workspaces.projectDetail.fields.cleanupCommandHint", { defaultValue: "Runs before project-level execution workspace teardown" })}>
@@ -643,7 +643,7 @@ export function ProjectWorkspaceDetail() {
                     className="min-h-28 w-full rounded-lg border border-border bg-background px-3 py-2 font-mono text-sm outline-none"
                     value={form.cleanupCommand}
                     onChange={(event) => setForm((current) => current ? { ...current, cleanupCommand: event.target.value } : current)}
-                    placeholder="pkill -f vite || true"
+                    placeholder={t("projects.ProjectWorkspaceDetail.placeholderKill")}
                   />
                 </Field>
               </div>
@@ -669,7 +669,7 @@ export function ProjectWorkspaceDetail() {
             <div className="mt-5 flex flex-col items-stretch gap-3 sm:flex-row sm:flex-wrap sm:items-center">
               <Button className="w-full sm:w-auto" disabled={!isDirty || updateWorkspace.isPending} onClick={saveChanges}>
                 {updateWorkspace.isPending ? <Loader2 className="mr-2 h-4 w-4 animate-spin" /> : null}
-                Save changes
+                {t("projects.ProjectWorkspaceDetail.saveChanges")}
               </Button>
               <Button
                 variant="outline"
@@ -680,7 +680,7 @@ export function ProjectWorkspaceDetail() {
                   setErrorMessage(null);
                 }}
               >
-                Reset
+                {t("projects.ProjectWorkspaceDetail.reset")}
               </Button>
               {errorMessage ? <p className="text-sm text-destructive">{errorMessage}</p> : null}
               {!errorMessage && runtimeActionMessage ? <p className="text-sm text-muted-foreground">{runtimeActionMessage}</p> : null}
@@ -692,8 +692,8 @@ export function ProjectWorkspaceDetail() {
         <div className="space-y-6">
           <Card className="block p-5">
             <div className="space-y-1">
-              <div className="text-xs font-medium uppercase tracking-(--tracking-eyebrow) text-muted-foreground">Workspace facts</div>
-              <h2 className="text-lg font-semibold">Current state</h2>
+              <div className="text-xs font-medium uppercase tracking-(--tracking-eyebrow) text-muted-foreground">{t("projects.ProjectWorkspaceDetail.workspaceFacts")}</div>
+              <h2 className="text-lg font-semibold">{t("projects.ProjectWorkspaceDetail.currentState")}</h2>
             </div>
             <Separator className="my-4" />
             <DetailRow label={t("workspaces.projectDetail.facts.project", { defaultValue: "Project" })}>
@@ -724,8 +724,8 @@ export function ProjectWorkspaceDetail() {
           <Card className="block p-5">
             <div className="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
               <div className="space-y-1">
-                <div className="text-xs font-medium uppercase tracking-(--tracking-eyebrow) text-muted-foreground">Workspace commands</div>
-                <h2 className="text-lg font-semibold">Services and jobs</h2>
+                <div className="text-xs font-medium uppercase tracking-(--tracking-eyebrow) text-muted-foreground">{t("projects.ProjectWorkspaceDetail.workspaceCommands")}</div>
+                <h2 className="text-lg font-semibold">{t("projects.ProjectWorkspaceDetail.servicesJobs")}</h2>
                 <p className="text-sm text-muted-foreground">
                   Long-running services stay supervised here, while one-shot jobs run on demand against this workspace. Execution workspaces inherit this config unless they override it.
                 </p>

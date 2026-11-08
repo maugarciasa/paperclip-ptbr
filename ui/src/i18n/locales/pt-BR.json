@@ -3049,6 +3049,23 @@
     }
   },
   "apps": {
+    "McpConnect": {
+      "allowWorkAs": "Permitir que esta conexão atue como",
+      "inWord": "em",
+      "companyLabel": "Empresa",
+      "agentLabel": "Agente",
+      "permissions": "Permissões",
+      "authorizedBy": "Autorizado por",
+      "accessDuration": "Duração do acesso",
+      "organization": "Organização",
+      "orgUnavailable": "A organização selecionada não está mais disponível para esta conta. Cancele e reconecte pelo seu assistente para escolher uma organização a que você tenha acesso.",
+      "noOrgs": "Esta conta não tem organizações disponíveis. Peça a um dono da organização para adicionar você e depois reconecte pelo seu assistente.",
+      "writeAllData": "Gravar todos os seus dados do Paperclip",
+      "loadingConnections": "Carregando conexões…",
+      "organizationColon": "Organização:",
+      "worksAs": "Atua como",
+      "configureScopes": "Configurar agentes, projetos e skills"
+    },
     "EmailEndpointSetup": {
       "keyOnlyConnects": "Essa chave só conecta",
       "chooseKeyTail": ". Escolha uma chave de conta salva ou digite uma para criar um novo endereço.",
@@ -13558,6 +13575,19 @@
     }
   },
   "projects": {
+    "ProjectWorkspaceDetail": {
+      "projectWorkspace": "Workspace do projeto",
+      "makePrimary": "Tornar principal",
+      "primaryCodebase": "Este é o workspace principal de código do projeto.",
+      "placeholderInstall": "pnpm install && pnpm dev",
+      "placeholderKill": "pkill -f vite || true",
+      "saveChanges": "Salvar alterações",
+      "reset": "Redefinir",
+      "workspaceFacts": "Dados do workspace",
+      "currentState": "Estado atual",
+      "workspaceCommands": "Comandos do workspace",
+      "servicesJobs": "Serviços e jobs"
+    },
     "ArchiveDangerZone": {
       "actionProject": "{{action}} projeto",
       "archive": "Arquivar",

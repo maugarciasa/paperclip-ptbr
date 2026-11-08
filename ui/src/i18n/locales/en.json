@@ -3049,6 +3049,23 @@
     }
   },
   "apps": {
+    "McpConnect": {
+      "allowWorkAs": "Allow this connection to work as",
+      "inWord": "in",
+      "companyLabel": "Company",
+      "agentLabel": "Agent",
+      "permissions": "Permissions",
+      "authorizedBy": "Authorized by",
+      "accessDuration": "Access duration",
+      "organization": "Organization",
+      "orgUnavailable": "The selected organization is no longer available to this account. Cancel and reconnect from your assistant to choose an organization you can access.",
+      "noOrgs": "This account has no available organizations. Ask an organization owner to add you, then reconnect from your assistant.",
+      "writeAllData": "Write all of your Paperclip data",
+      "loadingConnections": "Loading connections…",
+      "organizationColon": "Organization:",
+      "worksAs": "Works as",
+      "configureScopes": "Configure agents, projects and skills"
+    },
     "EmailEndpointSetup": {
       "keyOnlyConnects": "That key only connects",
       "chooseKeyTail": ". Choose a saved account key or enter one to create a new address.",
@@ -13558,6 +13575,19 @@
     }
   },
   "projects": {
+    "ProjectWorkspaceDetail": {
+      "projectWorkspace": "Project workspace",
+      "makePrimary": "Make primary",
+      "primaryCodebase": "This is the project’s primary codebase workspace.",
+      "placeholderInstall": "pnpm install && pnpm dev",
+      "placeholderKill": "pkill -f vite || true",
+      "saveChanges": "Save changes",
+      "reset": "Reset",
+      "workspaceFacts": "Workspace facts",
+      "currentState": "Current state",
+      "workspaceCommands": "Workspace commands",
+      "servicesJobs": "Services and jobs"
+    },
     "ArchiveDangerZone": {
       "actionProject": "{{action}} project",
       "archive": "Archive",
