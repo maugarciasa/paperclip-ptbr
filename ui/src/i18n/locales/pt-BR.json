@@ -3029,6 +3029,31 @@
     }
   },
   "apps": {
+    "EmailEndpointSetup": {
+      "keyOnlyConnects": "Essa chave só conecta",
+      "chooseKeyTail": ". Escolha uma chave de conta salva ou digite uma para criar um novo endereço.",
+      "addressCreated": "Este endereço foi criado no AgentMail. Conclua a conexão com",
+      "suggestedAddresses": "Endereços de e-mail sugeridos",
+      "back": "Voltar",
+      "canReceive": "já pode receber e-mails neste endereço.",
+      "cancel": "Cancelar",
+      "saveTrust": "Salvar configurações de confiança",
+      "giveAgentAddress": "Dê um endereço de e-mail a um agente",
+      "eachEmailTask": "Cada conversa por e-mail vira uma tarefa.",
+      "inboxDisconnected": "Caixa desconectada. O histórico de e-mails continua nas tarefas.",
+      "sendToStart": "Envie um e-mail para este endereço para iniciar uma tarefa com",
+      "howItWorks": "Como funciona",
+      "incomingCreates": "E-mails recebidos criam tarefas para",
+      "receivingEmail": "Recebimento de e-mail",
+      "receivingMode": "Modo de recebimento",
+      "lastMailCheck": "Última verificação de e-mail",
+      "reconnectInbox": "Reconectar caixa",
+      "replaceApiKey": "Substitua a chave de API ou altere como esta caixa recebe e-mails. O endereço e o histórico de tarefas permanecem os mesmos.",
+      "liveConnection": "Conexão em tempo real",
+      "webhook": "Webhook",
+      "disconnectInbox": "Desconectar caixa",
+      "stopReceiving": "Pare de receber e-mails no Paperclip. A caixa continua no AgentMail."
+    },
     "GitHubBotConfiguration": {
       "reportOnly": "Somente relatório",
       "blockMergingRequire": "Para bloquear o merge, exija o check",

@@ -3029,6 +3029,31 @@
     }
   },
   "apps": {
+    "EmailEndpointSetup": {
+      "keyOnlyConnects": "That key only connects",
+      "chooseKeyTail": ". Choose a saved account key or enter one to create a new address.",
+      "addressCreated": "This address was created in AgentMail. Finish connecting it to",
+      "suggestedAddresses": "Suggested email addresses",
+      "back": "Back",
+      "canReceive": "can now receive email at this address.",
+      "cancel": "Cancel",
+      "saveTrust": "Save trust settings",
+      "giveAgentAddress": "Give an agent an email address",
+      "eachEmailTask": "Each email conversation becomes a task.",
+      "inboxDisconnected": "Inbox disconnected. Email history remains in its tasks.",
+      "sendToStart": "Send an email to this address to start a task with",
+      "howItWorks": "How it Works",
+      "incomingCreates": "Incoming email creates tasks for",
+      "receivingEmail": "Receiving email",
+      "receivingMode": "Receiving mode",
+      "lastMailCheck": "Last mail check",
+      "reconnectInbox": "Reconnect inbox",
+      "replaceApiKey": "Replace the API key or change how this inbox receives email. The email address and task history stay the same.",
+      "liveConnection": "Live connection",
+      "webhook": "Webhook",
+      "disconnectInbox": "Disconnect inbox",
+      "stopReceiving": "Stop receiving email in Paperclip. The inbox stays in AgentMail."
+    },
     "GitHubBotConfiguration": {
       "reportOnly": "Report only",
       "blockMergingRequire": "To block merging, require the",

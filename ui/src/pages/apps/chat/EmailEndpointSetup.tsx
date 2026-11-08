@@ -358,7 +358,7 @@ function EmailEndpointSetupForm({ companyId }: { companyId: string }) {
       {!pendingAddress && <AgentMailCredentialField companyId={companyId} connectionId={selectedCredentialId}
         onConnectionChange={selectCredential} value={apiKey} onChange={value => { setApiKey(value); connect.reset(); }} disabled={busy} />}
       {restrictedInbox && <div className="space-y-2 text-sm">
-        <p className="text-muted-foreground">That key only connects {restrictedInbox}. Choose a saved account key or enter one to create a new address.</p>
+        <p className="text-muted-foreground">{t("apps.EmailEndpointSetup.keyOnlyConnects")} {restrictedInbox}{t("apps.EmailEndpointSetup.chooseKeyTail")}</p>
         <Button type="button" variant="link" size="sm" className="h-auto p-0" disabled={busy || !(selectedCredentialId || apiKey.trim())}
           onClick={() => { setAllowInboxKey(true); setRestrictedInbox(""); connect.reset(); }}>{t("apps.emailSetup.useExistingInboxInstead", "Use the existing inbox instead")}</Button>
       </div>}
@@ -377,7 +377,7 @@ function EmailEndpointSetupForm({ companyId }: { companyId: string }) {
         <Label htmlFor={addressMode === "new" ? "email-name" : "email-existing"}>{t("apps.emailSetup.emailAddressLabel", "{{name}}’s email address", { name: chosen?.name })}</Label>
         {pendingAddress ? <>
           <p className="text-sm font-medium">{pendingAddress}</p>
-          <p className="text-sm text-muted-foreground">This address was created in AgentMail. Finish connecting it to {chosen?.name}{scopedKey ? "." : ", or choose a different address. The original inbox will stay in AgentMail."}</p>
+          <p className="text-sm text-muted-foreground">{t("apps.EmailEndpointSetup.addressCreated")} {chosen?.name}{scopedKey ? "." : ", or choose a different address. The original inbox will stay in AgentMail."}</p>
           {!scopedKey && <Button type="button" variant="link" size="sm" className="h-auto p-0" disabled={busy} onClick={chooseAnotherAddress}>{t("apps.emailSetup.chooseDifferent", "Choose a different address")}</Button>}
         </> : addressMode === "new" ? <>
           <div className="flex items-center gap-2">
@@ -406,7 +406,7 @@ function EmailEndpointSetupForm({ companyId }: { companyId: string }) {
           {addressCheck.checking ? "Checking address…" : addressCheck.error ? `Could not check this address. ${addressCheck.error}`
             : addressCheck.result?.status === "unknown" ? "AgentMail confirms availability when you create the address." : null}
         </p>}
-        {suggestions.length > 0 && <div className="flex flex-wrap items-center gap-x-3 gap-y-1 text-sm" aria-label="Suggested email addresses">
+        {suggestions.length > 0 && <div className="flex flex-wrap items-center gap-x-3 gap-y-1 text-sm" aria-label={t("apps.EmailEndpointSetup.suggestedAddresses")}>
           <span className="text-muted-foreground">{t("apps.emailSetup.tryLabel", "Try:")}</span>
           {suggestions.map(name => <Button key={name} type="button" variant="link" size="sm" className="h-auto p-0" disabled={busy}
             onClick={() => { setUsername(name); setup.reset(); }}>{name}@{domain}</Button>)}
@@ -444,7 +444,7 @@ function EmailEndpointSetupForm({ companyId }: { companyId: string }) {
       {setupError}
       {inspected.isPending && <p role="status" className="text-sm text-muted-foreground">{t("apps.emailSetup.loadingOptions", "Loading email options…")}</p>}
       <div className="flex items-center justify-between gap-3 border-t border-border pt-5">
-        <Button type="button" variant="ghost" disabled={busy} onClick={() => { setup.reset(); setStep(0); }}><ArrowLeft className="size-4" />Back</Button>
+        <Button type="button" variant="ghost" disabled={busy} onClick={() => { setup.reset(); setStep(0); }}><ArrowLeft className="size-4" />{t("apps.EmailEndpointSetup.back")}</Button>
         <Button disabled={!canCreate}>
           {setup.isPending ? "Connecting…" : pendingAddress ? "Finish connecting" : addressMode === "new" ? "Create email address" : "Connect email address"}<ArrowRight className="size-4" />
         </Button>
@@ -452,7 +452,7 @@ function EmailEndpointSetupForm({ companyId }: { companyId: string }) {
     </form>}
     {step === 2 && <div className="space-y-6">
       <div className="space-y-2"><p className="flex items-center gap-2 font-medium"><Check className="size-4" />{setup.data?.address}</p>
-        <p className="text-sm text-muted-foreground">{chosen?.name} can now receive email at this address.</p></div>
+        <p className="text-sm text-muted-foreground">{chosen?.name} {t("apps.EmailEndpointSetup.canReceive")}</p></div>
       <div className="flex items-center justify-between gap-3 border-t border-border pt-5">
         <Button variant="ghost" onClick={leave}>{t("apps.emailSetup.emailSettings", "Email settings")}</Button><Button onClick={() => navigate("/apps")}>{t("common.done", "Done")}</Button>
       </div>
@@ -501,7 +501,7 @@ function EmailEndpointSetupForm({ companyId }: { companyId: string }) {
           ) : null}
           <DialogFooter>
             <Button variant="ghost" onClick={() => setTrustOpen(false)}>
-              Cancel
+              {t("apps.EmailEndpointSetup.cancel")}
             </Button>
             <Button
               disabled={
@@ -512,7 +512,7 @@ function EmailEndpointSetupForm({ companyId }: { companyId: string }) {
               }
               onClick={() => trust.mutate()}
             >
-              Save trust settings
+              {t("apps.EmailEndpointSetup.saveTrust")}
             </Button>
           </DialogFooter>
         </DialogContent>
@@ -553,10 +553,10 @@ export function EmailConnectionInboxes({
       <div className="flex flex-wrap items-center justify-between gap-4 rounded-xl border border-border p-6">
         <div className="space-y-1">
           <h2 className="text-lg font-semibold">
-            Give an agent an email address
+            {t("apps.EmailEndpointSetup.giveAgentAddress")}
           </h2>
           <p className="text-sm text-muted-foreground">
-            Each email conversation becomes a task.
+            {t("apps.EmailEndpointSetup.eachEmailTask")}
           </p>
         </div>
         {canConfigure && (
@@ -644,7 +644,7 @@ export function EmailEndpointSettings({
     },
   });
   if (removed)
-    return <p>Inbox disconnected. Email history remains in its tasks.</p>;
+    return <p>{t("apps.EmailEndpointSetup.inboxDisconnected")}</p>;
   if (!inbox) {
     if (view.kind === "error")
       return <QueryErrorState error={query.error} action={t("apps.emailSetup.loadInboxAction", "load the email inbox")} onRetry={view.retry} retrying={view.isFetching} />;
@@ -674,15 +674,15 @@ export function EmailEndpointSettings({
         </div>
         {inbox.status === "active" && inbox.address && (
           <p className="text-sm text-muted-foreground">
-            Send an email to this address to start a task with {assignedAgentName}.
+            {t("apps.EmailEndpointSetup.sendToStart")} {assignedAgentName}.
           </p>
         )}
       </header>
 
       <Card className="gap-2 p-4">
-        <h2 className="text-sm font-semibold">How it Works</h2>
+        <h2 className="text-sm font-semibold">{t("apps.EmailEndpointSetup.howItWorks")}</h2>
         <p className="text-sm text-muted-foreground">
-          Incoming email creates tasks for {assignedAgentName}. Replies stay in the same task.
+          {t("apps.EmailEndpointSetup.incomingCreates")} {assignedAgentName}. Replies stay in the same task.
           Task comments stay internal; use Email reply to send an email.
         </p>
       </Card>
@@ -690,7 +690,7 @@ export function EmailEndpointSettings({
       <section aria-labelledby="email-receiving-heading" className="space-y-4">
         <div className="flex flex-wrap items-center justify-between gap-3">
           <div className="flex items-center gap-2">
-            <h2 id="email-receiving-heading" className="text-sm font-semibold">Receiving email</h2>
+            <h2 id="email-receiving-heading" className="text-sm font-semibold">{t("apps.EmailEndpointSetup.receivingEmail")}</h2>
             {(inbox.status !== "active" || inbox.lastError) && (
               <StatusBadge status={inbox.status === "active" ? "attention" : inbox.status}
                 label={inbox.status === "active" ? "Needs attention" : inbox.status === "revoked" ? "Access revoked" : undefined} />
@@ -708,11 +708,11 @@ export function EmailEndpointSettings({
         )}
         <dl className="grid gap-3 sm:grid-cols-2">
           <div className="space-y-1">
-            <dt className="text-xs text-muted-foreground">Receiving mode</dt>
+            <dt className="text-xs text-muted-foreground">{t("apps.EmailEndpointSetup.receivingMode")}</dt>
             <dd className="text-sm">{inbox.receiveMode === "websocket" ? "Live connection" : "Webhook"}</dd>
           </div>
           <div className="space-y-1">
-            <dt className="text-xs text-muted-foreground">Last mail check</dt>
+            <dt className="text-xs text-muted-foreground">{t("apps.EmailEndpointSetup.lastMailCheck")}</dt>
             <dd className="font-mono text-xs">{inbox.lastSyncAt ? formatDateTime(inbox.lastSyncAt) : "Not checked yet"}</dd>
           </div>
         </dl>
@@ -723,19 +723,19 @@ export function EmailEndpointSettings({
       </section>
 
       <details open={reconnectOpen} onToggle={(event) => setReconnectOpen(event.currentTarget.open)} className="border-t border-border pt-5">
-        <summary className="cursor-pointer text-sm font-medium">Reconnect inbox</summary>
+        <summary className="cursor-pointer text-sm font-medium">{t("apps.EmailEndpointSetup.reconnectInbox")}</summary>
         <div className="space-y-4 pt-4">
           <p className="text-sm text-muted-foreground">
-            Replace the API key or change how this inbox receives email. The email address and task history stay the same.
+            {t("apps.EmailEndpointSetup.replaceApiKey")}
           </p>
           <AgentMailApiKeyField label="New API key" value={replacementKey} onChange={setReplacementKey} disabled={reconnect.isPending} />
           <div className="space-y-2">
-            <Label htmlFor="email-reconnect-mode">Receiving mode</Label>
+            <Label htmlFor="email-reconnect-mode">{t("apps.EmailEndpointSetup.receivingMode")}</Label>
             <select id="email-reconnect-mode" className={selectClass}
               disabled={reconnect.isPending} value={receiveMode || inbox.receiveMode}
               onChange={(e) => setReceiveMode(e.target.value as "websocket" | "webhook")}>
-              <option value="websocket">Live connection</option>
-              <option value="webhook">Webhook</option>
+              <option value="websocket">{t("apps.EmailEndpointSetup.liveConnection")}</option>
+              <option value="webhook">{t("apps.EmailEndpointSetup.webhook")}</option>
             </select>
           </div>
           {reconnect.error && <p role="alert" className="text-sm text-destructive">{describeError(reconnect.error).body}</p>}
@@ -751,12 +751,12 @@ export function EmailEndpointSettings({
       <section aria-labelledby="email-disconnect-heading" className="space-y-3 border-t border-border pt-5">
         <div className="flex flex-wrap items-center justify-between gap-3">
           <div className="space-y-1">
-            <h2 id="email-disconnect-heading" className="text-sm font-semibold">Disconnect inbox</h2>
-            <p className="text-sm text-muted-foreground">Stop receiving email in Paperclip. The inbox stays in AgentMail.</p>
+            <h2 id="email-disconnect-heading" className="text-sm font-semibold">{t("apps.EmailEndpointSetup.disconnectInbox")}</h2>
+            <p className="text-sm text-muted-foreground">{t("apps.EmailEndpointSetup.stopReceiving")}</p>
           </div>
           <Button variant="outline" size="sm" disabled={control.isPending}
             onClick={() => control.mutate("remove")}>
-            Disconnect inbox
+            {t("apps.EmailEndpointSetup.disconnectInbox")}
           </Button>
         </div>
         {control.error && control.variables === "remove" && (
