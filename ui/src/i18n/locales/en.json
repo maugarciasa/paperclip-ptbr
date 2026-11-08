@@ -2936,6 +2936,26 @@
     }
   },
   "approvals": {
+    "JoinRequestQueue": {
+      "noPermission": "You do not have permission to review join requests for this organization.",
+      "pageTitle": "Join Request Queue",
+      "pageSubtitle": "Review human and agent join requests outside the mixed inbox feed. This queue uses the same approval mutations as the inline inbox cards.",
+      "status": "Status",
+      "pendingApproval": "Pending approval",
+      "approved": "Approved",
+      "rejected": "Rejected",
+      "requestType": "Request type",
+      "all": "All",
+      "human": "Human",
+      "agent": "Agent",
+      "noMatches": "No join requests match the current filters.",
+      "reject": "Reject",
+      "approve": "Approve",
+      "inviteContext": "Invite context",
+      "requestDetails": "Request details",
+      "submitted": "Submitted {{date}}",
+      "sourceIp": "Source IP {{ip}}"
+    },
     "ActionCard": {
       "application": "Application",
       "approve": "Approve",

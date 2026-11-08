@@ -2936,6 +2936,26 @@
     }
   },
   "approvals": {
+    "JoinRequestQueue": {
+      "noPermission": "Você não tem permissão para revisar solicitações de entrada desta organização.",
+      "pageTitle": "Fila de solicitações de entrada",
+      "pageSubtitle": "Revise solicitações de entrada de pessoas e agentes fora do feed misto da caixa de entrada. Esta fila usa as mesmas aprovações dos cards da caixa.",
+      "status": "Status",
+      "pendingApproval": "Aguardando aprovação",
+      "approved": "Aprovada",
+      "rejected": "Rejeitada",
+      "requestType": "Tipo de solicitação",
+      "all": "Todas",
+      "human": "Pessoa",
+      "agent": "Agente",
+      "noMatches": "Nenhuma solicitação corresponde aos filtros atuais.",
+      "reject": "Rejeitar",
+      "approve": "Aprovar",
+      "inviteContext": "Contexto do convite",
+      "requestDetails": "Detalhes da solicitação",
+      "submitted": "Enviada em {{date}}",
+      "sourceIp": "IP de origem {{ip}}"
+    },
     "ActionCard": {
       "application": "Aplicativo",
       "approve": "Aprovar",
