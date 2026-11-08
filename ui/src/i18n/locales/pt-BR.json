@@ -18040,6 +18040,32 @@
     "zoomOut": "Diminuir zoom"
   },
   "tools": {
+    "SmokeLabTab": {
+      "notRun": "não executado",
+      "enableUnderSettings": "em Configurações → Experimental para ativar.",
+      "handsOnTutorial": "tutorial prático",
+      "urlLabel": "URL",
+      "notRunning": "não está em execução",
+      "noServicesReported": "Nenhum serviço reportado. Inicie os serviços de fixture acima.",
+      "fakeOauthDemo": "Credenciais OAuth de demonstração fictícias",
+      "demoEmail": "e-mail: {{value}}",
+      "demoPassword": "senha: {{value}}",
+      "integrationMatrix": "Matriz de integração",
+      "statusPass": "passou",
+      "statusFail": "falhou",
+      "statusSkipped": "ignorado",
+      "statusNotRun": "não executado",
+      "path": "Caminho",
+      "noStepsSelected": "Nenhum passo registrado para a execução selecionada ainda. Rode um smoke de navegador para preencher a matriz.",
+      "runs": "Execuções",
+      "runSmokeNow": "Executar smoke de navegador agora",
+      "noRunsYet": "Nenhuma execução registrada ainda.",
+      "selectRunSteps": "Selecione uma execução para ver os passos.",
+      "startedFinished": "Iniciado {{started}} · finalizado {{finished}}",
+      "noStepsRun": "Nenhum passo registrado nesta execução.",
+      "viewScreenshot": "Ver captura de tela",
+      "durationMs": "{{ms}}ms"
+    },
     "FieldHelp": {
       "helpWith": "Ajuda sobre {{label}}"
     },
