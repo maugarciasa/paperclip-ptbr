@@ -16306,6 +16306,16 @@
   },
   "skills": {
     "CompanySkills": {
+      "storeTitle": "Skills Store",
+      "storeSubtitle": "Discover, install, fork, share",
+      "sortLabel": "Sort",
+      "allSources": "All sources",
+      "agentsInstalledCompanyTip": "Agents in this company that currently have this skill installed.",
+      "visibilityCompany": "Company — visible inside this company",
+      "removeSkillHintCompany": "Remove this skill from the company library.",
+      "catalogControls": "Skill catalog controls",
+      "searchSkills": "Search skills, authors, categories…",
+      "scanWorkspaces": "Scan project workspaces for skills",
       "removeSkill": "Remove skill",
       "addSkillSource": "Add a skill source",
       "browseSkillsSh": "Browse skills.sh",

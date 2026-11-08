@@ -16306,6 +16306,16 @@
   },
   "skills": {
     "CompanySkills": {
+      "storeTitle": "Loja de skills",
+      "storeSubtitle": "Descubra, instale, faça fork e compartilhe",
+      "sortLabel": "Ordenar",
+      "allSources": "Todas as origens",
+      "agentsInstalledCompanyTip": "Agentes desta empresa que têm esta skill instalada.",
+      "visibilityCompany": "Empresa — visível dentro desta empresa",
+      "removeSkillHintCompany": "Remova esta skill da biblioteca da empresa.",
+      "catalogControls": "Controles do catálogo de skills",
+      "searchSkills": "Buscar skills, autores, categorias…",
+      "scanWorkspaces": "Buscar skills nos workspaces do projeto",
       "removeSkill": "Remover skill",
       "addSkillSource": "Adicionar uma origem de skill",
       "browseSkillsSh": "Navegar no skills.sh",
