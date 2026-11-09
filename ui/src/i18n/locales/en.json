@@ -23,7 +23,8 @@
       "copyAsMarkdown": "Copy as markdown",
       "stderr": "stderr",
       "stdout": "stdout",
-      "md": ".md"
+      "md": ".md",
+      "newTaskButton": "New task"
     },
     "AgentBulkRoster": {
       "countSelected": "{{count}} selected",
@@ -3000,6 +3001,25 @@
       "running": "running",
       "skipped": "skipped",
       "succeeded": "succeeded"
+    },
+    "AgentDetailNavigation": {
+      "agent": "Agent",
+      "overview": "Overview",
+      "identity": "Identity",
+      "harnessRuntime": "Harness / Runtime",
+      "secretsVariables": "Secrets & variables",
+      "permissionsTrust": "Permissions / Trust",
+      "advanced": "Advanced",
+      "audit": "Audit",
+      "activity": "Activity",
+      "runs": "Runs",
+      "costs": "Costs",
+      "budgets": "Budgets",
+      "skills": "Skills",
+      "tools": "Tools",
+      "channels": "Channels",
+      "apiKeys": "API Keys",
+      "agentHistory": "Agent history"
     }
   },
   "app": {
@@ -8158,7 +8178,16 @@
     "openBudgets": "Open budgets",
     "recentActivity": "Recent Activity",
     "recentTasks": "Recent Tasks",
-    "selectCompany": "Create or select an organization to view the dashboard."
+    "selectCompany": "Create or select an organization to view the dashboard.",
+    "ActiveAgentsPanel": {
+      "agents": "Agents",
+      "viewAllRuns": "View all runs",
+      "moreRuns_one": "{{count}} more active/recent run",
+      "moreRuns_other": "{{count}} more active/recent runs",
+      "finishedWhen": "Finished {{when}}",
+      "startedWhen": "Started {{when}}",
+      "queuedWhen": "Queued {{when}}"
+    }
   },
   "environments": {
     "addEnvironment": "Add environment",
@@ -13381,6 +13410,9 @@
       "privateProject": "Private project",
       "removeFromStarred": "Remove from starred",
       "starred": "Starred projects"
+    },
+    "CoordinatorSidebar": {
+      "pinned": "Pinned"
     }
   },
   "notFound": {

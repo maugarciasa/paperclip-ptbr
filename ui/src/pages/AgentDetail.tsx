@@ -932,7 +932,7 @@ export function AgentDetail() {
         <AgentActionButtons
           agent={currentAgent}
           companyId={resolvedCompanyId}
-          assignLabel="New task"
+          assignLabel={t("agents.AgentDetail.newTaskButton")}
           size="default"
           showAssignIcon={false}
           showChat

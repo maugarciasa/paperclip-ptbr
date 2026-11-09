@@ -23,7 +23,8 @@
       "copyAsMarkdown": "Copiar como markdown",
       "stderr": "stderr",
       "stdout": "stdout",
-      "md": ".md"
+      "md": ".md",
+      "newTaskButton": "Nova tarefa"
     },
     "AgentBulkRoster": {
       "countSelected": "{{count}} selecionados",
@@ -3000,6 +3001,25 @@
       "running": "em execução",
       "skipped": "ignorado",
       "succeeded": "concluído"
+    },
+    "AgentDetailNavigation": {
+      "agent": "Agente",
+      "overview": "Visão geral",
+      "identity": "Identidade",
+      "harnessRuntime": "Harness / Runtime",
+      "secretsVariables": "Segredos e variáveis",
+      "permissionsTrust": "Permissões / Confiança",
+      "advanced": "Avançado",
+      "audit": "Auditoria",
+      "activity": "Atividade",
+      "runs": "Execuções",
+      "costs": "Custos",
+      "budgets": "Orçamentos",
+      "skills": "Skills",
+      "tools": "Ferramentas",
+      "channels": "Canais",
+      "apiKeys": "Chaves de API",
+      "agentHistory": "Histórico do agente"
     }
   },
   "app": {
@@ -8158,7 +8178,16 @@
     "openBudgets": "Abrir orçamentos",
     "recentActivity": "Atividade recente",
     "recentTasks": "Tarefas recentes",
-    "selectCompany": "Crie ou selecione uma empresa para ver o painel."
+    "selectCompany": "Crie ou selecione uma empresa para ver o painel.",
+    "ActiveAgentsPanel": {
+      "agents": "Agentes",
+      "viewAllRuns": "Ver todas as execuções",
+      "moreRuns_one": "mais {{count}} execução ativa/recente",
+      "moreRuns_other": "mais {{count}} execuções ativas/recentes",
+      "finishedWhen": "Finalizada {{when}}",
+      "startedWhen": "Iniciada {{when}}",
+      "queuedWhen": "Na fila {{when}}"
+    }
   },
   "environments": {
     "addEnvironment": "Adicionar ambiente",
@@ -13381,6 +13410,9 @@
       "privateProject": "Projeto privado",
       "removeFromStarred": "Remover dos favoritos",
       "starred": "Projetos favoritos"
+    },
+    "CoordinatorSidebar": {
+      "pinned": "Fixados"
     }
   },
   "notFound": {

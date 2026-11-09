@@ -3929,7 +3929,8 @@
       "copyAsMarkdown": "Copy as markdown",
       "stderr": "stderr",
       "stdout": "stdout",
-      "md": ".md"
+      "md": ".md",
+      "newTaskButton": "New task"
     },
     "AgentBulkRoster": {
       "countSelected": "{{count}} selected",
@@ -4023,6 +4024,25 @@
       "thinkingEffort": "Thinking effort",
       "defaultWithModel": "Default ({{model}})",
       "signInToProvider": "Sign in to {{provider}}"
+    },
+    "AgentDetailNavigation": {
+      "agent": "Agent",
+      "overview": "Overview",
+      "identity": "Identity",
+      "harnessRuntime": "Harness / Runtime",
+      "secretsVariables": "Secrets & variables",
+      "permissionsTrust": "Permissions / Trust",
+      "advanced": "Advanced",
+      "audit": "Audit",
+      "activity": "Activity",
+      "runs": "Runs",
+      "costs": "Costs",
+      "budgets": "Budgets",
+      "skills": "Skills",
+      "tools": "Tools",
+      "channels": "Channels",
+      "apiKeys": "API Keys",
+      "agentHistory": "Agent history"
     }
   },
   "approvals": {
@@ -4799,6 +4819,15 @@
       "filterBy": "Filter by",
       "showAll": "Show all activity",
       "emptyDefault": "Activity from your agents will appear here."
+    },
+    "ActiveAgentsPanel": {
+      "agents": "Agents",
+      "viewAllRuns": "View all runs",
+      "moreRuns_one": "{{count}} more active/recent run",
+      "moreRuns_other": "{{count}} more active/recent runs",
+      "finishedWhen": "Finished {{when}}",
+      "startedWhen": "Started {{when}}",
+      "queuedWhen": "Queued {{when}}"
     }
   },
   "inbox": {
@@ -9420,6 +9449,9 @@
       "agents": "Agents",
       "inbox": "Inbox",
       "navLabel": "Mobile navigation"
+    },
+    "CoordinatorSidebar": {
+      "pinned": "Pinned"
     }
   },
   "notFound": {

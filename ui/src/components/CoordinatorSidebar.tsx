@@ -192,7 +192,7 @@ export function CoordinatorSidebar({ children }: { children?: ReactNode }) {
           </FlyoutContent>
         </Flyout>
       </div>
-      {orderedPins.length > 0 && <div className="design-sidebar-pins"><SidebarSection label="Pinned">
+      {orderedPins.length > 0 && <div className="design-sidebar-pins"><SidebarSection label={t("nav.CoordinatorSidebar.pinned")}>
         <PinnedNavigationList key={`${companyId}:${userId}`} items={orderedPins} rail={rail} onReorder={pinnedNavigation.reorder} onUnpin={pinnedNavigation.toggle} />
       </SidebarSection></div>}
       {pinnedNavigation.error && <p role="alert" className="px-4 py-2 text-xs text-destructive">{pinnedNavigation.error}</p>}
