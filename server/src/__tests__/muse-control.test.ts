@@ -23,6 +23,7 @@ import { sql } from "drizzle-orm";
 import { museIdentity, museCredentialHash } from "../services/muse-identity.js";
 import * as museIdentityModule from "../services/muse-identity.js";
 import { museTransportRoutes, museBoardRoutes } from "../routes/muse.js";
+import { museTestPython } from "./helpers/muse-python.js";
 import { projectRoutes } from "../routes/projects.js";
 import { activityRoutes } from "../routes/activity.js";
 import * as activityLogModule from "../services/activity-log.js";
@@ -2251,7 +2252,7 @@ describe("personal Muse control plane",()=>{
       const [claimed]=await db.select().from(assignments).where(eq(assignments.id,second.assignment.id));
       expect(claimed).toMatchObject({claimedAt:expect.any(Date),nativeAcceptedAt:expect.any(Date)});
       const idleAfterClaim=await poll();expect(idleAfterClaim).toEqual({version:1,signal:null});
-      const proof=JSON.parse(execFileSync("python3",[
+      const proof=JSON.parse(execFileSync(museTestPython,[
         fileURLToPath(new URL("./fixtures/muse-client-contract.py",import.meta.url)),
         fileURLToPath(new URL("../services/scripts/v9/client.py",import.meta.url)),"--receiver-sequence",
       ],{input:JSON.stringify({bindingId:first.binding.id,origin:oauthOrigin,scope:{companyId:first.company.id,companyName:first.company.name,agentId:first.agent.id,agentName:first.agent.name},responses:[offeredA,idleAfterSuccess,offeredB,duplicateB,rearmedB,idleAfterClaim]}),encoding:"utf8",timeout:10000}));

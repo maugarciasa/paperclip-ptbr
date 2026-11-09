@@ -7,6 +7,7 @@ import express from "express";
 import request from "supertest";
 import type { Db } from "@paperclipai/db";
 import { museTransportRoutes } from "../routes/muse.js";
+import { museTestPython as python } from "./helpers/muse-python.js";
 
 // Asset routing must not create a credential, touch a DB or start a receiver.
 vi.mock("../modules/external-agents/index.js", () => ({ museExternalAgents: () => ({}) }));
@@ -16,11 +17,11 @@ vi.mock("../services/muse-receiver.js", () => ({ museReceiver: () => ({}) }));
 /** Execute the shipped Python client, with synthetic transport responses and private temporary state. */
 describe("personal Muse client durability", () => {
   it("preserves identities, private credentials, and input receipts across transport failures", () => {
-    execFileSync("python3", [
+    execFileSync(python, [
       fileURLToPath(new URL("./fixtures/muse-client-contract.py", import.meta.url)),
       fileURLToPath(new URL("../services/scripts/v9/client.py", import.meta.url)),
-    ], { encoding: "utf8", timeout: 30_000 });
-  });
+    ], { encoding: "utf8", timeout: 55_000 });
+  }, 60_000); // Windows spawns bash and Python for every detector case.
 });
 
 
@@ -32,7 +33,7 @@ describe("Muse canonical multi-select compatibility", () => {
   ] };
   const response = (selectedOptionIds: string[]) => ({ schema: "paperclip.question_response.v1",
     answers: { choices: { selectedOptionIds }, format: { text: "Markdown" } } });
-  const clientValid = (value: unknown) => JSON.parse(execFileSync("python3", ["-c",
+  const clientValid = (value: unknown) => JSON.parse(execFileSync(python, ["-c",
     "import importlib.util,json,sys; sys.dont_write_bytecode=True; spec=importlib.util.spec_from_file_location('muse_validator',sys.argv[1]); module=importlib.util.module_from_spec(spec); spec.loader.exec_module(module); print(json.dumps(module.input_response_valid(json.load(sys.stdin))))",
     fileURLToPath(new URL("../services/scripts/v9/client.py", import.meta.url)),
   ], { input: JSON.stringify(value), encoding: "utf8", timeout: 5_000 })) as boolean;
@@ -152,7 +153,7 @@ describe("Muse approval-aware setup",()=>{
     const instruction = await buildMuseSetupInstruction("https://approval.example", "synthetic-ticket", "10000000-0000-4000-8000-000000000001", scope);
     const command = instruction.match(/configure --origin https:\/\/approval\.example (.*?)\. The installed client/s)?.[1];
     expect(command).toBeDefined();
-    const args = JSON.parse(execFileSync("python3", ["-c", "import json, shlex, sys; print(json.dumps(shlex.split(sys.stdin.read())))"], { input: command, encoding: "utf8" }));
+    const args = JSON.parse(execFileSync(python, ["-c", "import json, shlex, sys; print(json.dumps(shlex.split(sys.stdin.read())))"], { input: command, encoding: "utf8" }));
     expect(args).toEqual(["--company-id", scope.companyId, "--company-name", scope.companyName, "--agent-id", scope.agentId, "--agent-name", scope.agentName]);
   });
 

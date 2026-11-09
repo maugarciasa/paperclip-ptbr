@@ -17,6 +17,8 @@ client_path = Path(sys.argv.pop(1))
 spec = importlib.util.spec_from_file_location("muse_client", client_path)
 client_module = importlib.util.module_from_spec(spec)
 spec.loader.exec_module(client_module)
+# CreateProcess searches System32 first, which holds the WSL launcher; use Git for Windows' bash instead.
+BASH = "bash" if os.name != "nt" else next((str(Path(d) / "bash.exe") for d in os.environ["PATH"].split(os.pathsep) if (Path(d) / "bash.exe").exists() and not any(w in d.lower() for w in ("system32", "windowsapps"))), "bash")
 BINDING = "10000000-0000-4000-8000-000000000001"
 ASSIGNMENT = "20000000-0000-4000-8000-000000000001"
 ORIGIN = "https://paperclip.invalid"
@@ -60,16 +62,20 @@ class ClientContract(unittest.TestCase):
         self.client.close()
         self.client = client_module.Client(BINDING)
 
+    def assert_mode(self, path, expected):
+        # Windows has no POSIX permission bits (st_mode reports 0o666/0o777 and chmod only toggles read-only), so check them on POSIX only.
+        if os.name != "nt": self.assertEqual(stat.S_IMODE(path.stat().st_mode), expected)
+
     def test_receiver_profile_and_hook_wrapper_contain_only_public_data(self):
         receiver = json.loads((self.client.directory / "receiver.json").read_text())
         self.assertEqual(receiver, {"version": 1, "origin": ORIGIN, "bindingId": BINDING})
         self.assertFalse((self.client.directory / "signal.json").exists())
         self.assertNotIn("signalToken", self.client.config)
         for path in (self.client.path, self.client.directory / "receiver.json"):
-            self.assertEqual(stat.S_IMODE(path.stat().st_mode), 0o600)
-        self.assertEqual(stat.S_IMODE(self.client.directory.stat().st_mode), 0o700)
+            self.assert_mode(path, 0o600)
+        self.assert_mode(self.client.directory, 0o700)
         wrapper = client_module.HOOK_ROOT / ("paperclip-muse-" + BINDING + ".sh")
-        self.assertEqual(stat.S_IMODE(wrapper.stat().st_mode), 0o700)
+        self.assert_mode(wrapper, 0o700)
         self.assertEqual(wrapper.read_text(), '#!/usr/bin/env bash\nexec bash "$HOME/.config/paperclip-muse/detector.sh" "' + BINDING + '"\n')
         self.assertEqual(set(self.client.config), {"version", "bindingId", "origin", "credentialName", "generation", "delegationScope"})
         self.assertFalse((self.client.directory / "worker.json").exists())
@@ -87,7 +93,7 @@ class ClientContract(unittest.TestCase):
         self.assertIn("native accepted lease first", original)
         self.assertIn("Muse tool, site and safety permissions", original)
         self.assertNotIn("synthetic-ticket", original)
-        self.assertEqual(stat.S_IMODE(skill.stat().st_mode), 0o600)
+        self.assert_mode(skill, 0o600)
         with patch.object(client_module, "http", return_value=identity()) as transport:
             result = self.client.status()
         self.assertEqual(result["localClientVersion"], "9")
@@ -195,7 +201,7 @@ class ClientContract(unittest.TestCase):
     def test_existing_managed_hook_directory_permissions_are_preserved(self):
         os.chmod(client_module.HOOK_ROOT, 0o755)
         self.client.configure(ORIGIN)
-        self.assertEqual(stat.S_IMODE(client_module.HOOK_ROOT.stat().st_mode), 0o755)
+        self.assert_mode(client_module.HOOK_ROOT, 0o755)
 
     def test_cleanup_cli_returns_authenticated_receipt_without_legacy_suspension_state(self):
         import io
@@ -428,7 +434,7 @@ class ClientContract(unittest.TestCase):
     def run_detector(self, response=None, status=200, dry=True, wrapper=False):
         root = Path(self.temporary.name)
         runtime = root / "hook-runtime.sh"
-        runtime.write_text('silent() { printf "SILENT:%s\\n" "$1"; }\nwake() { printf "WAKE:%s\\n" "$1"; }\ndisable_after_run() { printf "DISABLE\\n"; }\n')
+        runtime.write_text('silent() { printf "SILENT:%s\\n" "$1"; }\nwake() { printf "WAKE:%s\\n" "$1"; }\ndisable_after_run() { printf "DISABLE\\n"; }\n', newline="\n")
         # Run the shipped Bash/embedded Python or actual no-argument wrapper.
         # Only temporary HOME and the HTTPS transport are replaced.
         (root / "sitecustomize.py").write_text("""
@@ -460,14 +466,18 @@ urllib.request.build_opener = lambda *args: Opener()
             installed = client_module.ROOT / "detector.sh"
             installed.write_bytes(detector.read_bytes())
             invocation = [str(client_module.HOOK_ROOT / ("paperclip-muse-" + BINDING + ".sh"))]
+            if os.name == "nt": invocation.insert(0, BASH)  # Windows cannot execute a shebang script directly.
         else:
-            invocation = ['bash', str(detector), BINDING]
-        result = subprocess.run(invocation,
-            env={**os.environ, 'HOME': str(root), 'PYTHONPATH': str(root), 'PYTHONDONTWRITEBYTECODE': '1',
-                 'MUSE_DETECTOR_TEST_ROOT': str(root), 'HATCH_HOOK_RUNTIME': str(runtime),
-                 'HATCH_HOOK_DRY_RUN': 'true' if dry else 'false', 'MUSE_DETECTOR_STATUS': str(status),
-                 'MUSE_DETECTOR_RESPONSE': json.dumps(response or {'version': 1, 'signal': None})},
-            check=True, text=True, capture_output=True, timeout=10)
+            invocation = [BASH, str(detector), BINDING]
+        env = {**os.environ, 'HOME': str(root), 'PYTHONPATH': str(root), 'PYTHONDONTWRITEBYTECODE': '1',
+               'MUSE_DETECTOR_TEST_ROOT': str(root), 'HATCH_HOOK_RUNTIME': str(runtime),
+               'HATCH_HOOK_DRY_RUN': 'true' if dry else 'false', 'MUSE_DETECTOR_STATUS': str(status),
+               'MUSE_DETECTOR_RESPONSE': json.dumps(response or {'version': 1, 'signal': None})}
+        if os.name == "nt":  # The shipped detector calls python3, which is only a Microsoft Store alias on Windows; point it at this interpreter.
+            (root / "bin").mkdir(exist_ok=True)
+            (root / "bin" / "python3").write_text('#!/usr/bin/env bash\nexec "' + Path(sys.executable).as_posix() + '" "$@"\n', newline="\n")
+            env["PATH"] = str(root / "bin") + os.pathsep + env["PATH"]
+        result = subprocess.run(invocation, env=env, check=True, text=True, capture_output=True, timeout=10)
         requests = root / 'requests.jsonl'
         return result.stdout, [json.loads(line) for line in requests.read_text().splitlines()] if requests.exists() else []
 
@@ -660,7 +670,7 @@ urllib.request.build_opener = lambda *args: Opener()
     def legacy_input_path(self):
         return self.client.directory / "continuations" / (ASSIGNMENT + ".json")
 
-    def test_model_work_state_is_preserved_without_an_inputs_map(self):
+    def test_model_task_state_is_preserved_without_an_inputs_map(self):
         models = [{"phase": "waiting", "taskState": {"memo": "synthetic work"}},
                   {"inputs": None, "phase": "waiting"}, {"inputs": [], "phase": "waiting"},
                   None, [], "not parseable JSON"]
